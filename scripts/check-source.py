@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 import struct
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -43,6 +44,7 @@ def metadata(item):
             raise ValueError("Duplicate advanced choice")
 
 def main():
+    workspace = tomllib.loads((ROOT / "Cargo.toml").read_text(encoding="utf-8"))["workspace"]
     for filename, channel in (("drivers.json", "stable"), ("drivers-preview.json", "preview")):
         items = json.loads((ROOT / filename).read_text(encoding="utf-8"))
         if len({item["id"] for item in items}) != len(items):
@@ -52,6 +54,14 @@ def main():
             if item["channel"] != channel:
                 raise ValueError("Package is in the wrong channel metadata")
             package = ROOT / "drivers" / item["id"]
+            crate = tomllib.loads((package / "Cargo.toml").read_text(encoding="utf-8"))["package"]
+            version = crate.get("version")
+            if version == {"workspace": True}:
+                version = workspace["package"]["version"]
+            if crate.get("name") != item["id"] + "-driver" or version != item["version"]:
+                raise ValueError("Crate name/version disagrees with catalog: " + item["id"])
+            if "drivers/" + item["id"] not in workspace["members"]:
+                raise ValueError("Driver is missing from workspace members: " + item["id"])
             source = (package / "src/lib.rs").read_text(encoding="utf-8")
             if not re.search(r'export_driver!\s*\(\s*"' + re.escape(item["id"]) + r'"', source):
                 raise ValueError("Wrapper key does not match its metadata")
@@ -72,7 +82,7 @@ def main():
         for link in re.findall(r"\]\(([^)]+)\)", document.read_text(encoding="utf-8")):
             if ":" not in link and not link.startswith("#") and not (document.parent / link.split("#", 1)[0]).exists():
                 raise ValueError(f"Broken documentation link in {document.name}: {link}")
-    print("Checked package metadata, custom-handler starter, public key and documentation links")
+    print("Checked package metadata/crate versions, workspace membership, custom-handler starter, public key and documentation links")
 
 if __name__ == "__main__":
     main()

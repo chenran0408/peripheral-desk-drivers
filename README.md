@@ -9,6 +9,7 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
 | `logitech-g305`（预览） | G305 LIGHTSPEED，只读电量，依据公开实现适配、尚未实机验证 |
+| `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线 1532:00AA，只读电量与充电状态，尚未实机验证 |
 
 ## 下载
 
@@ -20,9 +21,10 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 
 ## 开发
 
-需要 Windows x64、Rust 和 Python 3.9+。四款驱动共用 ABI 1，协议实现来自固定版本的 Peripheral Desk 核心库。只要 ABI 与请求模型保持兼容，新增设备可以在本仓库完成，不必改主界面的设备列表。
+需要 Windows x64、Rust 和 Python 3.11+。设备插件共用 ABI 1；现有四款设备使用固定版本的 Peripheral Desk 核心库，新型号可在本仓库提供独立协议模块。只要 ABI 与请求模型保持兼容，新增设备可以在本仓库完成，不必改主界面的设备列表。
 
 - [本地构建与贡献](CONTRIBUTING.md)
+- [后续接入任务与验收标准](docs/ADAPTATION-ROADMAP.md)
 - [设备目录：品牌—协议系列—型号—连接方式](docs/DEVICE-CATALOG.md)
 - [C ABI 与 JSON 请求](docs/ABI.md)
 - [包和目录格式](docs/PACKAGES.md)
@@ -31,6 +33,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 - [G2 Pro 灯光接口与实测边界](docs/G2_LIGHTING.md)
 - [五品牌协议调查、固定来源版本与许可证](docs/PROTOCOL-RESEARCH.md)
 - [G305 只读预览的精确型号与连接范围](docs/LOGITECH-G305.md)
+- [Basilisk V3 Pro 有线预览的协议依据与范围](docs/RAZER-BASILISK-V3-PRO.md)
 
 代码采用 AGPL-3.0-only，见 [LICENSE](LICENSE)。项目与设备品牌无隶属关系。
 

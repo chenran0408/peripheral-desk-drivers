@@ -2,6 +2,8 @@
 
 ## 本地构建
 
+辅助脚本使用 Python 3.11 或更新版本（CI 使用 3.12）。[接入任务队列](docs/ADAPTATION-ROADMAP.md)按证据和可复用协议安排新型号，领取任务前先核对现有实现。
+
 发布树固定核心库的 Git revision；开发时可临时使用相邻的 `../PeripheralDesk`，需要它提供本设备使用的驱动入口与 feature。目录可安排为：
 
 ```text
@@ -55,7 +57,7 @@ peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev 
 
 CI 在 Windows x64 构建所选包，核对 ABI、包清单、兼容范围及 SHA256，并上传可下载构建产物；release-check 另外检查维护者已发布的包。稳定 tag 默认选 drivers.json，带连字符的预览 tag 默认选 drivers-preview.json；手动运行可选 metadata 和逗号分隔的设备包名。只有受审 main tag / 手动发布流程可签名并发布，任何 PR 均不会创建发布。版本发布只上传本次所选 ZIP、subset catalogs、签名及 SHA256SUMS.txt。
 
-先运行 `python scripts/check-source.py` 检查元数据、模板与本地文档链接。ABI 原生探测在限时 30 秒的独立 Python 子进程中进行，异常 DLL 不会无限卡住构建。CI 会验证上传后的真实下载文件；由 GITHUB_TOKEN 创建 release 不会触发另一条 release workflow，因此发布任务自身也执行这一步。
+先运行 `python scripts/check-source.py` 检查元数据、模板与本地文档链接。它也核对每款设备的 Cargo 包名、实际版本（含继承 workspace 的版本）与目录一致，并确认成员已加入 workspace；新增或单独升级设备时不能只改目录版本。ABI 原生探测在限时 30 秒的独立 Python 子进程中进行，异常 DLL 不会无限卡住构建。CI 会验证上传后的真实下载文件；由 GITHUB_TOKEN 创建 release 不会触发另一条 release workflow，因此发布任务自身也执行这一步。
 
 版本发布一经存在就拒绝覆盖，请修正后使用新标签。上传先创建 draft，全部成功后才公开；若中途失败，请检查残留 draft 后重试。发布任务串行更新 `catalog-stable` / `catalog-preview` 两个预发布页上的目录及签名，这两个页面只存目录，不放设备 ZIP。目录替换时客户端如读到暂时不匹配的一对文件会保留上次已验证目录。空通道仅首发初始化，之后不会用空目录覆盖已有内容。
 

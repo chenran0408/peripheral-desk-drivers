@@ -43,5 +43,47 @@
       "battery"
     ],
     "changelog": "新增 G305 只读电量预览适配。尚无实物测试；无法确认型号、休眠或协议异常时显示原因。"
+  },
+  {
+    "id": "razer-basilisk-v3-pro-wired",
+    "name": "雷蛇 Basilisk V3 Pro 有线",
+    "version": "0.4.3-preview.1",
+    "description": "公开实现适配未实测；仅 USB 有线 1532:00AA 和唯一 MI_00 / 91 字节 Feature 接口上的只读电量与充电状态。",
+    "device": {
+      "key": "razer-basilisk-v3-pro-wired",
+      "name": "雷蛇 Basilisk V3 Pro 有线",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 170,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / Basilisk V3 Pro only / USB 1532:00AA / unique MI_00 feature collection with report length 91"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/tree/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Basilisk V3 Pro 有线只读电量预览适配。尚无实物测试；仅支持 1532:00AA。"
   }
 ]

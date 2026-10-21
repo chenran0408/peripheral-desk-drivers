@@ -592,7 +592,7 @@
   {
     "id": "mchose-magdock",
     "name": "MCHOSE MagDock",
-    "version": "0.4.8-preview.1",
+    "version": "0.4.8-preview.2",
     "description": "灯效读写预览；依据固定上游提交中真实 MagDock 的写入、读回与恢复记录移植，尚未在本项目实机验证。",
     "device": {
       "key": "mchose-magdock",
@@ -671,14 +671,14 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.7",
+    "core_min": "0.4.8",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
       "lighting-editor",
       "lighting-switch"
     ],
-    "changelog": "新增 MCHOSE MagDock 底座灯效读取、开关、六种模式、颜色、速度与亮度设置；写入后读回核对，失败时尝试恢复。"
+    "changelog": "新增底座灯光开关、六种模式、颜色、速度与亮度设置；需先更新主程序至 0.4.8，修正旧版目录无法识别底座的问题。"
   },
   {
     "id": "ajazz-aj179-pro",

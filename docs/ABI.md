@@ -42,9 +42,9 @@ SDK 调用在宿主启动的单层 plugin-worker 中执行，由宿主控制超�
 新增设备可使用 `export_driver!("example-device", crate::adapter::request)`，自定义 Rust handler 签名为 `fn(&str,&str)->String`。它负责自己的设备匹配、协议和同样的 JSON schema。宿主从包 metadata 渲染设备能力，无需为了新品牌重写页面。包版本可独立增长；ABI仍为1、核心兼容范围仍为0.4.x，不因驱动版本从0.4.0升为0.4.1而改变。
 
 新增可选操作必须同步声明 `capabilities`；宿主仅在能力存在时调用。G2 的即时开关界面需要主程序和插件均为 0.4.2；旧版应用仍可使用原有 `lighting-apply`。0.4.2 桌面注册表只由已安装的包元数据生成，不预装或默认显示开发机的四款设备。
-## 通用灯效编辑器（主程序 0.4.7 起）
+## 通用灯效编辑器（主程序 0.4.8 起）
 
-设备以 `lighting-editor` 能力开放通用页面，`lighting-switch` 表示可即时切换灯光。`device.kind` 可为 `accessory`，避免将无电池底座显示成鼠标；此类插件 `core_min` 至少 `0.4.7`。
+设备以 `lighting-editor` 能力开放通用页面，`lighting-switch` 表示可即时切换灯光。`device.kind` 可为 `accessory`，避免将无电池底座显示成鼠标；此类插件 `core_min` 至少 `0.4.8`。
 
 声明 `device.lighting_modes` 为 `{id,label,color,music_sync}` 数组，并声明 `lighting_speed_max`、`lighting_brightness_max`（下限均为 0）。页面只开放已声明模式和范围；不支持单色的模式不开放 RGB。配置格式独立于 G2 Pro 旧灯光格式，不能互相套用。
 

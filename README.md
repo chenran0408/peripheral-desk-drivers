@@ -21,7 +21,7 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量与充电状态 |
 
 | `ajazz-aj179-pro`（预览） | AJ179 PRO USB / 接收器，DPI、回报率、休眠、鼠标键映射；上游已实测，本项目未复测 |
-| `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.7 |
+| `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.8 |
 
 ## 下载
 

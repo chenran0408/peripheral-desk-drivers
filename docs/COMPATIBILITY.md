@@ -1,6 +1,6 @@
 # 兼容与验证记录
 
-以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.7**）。四款原有设备包为 **stable**；G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
+以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**）。四款原有设备包为 **stable**；G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
 
 设备包独立版本：四款稳定包为0.4.2；G305为0.4.1-preview.1；Basilisk V3 Pro有线为0.4.3-preview.1。它们继续使用ABI 1及上述0.4.x主程序范围，包版本变化不等于新增实机验证。
 
@@ -30,7 +30,7 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 | --- | --- | --- | --- |
 | AJAZZ AJ179 PRO | USB 3151:4026 / 接收器 3151:402D，运行时型号 1851 | DPI、回报率、休眠、鼠标键/DPI循环映射 | 上游 v3.03 实机记录；本项目未复测，蓝牙不开放 |
 | Viper V2 Pro | 有线 1532:00A5 | 电量、DPI、125/500/1000 Hz | 固定 OpenRazer 实现；本项目未实测，无新增改键或灯效 |
-| MCHOSE MagDock | 独立底座 3837:1012 | 灯光开关、六模式、适用模式 RGB、速度/亮度 | 上游读写恢复记录；本项目未复测；需主程序 0.4.7 |
+| MCHOSE MagDock | 独立底座 3837:1012 | 灯光开关、六模式、适用模式 RGB、速度/亮度 | 上游读写恢复记录；本项目未复测；需主程序 0.4.8 |
 
 详见 [AJ179 PRO](AJAZZ-AJ179-PRO.md)、[Viper V2 Pro](RAZER-VIPER-V2-PRO.md)、[MagDock](MCHOSE-MAGDOCK.md)。旧版 Viper 只读说明由本节新增能力取代；其余旧包本次不变。
 

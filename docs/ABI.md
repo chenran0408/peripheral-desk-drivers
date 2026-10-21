@@ -32,6 +32,7 @@ FFI 层检查空指针和 UTF-8，并用 catch_unwind 捕获 Rust panic；有效
 | `fx-query` | G2 Pro：可选 action 或 values，二者不可同时提供 | 音效 Reply |
 | `lighting-read` | G2 Pro：无 | LightingState |
 | `lighting-apply` | G2 Pro：config | LightingState |
+| `lighting-switch` | G2 Pro 0.4.2 起：enabled（bool），仅切换硬件开关，不发送模式和色表 | LightingState |
 | `fx-worker` | G2 Pro 兼容旧 CLI 的内部入口：request | 音效 Reply |
 
 示例只读请求：`{"op":"read-state"}`。未知操作必须返回 ok=false，不能静默成功。State、Action、Tuning、ControlState 的具体 serde 定义以 Cargo.toml 固定 rev 的核心源码为准。每包 wrapper 固定自己的 device_key，输入不能改成其他设备。
@@ -39,3 +40,5 @@ FFI 层检查空指针和 UTF-8，并用 catch_unwind 捕获 Rust panic；有效
 SDK 调用在宿主启动的单层 plugin-worker 中执行，由宿主控制超时与结束进程；DLL 不再自行启动另一层音效进程。CI 的 ABI 探测只发送无效 UTF-8，在 FFI 校验处返回，不能把它当作设备协议或硬件功能测试。
 
 新增设备可使用 `export_driver!("example-device", crate::adapter::request)`，自定义 Rust handler 签名为 `fn(&str,&str)->String`。它负责自己的设备匹配、协议和同样的 JSON schema。宿主从包 metadata 渲染设备能力，无需为了新品牌重写页面。包版本可独立增长；ABI仍为1、核心兼容范围仍为0.4.x，不因驱动版本从0.4.0升为0.4.1而改变。
+
+新增可选操作必须同步声明 `capabilities`；宿主仅在能力存在时调用。G2 的即时开关界面需要主程序和插件均为 0.4.2；旧版应用仍可使用原有 `lighting-apply`。0.4.2 桌面注册表只由已安装的包元数据生成，不预装或默认显示开发机的四款设备。

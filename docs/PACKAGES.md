@@ -35,7 +35,7 @@
 
 `matches` 条目间是 OR，同一条目字段间是 AND。可选字段：usage_page、usage、feature_len、product_equals、path_contains。整数按 JSON 数字写，可通过 Python 的 0x... 生成。硬件匹配的最终判定规则以宿主实现为准，勿用 product 名作为唯一标识。
 
-新设备完整可选能力格式见 [模板 metadata.json](../templates/device/metadata.json)。四款已知设备在宿主中保留已有详细能力，drivers.json 此版先记录准确匹配和基本资料。
+新设备完整可选能力格式见 [模板 metadata.json](../templates/device/metadata.json)。从 0.4.2 起，四款现有设备也在包内完整声明 DPI、回报率、休眠和高级设置，宿主只展示已安装插件。新包缺少的能力不会凭品牌或型号猜测；仅旧 0.4.0/0.4.1 的这四款已知包有缺失字段兼容补齐，不会因此安装或显示其他设备。
 
 每个包还必须声明 core_min="0.4.0"、core_max_exclusive="0.5.0"、channel、capabilities 字符串数组和用户向 changelog；catalog 与包内清单逐字段一致。ABI兼容不代表任意主程序版本均支持，宿主必须同时检查版本范围。
 

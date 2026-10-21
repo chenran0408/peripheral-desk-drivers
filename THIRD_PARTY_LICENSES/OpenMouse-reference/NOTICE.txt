@@ -1,0 +1,6 @@
+OpenMouse Project mouse-protocol
+Reference commit: bac031567b28f2a55c616fc525b03f2d5fa452cc
+Source: https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc
+License: GNU Affero General Public License version 3; see LICENSE.
+
+Peripheral Desk A7 V3 Ultra+ and VGN F2 Master+ preview adapters use documented protocol facts from src/mchose/v3.ts, src/drivers/mchose/v3-hid.ts, docs/mchose-protocol.md, src/vgn/index.ts, src/drivers/vgn/hid.ts and src/drivers/vgn/protocol.test.ts. The Rust read-only adapters are independently authored. Upstream hardware reports are not physical validation of these Windows adapters.

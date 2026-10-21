@@ -85,5 +85,103 @@
       "battery"
     ],
     "changelog": "新增 Basilisk V3 Pro 有线只读电量预览适配。尚无实物测试；仅支持 1532:00AA。"
+  },
+  {
+    "id": "mchose-a7-v3-ultra-plus",
+    "name": "MCHOSE A7 V3 Ultra+ 接收器",
+    "version": "0.4.4-preview.1",
+    "description": "仅支持精确型号字符串与运行时身份均匹配的 3837:1018 8K 接收器；只读电量与充电状态，未实测。",
+    "device": {
+      "key": "mchose-a7-v3-ultra-plus",
+      "name": "MCHOSE A7 V3 Ultra+ 接收器",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4120,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "product_equals": "MCHOSE A7 V3 Ultra+"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz / original 3837:1018 8 kHz receiver; exact host product string and runtime 0x0900 identity 3837:4026 required"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 A7 V3 Ultra+ 接收器只读身份与电量预览；精确身份不符或回复异常时拒绝读取。尚无本项目实机验证。"
+  },
+  {
+    "id": "vgn-f2-master-plus",
+    "name": "VGN Dragonfly F2 Master+",
+    "version": "0.4.4-preview.1",
+    "description": "公开协议适配未实测；仅支持 3554:FB56 接收器或 3554:FB57 有线 report-08 集合上的只读电量、充电状态与固件版本。",
+    "device": {
+      "key": "vgn-f2-master-plus",
+      "name": "VGN Dragonfly F2 Master+",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 64342,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 64343,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz receiver / USB 3554:FB56 / unique FF02:0002 report-08 collection",
+          "USB wired / USB 3554:FB57 / unique FF02:0002 report-08 collection"
+        ],
+        "firmware": "read from report-08 command 0x12 when a valid reply is available",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/protocol.test.ts"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 VGN Dragonfly F2 Master+ 只读电量预览；仅支持列明的无线接收器和有线连接，尚无实物验证。"
   }
 ]

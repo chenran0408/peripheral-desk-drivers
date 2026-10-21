@@ -11,6 +11,9 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `logitech-g305`（预览） | G305 LIGHTSPEED，只读电量，依据公开实现适配、尚未实机验证 |
 | `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线 1532:00AA，只读电量与充电状态，尚未实机验证 |
 
+| `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 3837:1018 接收器，只读电量，尚未实机验证 |
+| `vgn-f2-master-plus`（预览） | F2 Master+ 3554:FB56/FB57，只读电量与充电状态，尚未实机验证 |
+
 ## 下载
 
 在 [Peripheral Desk](https://github.com/chenran0408/peripheral-desk/releases) 下载主程序，再到驱动商店选择设备。手动下载可用本仓库的 [发布页面](https://github.com/chenran0408/peripheral-desk-drivers/releases)。每个 ZIP 对应一款设备；请通过主程序安装，不要双击或注册 DLL。离线安装需同时保留来自维护者同一 release 的受信 catalog-stable.json（或预览通道目录）及其 `.json.sig`，由主程序核对签名、ZIP 与 DLL 的 SHA256。
@@ -29,6 +32,8 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 - [C ABI 与 JSON 请求](docs/ABI.md)
 - [包和目录格式](docs/PACKAGES.md)
 - [新设备模板](templates/device/README.md)
+- [A7 V3 Ultra+ 接收器预览](docs/MCHOSE-A7-V3.md)
+- [VGN F2 Master+ 预览](docs/VGN-F2-MASTER-PLUS.md)
 - [图片来源](ASSET_SOURCES.md)
 - [G2 Pro 灯光接口与实测边界](docs/G2_LIGHTING.md)
 - [五品牌协议调查、固定来源版本与许可证](docs/PROTOCOL-RESEARCH.md)

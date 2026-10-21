@@ -92,6 +92,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-a7-v3-ultra-plus-driver"
+version = "0.4.4-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-v3",
+ "serde_json",
+]
+
+[[package]]
 name = "mchose-g75-pro-driver"
 version = "0.4.2"
 dependencies = [
@@ -133,10 +142,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-mchose-v3"
+version = "0.4.4-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-razer"
 version = "0.4.3-preview.1"
 dependencies = [
  "peripheral-desk",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-vgn"
+version = "0.4.4-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-hid-transport"
+version = "0.4.4-preview.1"
+dependencies = [
+ "windows-sys",
 ]
 
 [[package]]
@@ -266,6 +298,15 @@ name = "version_check"
 version = "0.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
+
+[[package]]
+name = "vgn-f2-master-plus-driver"
+version = "0.4.4-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-vgn",
+ "serde_json",
+]
 
 [[package]]
 name = "windows"

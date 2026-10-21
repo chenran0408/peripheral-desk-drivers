@@ -143,6 +143,8 @@ jobs:
           RELEASE_TAG: ${{ inputs.release_tag || github.ref_name }}
         shell: pwsh
         run: |
+          python scripts/release-notes.py dist
+          if ($LASTEXITCODE -ne 0) { throw "Device release note generation failed" }
           $assets = Get-ChildItem dist -File | Where-Object { $_.Name -match '\.(zip|json|sig|txt)$' } | ForEach-Object { $_.FullName }
           gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY
           if ($LASTEXITCODE -eq 0) {
@@ -152,7 +154,7 @@ jobs:
           $preview = Get-Content dist/catalog-preview.json -Raw | ConvertFrom-Json
           $extra = @()
           if ($stable.drivers.Count -eq 0 -and $preview.drivers.Count -gt 0) { $extra = @('--prerelease') }
-          gh release create $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --verify-tag --draft --title $env:RELEASE_TAG --notes-file RELEASE_NOTES.md @extra @assets
+          gh release create $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --verify-tag --draft --title $env:RELEASE_TAG --notes-file dist/release-notes.md @extra @assets
           if ($LASTEXITCODE -ne 0) { throw "Release upload failed; inspect the draft before retrying." }
           gh release edit $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --draft=false
           if ($LASTEXITCODE -ne 0) { throw "Release publication failed" }

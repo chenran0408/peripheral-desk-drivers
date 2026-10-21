@@ -2,7 +2,7 @@
   {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
-    "version": "0.4.9-preview.1",
+    "version": "0.4.9-preview.2",
     "description": "公开实现适配未实测；精确 G305 身份校验后的电量与 DPI 设置。板载配置开启时拒绝 DPI 写入。",
     "device": {
       "key": "logitech-g305",
@@ -35,9 +35,15 @@
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G305%20Lightspeed%20Wireless%20Gaming%20Mouse%204074.text",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/settings_templates.py",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
-          "https://github.com/pwr-Solaar/Solaar/issues/850"
+          "https://github.com/pwr-Solaar/Solaar/issues/850",
+          "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse.910-006020"
         ]
-      }
+      },
+      "dpi_range": [
+        200,
+        12000
+      ],
+      "dpi_step": 50
     },
     "abi": 1,
     "dll": "driver.dll",
@@ -48,7 +54,7 @@
       "battery",
       "settings"
     ],
-    "changelog": "新增 G305 DPI 设置与电量预览；仅接受精确型号身份，板载配置启用时不写入 DPI，变更会读回并在失败时尝试恢复。尚未实机验证。"
+    "changelog": "修复 G305 的 DPI 调节控件没有显示；板载配置开启时会明确说明暂不可调节，不改动板载模式。尚未实机验证。"
   },
   {
     "id": "razer-basilisk-v3-pro-wired",

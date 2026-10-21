@@ -291,14 +291,14 @@ pub fn read_with<T: Transport>(transport: T) -> Result<peripheral_desk::model::S
             Ok((current, stages, note)) => (current, stages, note),
             Err(e) => (None, Vec::new(), format!("DPI 读取失败：{e}")),
         };
-    let active_stage = dpi
-        .and_then(|value| dpi_stages.iter().position(|v| *v == value))
-        .map(|v| v as u8);
+    // 0x2201 reports supported sensor values, not onboard profile slots.
+    // The main UI uses its DPI slider; do not render hundreds of stage buttons.
+    let _ = dpi_stages;
     Ok(peripheral_desk::model::State {
         key: G305_KEY.into(), present: true, fresh, percent, charging, error, wired: false,
         updated: SystemTime::now().duration_since(UNIX_EPOCH).unwrap_or_default().as_secs(),
         identity: format!("046D:C53F / WPID 4074 / HID++ 4.2 / {}", if firmware.is_empty() {"firmware unknown".into()} else {firmware.join("; ")}),
-        dpi, dpi_stages, active_stage,
+        dpi, dpi_stages: Vec::new(), active_stage: None,
         settings_error: format!("公开实现适配未实测；电量可能按固件档位跳变。{mode_note}仅 DPI 可写；回报率、按键、宏、灯光和固件命令未开放。"),
         ..Default::default()
     })
@@ -545,7 +545,7 @@ mod tests {
         assert!(state.present && state.fresh);
         assert_eq!(state.percent, Some(50));
         assert_eq!(state.dpi, Some(1600));
-        assert_eq!(state.dpi_stages, vec![800, 1600]);
+        assert!(state.dpi_stages.is_empty());
         assert!(state.identity.contains("WPID 4074"));
         let mut bad = Fixture {
             wrong_name: true,

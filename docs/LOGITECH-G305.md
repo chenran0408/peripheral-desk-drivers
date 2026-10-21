@@ -17,3 +17,5 @@ Polling rate is not exposed because the upstream G305 record has an active onboa
 Solaar source is GPL-2.0-or-later; attribution and license are retained in `../THIRD_PARTY_LICENSES/Solaar/NOTICE.txt`. This driver is an independent Rust implementation and has no hardware validation claim.
 
 The raw 0x8100 mode byte must be 0x02 (host mode), not the UI Disabled choice value 0. Mode 0x01 is onboard control; all other values remain unavailable. DPI list requests include sensor 0, direction 0 and page index; zero-terminated entries may end before odd-length reply padding.
+
+0.4.9-preview.2 exposes the main DPI editor (200–12,000, 50-DPI steps) using [Logitech specifications](https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse.910-006020). The live 0x2201 list still validates every write. Supported sensor values are not presented as onboard profile slots.

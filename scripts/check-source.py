@@ -25,6 +25,15 @@ def metadata(item):
         raise ValueError("Device identity/kind mismatch")
     if not device["matches"]:
         raise ValueError("Hardware matching rules are required")
+    capabilities = item["capabilities"]
+    if device["kind"] == "mouse" and "settings" in capabilities:
+        if not device.get("dpi_range") and not device.get("rates") and not device.get("advanced"):
+            raise ValueError("Mouse settings have no visible main-UI controls: " + item["id"])
+    if device.get("lighting_modes"):
+        if "lighting-editor" not in capabilities:
+            raise ValueError("Lighting modes require an accessible editor: " + item["id"])
+        if device.get("lighting_write_only") and int(item["core_min"].split(".")[2]) < 9:
+            raise ValueError("Partial lighting readback requires core 0.4.9")
     for match in device["matches"]:
         for field in ("vid", "pid"):
             if type(match[field]) is not int or not 0 < match[field] <= 65535:

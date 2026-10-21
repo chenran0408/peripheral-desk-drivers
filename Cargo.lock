@@ -108,7 +108,7 @@ checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
 
 [[package]]
 name = "logitech-g305-driver"
-version = "0.4.9-preview.2"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-hidpp",
@@ -200,7 +200,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-hidpp"
-version = "0.4.9-preview.2"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk",
  "windows-sys",
@@ -224,7 +224,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-razer"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk",
  "serde_json",
@@ -232,7 +232,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-razer-deathadder-v2-pro"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk",
  "serde_json",
@@ -240,7 +240,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-razer-viper-ultimate"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk",
  "serde_json",
@@ -256,7 +256,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-vgn"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk",
  "peripheral-hid-transport",
@@ -289,7 +289,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-v3-pro-wired-driver"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer",
@@ -298,7 +298,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v2-pro-wired-driver"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-deathadder-v2-pro",
@@ -314,7 +314,7 @@ dependencies = [
 
 [[package]]
 name = "razer-viper-ultimate-wired-driver"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-viper-ultimate",
@@ -435,7 +435,7 @@ dependencies = [
 
 [[package]]
 name = "vgn-f2-master-plus-driver"
-version = "0.4.9-preview.1"
+version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-vgn",

@@ -2,7 +2,7 @@
   {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
-    "version": "0.4.9-preview.2",
+    "version": "0.4.9-preview.3",
     "description": "公开实现适配未实测；精确 G305 身份校验后的电量与 DPI 设置。板载配置开启时拒绝 DPI 写入。",
     "device": {
       "key": "logitech-g305",
@@ -59,7 +59,7 @@
   {
     "id": "razer-basilisk-v3-pro-wired",
     "name": "雷蛇 Basilisk V3 Pro 有线",
-    "version": "0.4.9-preview.1",
+    "version": "0.4.9-preview.3",
     "description": "依据固定版本 OpenRazer 公开协议适配，尚未实机验证；仅支持 1532:00AA 有线设备，可读取电量、充电状态、DPI、回报率与整体亮度，并设置 DPI、回报率、亮度及上游支持的灯效。灯效与颜色无法读回。",
     "abi": 1,
     "dll": "driver.dll",
@@ -142,9 +142,10 @@
     "capabilities": [
       "battery",
       "settings",
-      "lighting"
+      "lighting-editor",
+      "lighting-switch"
     ],
-    "changelog": "新增 Razer Basilisk V3 Pro 有线 DPI、回报率及整体亮度读取和设置，失败后读取确认恢复；DPI 变更保留其他档位与未知字段。仅支持 PID 1532:00AA；本地未实测。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。"
+    "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
   },
   {
     "id": "mchose-a7-v3-ultra-plus",
@@ -217,7 +218,7 @@
   {
     "id": "vgn-f2-master-plus",
     "name": "VGN Dragonfly F2 Master+",
-    "version": "0.4.9-preview.1",
+    "version": "0.4.9-preview.3",
     "description": "公开协议适配尚未实机验证；支持 3554:FB56 接收器或 3554:FB57 有线设备的电量、固件、DPI、回报率与六键映射预览。",
     "device": {
       "key": "vgn-f2-master-plus",
@@ -258,7 +259,39 @@
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/teevolution/index.ts"
         ]
-      }
+      },
+      "dpi_range": [
+        50,
+        26000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wireless_rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ]
     },
     "abi": 1,
     "dll": "driver.dll",
@@ -270,7 +303,7 @@
       "settings",
       "bindings"
     ],
-    "changelog": "新增 DPI、档位切换、回报率与受限六键映射；未知按键保持只读，失败尝试恢复原值。尚未实机验证。"
+    "changelog": "新增 DPI、档位切换、回报率和鼠标键映射；修正 DPI 与回报率入口未显示。沿用公开布局，尚未实机验证。"
   },
   {
     "id": "atk-x1-pro-max",
@@ -508,7 +541,7 @@
   {
     "id": "razer-viper-ultimate-wired",
     "name": "Razer Viper Ultimate (有线)",
-    "version": "0.4.9-preview.1",
+    "version": "0.4.9-preview.3",
     "description": "依据固定版本 OpenRazer 公开协议适配，尚未实机验证；可读取电量、充电状态、DPI、回报率与Logo亮度，并设置 DPI、回报率、亮度及上游支持的Logo灯效。灯效与颜色无法读回。",
     "abi": 1,
     "dll": "driver.dll",
@@ -603,9 +636,10 @@
     "capabilities": [
       "battery",
       "settings",
-      "lighting"
+      "lighting-editor",
+      "lighting-switch"
     ],
-    "changelog": "新增 Razer Viper Ultimate 有线 DPI、回报率及Logo亮度读取和设置，失败后读取确认恢复；DPI 变更保留其他档位与未知字段。仅支持 PID 1532:007A；本地未实测。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。"
+    "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
   },
   {
     "id": "vgn-f2-pro-max",
@@ -720,7 +754,7 @@
   {
     "id": "razer-deathadder-v2-pro-wired",
     "name": "Razer DeathAdder V2 Pro (有线)",
-    "version": "0.4.9-preview.1",
+    "version": "0.4.9-preview.3",
     "description": "依据固定版本 OpenRazer 公开协议适配，尚未实机验证；可读取电量、充电状态、DPI、回报率与Logo亮度，并设置 DPI、回报率、亮度及上游支持的Logo灯效。灯效与颜色无法读回。",
     "abi": 1,
     "dll": "driver.dll",
@@ -815,9 +849,10 @@
     "capabilities": [
       "battery",
       "settings",
-      "lighting"
+      "lighting-editor",
+      "lighting-switch"
     ],
-    "changelog": "新增 Razer DeathAdder V2 Pro 有线 DPI、回报率及Logo亮度读取和设置，失败后读取确认恢复；DPI 变更保留其他档位与未知字段。仅支持 PID 1532:007C；本地未实测。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。 新增上游支持的灯效与颜色写入；只有亮度有设备读回，灯效及颜色为仅写入并由应用保存。"
+    "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
   },
   {
     "id": "mchose-magdock",

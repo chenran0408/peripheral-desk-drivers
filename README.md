@@ -8,6 +8,7 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `mchose-a5-ultra` | 迈从 A5 Ultra 初代 |
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
+| `logitech-g305`（预览） | G305 LIGHTSPEED，只读电量，依据公开实现适配、尚未实机验证 |
 
 ## 下载
 
@@ -27,6 +28,8 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 - [新设备模板](templates/device/README.md)
 - [图片来源](ASSET_SOURCES.md)
 - [G2 Pro 灯光接口与实测边界](docs/G2_LIGHTING.md)
+- [五品牌协议调查、固定来源版本与许可证](docs/PROTOCOL-RESEARCH.md)
+- [G305 只读预览的精确型号与连接范围](docs/LOGITECH-G305.md)
 
 代码采用 AGPL-3.0-only，见 [LICENSE](LICENSE)。项目与设备品牌无隶属关系。
 

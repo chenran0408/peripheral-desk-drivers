@@ -18,6 +18,8 @@ Basilisk V3 Pro 有线预览仅匹配 `1532:00AA`、唯一 `MI_00` / 91 字节 F
 
 A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:1018` / `FF01:0001` / 64 字节输入输出，产品名必须精确匹配；F2 Master+ 仅 `3554:FB56/FB57` / `FF02` / 17 字节输入输出。两者只读电量与充电状态，尚未实机验证，不开放设置、改键、宏或灯光。固件兼容范围未知。详见 [A7 范围](MCHOSE-A7-V3.md)与 [F2 Master+ 范围](VGN-F2-MASTER-PLUS.md)。
 
+0.4.5-preview.1 新增 **ATK X1 Pro Max**（有线 373B:1017 / 8K 接收器 373B:101B，CID/MID 必须 2,39）及 **Viper V2 Pro 有线**。两款均为公开实现适配、尚未实机验证；仅只读电量/充电状态，不提供设置写入。详见 [ATK 范围](ATK-X1-PRO-MAX.md)与 [Viper 范围](RAZER-VIPER-V2-PRO.md)。
+
 ## 通道
 
 - stable：可在普通驱动商店选择。兼容范围明确，说明仍保留已知限制。

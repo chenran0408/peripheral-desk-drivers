@@ -3,6 +3,15 @@
 version = 4
 
 [[package]]
+name = "atk-x1-pro-max-driver"
+version = "0.4.5-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-atk",
+ "serde_json",
+]
+
+[[package]]
 name = "block-buffer"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -134,6 +143,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-atk"
+version = "0.4.5-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-hidpp"
 version = "0.4.1-preview.1"
 dependencies = [
@@ -152,6 +169,13 @@ dependencies = [
 [[package]]
 name = "peripheral-desk-protocol-razer"
 version = "0.4.3-preview.1"
+dependencies = [
+ "peripheral-desk",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-razer-viper-v2-pro"
+version = "0.4.5-preview.1"
 dependencies = [
  "peripheral-desk",
 ]
@@ -203,6 +227,15 @@ name = "razer-deathadder-v3-pro-driver"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
+]
+
+[[package]]
+name = "razer-viper-v2-pro-wired-driver"
+version = "0.4.5-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-viper-v2-pro",
+ "serde_json",
 ]
 
 [[package]]

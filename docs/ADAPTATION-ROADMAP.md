@@ -21,7 +21,7 @@
 
 ### 1. MCHOSE A7 V3 Ultra+ 接收器只读插件
 
-- **状态 / 优先级：** 已实现 0.4.4-preview.2 只读插件，等待对应发布；公开实现里读取路径的硬件证据较强，且与现有初代 A5 协议明显不同。
+- **状态 / 优先级：** 已发布 0.4.4-preview.2 只读插件；公开实现里读取路径的硬件证据较强，且与现有初代 A5 协议明显不同。
 - **目标 / 身份：** MCHOSE A7 V3 Ultra+，优先接收器路径 `3837:1018`（8K 接收器）；有线 `3837:4033` 暂不纳入。需精确 `0xff01:0001` 配置集合；上游 WebHID 以 report ID `0x4D` 单独传入、63 字节 payload 作为报告体，Windows HID 缓冲区总长为 64 字节（含 report ID），输出请求、输入回复；并核对设备 product string。`0x0900` 回报的内部 `productId=0x4026` 在上游表里对应 A5 V3 Ultra+，因此不能把它单独当成型号身份；字符串缺失或不一致就拒绝型号级支持。
 - **协议证据 / 源码：** 固定来源 [`src/mchose/v3.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/mchose/v3.ts)、[`src/drivers/mchose/v3-hid.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/v3-hid.ts)、[`docs/mchose-protocol.md`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md)。文档记录真实 A7 V3 Ultra+ 8K 接收器上的 `0x0900` 身份/电量、`0x0002` 设置、`0x0003` DPI 和 `0x0001` 按键读取；**上游说明写入尚未实机验证**。本阶段只实现 `0x0900` 只读电池与连接状态，不读宏、不发 `0x01xx` 或其他写命令。由于固定上游文档给出该精确接收器路径的真实读取记录，允许无本机真机时发布明确标注未验证的只读 preview；若运行时产品字符串缺失或冲突则拒绝型号级声明。
 - **接口产物：** `mchose-a7-v3-ultra-plus` 单独设备包及 `read-state` 适配器；返回电量、充电/连接状态、固件未知时留空。manifest 只列接收器连接和只读能力。
@@ -30,7 +30,7 @@
 
 ### 2. VGN Dragonfly F2 Master+ 未验证只读预览
 
-- **状态 / 优先级：** 已实现 0.4.4-preview.2 只读插件，等待对应发布；固定上游驱动精确声明 F2 Master+ 的接收器/有线 PID 和报告形状，可作为未实机验证只读 preview 的来源依据；preview 范围严格限于已公开读取。
+- **状态 / 优先级：** 已发布 0.4.4-preview.2 只读插件；固定上游驱动精确声明 F2 Master+ 的接收器/有线 PID 和报告形状，可作为未实机验证只读 preview 的来源依据；preview 范围严格限于已公开读取。
 - **目标 / 身份：** VGN Dragonfly F2 Master+；无线接收器 `3554:FB56`，有线 `3554:FB57`。需 `0xff02` 集合、report ID `0x08`。OpenMouse WebHID 读写 16 字节 payload，Windows HID 报告缓冲区通常为 17 字节（1 字节 report ID + 16 字节 payload）；移植时分别核对报告描述符和 API 缓冲区语义。F1 Pro (`F502/F503`) 和 F2 Pro Max (`FB3D/FB3E`) 不是此候选，也不因 VID 或所谓共用方案被纳入。
 - **协议证据 / 源码：** 固定来源 [`src/vgn/index.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/vgn/index.ts)、[`src/drivers/vgn/hid.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts)、[`src/drivers/vgn/protocol.test.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/protocol.test.ts)。代码含电量命令 `0x04`、校验和、16 字节传输与读配置实现；该驱动还含写设置和借用 Teevolution 的按键映射，均不纳入本只读项。上游单元测试的伪设备/捕获帧不证明某个本机固件已验证。
 - **接口产物：** 固定上游驱动明确将这对 VID/PID、报告形状绑定到 Dragonfly F2 Master+，可据此先发布标注未实机验证的 `vgn-f2-master-plus` 只读 preview DLL/catalog 项，范围限电量、充电状态和固件版本；若运行时身份信息与该声明冲突，则拒绝连接。
@@ -40,7 +40,7 @@
 ### 3. ATK F1 Ultimate 身份冲突排查后再做只读 preview
 
 - **状态 / 优先级：** P3；协议通道有公开实现，但现有资料对这个名字对应的 USB ID 存在冲突，先解冲突再碰实际设备。
-- **目标 / 身份：** 上游固定目录中 `ATK F1 Ultimate` 对应 `373B:102E`、CID/MID `2,42`、usage `0xFF02:0002`；同目录不是实测保证。现有项目品牌页/研究记录另列过 `373B:1031`，在实物/原始枚举证据解决差异前，两个 ID 都不允许新包认领。需 report ID `0x08`。OpenMouse WebHID 使用 16 字节 payload，Windows HID 报告缓冲区通常为 17 字节（含 report ID）；运行时命令 `0x10` 的 CID/MID 响应 `2,42` 验明身份，之后才读取电量命令 `0x04`。有线与接收器模式分别核对，不因一个模式通过推广到另一模式。
+- **目标 / 身份：** 上游固定目录中 `ATK F1 Ultimate` 对应 `373B:102E`、CID/MID `2,42`；目录 usagePage 65284（`0xFF04`）与实际通用驱动要求的 `0xFF02:0002` 还存在差异；同目录不是实测保证。现有项目品牌页/研究记录另列过 `373B:1031`，在实物/原始枚举证据解决差异前，两个 ID 都不允许新包认领。需 report ID `0x08`。OpenMouse WebHID 使用 16 字节 payload，Windows HID 报告缓冲区通常为 17 字节（含 report ID）；运行时命令 `0x10` 的 CID/MID 响应 `2,42` 验明身份，之后才读取电量命令 `0x04`。有线与接收器模式分别核对，不因一个模式通过推广到另一模式。
 - **协议证据 / 源码：** 固定来源 [`src/drivers/atk/products.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/atk/products.ts)、[`src/drivers/atk/device-catalog.generated.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/atk/device-catalog.generated.ts)、[`src/drivers/atk/hid.ts`](https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/atk/hid.ts)。源码实现了 CID/MID 解歧、版本/电量/EEPROM 读取与大量设置写入；只复核 `0x10` 和 `0x04` 读取，不调用任何写操作。不能误套 `373B:1216` 的 `FF05` 协议，也不能按同品牌其他 ATK 的 CID/MID 认领。
 - **接口产物：** 先交一份枚举/应答证据记录；只有 `373B:102E` 与现有记录中的 `373B:1031` 冲突经权威型号资料或实机枚举解决后，才单独生成 `atk-f1-ultimate` 电量只读 preview 插件，manifest 精确限定确认后的 transport。若冲突无法解决则停止该型号包。
 - **验收：** 记录两台设备并排枚举差异、每个 HID 集合的 report ID/方向/长度、CID/MID 原始回复；确认 102E/1031 差异属于哪一具体产品/接收器；重复读取电量且无写帧。包装器对无法确认的 CID/MID 或另一 PID 返回“不支持”。
@@ -79,3 +79,9 @@
 
 
 
+
+## 0.4.5 本轮增补
+
+- 新增 ATK X1 Pro Max 只读预览，限有线 `373B:1017` 与 8K 接收器 `373B:101B`，读取 CID/MID `2,39` 后才读取电量。来源为固定 OpenMouse 的真实读取记录，避免从目录孤立数字推断协议集合；本项目仍未实机验证。详见 [X1 Pro Max](ATK-X1-PRO-MAX.md)。
+- 新增 Razer Viper V2 Pro 有线 `1532:00A5` 只读预览；不推广至 `00A6` 或其他型号。详见 [Viper V2 Pro](RAZER-VIPER-V2-PRO.md)。
+- F1 Ultimate 既有身份与接口疑问继续保留，不因为新增同品牌设备就解除限制。后续可优先调查 OpenMouse 已记录的 ATK A9 Plus Nearlink，但仍需按两代官方硬件与不同接口分别确认。

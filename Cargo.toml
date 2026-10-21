@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/driver-ffi", "drivers/razer-deathadder-v3-pro", "drivers/mchose-a5-ultra", "drivers/mchose-g75-pro", "drivers/hecate-g2-pro", "crates/protocol-hidpp", "drivers/logitech-g305", "crates/protocol-razer", "drivers/razer-basilisk-v3-pro-wired", "crates/hid-transport", "crates/protocol-mchose-v3", "drivers/mchose-a7-v3-ultra-plus", "crates/protocol-vgn", "drivers/vgn-f2-master-plus"]
+members = ["crates/driver-ffi", "drivers/razer-deathadder-v3-pro", "drivers/mchose-a5-ultra", "drivers/mchose-g75-pro", "drivers/hecate-g2-pro", "crates/protocol-hidpp", "drivers/logitech-g305", "crates/protocol-razer", "drivers/razer-basilisk-v3-pro-wired", "crates/hid-transport", "crates/protocol-mchose-v3", "drivers/mchose-a7-v3-ultra-plus", "crates/protocol-vgn", "drivers/vgn-f2-master-plus", "crates/protocol-atk", "drivers/atk-x1-pro-max", "crates/protocol-razer-viper-v2-pro", "drivers/razer-viper-v2-pro-wired"]
 
 [workspace.package]
 version = "0.4.2"

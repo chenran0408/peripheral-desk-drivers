@@ -27,7 +27,7 @@
 
 在 [Peripheral Desk](https://github.com/chenran0408/peripheral-desk/releases) 下载主程序，再到驱动商店选择设备。手动下载可用本仓库的 [发布页面](https://github.com/chenran0408/peripheral-desk-drivers/releases)。每个 ZIP 对应一款设备；请通过主程序安装，不要双击或注册 DLL。离线安装需同时保留来自维护者同一 release 的受信 catalog-stable.json（或预览通道目录）及其 `.json.sig`，由主程序核对签名、ZIP 与 DLL 的 SHA256。
 
-G2 Pro 的音效继续使用已安装的 HECATE / C-Media 组件，驱动包不附带厂商安装包或 DLL。支持范围以商店说明为准。
+G2 Pro 插件 0.4.10 附带所需 x64 SDK、官方音频驱动、扩展和 APO，自动连接音效组件；首次使用可在 EQ 页点击“安装音效驱动”，无需运行官方控制面板。主程序仍不预装任何设备插件。厂商组件的版权和来源单独列于 [组件说明](docs/G2-PRO-COMPONENTS.md)。
 
 A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整备份的宏页，因此保持拒写。电量、设置与六键改键可分别使用；不能把宏编辑窗口可打开当作设备宏已验证可用。
 

@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
 """Check package metadata, the custom-handler starter and local documentation links."""
 import json
+import hashlib
 from pathlib import Path
 import re
 import struct
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
+HECATE_COMPONENTS = {
+    "sdk": "components/sdk/osConfLib.dll",
+    "driver-inf": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.Inf",
+    "driver-cat": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.cat",
+    "driver-sys": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/x64/HECATE_HD_AUDIO_DEVICE.sys",
+    "extension-inf": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/HECATE_HD_AUDIO_DEVICE_Ext.inf",
+    "extension-cat": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/CMExt.cat",
+    "apo-inf": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/HECATE_HD_AUDIO_DEVICE_APO.inf",
+    "apo-cat": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CMAPO.cat",
+    "apo-engine": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CmApoIce.dll",
+}
 
 def metadata(item):
     required = {"id", "name", "version", "description", "abi", "dll", "device", "core_min", "core_max_exclusive", "channel", "capabilities", "changelog"}
@@ -25,6 +37,29 @@ def metadata(item):
         raise ValueError("Device identity/kind mismatch")
     if not device["matches"]:
         raise ValueError("Hardware matching rules are required")
+    components = device.get("components", [])
+    if item["id"] == "hecate-g2-pro":
+        if not isinstance(components, list) or len(components) != len(HECATE_COMPONENTS):
+            raise ValueError("G2 Pro must declare the reviewed vendor component set")
+        seen = set()
+        for component in components:
+            name = component.get("name") if isinstance(component, dict) else None
+            if (not isinstance(name, str) or name not in HECATE_COMPONENTS
+                    or component.get("path") != HECATE_COMPONENTS[name]
+                    or not isinstance(component.get("sha256"), str)
+                    or not re.fullmatch(r"[0-9a-f]{64}", component["sha256"])):
+                raise ValueError("Invalid G2 Pro component declaration")
+            path = component["path"]
+            if path in seen:
+                raise ValueError("Duplicate G2 Pro component declaration")
+            seen.add(path)
+            source = ROOT / "third_party" / item["id"] / path
+            if hashlib.sha256(source.read_bytes()).hexdigest() != component["sha256"]:
+                raise ValueError("G2 Pro component hash mismatch: " + path)
+        if len(seen) != len(HECATE_COMPONENTS):
+            raise ValueError("G2 Pro component declaration is incomplete")
+    elif components:
+        raise ValueError("Only G2 Pro may declare vendor components")
     capabilities = item["capabilities"]
     if device["kind"] == "mouse" and "settings" in capabilities:
         if not device.get("dpi_range") and not device.get("rates") and not device.get("advanced"):

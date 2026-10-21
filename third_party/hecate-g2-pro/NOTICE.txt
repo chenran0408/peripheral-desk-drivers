@@ -1,0 +1,10 @@
+HECATE / C-Media G2 Pro vendor components
+
+Copyright remains with Edifier / HECATE, C-MEDIA ELECTRONICS INC. and their respective rights holders.
+These unmodified vendor binary and Windows driver files are not licensed under this project's AGPL source license.
+The project maintainer declares Edifier HECATE developer-program authorization for their inclusion.
+No new public or open-source vendor license is granted by this notice.
+
+Source: user-supplied official HECATE 1.1.44 package and installed G2 Pro control SDK.
+Exact selected files, versions, hashes and signature findings: DEVICE_SUPPORT.md in the plugin package, or docs/G2-PRO-COMPONENTS.md in the source repository.
+The original installer, unrelated models, x86 binaries and firmware updaters are not included.

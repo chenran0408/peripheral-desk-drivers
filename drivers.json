@@ -626,8 +626,8 @@
   {
     "id": "hecate-g2-pro",
     "name": "漫步者 G2 Pro",
-    "version": "0.4.2",
-    "description": "音量、原驱动音效和耳罩灯光控制；音效需已安装官方组件。",
+    "version": "0.4.10",
+    "description": "音量、原驱动音效和耳罩灯光控制；包含 G2 Pro 官方音效驱动组件。",
     "device": {
       "key": "hecate-g2-pro",
       "name": "漫步者 G2 Pro",
@@ -2825,11 +2825,58 @@
       "dpi_step": 50,
       "rates": [],
       "wired_rates": [],
-      "sleeps": []
+      "sleeps": [],
+      "components": [
+        {
+          "path": "components/sdk/osConfLib.dll",
+          "sha256": "576c1306133a33b975d7ecf25a2b7078052b2566e3705715c247d1e1a1ef2947",
+          "name": "sdk"
+        },
+        {
+          "path": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.Inf",
+          "sha256": "83d30e9bd1f54cad946dbd7c352b20fe76f73459cf606ba1160005a7e4ef5e71",
+          "name": "driver-inf"
+        },
+        {
+          "path": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.cat",
+          "sha256": "b30df4c0ca7812d0ff87228018e701902bebe29bcf6259dee0017777009780f1",
+          "name": "driver-cat"
+        },
+        {
+          "path": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/x64/HECATE_HD_AUDIO_DEVICE.sys",
+          "sha256": "f43f4a68ca2400214bd03e899e8ba0fc1c65b6edd292652735793cd150177fbd",
+          "name": "driver-sys"
+        },
+        {
+          "path": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/HECATE_HD_AUDIO_DEVICE_Ext.inf",
+          "sha256": "8021fbbee79d05682b54d9e326f9ab9d56f2425302067e24ab42e8f333fb5ba7",
+          "name": "extension-inf"
+        },
+        {
+          "path": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/CMExt.cat",
+          "sha256": "6615999ff1fe13ef37a3856460cadae0398947db75c50c5b14994172461f1d96",
+          "name": "extension-cat"
+        },
+        {
+          "path": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/HECATE_HD_AUDIO_DEVICE_APO.inf",
+          "sha256": "61770e424c14b99a5963219bd04b797d5792e4b5ca25e60dbde994c09c3266e6",
+          "name": "apo-inf"
+        },
+        {
+          "path": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CMAPO.cat",
+          "sha256": "11b07692131a13cbf3f10de427dbaef63a498707ab47a3e0cfaa0ca13de66eb9",
+          "name": "apo-cat"
+        },
+        {
+          "path": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CmApoIce.dll",
+          "sha256": "17975053ccb0b1f8f6004246cad80f396a7dc151ddea366916aff20a86ed6de6",
+          "name": "apo-engine"
+        }
+      ]
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.0",
+    "core_min": "0.4.10",
     "core_max_exclusive": "0.5.0",
     "channel": "stable",
     "capabilities": [
@@ -2838,6 +2885,6 @@
       "lighting",
       "lighting-switch"
     ],
-    "changelog": "修复硬件关灯后的重新开启；开关立即生效，保留模式和颜色。请同时更新主程序到0.4.2。"
+    "changelog": "附带 G2 Pro 所需音效组件与系统驱动，自动连接组件；首次使用可在 EQ 页安装音效驱动，无需运行官方控制面板。"
   }
 ]

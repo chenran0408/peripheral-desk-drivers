@@ -91,8 +91,31 @@ def main():
             "device.png": (ROOT / "assets" / (driver_id + ".png")).read_bytes(),
             "manifest.json": (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
             "LICENSE": (ROOT / "LICENSE").read_bytes(),
-            "README.txt": (f"{item['name']} {version}\n在 Peripheral Desk 的驱动商店安装此包。\n请勿直接运行或注册 driver.dll。\n源码：https://github.com/chenran0408/peripheral-desk-drivers\n" + ("G2 Pro 音效需要已安装的 HECATE / C-Media 官方组件；包内不附带厂商驱动。\n" if driver_id == "hecate-g2-pro" else "")).encode("utf-8"),
+            "README.txt": (f"{item['name']} {version}\n在 Peripheral Desk 的驱动商店安装此包。\n请勿直接运行或注册 driver.dll。\n源码：https://github.com/chenran0408/peripheral-desk-drivers\n" + ("此包包含 G2 Pro 音效驱动、APO 与控制组件；请通过 Peripheral Desk 的设备安装流程安装。\n" if driver_id == "hecate-g2-pro" else "")).encode("utf-8"),
         }
+        components = item.get("device", {}).get("components", [])
+        if components and driver_id != "hecate-g2-pro":
+            parser.error("Only the reviewed G2 Pro package may declare vendor components")
+        seen_component_paths = set()
+        for component in components:
+            component_path = component.get("path", "")
+            component_hash = component.get("sha256", "")
+            if (not isinstance(component_path, str) or not component_path.startswith("components/")
+                    or "\\" in component_path or ".." in component_path.split("/")
+                    or not re.fullmatch(r"[0-9a-f]{64}", component_hash)
+                    or component_path in seen_component_paths):
+                parser.error("Invalid G2 Pro component declaration")
+            seen_component_paths.add(component_path)
+            source = ROOT / "third_party" / driver_id / component_path
+            try:
+                data = source.read_bytes()
+            except OSError as error:
+                parser.error(f"Missing declared component {component_path}: {error}")
+            if sha256(data) != component_hash:
+                parser.error(f"Declared component hash mismatch: {component_path}")
+            payloads[component_path] = data
+        if driver_id == "hecate-g2-pro":
+            payloads["THIRD_PARTY_LICENSES/HECATE-COMPONENTS-NOTICE.txt"] = (ROOT / "third_party/hecate-g2-pro/NOTICE.txt").read_bytes()
         payloads["SOURCE.txt"] = ("Driver wrapper source: https://github.com/chenran0408/peripheral-desk-drivers\nCore source: https://github.com/chenran0408/peripheral-desk/tree/" + (revision.group(1) if revision else "DEVELOPMENT-UNPINNED") + "\n").encode("utf-8")
         # Ship model-specific evidence/limitations alongside the binary.
         evidence = {
@@ -107,6 +130,7 @@ def main():
             "razer-basilisk-v3-pro-wired": "RAZER-BASILISK-V3-PRO.md",
             "razer-viper-ultimate-wired": "RAZER-VIPER-ULTIMATE.md",
             "razer-deathadder-v2-pro-wired": "RAZER-DEATHADDER-V2-PRO.md",
+            "hecate-g2-pro": "G2-PRO-COMPONENTS.md",
         }.get(driver_id)
         if evidence:
             payloads["DEVICE_SUPPORT.md"] = (ROOT / "docs" / evidence).read_bytes()

@@ -89,7 +89,7 @@ dependencies = [
 
 [[package]]
 name = "hecate-g2-pro-driver"
-version = "0.4.2"
+version = "0.4.10"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]

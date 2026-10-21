@@ -13,6 +13,17 @@ import tempfile
 import zipfile
 
 REQUIRED = ["id", "name", "version", "description", "abi", "dll", "dll_sha256", "device", "core_min", "core_max_exclusive", "channel", "capabilities", "changelog"]
+HECATE_COMPONENTS = {
+    "sdk": "components/sdk/osConfLib.dll",
+    "driver-inf": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.Inf",
+    "driver-cat": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/HECATE_HD_AUDIO_DEVICE.cat",
+    "driver-sys": "components/windows/HECATE_HD_AUDIO_DEVICE-Driver-V11.2.1.0/x64/HECATE_HD_AUDIO_DEVICE.sys",
+    "extension-inf": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/HECATE_HD_AUDIO_DEVICE_Ext.inf",
+    "extension-cat": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/01_EXTENSION/CMExt.cat",
+    "apo-inf": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/HECATE_HD_AUDIO_DEVICE_APO.inf",
+    "apo-cat": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CMAPO.cat",
+    "apo-engine": "components/windows/CM6646X1_HECATE_HD_AUDIO_DEVICE_APO_V2.1.0.2/02_APO/CmApoIce.dll",
+}
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -75,6 +86,25 @@ def verify_catalog(path, abi, temporary, release_tag=None):
             raise ValueError("Invalid independently versioned driver package")
         if entry["device"]["key"] != entry["id"] or entry["device"]["image"] != "device.png":
             raise ValueError("Device identity/image mismatch")
+        declared = entry["device"].get("components", [])
+        if entry["id"] == "hecate-g2-pro" and declared:
+            if not isinstance(declared, list) or len(declared) != len(HECATE_COMPONENTS):
+                raise ValueError("G2 Pro package must declare the reviewed vendor component set")
+            component_paths = set()
+            for component in declared:
+                component_name = component.get("name") if isinstance(component, dict) else None
+                if (not isinstance(component, dict)
+                        or not isinstance(component_name, str)
+                        or component_name not in HECATE_COMPONENTS
+                        or component.get("path") != HECATE_COMPONENTS[component_name]
+                        or not isinstance(component.get("sha256"), str)
+                        or not re.fullmatch(r"[0-9a-f]{64}", component["sha256"])):
+                    raise ValueError("Invalid or unreviewed G2 Pro component declaration")
+                component_paths.add(component["path"])
+            if len(component_paths) != len(HECATE_COMPONENTS):
+                raise ValueError("Duplicate or missing G2 Pro component declaration")
+        elif declared:
+            raise ValueError("Only the G2 Pro package may include vendor components")
         if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", entry["core_min"]) or entry["core_max_exclusive"] != "0.5.0":
             raise ValueError("Update verifier's supported core range before changing the ABI contract")
         if entry["dll"] != "driver.dll" or not entry["device"]["matches"]:
@@ -96,8 +126,20 @@ def verify_catalog(path, abi, temporary, release_tag=None):
                 raise ValueError("Missing or duplicate package files")
             if any(name.startswith(("/", "\\")) or ".." in name.replace("\\", "/").split("/") for name in names):
                 raise ValueError("Unsafe ZIP entry")
-            if any(name.lower().endswith((".exe", ".sys", ".msi", ".dll")) and name != "driver.dll" for name in names):
-                raise ValueError("Device package must not distribute other native binaries")
+            declared_component_paths = {component["path"] for component in declared}
+            if entry["id"] == "hecate-g2-pro" and declared:
+                packaged_components = {name for name in names if name.startswith("components/")}
+                if packaged_components != declared_component_paths:
+                    raise ValueError("G2 Pro package component files do not match its declarations")
+                for component in declared:
+                    if digest(archive.read(component["path"])) != component["sha256"]:
+                        raise ValueError("G2 Pro component hash mismatch: " + component["path"])
+            elif any(name.startswith("components/") for name in names):
+                raise ValueError("Only the G2 Pro package may contain a components directory")
+            allowed_native = declared_component_paths if entry["id"] == "hecate-g2-pro" else set()
+            if any(name.lower().endswith((".exe", ".sys", ".msi", ".dll"))
+                   and name != "driver.dll" and name not in allowed_native for name in names):
+                raise ValueError("Device package contains an undeclared native binary")
             if archive.getinfo("manifest.json").file_size > 256 * 1024:
                 raise ValueError("Manifest exceeds desktop installer limit")
             manifest = json.loads(archive.read("manifest.json").decode("utf-8"))

@@ -1,0 +1,152 @@
+name: Build and verify driver packages
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag on main to sign and publish
+        required: true
+        default: v0.4.0
+permissions:
+  contents: read
+jobs:
+  windows-x64:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check metadata, new-device starter and documentation
+        shell: pwsh
+        run: python scripts/check-source.py
+      - name: Check formatting and pure protocol tests
+        shell: pwsh
+        run: |
+          cargo fmt --all -- --check
+          if ($LASTEXITCODE -ne 0) { throw "Formatting check failed" }
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
+          cargo test --locked --workspace --lib
+          if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }
+      - name: Build pinned core and four packages
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag || (github.ref_type == 'tag' && github.ref_name) || '' }}
+        shell: pwsh
+        run: |
+          $extra = @()
+          if ($env:RELEASE_TAG) { $extra = @('--release-tag', $env:RELEASE_TAG) }
+          python scripts/build.py --release --target x86_64-pc-windows-msvc @extra
+      - name: Verify ZIP, manifests, compatibility and ABI without hardware access
+        shell: pwsh
+        run: |
+          python scripts/verify.py dist/catalog-stable.json --abi-check
+          if ($LASTEXITCODE -ne 0) { throw "Stable package validation failed" }
+          python scripts/verify.py dist/catalog-preview.json --abi-check
+          if ($LASTEXITCODE -ne 0) { throw "Preview package validation failed" }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: peripheral-desk-driver-packages-windows-x64
+          path: dist/*
+          if-no-files-found: error
+
+  signed-release:
+    if: startsWith(github.ref, 'refs/tags/') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    needs: windows-x64
+    runs-on: windows-latest
+    timeout-minutes: 20
+    # One publisher owns all mutable channel assets at a time. Never cancel it
+    # between replacing a catalog and its detached signature.
+    concurrency:
+      group: driver-signed-catalog-publisher
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: peripheral-desk-driver-packages-windows-x64
+          path: dist
+      - name: Require an existing reviewed tag on main
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag || github.ref_name }}
+        shell: pwsh
+        run: |
+          if ($env:RELEASE_TAG -notmatch '^v[0-9]+\.[0-9]+\.[0-9]+(?:[-.][a-zA-Z0-9.-]+)?$') { throw "Invalid release tag" }
+          git fetch origin main --tags
+          git rev-parse --verify "$env:RELEASE_TAG^{commit}"
+          if ($LASTEXITCODE -ne 0) { throw "Release tag does not exist" }
+          git merge-base --is-ancestor $env:RELEASE_TAG origin/main
+          if ($LASTEXITCODE -ne 0) { throw "Release tag must belong to main" }
+          $tagCommit = git rev-parse "$env:RELEASE_TAG^{commit}"
+          $builtCommit = git rev-parse HEAD
+          if ($tagCommit -ne $builtCommit) { throw "Built checkout must exactly match the release tag" }
+          python scripts/verify.py dist/catalog-stable.json --release-tag $env:RELEASE_TAG
+          if ($LASTEXITCODE -ne 0) { throw "Stable package URL validation failed" }
+          python scripts/verify.py dist/catalog-preview.json --release-tag $env:RELEASE_TAG
+          if ($LASTEXITCODE -ne 0) { throw "Preview package URL validation failed" }
+      - name: Sign reviewed catalogs
+        env:
+          DRIVER_CATALOG_SIGNING_KEY: ${{ secrets.DRIVER_CATALOG_SIGNING_KEY }}
+        shell: pwsh
+        run: |
+          ./scripts/sign-catalog.ps1
+          ./scripts/verify-signatures.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: peripheral-desk-signed-release-windows-x64
+          path: dist/*
+          if-no-files-found: error
+      - name: Publish signed release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag || github.ref_name }}
+        shell: pwsh
+        run: |
+          $assets = Get-ChildItem dist -File | Where-Object { $_.Name -match '\.(zip|json|sig|txt)$' } | ForEach-Object { $_.FullName }
+          gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY
+          if ($LASTEXITCODE -eq 0) {
+            throw "Version releases are immutable; choose a new reviewed version tag."
+          }
+          $stable = Get-Content dist/catalog-stable.json -Raw | ConvertFrom-Json
+          $preview = Get-Content dist/catalog-preview.json -Raw | ConvertFrom-Json
+          $extra = @()
+          if ($stable.drivers.Count -eq 0 -and $preview.drivers.Count -gt 0) { $extra = @('--prerelease') }
+          gh release create $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --verify-tag --draft --title $env:RELEASE_TAG --notes-file RELEASE_NOTES.md @extra @assets
+          if ($LASTEXITCODE -ne 0) { throw "Release upload failed; inspect the draft before retrying." }
+          gh release edit $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --draft=false
+          if ($LASTEXITCODE -ne 0) { throw "Release publication failed" }
+      # A release created with GITHUB_TOKEN does not trigger another workflow.
+      # Verify the actual remote assets here as well as in release-check.yml.
+      - name: Download and verify the published bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag || github.ref_name }}
+        shell: pwsh
+        run: |
+          gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --dir work/published --pattern '*.zip' --pattern 'catalog*.json' --pattern '*.sig'
+          if ($LASTEXITCODE -ne 0) { throw "Published asset download failed" }
+          ./scripts/verify-signatures.ps1 -CatalogDirectory work/published
+          python scripts/verify.py work/published/catalog-stable.json --abi-check --release-tag $env:RELEASE_TAG
+          if ($LASTEXITCODE -ne 0) { throw "Published stable ABI/package validation failed" }
+          python scripts/verify.py work/published/catalog-preview.json --abi-check --release-tag $env:RELEASE_TAG
+          if ($LASTEXITCODE -ne 0) { throw "Published preview ABI/package validation failed" }
+      - name: Update signed channel directories
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: ./scripts/publish-channels.ps1 -Repository $env:GITHUB_REPOSITORY -CatalogDirectory work/published

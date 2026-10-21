@@ -16,7 +16,7 @@
 
 Basilisk V3 Pro 有线预览仅匹配 `1532:00AA`、唯一 `MI_00` / 91 字节 Feature 集合，只读电量与充电状态。Windows 报告长度依据公开协议推导，尚无该型号本机验证；不包含 `00AB` 接收器、35K 变种、蓝牙或设置写入。详见[固定协议依据](RAZER-BASILISK-V3-PRO.md)。
 
-A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.1**。A7 仅 `3837:1018` / `FF01:0001` / 64 字节输入输出，产品名必须精确匹配；F2 Master+ 仅 `3554:FB56/FB57` / `FF02` / 17 字节输入输出。两者只读电量与充电状态，尚未实机验证，不开放设置、改键、宏或灯光。固件兼容范围未知。详见 [A7 范围](MCHOSE-A7-V3.md)与 [F2 Master+ 范围](VGN-F2-MASTER-PLUS.md)。
+A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:1018` / `FF01:0001` / 64 字节输入输出，产品名必须精确匹配；F2 Master+ 仅 `3554:FB56/FB57` / `FF02` / 17 字节输入输出。两者只读电量与充电状态，尚未实机验证，不开放设置、改键、宏或灯光。固件兼容范围未知。详见 [A7 范围](MCHOSE-A7-V3.md)与 [F2 Master+ 范围](VGN-F2-MASTER-PLUS.md)。
 
 ## 通道
 

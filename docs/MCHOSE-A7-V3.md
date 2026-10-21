@@ -1,6 +1,6 @@
 # MCHOSE A7 V3 Ultra+ Receiver Preview
 
-Package: `mchose-a7-v3-ultra-plus` (`0.4.4-preview.1`). This adapter has not been tested on this project’s hardware. The fixed upstream protocol notes include a 2026-09-12 diagnostic capture from an A7 V3 Ultra+ on its 8 kHz receiver.
+Package: `mchose-a7-v3-ultra-plus` (`0.4.4-preview.2`). This adapter has not been tested on this project’s hardware. The fixed upstream protocol notes include a 2026-09-12 diagnostic capture from an A7 V3 Ultra+ on its 8 kHz receiver.
 
 ## Supported scope
 

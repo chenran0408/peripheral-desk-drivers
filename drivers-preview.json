@@ -89,7 +89,7 @@
   {
     "id": "mchose-a7-v3-ultra-plus",
     "name": "MCHOSE A7 V3 Ultra+ 接收器",
-    "version": "0.4.4-preview.1",
+    "version": "0.4.4-preview.2",
     "description": "仅支持精确型号字符串与运行时身份均匹配的 3837:1018 8K 接收器；只读电量与充电状态，未实测。",
     "device": {
       "key": "mchose-a7-v3-ultra-plus",
@@ -134,7 +134,7 @@
   {
     "id": "vgn-f2-master-plus",
     "name": "VGN Dragonfly F2 Master+",
-    "version": "0.4.4-preview.1",
+    "version": "0.4.4-preview.2",
     "description": "公开协议适配未实测；仅支持 3554:FB56 接收器或 3554:FB57 有线 report-08 集合上的只读电量、充电状态与固件版本。",
     "device": {
       "key": "vgn-f2-master-plus",

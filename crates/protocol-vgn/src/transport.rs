@@ -66,7 +66,8 @@ pub fn read_vgn() -> Result<peripheral_desk::model::State> {
         [] => Ok(peripheral_desk::model::State {
             key: super::DEVICE_KEY.into(),
             present: false,
-            error: "未找到唯一的 VGN F2 Master+ report-08 集合（仅 3554:FB56/FB57、FF02、17 字节）".into(),
+            error: "未找到唯一的 VGN F2 Master+ report-08 集合（仅 3554:FB56/FB57、FF02、17 字节）"
+                .into(),
             settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。".into(),
             ..Default::default()
         }),
@@ -76,7 +77,8 @@ pub fn read_vgn() -> Result<peripheral_desk::model::State> {
                     key: super::DEVICE_KEY.into(),
                     present: false,
                     error: "VGN 设备报告名称与 F2 Master+ 不符；未发送查询".into(),
-                    settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。".into(),
+                    settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。"
+                        .into(),
                     ..Default::default()
                 });
             }

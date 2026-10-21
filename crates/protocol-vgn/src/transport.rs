@@ -123,6 +123,51 @@ pub fn read_vgn_for(device: DeviceSpec) -> Result<peripheral_desk::model::State>
     }
 }
 
+fn open_unique(device: DeviceSpec) -> Result<(Connection, VgnTransport)> {
+    let interfaces = hid::enumerate()?;
+    let candidates: Vec<_> = interfaces
+        .iter()
+        .filter(|interface| protocol_interface(interface, device))
+        .collect();
+    let interface = match candidates.as_slice() {
+        [interface] => *interface,
+        [] => return Err(format!("未找到唯一的 {} report-08 集合", device.name)),
+        _ => {
+            return Err(format!(
+                "找到多个 VGN {} report-08 集合；已停止写入",
+                device.name
+            ));
+        }
+    };
+    if conflicting_product_name(&interface.product, device) {
+        return Err(format!(
+            "VGN 设备报告名称与 {} 不符；未发送命令",
+            device.name
+        ));
+    }
+    let connection = Connection::from_pid_for(interface.pid, device)
+        .ok_or_else(|| format!("VGN 产品 ID 不属于 {} 预览范围", device.name))?;
+    Ok((
+        connection,
+        VgnTransport(WinTransport::open(&interface.path)?),
+    ))
+}
+
+pub fn apply_vgn_setting(action: peripheral_desk::model::Action) -> Result<()> {
+    let (_, mut transport) = open_unique(F2_MASTER_PLUS)?;
+    super::apply_setting(&mut transport, action)
+}
+
+pub fn read_vgn_controls() -> Result<peripheral_desk::controls::ControlState> {
+    let (_, mut transport) = open_unique(F2_MASTER_PLUS)?;
+    super::read_controls(&mut transport)
+}
+
+pub fn apply_vgn_controls(action: &peripheral_desk::controls::ControlAction) -> Result<()> {
+    let (_, mut transport) = open_unique(F2_MASTER_PLUS)?;
+    super::apply_controls(&mut transport, action)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -1,9 +1,10 @@
 [package]
 name = "peripheral-desk-protocol-razer-viper-ultimate"
-version = "0.4.6-preview.1"
+version = "0.4.9-preview.1"
 edition.workspace = true
 license.workspace = true
 publish = false
 
 [dependencies]
 peripheral-desk.workspace = true
+serde_json.workspace = true

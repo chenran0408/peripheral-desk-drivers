@@ -1,6 +1,6 @@
 [package]
 name = "razer-deathadder-v2-pro-wired-driver"
-version = "0.4.7-preview.1"
+version = "0.4.9-preview.1"
 edition.workspace = true
 license.workspace = true
 publish = false

@@ -1,6 +1,6 @@
-# Peripheral Desk Drivers
+# 外设盒设备插件
 
-Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，可在主程序的驱动商店单独安装和更新。
+外设盒（原 Peripheral Desk）的公开设备驱动包仓库。每款设备使用独立 DLL，可在主程序的驱动商店单独安装和更新。
 
 | 驱动包 | 设备 |
 | --- | --- |
@@ -8,17 +8,17 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `mchose-a5-ultra` | 迈从 A5 Ultra 初代 |
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
-| `logitech-g305`（预览） | G305 LIGHTSPEED，只读电量，依据公开实现适配、尚未实机验证 |
-| `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线 1532:00AA，只读电量与充电状态，尚未实机验证 |
-| `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 3837:1018 接收器，只读电量，尚未实机验证 |
-| `vgn-f2-master-plus`（预览） | F2 Master+ 3554:FB56/FB57，只读电量与充电状态，尚未实机验证 |
-| `atk-x1-pro-max`（预览） | X1 Pro Max 有线与 8K 接收器，只读电量、运行时型号校验，尚未实机验证 |
+| `logitech-g305`（预览） | G305 LIGHTSPEED，电量、条件允许时的 DPI 设置；需关闭板载配置，尚未实机验证 |
+| `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线，电量、DPI、回报率、灯效；尚未实机验证 |
+| `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 接收器，电量、DPI、回报率、鼠标键映射；尚未实机验证 |
+| `vgn-f2-master-plus`（预览） | F2 Master+ 有线/接收器，电量、DPI、档位、回报率、鼠标键映射；尚未实机验证 |
+| `atk-x1-pro-max`（预览） | X1 Pro Max 有线/8K 接收器，电量、DPI、回报率；尚未实机验证 |
 | `razer-viper-v2-pro-wired`（预览） | Viper V2 Pro 有线，电量、DPI、回报率，尚未实机验证 |
-| `atk-a9-plus-nearlink`（预览） | A9 Plus Nearlink 有线与 NearLink 接收器，只读电量，尚未实机验证 |
-| `razer-viper-ultimate-wired`（预览） | Viper Ultimate 有线，只读电量与充电状态，尚未实机验证 |
+| `atk-a9-plus-nearlink`（预览） | A9 Plus Nearlink 有线/NearLink 接收器，电量、DPI、最高 1000 Hz 回报率；尚未实机验证 |
+| `razer-viper-ultimate-wired`（预览） | Viper Ultimate 有线，电量、DPI、回报率、Logo 灯效；尚未实机验证 |
 | `vgn-f2-pro-max`（预览） | F2 Pro Max 有线/接收器，电量与充电状态 |
 | `vgn-f1-pro`（预览） | F1 Pro 有线/接收器，电量与充电状态 |
-| `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量与充电状态 |
+| `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量、DPI、回报率、Logo 灯效；尚未实机验证 |
 
 | `ajazz-aj179-pro`（预览） | AJ179 PRO USB / 接收器，DPI、回报率、休眠、鼠标键映射；上游已实测，本项目未复测 |
 | `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.8 |

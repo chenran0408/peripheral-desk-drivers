@@ -2,7 +2,7 @@
 //! frames documented in docs/ATK-A9-PLUS-NEARLINK.md.
 use peripheral_desk::{
     hid::{self, Interface},
-    model::State,
+    model::{Action, State},
 };
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
@@ -20,6 +20,10 @@ const CID: u8 = 0x02;
 const MID: u8 = 0x53;
 const IDENTITY_DATA_LEN: u8 = 2;
 const BATTERY_DATA_LEN: u8 = 2;
+const EEPROM_READ: u8 = 0x08;
+const EEPROM_WRITE: u8 = 0x07;
+const SYSTEM_ADDR: u16 = 0x0000;
+const DPI_ADDR: u16 = 0x000c;
 const REPORT_LEN: usize = PAYLOAD_LEN + 1;
 const TIMEOUT: Duration = Duration::from_millis(700);
 
@@ -237,9 +241,200 @@ pub fn read_atk() -> Result<State> {
         [interface] => {
             let connection = Connection::from_pid(interface.pid).expect("candidate PID was checked");
             let mut transport = AtkTransport(peripheral_hid_transport::WinTransport::open(&interface.path)?);
-            Ok(read_with(&mut transport, connection))
+            let mut state = read_with(&mut transport, connection);
+            if state.fresh { populate_settings(&mut transport, &mut state)?; }
+            Ok(state)
         }
         _ => Err("找到多个 ATK A9 Plus Nearlink 协议集合；为避免查询错误接口，已停止".into()),
+    }
+}
+
+fn read_eeprom<T: Transport>(transport: &mut T, address: u16, len: u8) -> Result<Vec<u8>> {
+    let mut request = command(EEPROM_READ);
+    request[1] = 0;
+    request[2] = (address >> 8) as u8;
+    request[3] = address as u8;
+    request[4] = len;
+    request[15] = checksum(&request);
+    let reply = transport.exchange(&request)?;
+    let data = parse_reply(&reply, EEPROM_READ, len)?;
+    if reply[2] != (address >> 8) as u8 || reply[3] != address as u8 {
+        return Err("ATK EEPROM 地址读回不匹配".into());
+    }
+    Ok(data)
+}
+
+fn write_eeprom<T: Transport>(transport: &mut T, address: u16, data: &[u8]) -> Result<()> {
+    if data.is_empty() || data.len() > 10 {
+        return Err("ATK EEPROM 写入长度无效".into());
+    }
+    let mut request = command(EEPROM_WRITE);
+    request[1] = 0;
+    request[2] = (address >> 8) as u8;
+    request[3] = address as u8;
+    request[4] = data.len() as u8;
+    request[5..5 + data.len()].copy_from_slice(data);
+    request[15] = checksum(&request);
+    let reply = transport.exchange(&request)?;
+    parse_reply(&reply, EEPROM_WRITE, data.len() as u8)?;
+    if reply[2] != (address >> 8) as u8 || reply[3] != address as u8 {
+        return Err("ATK EEPROM 写入 ACK 地址不匹配".into());
+    }
+    Ok(())
+}
+
+fn pack_dpi(dpi: u16) -> [u8; 4] {
+    let count = dpi / 50 - 1;
+    let lo = count as u8;
+    let nibble = ((count >> 8) as u8 & 3) << 2;
+    let mode = nibble | (nibble << 4);
+    [
+        lo,
+        lo,
+        mode,
+        0x55u8.wrapping_sub(lo.wrapping_mul(2).wrapping_add(mode)),
+    ]
+}
+
+fn unpack_dpi(bytes: &[u8]) -> Result<u16> {
+    if bytes.len() < 4
+        || bytes[0]
+            .wrapping_add(bytes[1])
+            .wrapping_add(bytes[2])
+            .wrapping_add(bytes[3])
+            != 0x55
+    {
+        return Err("ATK DPI 校验失败".into());
+    }
+    let count = u16::from(bytes[0]) | (u16::from((bytes[2] & 0x0c) >> 2) << 8);
+    Ok((count + 1) * 50)
+}
+
+fn populate_settings<T: Transport>(transport: &mut T, state: &mut State) -> Result<()> {
+    let system = read_eeprom(transport, SYSTEM_ADDR, 6)?;
+    let rates = [(0x08, 125), (0x04, 250), (0x02, 500), (0x01, 1000)];
+    if system[0].wrapping_add(system[1]) == 0x55 {
+        state.rate = rates
+            .iter()
+            .find(|(code, hz)| *code == system[0] && (!state.wired || *hz <= 1000))
+            .map(|(_, hz)| *hz);
+    }
+    if system[2].wrapping_add(system[3]) != 0x55
+        || system[4].wrapping_add(system[5]) != 0x55
+        || system[2] == 0
+        || system[2] > 6
+        || system[4] >= system[2]
+    {
+        return Err("ATK 活动 DPI 档位或档位数校验失败".into());
+    }
+    let address = DPI_ADDR + u16::from(system[4]) * 4;
+    let dpi = unpack_dpi(&read_eeprom(transport, address, 4)?)?;
+    if (100..=30000).contains(&dpi) {
+        state.dpi = Some(dpi);
+    }
+    if state.rate.is_none() || state.dpi.is_none() {
+        state.settings_error =
+            "ATK EEPROM returned an unsupported or invalid setting; no value is shown".into();
+    }
+    Ok(())
+}
+
+fn apply_transaction<T: Transport>(
+    transport: &mut T,
+    address: u16,
+    before: &[u8],
+    after: &[u8],
+) -> Result<()> {
+    let attempt = write_eeprom(transport, address, after).and_then(|_| {
+        let readback = read_eeprom(transport, address, before.len() as u8)?;
+        if readback == after {
+            Ok(())
+        } else {
+            Err("ATK EEPROM readback differed".into())
+        }
+    });
+    if let Err(error) = attempt {
+        let rollback = write_eeprom(transport, address, before)
+            .and_then(|_| read_eeprom(transport, address, before.len() as u8))
+            .and_then(|actual| {
+                if actual == before {
+                    Ok(())
+                } else {
+                    Err("rollback readback differed".into())
+                }
+            });
+        return match rollback {
+            Ok(()) => Err(format!(
+                "ATK setting failed: {error}; original bytes restored and verified"
+            )),
+            Err(e) => Err(format!(
+                "ATK setting failed: {error}; rollback not verified: {e}"
+            )),
+        };
+    }
+    Ok(())
+}
+
+pub fn apply_action(action: Action) -> Result<()> {
+    let interfaces = hid::enumerate()?;
+    let mut candidates = interfaces.iter().filter(|i| matching_interface(i));
+    let Some(interface) = candidates.next() else {
+        return Err("未找到精确 ATK HID 集合".into());
+    };
+    if candidates.next().is_some() {
+        return Err("找到多个 ATK 协议集合，已停止写入".into());
+    }
+    Connection::from_pid(interface.pid).ok_or("ATK PID 不受支持")?;
+    let mut transport = AtkTransport(peripheral_hid_transport::WinTransport::open(
+        &interface.path,
+    )?);
+    let identity = parse_reply(
+        &transport.exchange(&command(IDENTITY_COMMAND))?,
+        IDENTITY_COMMAND,
+        IDENTITY_DATA_LEN,
+    )?;
+    if identity.get(0..2) != Some(&[0x02, 0x53]) {
+        return Err("ATK CID/MID mismatch; refusing settings write".into());
+    }
+    match action {
+        Action::Rate(rate) => {
+            let code = match rate {
+                125 => 0x08,
+                250 => 0x04,
+                500 => 0x02,
+                1000 => 0x01,
+                _ => {
+                    return Err(
+                        "A9 Plus Nearlink polling rate must be 125, 250, 500, or 1000 Hz".into(),
+                    )
+                }
+            };
+            let before = read_eeprom(&mut transport, SYSTEM_ADDR, 2)?;
+            apply_transaction(
+                &mut transport,
+                SYSTEM_ADDR,
+                &before,
+                &[code, 0x55u8.wrapping_sub(code)],
+            )
+        }
+        Action::Dpi(dpi) => {
+            if !(100..=30000).contains(&dpi) || dpi % 50 != 0 {
+                return Err("A9 Plus Nearlink DPI must be 100–30000 in 50-DPI steps".into());
+            }
+            let system = read_eeprom(&mut transport, SYSTEM_ADDR, 6)?;
+            if system[2].wrapping_add(system[3]) != 0x55
+                || system[4].wrapping_add(system[5]) != 0x55
+                || system[2] == 0
+                || system[2] > 6
+                || system[4] >= system[2]
+            {
+                return Err("ATK 活动 DPI 档位或档位数校验失败；拒绝写入".into());
+            }
+            let address = DPI_ADDR + u16::from(system[4]) * 4;
+            let before = read_eeprom(&mut transport, address, 4)?;
+            apply_transaction(&mut transport, address, &before, &pack_dpi(dpi))
+        }
+        _ => Err("This ATK preview supports DPI and polling-rate settings only".into()),
     }
 }
 
@@ -349,6 +544,13 @@ mod tests {
         );
         for pid in [0x101a, 0x101b, 0x1224, 0x1263, 0x1300] {
             assert_eq!(Connection::from_pid(pid), None);
+        }
+    }
+
+    #[test]
+    fn paw3395_dpi_values_round_trip_with_a100_dpi_minimum() {
+        for dpi in [100, 400, 1_200, 12_800, 30_000] {
+            assert_eq!(unpack_dpi(&pack_dpi(dpi)).unwrap(), dpi);
         }
     }
 }

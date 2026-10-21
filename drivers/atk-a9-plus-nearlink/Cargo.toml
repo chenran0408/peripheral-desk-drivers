@@ -1,6 +1,6 @@
 [package]
 name = "atk-a9-plus-nearlink-driver"
-version = "0.4.6-preview.1"
+version = "0.4.9-preview.1"
 edition.workspace = true
 license.workspace = true
 publish = false
@@ -10,5 +10,6 @@ crate-type = ["cdylib"]
 
 [dependencies]
 peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk.workspace = true
 peripheral-desk-protocol-atk-a9-plus-nearlink = { path = "../../crates/protocol-atk-a9-plus-nearlink" }
 serde_json.workspace = true

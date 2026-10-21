@@ -1,6 +1,6 @@
 # ATK A9 Plus Nearlink
 
-`atk-a9-plus-nearlink` is a read-only preview for the USB wired mouse
+`atk-a9-plus-nearlink` (`0.4.9-preview.1`) provides battery telemetry plus preview DPI and polling-rate settings for the USB wired mouse
 (`373B:1115`) and NearLink receiver (`373B:10C9`). Both use the `FF02:0002`
 collection and report ID `08` with a 16-byte payload. The Windows HID buffer
 includes the report ID, so the driver selects a 17-byte input/output report on
@@ -12,9 +12,13 @@ two-byte payload containing CID/MID `02:53` (decimal `2,83`). Only an exact,
 valid identity reply allows battery command `04`. Its reply declares exactly
 two payload bytes: percentage (0–100) and charging (`00` or `01`). Bytes after
 those two declared values, including `10 8e` in the captures, are padding and
-are not interpreted as voltage. No setting, EEPROM, pairing, lighting, or
-other commands are sent. Missing or unknown CID/MID and malformed replies stop
-the read.
+are not interpreted as voltage. Settings are gated on the exact CID/MID and
+use the PAW3395 limits: 100–30,000 DPI in 50-DPI steps and 125/250/500/1,000
+Hz. Settings bytes are read first, then written and read back; the driver
+attempts to restore and verify the captured original after any write or
+readback failure. Missing or unknown CID/MID and malformed replies stop
+settings access. No remapping, lighting, pairing, or firmware operation is
+exposed.
 
 The protocol is independently implemented from the published hardware
 records; no OpenMouse source is copied. Evidence is pinned to OpenMouse
@@ -34,5 +38,7 @@ Across all four captures, command `10` returns status `00`, declared length
 The model is identified by runtime CID/MID on both USB PIDs, not by product
 string.
 
-These records document upstream real-hardware reads. This driver build has
-not been validated locally with hardware.
+These records document upstream real-hardware settings and telemetry paths.
+This preview's writes have not been tested locally with hardware. The upstream
+repository is licensed under GNU AGPL v3; this crate uses source-backed
+protocol facts without copying upstream implementation code.

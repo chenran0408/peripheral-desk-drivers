@@ -1,6 +1,6 @@
 [package]
 name = "peripheral-desk-protocol-mchose-v3"
-version = "0.4.4-preview.2"
+version = "0.4.9-preview.1"
 edition.workspace = true
 license.workspace = true
 publish = false

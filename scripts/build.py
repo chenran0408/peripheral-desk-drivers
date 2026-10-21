@@ -95,7 +95,19 @@ def main():
         }
         payloads["SOURCE.txt"] = ("Driver wrapper source: https://github.com/chenran0408/peripheral-desk-drivers\nCore source: https://github.com/chenran0408/peripheral-desk/tree/" + (revision.group(1) if revision else "DEVELOPMENT-UNPINNED") + "\n").encode("utf-8")
         # Ship model-specific evidence/limitations alongside the binary.
-        evidence = {"ajazz-aj179-pro": "AJAZZ-AJ179-PRO.md", "mchose-magdock": "MCHOSE-MAGDOCK.md", "razer-viper-v2-pro-wired": "RAZER-VIPER-V2-PRO.md"}.get(driver_id)
+        evidence = {
+            "ajazz-aj179-pro": "AJAZZ-AJ179-PRO.md",
+            "mchose-magdock": "MCHOSE-MAGDOCK.md",
+            "razer-viper-v2-pro-wired": "RAZER-VIPER-V2-PRO.md",
+            "logitech-g305": "LOGITECH-G305.md",
+            "mchose-a7-v3-ultra-plus": "MCHOSE-A7-V3.md",
+            "vgn-f2-master-plus": "VGN-F2-MASTER-PLUS.md",
+            "atk-x1-pro-max": "ATK-X1-PRO-MAX.md",
+            "atk-a9-plus-nearlink": "ATK-A9-PLUS-NEARLINK.md",
+            "razer-basilisk-v3-pro-wired": "RAZER-BASILISK-V3-PRO.md",
+            "razer-viper-ultimate-wired": "RAZER-VIPER-ULTIMATE.md",
+            "razer-deathadder-v2-pro-wired": "RAZER-DEATHADDER-V2-PRO.md",
+        }.get(driver_id)
         if evidence:
             payloads["DEVICE_SUPPORT.md"] = (ROOT / "docs" / evidence).read_bytes()
         payloads["ASSET_SOURCES.md"] = (ROOT / "ASSET_SOURCES.md").read_bytes()

@@ -1,0 +1,10 @@
+[package]
+name = "peripheral-desk-protocol-atk-a9-plus-nearlink"
+version = "0.4.6-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../hid-transport" }

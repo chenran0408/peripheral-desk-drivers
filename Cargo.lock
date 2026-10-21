@@ -3,6 +3,15 @@
 version = 4
 
 [[package]]
+name = "atk-a9-plus-nearlink-driver"
+version = "0.4.6-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-atk-a9-plus-nearlink",
+ "serde_json",
+]
+
+[[package]]
 name = "atk-x1-pro-max-driver"
 version = "0.4.5-preview.1"
 dependencies = [
@@ -151,6 +160,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-atk-a9-plus-nearlink"
+version = "0.4.6-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-hidpp"
 version = "0.4.1-preview.1"
 dependencies = [
@@ -169,6 +186,13 @@ dependencies = [
 [[package]]
 name = "peripheral-desk-protocol-razer"
 version = "0.4.3-preview.1"
+dependencies = [
+ "peripheral-desk",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-razer-viper-ultimate"
+version = "0.4.6-preview.1"
 dependencies = [
  "peripheral-desk",
 ]
@@ -227,6 +251,15 @@ name = "razer-deathadder-v3-pro-driver"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
+]
+
+[[package]]
+name = "razer-viper-ultimate-wired-driver"
+version = "0.4.6-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-viper-ultimate",
+ "serde_json",
 ]
 
 [[package]]

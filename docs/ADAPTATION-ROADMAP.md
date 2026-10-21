@@ -85,3 +85,7 @@
 - 新增 ATK X1 Pro Max 只读预览，限有线 `373B:1017` 与 8K 接收器 `373B:101B`，读取 CID/MID `2,39` 后才读取电量。来源为固定 OpenMouse 的真实读取记录，避免从目录孤立数字推断协议集合；本项目仍未实机验证。详见 [X1 Pro Max](ATK-X1-PRO-MAX.md)。
 - 新增 Razer Viper V2 Pro 有线 `1532:00A5` 只读预览；不推广至 `00A6` 或其他型号。详见 [Viper V2 Pro](RAZER-VIPER-V2-PRO.md)。
 - F1 Ultimate 既有身份与接口疑问继续保留，不因为新增同品牌设备就解除限制。后续可优先调查 OpenMouse 已记录的 ATK A9 Plus Nearlink，但仍需按两代官方硬件与不同接口分别确认。
+
+## 0.4.6 并行增补
+
+新增 ATK A9 Plus Nearlink 有线及 NearLink 接收器只读预览，按 CID/MID `2,83` 及独立抓包核对；新增 Viper Ultimate `1532:007A` 有线只读预览。这两款同样未在本项目实机验证，仅开放电量等读取，不能从同品牌已有支持推导设置可写。主程序继续使用 0.4.5，无需为了安装这些插件再次升级主程序。

@@ -9,3 +9,5 @@ The Basilisk V3 Pro wired preview also uses an original neutral mouse illustrati
 The A7 V3 Ultra+ and VGN F2 Master+ previews reuse the same original neutral mouse illustration. These are identification placeholders, not vendor photographs.
 
 The X1 Pro Max and Viper V2 Pro wired preview packages also use the original neutral mouse illustration; these are not vendor product photographs.
+
+A9 Plus Nearlink and Viper Ultimate wired previews reuse the original neutral mouse illustration, not vendor artwork.

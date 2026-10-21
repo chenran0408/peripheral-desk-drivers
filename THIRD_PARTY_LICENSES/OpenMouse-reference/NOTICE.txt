@@ -6,3 +6,5 @@ License: GNU Affero General Public License version 3; see LICENSE.
 Peripheral Desk A7 V3 Ultra+ and VGN F2 Master+ preview adapters use documented protocol facts from src/mchose/v3.ts, src/drivers/mchose/v3-hid.ts, docs/mchose-protocol.md, src/vgn/index.ts, src/drivers/vgn/hid.ts and src/drivers/vgn/protocol.test.ts. The Rust read-only adapters are independently authored. Upstream hardware reports are not physical validation of these Windows adapters.
 
 The ATK X1 Pro Max read-only adapter additionally references docs/atk-testing.md, captures/atk-x1-pro-max/, src/drivers/atk/hid.ts, src/drivers/atk/products.ts and src/endgame-gear/wireless.ts at the same immutable revision. Model matching is limited to the documented cable/8K receiver and runtime CID/MID.
+
+The ATK A9 Plus Nearlink read-only adapter references the same documents plus captures/atk-a9-plus-nk/ at this revision; declared payload length and runtime identity are checked independently of the X1 Pro Max.

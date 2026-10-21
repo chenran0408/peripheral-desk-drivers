@@ -17,6 +17,9 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `atk-x1-pro-max`（预览） | X1 Pro Max 有线与 8K 接收器，只读电量、运行时型号校验，尚未实机验证 |
 | `razer-viper-v2-pro-wired`（预览） | Viper V2 Pro 有线，只读电量与充电状态，尚未实机验证 |
 
+| `atk-a9-plus-nearlink`（预览） | A9 Plus Nearlink 有线与 NearLink 接收器，只读电量，尚未实机验证 |
+| `razer-viper-ultimate-wired`（预览） | Viper Ultimate 有线，只读电量与充电状态，尚未实机验证 |
+
 ## 下载
 
 在 [Peripheral Desk](https://github.com/chenran0408/peripheral-desk/releases) 下载主程序，再到驱动商店选择设备。手动下载可用本仓库的 [发布页面](https://github.com/chenran0408/peripheral-desk-drivers/releases)。每个 ZIP 对应一款设备；请通过主程序安装，不要双击或注册 DLL。离线安装需同时保留来自维护者同一 release 的受信 catalog-stable.json（或预览通道目录）及其 `.json.sig`，由主程序核对签名、ZIP 与 DLL 的 SHA256。

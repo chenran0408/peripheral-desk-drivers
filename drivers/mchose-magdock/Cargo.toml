@@ -1,0 +1,15 @@
+[package]
+name = "mchose-magdock-driver"
+version = "0.4.8-preview.1"
+edition = "2021"
+license = "AGPL-3.0-only"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-mchose-magdock = { path = "../../crates/protocol-mchose-magdock" }
+serde_json = "1"
+

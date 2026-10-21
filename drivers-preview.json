@@ -245,8 +245,8 @@
   {
     "id": "razer-viper-v2-pro-wired",
     "name": "Razer Viper V2 Pro (有线)",
-    "version": "0.4.5-preview.1",
-    "description": "依据固定版本的 OpenRazer 公开协议实现；仅支持 1532:00A5 有线设备，只读电量和充电状态，尚未实机验证。",
+    "version": "0.4.8-preview.1",
+    "description": "依据固定版本的 OpenRazer 公开协议实现；仅支持 1532:00A5 有线设备，可读取电量、充电状态、DPI 与回报率，并设置 DPI（100–30000，步进 50）和 125/500/1000 Hz 回报率；尚未实机验证。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -254,7 +254,7 @@
       "name": "Razer Viper V2 Pro",
       "brand": "Razer",
       "kind": "mouse",
-      "subtitle": "只读电量 · 本地未验证",
+      "subtitle": "DPI 100–30000 · 回报率 125/500/1000 Hz · 本地未验证",
       "image": "device.png",
       "matches": [
         {
@@ -279,17 +279,45 @@
           "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1699-L1775",
           "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1053-L1070",
           "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.h#L124-L136",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.c#L108-L124"
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.c#L108-L124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1964-L2005",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2181-L2220",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2609-L2640",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2769-L2810",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3173-L3190",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3292-L3315",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1092-L1127",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1211-L1241",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1281-L1325",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2575",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2810",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3281"
         ]
-      }
+      },
+      "dpi_range": [
+        100,
+        30000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000
+      ],
+      "wired_rates": [
+        125,
+        500,
+        1000
+      ]
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "settings"
     ],
-    "changelog": "新增 Viper V2 Pro 有线电量和充电状态只读预览。仅匹配 1532:00A5；本地未实测。"
+    "changelog": "新增 Viper V2 Pro 有线 DPI 与回报率读取和设置；失败时恢复原设置并核对，改 DPI 时保留其他档位和未识别数据。仅支持 1532:00A5；本地未实测。"
   },
   {
     "id": "atk-a9-plus-nearlink",
@@ -560,5 +588,181 @@
       "battery"
     ],
     "changelog": "新增 DeathAdder V2 Pro 有线只读电量和充电状态预览；本地未实测。"
+  },
+  {
+    "id": "mchose-magdock",
+    "name": "MCHOSE MagDock",
+    "version": "0.4.8-preview.1",
+    "description": "灯效读写预览；依据固定上游提交中真实 MagDock 的写入、读回与恢复记录移植，尚未在本项目实机验证。",
+    "device": {
+      "key": "mchose-magdock",
+      "name": "MCHOSE MagDock",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "充电底座灯效 · 上游实机验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4114,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "lighting_modes": [
+        {
+          "id": 0,
+          "label": "常亮",
+          "color": true,
+          "music_sync": false
+        },
+        {
+          "id": 1,
+          "label": "呼吸",
+          "color": true,
+          "music_sync": false
+        },
+        {
+          "id": 2,
+          "label": "闪耀",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 3,
+          "label": "变色循环",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 4,
+          "label": "流光",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 5,
+          "label": "音乐",
+          "color": false,
+          "music_sync": true
+        }
+      ],
+      "lighting_speed_max": 4,
+      "lighting_brightness_max": 4,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "MCHOSE MagDock 3837:1012，usage page FF00 / usage 0001；上游真实设备完成灯效读取、完整写入、读回核对和原值恢复"
+        ],
+        "firmware": "unknown",
+        "project_validation": "本项目尚未连接设备实测；Windows HID/ABI 映射与安装升级数据保留尚待本项目环境验证",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/mchose/dock.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.test.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md"
+        ],
+        "upstream_license": "AGPL-3.0-or-later"
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.7",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-editor",
+      "lighting-switch"
+    ],
+    "changelog": "新增 MCHOSE MagDock 底座灯效读取、开关、六种模式、颜色、速度与亮度设置；写入后读回核对，失败时尝试恢复。"
+  },
+  {
+    "id": "ajazz-aj179-pro",
+    "name": "AJAZZ AJ179 PRO",
+    "version": "0.4.8-preview.1",
+    "description": "AJ179 PRO GearHub-V5 有线与 2.4 GHz 接收器控制；运行时必须验证设备 id 1851。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "ajazz-aj179-pro",
+      "name": "AJAZZ AJ179 PRO",
+      "brand": "AJAZZ",
+      "kind": "mouse",
+      "subtitle": "DPI、回报率与按键控制 · USB / 2.4 GHz",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 16422,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        },
+        {
+          "vid": 12625,
+          "pid": 16429,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        }
+      ],
+      "dpi_range": [
+        50,
+        26000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000
+      ],
+      "sleeps": [
+        0,
+        60,
+        180,
+        300,
+        600,
+        1200,
+        1800,
+        3600
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB cable / 3151:4026 / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0); runtime device id 1851 required",
+          "2.4 GHz receiver / 3151:402D / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0), F6/F7/FC relay; runtime device id 1851 required"
+        ],
+        "firmware": "v3.03",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/ajazz-aj179-pro.md",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/ajazz-aj179-pro.json"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings",
+      "bindings"
+    ],
+    "changelog": "新增 AJ179 PRO USB 与 2.4 GHz 接收器设置和六键改键；读写依托设备 id 校验、原值保留、读回核对及失败恢复。"
   }
 ]

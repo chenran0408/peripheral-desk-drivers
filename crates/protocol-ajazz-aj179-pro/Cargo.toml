@@ -1,0 +1,13 @@
+[package]
+name = "peripheral-desk-protocol-ajazz-aj179-pro"
+version = "0.4.8-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true
+

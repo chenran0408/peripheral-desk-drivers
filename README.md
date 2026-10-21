@@ -13,12 +13,15 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 3837:1018 接收器，只读电量，尚未实机验证 |
 | `vgn-f2-master-plus`（预览） | F2 Master+ 3554:FB56/FB57，只读电量与充电状态，尚未实机验证 |
 | `atk-x1-pro-max`（预览） | X1 Pro Max 有线与 8K 接收器，只读电量、运行时型号校验，尚未实机验证 |
-| `razer-viper-v2-pro-wired`（预览） | Viper V2 Pro 有线，只读电量与充电状态，尚未实机验证 |
+| `razer-viper-v2-pro-wired`（预览） | Viper V2 Pro 有线，电量、DPI、回报率，尚未实机验证 |
 | `atk-a9-plus-nearlink`（预览） | A9 Plus Nearlink 有线与 NearLink 接收器，只读电量，尚未实机验证 |
 | `razer-viper-ultimate-wired`（预览） | Viper Ultimate 有线，只读电量与充电状态，尚未实机验证 |
 | `vgn-f2-pro-max`（预览） | F2 Pro Max 有线/接收器，电量与充电状态 |
 | `vgn-f1-pro`（预览） | F1 Pro 有线/接收器，电量与充电状态 |
 | `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量与充电状态 |
+
+| `ajazz-aj179-pro`（预览） | AJ179 PRO USB / 接收器，DPI、回报率、休眠、鼠标键映射；上游已实测，本项目未复测 |
+| `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.7 |
 
 ## 下载
 

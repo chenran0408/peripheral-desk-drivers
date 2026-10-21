@@ -16,12 +16,12 @@ def metadata(item):
         raise ValueError("Unsafe package id")
     if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?", item["version"]):
         raise ValueError("Invalid independently versioned package")
-    if item["core_min"] != "0.4.0" or item["core_max_exclusive"] != "0.5.0":
+    if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", item["core_min"]) or item["core_max_exclusive"] != "0.5.0":
         raise ValueError("ABI 1 packages must retain the reviewed 0.4.x core range")
     if item["channel"] not in ("stable", "preview") or not item["changelog"]:
         raise ValueError("Missing channel or user-facing changelog")
     device = item["device"]
-    if device["key"] != item["id"] or device["image"] != "device.png" or device["kind"] not in ("mouse", "keyboard", "headset"):
+    if device["key"] != item["id"] or device["image"] != "device.png" or device["kind"] not in ("mouse", "keyboard", "headset", "accessory"):
         raise ValueError("Device identity/kind mismatch")
     if not device["matches"]:
         raise ValueError("Hardware matching rules are required")

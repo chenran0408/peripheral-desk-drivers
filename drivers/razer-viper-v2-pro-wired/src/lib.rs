@@ -5,11 +5,21 @@ fn handler(key: &str, input: &str) -> String {
         }
         let request: serde_json::Value =
             serde_json::from_str(input).map_err(|e| format!("请求 JSON 无效：{e}"))?;
-        if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
-            return Err("Viper V2 Pro 插件仅提供只读电量和充电状态；没有设置写入操作".into());
+        match request.get("op").and_then(serde_json::Value::as_str) {
+            Some("read-state") => {
+                serde_json::to_value(peripheral_desk_protocol_razer_viper_v2_pro::read_state()?)
+                    .map_err(|e| e.to_string())
+            }
+            Some("apply-setting") => {
+                let action = request
+                    .get("action")
+                    .ok_or_else(|| "缺少驱动参数：action".to_string())?;
+                peripheral_desk_protocol_razer_viper_v2_pro::apply_setting_value(action)?;
+                Ok(serde_json::Value::Null)
+            }
+            Some(operation) => Err(format!("Viper V2 Pro 不支持操作：{operation}")),
+            None => Err("缺少驱动操作类型".into()),
         }
-        serde_json::to_value(peripheral_desk_protocol_razer_viper_v2_pro::read_state()?)
-            .map_err(|e| e.to_string())
     })();
     match result {
         Ok(value) => serde_json::json!({"ok":true,"value":value,"error":""}),

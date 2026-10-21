@@ -1,0 +1,13 @@
+[package]
+name = "peripheral-desk-protocol-mchose-magdock"
+version = "0.4.8-preview.1"
+edition = "2021"
+license = "AGPL-3.0-only"
+publish = false
+
+[dependencies]
+peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "ef82c5f9989413189de7848d03a7e0eb8c282fd5", default-features = false, features = ["driver-runtime"] }
+peripheral-hid-transport = { path = "../hid-transport" }
+
+[dev-dependencies]
+

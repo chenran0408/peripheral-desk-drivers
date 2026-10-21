@@ -2,6 +2,7 @@
 """Write short user-facing release notes from only the packaged catalog entries."""
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -21,7 +22,7 @@ def generate(directory):
         for entry in catalog["drivers"]:
             if entry["channel"] != channel or entry["id"] in ids:
                 raise ValueError("Duplicate or misplaced release package")
-            if entry["core_min"] != "0.4.0" or entry["core_max_exclusive"] != "0.5.0":
+            if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", entry["core_min"]) or entry["core_max_exclusive"] != "0.5.0":
                 raise ValueError("Update the release guidance before changing the core range")
             ids.add(entry["id"])
             entries.append(entry)
@@ -38,7 +39,8 @@ def generate(directory):
                 lines.append("  当前仅查看电量，尚未实机验证。")
             elif entry.get("device", {}).get("validation", {}).get("status") == "public-implementation-untested":
                 lines.append("  尚未实机验证，支持范围以设备说明为准。")
-    lines.extend(["", "适用于 Windows x64 和 Peripheral Desk 0.4.x。在主程序的驱动商店按需安装需要的设备包即可。"])
+    minimum = max((entry["core_min"] for entry in entries), key=lambda v: tuple(map(int,v.split("."))))
+    lines.extend(["", f"适用于 Windows x64；请先将 Peripheral Desk 更新到 {minimum} 或更新的 0.4.x 版本，再在驱动商店按需安装。未列出的设备包不受影响。"])
     if any(entry["channel"] == "preview" for entry in entries):
         lines.append("安装预览设备前，请先在驱动商店切换到预览通道。")
     if any(entry["id"] == "hecate-g2-pro" for entry in entries):

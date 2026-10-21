@@ -94,6 +94,10 @@ def main():
             "README.txt": (f"{item['name']} {version}\n在 Peripheral Desk 的驱动商店安装此包。\n请勿直接运行或注册 driver.dll。\n源码：https://github.com/chenran0408/peripheral-desk-drivers\n" + ("G2 Pro 音效需要已安装的 HECATE / C-Media 官方组件；包内不附带厂商驱动。\n" if driver_id == "hecate-g2-pro" else "")).encode("utf-8"),
         }
         payloads["SOURCE.txt"] = ("Driver wrapper source: https://github.com/chenran0408/peripheral-desk-drivers\nCore source: https://github.com/chenran0408/peripheral-desk/tree/" + (revision.group(1) if revision else "DEVELOPMENT-UNPINNED") + "\n").encode("utf-8")
+        # Ship model-specific evidence/limitations alongside the binary.
+        evidence = {"ajazz-aj179-pro": "AJAZZ-AJ179-PRO.md", "mchose-magdock": "MCHOSE-MAGDOCK.md", "razer-viper-v2-pro-wired": "RAZER-VIPER-V2-PRO.md"}.get(driver_id)
+        if evidence:
+            payloads["DEVICE_SUPPORT.md"] = (ROOT / "docs" / evidence).read_bytes()
         payloads["ASSET_SOURCES.md"] = (ROOT / "ASSET_SOURCES.md").read_bytes()
         for license_path in sorted((ROOT / "THIRD_PARTY_LICENSES").rglob("*")):
             if license_path.is_file():

@@ -2,3 +2,8 @@
 /dist/
 *.tmp
 __pycache__/
+
+# Nested experiments must never enter source releases.
+**/target/
+/crates/*/Cargo.lock
+/drivers/*/Cargo.lock

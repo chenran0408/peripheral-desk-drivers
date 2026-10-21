@@ -75,7 +75,7 @@ def verify_catalog(path, abi, temporary, release_tag=None):
             raise ValueError("Invalid independently versioned driver package")
         if entry["device"]["key"] != entry["id"] or entry["device"]["image"] != "device.png":
             raise ValueError("Device identity/image mismatch")
-        if entry["core_min"] != "0.4.0" or entry["core_max_exclusive"] != "0.5.0":
+        if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", entry["core_min"]) or entry["core_max_exclusive"] != "0.5.0":
             raise ValueError("Update verifier's supported core range before changing the ABI contract")
         if entry["dll"] != "driver.dll" or not entry["device"]["matches"]:
             raise ValueError("Missing DLL or hardware matcher")

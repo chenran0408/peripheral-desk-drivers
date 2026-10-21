@@ -3,6 +3,17 @@
 version = 4
 
 [[package]]
+name = "ajazz-aj179-pro-driver"
+version = "0.4.8-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-ajazz-aj179-pro",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "atk-a9-plus-nearlink-driver"
 version = "0.4.6-preview.1"
 dependencies = [
@@ -126,6 +137,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-magdock-driver"
+version = "0.4.8-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-magdock",
+ "serde_json",
+]
+
+[[package]]
 name = "memchr"
 version = "2.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -146,6 +166,14 @@ dependencies = [
 [[package]]
 name = "peripheral-desk-driver-ffi"
 version = "0.4.2"
+dependencies = [
+ "peripheral-desk",
+ "serde_json",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-ajazz-aj179-pro"
+version = "0.4.8-preview.1"
 dependencies = [
  "peripheral-desk",
  "serde_json",
@@ -173,6 +201,14 @@ version = "0.4.1-preview.1"
 dependencies = [
  "peripheral-desk",
  "windows-sys",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-mchose-magdock"
+version = "0.4.8-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -206,9 +242,10 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-razer-viper-v2-pro"
-version = "0.4.5-preview.1"
+version = "0.4.8-preview.1"
 dependencies = [
  "peripheral-desk",
+ "serde_json",
 ]
 
 [[package]]
@@ -280,7 +317,7 @@ dependencies = [
 
 [[package]]
 name = "razer-viper-v2-pro-wired-driver"
-version = "0.4.5-preview.1"
+version = "0.4.8-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-viper-v2-pro",

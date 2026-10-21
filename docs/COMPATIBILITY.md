@@ -1,6 +1,6 @@
 # 兼容与验证记录
 
-以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**。四款原有设备包为 **stable**；G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
+以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.7**）。四款原有设备包为 **stable**；G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
 
 设备包独立版本：四款稳定包为0.4.2；G305为0.4.1-preview.1；Basilisk V3 Pro有线为0.4.3-preview.1。它们继续使用ABI 1及上述0.4.x主程序范围，包版本变化不等于新增实机验证。
 
@@ -23,6 +23,16 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 0.4.6-preview.1 继续新增 **ATK A9 Plus Nearlink**（有线 373B:1115 / NearLink 接收器 373B:10C9，CID/MID 2,83）及 **Viper Ultimate 有线**（1532:007A）。只读电量/充电状态，未实机验证，不开放写入。详见 [A9 范围](ATK-A9-PLUS-NEARLINK.md)与 [Viper Ultimate 范围](RAZER-VIPER-ULTIMATE.md)。
 
 0.4.7-preview.1 新增 **VGN F2 Pro Max**、**VGN F1 Pro** 的有线/接收器电量与充电状态，以及 **DeathAdder V2 Pro 有线**。均依据上游已有实现接入，移植后尚未实机复测，暂不提供设置写入；精确来源和范围见 [F2 Pro Max](VGN-F2-PRO-MAX.md)、[F1 Pro](VGN-F1-PRO.md)、[DeathAdder V2 Pro](RAZER-DEATHADDER-V2-PRO.md)。
+
+## 0.4.8-preview.1 设置与灯效扩展
+
+| 型号 | 连接 | 功能 | 验证范围 |
+| --- | --- | --- | --- |
+| AJAZZ AJ179 PRO | USB 3151:4026 / 接收器 3151:402D，运行时型号 1851 | DPI、回报率、休眠、鼠标键/DPI循环映射 | 上游 v3.03 实机记录；本项目未复测，蓝牙不开放 |
+| Viper V2 Pro | 有线 1532:00A5 | 电量、DPI、125/500/1000 Hz | 固定 OpenRazer 实现；本项目未实测，无新增改键或灯效 |
+| MCHOSE MagDock | 独立底座 3837:1012 | 灯光开关、六模式、适用模式 RGB、速度/亮度 | 上游读写恢复记录；本项目未复测；需主程序 0.4.7 |
+
+详见 [AJ179 PRO](AJAZZ-AJ179-PRO.md)、[Viper V2 Pro](RAZER-VIPER-V2-PRO.md)、[MagDock](MCHOSE-MAGDOCK.md)。旧版 Viper 只读说明由本节新增能力取代；其余旧包本次不变。
 
 ## 通道
 

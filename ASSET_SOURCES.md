@@ -12,4 +12,8 @@ The X1 Pro Max and Viper V2 Pro wired preview packages also use the original neu
 
 A9 Plus Nearlink and Viper Ultimate wired previews reuse the original neutral mouse illustration, not vendor artwork.
 
-F2 Pro Max, F1 Pro and DeathAdder V2 Pro wired previews reuse the original neutral mouse illustration, not vendor artwork.
+F2 Pro Max and F1 Pro previews reuse the original neutral mouse illustration, not vendor artwork.
+
+DeathAdder V2 Pro wired uses the [Razer official support product image](https://assets.razerzone.com/eeimages/support/products/1714/comp_1_00000.png), downloaded on 2026-10-21 (152,930 bytes). This is vendor artwork used for product identification, not a project-created neutral illustration; the artwork and trademarks belong to Razer.
+
+Correction for 0.4.7-preview.1: its bundled attribution incorrectly grouped this Razer image with the neutral illustrations. This paragraph and the release attribution correction supersede that statement; the package bytes remain unchanged.

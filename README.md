@@ -23,6 +23,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 需要 Windows x64、Rust 和 Python 3.9+。四款驱动共用 ABI 1，协议实现来自固定版本的 Peripheral Desk 核心库。只要 ABI 与请求模型保持兼容，新增设备可以在本仓库完成，不必改主界面的设备列表。
 
 - [本地构建与贡献](CONTRIBUTING.md)
+- [设备目录：品牌—协议系列—型号—连接方式](docs/DEVICE-CATALOG.md)
 - [C ABI 与 JSON 请求](docs/ABI.md)
 - [包和目录格式](docs/PACKAGES.md)
 - [新设备模板](templates/device/README.md)

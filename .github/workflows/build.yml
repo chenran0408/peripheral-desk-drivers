@@ -10,6 +10,15 @@ on:
         description: Existing release tag on main to sign and publish
         required: true
         default: v0.4.0
+      metadata:
+        description: Package metadata; auto chooses preview for a prerelease tag
+        type: choice
+        options: [auto, drivers.json, drivers-preview.json]
+        default: auto
+      packages:
+        description: Optional comma-separated driver ids; empty builds all selected metadata entries
+        required: false
+        default: ""
 permissions:
   contents: read
 jobs:
@@ -28,6 +37,9 @@ jobs:
       - name: Check metadata, new-device starter and documentation
         shell: pwsh
         run: python scripts/check-source.py
+      - name: Verify signed subset channel merging without network or hardware
+        shell: pwsh
+        run: ./scripts/test-channel-merge.ps1
       - name: Check formatting and pure protocol tests
         shell: pwsh
         run: |
@@ -37,14 +49,28 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
           cargo test --locked --workspace --lib
           if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }
-      - name: Build pinned core and four packages
+      - name: Build pinned core and selected device packages
         env:
           RELEASE_TAG: ${{ inputs.release_tag || (github.ref_type == 'tag' && github.ref_name) || '' }}
+          DRIVER_METADATA: ${{ inputs.metadata || 'auto' }}
+          DRIVER_PACKAGES: ${{ inputs.packages || '' }}
         shell: pwsh
         run: |
-          $extra = @()
-          if ($env:RELEASE_TAG) { $extra = @('--release-tag', $env:RELEASE_TAG) }
+          $metadata = $env:DRIVER_METADATA
+          $tag = [string]$env:RELEASE_TAG
+          if ($metadata -eq 'auto') { $metadata = if ($tag.Contains('-')) { 'drivers-preview.json' } else { 'drivers.json' } }
+          if ($metadata -cnotin @('drivers.json', 'drivers-preview.json')) { throw "Invalid metadata selection" }
+          $extra = @('--metadata', $metadata)
+          if ($env:RELEASE_TAG) { $extra += @('--release-tag', $env:RELEASE_TAG) }
+          if (-not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)) {
+            foreach ($package in $env:DRIVER_PACKAGES.Split(',')) {
+              $package = $package.Trim()
+              if ($package -cnotmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') { throw "Invalid driver package id" }
+              $extra += @('--package', $package)
+            }
+          }
           python scripts/build.py --release --target x86_64-pc-windows-msvc @extra
+          if ($LASTEXITCODE -ne 0) { throw "Selected package build failed" }
       - name: Verify ZIP, manifests, compatibility and ABI without hardware access
         shell: pwsh
         run: |
@@ -148,5 +174,6 @@ jobs:
       - name: Update signed channel directories
         env:
           GH_TOKEN: ${{ github.token }}
+          DRIVER_CATALOG_SIGNING_KEY: ${{ secrets.DRIVER_CATALOG_SIGNING_KEY }}
         shell: pwsh
         run: ./scripts/publish-channels.ps1 -Repository $env:GITHUB_REPOSITORY -CatalogDirectory work/published

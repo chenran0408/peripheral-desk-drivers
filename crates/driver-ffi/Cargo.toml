@@ -5,6 +5,15 @@ edition.workspace = true
 license.workspace = true
 publish = false
 
+[features]
+default = []
+core-razer = ["dep:peripheral-desk"]
+core-mchose = ["dep:peripheral-desk"]
+core-g75 = ["dep:peripheral-desk"]
+core-hecate = ["dep:peripheral-desk"]
+# Compatibility only. Device packages should select one dedicated handler.
+legacy-core = ["dep:peripheral-desk"]
+
 [dependencies]
-peripheral-desk.workspace = true
+peripheral-desk = { workspace = true, optional = true }
 serde_json.workspace = true

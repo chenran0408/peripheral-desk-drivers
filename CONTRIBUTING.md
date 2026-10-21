@@ -2,7 +2,7 @@
 
 ## 本地构建
 
-开发树默认把相邻的 `../PeripheralDesk` 当作核心库，需要它提供 `driver-runtime` feature 和 `plugin_entry::request`。目录可安排为：
+发布树固定核心库的 Git revision；开发时可临时使用相邻的 `../PeripheralDesk`，需要它提供本设备使用的驱动入口与 feature。目录可安排为：
 
 ```text
 outputs/
@@ -29,14 +29,16 @@ python scripts/build.py --target x86_64-pc-windows-msvc
 peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "<完整40位提交SHA>", default-features = false, features = ["driver-runtime"] }
 ```
 
-更新并提交 Cargo.lock，再运行 `python scripts/build.py --release --target <已安装的Windows-x64目标>`。`--release` 会拒绝 path 依赖或未固定的 Git revision，并使用锁文件构建。为新增设备安排版本时，同时更新 workspace package version 和 drivers.json 中对应 version。
+更新并提交 Cargo.lock，再运行 `python scripts/build.py --release --target <已安装的Windows-x64目标>`。`--release` 会拒绝 path 依赖或未固定的 Git revision，并使用锁文件构建。每款驱动可独立升级：修改对应 crate 的版本和所选 metadata 中该设备的 version，不要求其他设备或主程序跟着升级。继承 workspace version 的 crate 仍需确保其实际版本与 metadata 一致。
 
 发布到其他标签时增加 `--release-tag v0.4.1-preview.1`。该参数是**实际接收本次所有 ZIP 的 release 标签**，可以和单个包的版本不同；CI 会把触发标签传入，再从已发布文件验证目录下载地址。省略时使用 `v<workspace version>`。stable 和 preview 的包都指向这次不可变版本发布中的 ZIP；通道目录地址另外固定，不依赖 GitHub 的 latest。
 
+只发布一款稳定驱动，例如：`python scripts/build.py --release --metadata drivers.json --package mchose-a5-ultra --release-tag v0.4.1 --out dist`。只发布 G305 预览版则用 `--metadata drivers-preview.json --package logitech-g305 --release-tag v0.4.1-preview.1`。重复 `--package` 可选多款；打包分别构建设备，避免依赖功能合并把无关协议带入每个 DLL。不要为改内容复用同一设备版本；同版不同哈希和版本倒退会被频道发布器拒绝。
+
 ## 新设备步骤
 
-1. 从 `templates/device` 复制一个包，替换 id、crate 名和 metadata。四款已有包使用核心转发器；新协议可使用模板的自定义 handler，保持同样的 JSON 响应格式。
-2. 把成员加入 workspace，放入清晰且有来源的设备图片，更新 drivers.json。匹配规则必须包含明确的 VID/PID，并按实证补充 usage、report 长度或产品名，避免匹配整个品牌。
+1. 从 `templates/device` 复制一个包，替换 id、crate 名和 metadata。四款已有包从0.4.1起使用各自的专用协议入口；新协议使用模板的自定义 handler，保持同样的 JSON 响应格式，避免通过全设备 dispatcher 牵入无关功能。
+2. 把成员加入 workspace，放入清晰且有来源的设备图片，按通道更新 drivers.json 或 drivers-preview.json。匹配规则必须包含明确的 VID/PID，并按实证补充 usage、report 长度或产品名，避免匹配整个品牌。
 3. 先实现只读状态，再实现已确认的设置。保留未知字段、隐藏槽和其他按键；失败时恢复可完整备份的原设置。
 4. 建立少量有意义的 codec 测试。硬件写入验证须另有授权；说明已实测、仅依据资料实现和暂未支持的边界。
 5. 在 PR 中写明设备及连接方式、协议第一手来源、用户可见变化、恢复行为和验证结果。不要夹带固件更新或系统驱动卸载。
@@ -51,13 +53,13 @@ peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev 
 - 是否只修改本设备，能否在不覆盖未知数据的前提下恢复；外部组件是否由用户自行安装。
 - 贡献的代码和图片是否有可说明的来源，许可证是否保留。
 
-CI 在 Windows x64 构建四个包，核对 ABI、包清单、兼容范围及 SHA256，并上传可下载构建产物；release-check 另外检查维护者已发布的包；只有受审 main tag / 手动发布流程可签名并发布，任何 PR 均不会创建发布。发布上传四个 ZIP、catalog.json、catalog-stable.json、catalog-preview.json 和 SHA256SUMS.txt。
+CI 在 Windows x64 构建所选包，核对 ABI、包清单、兼容范围及 SHA256，并上传可下载构建产物；release-check 另外检查维护者已发布的包。稳定 tag 默认选 drivers.json，带连字符的预览 tag 默认选 drivers-preview.json；手动运行可选 metadata 和逗号分隔的设备包名。只有受审 main tag / 手动发布流程可签名并发布，任何 PR 均不会创建发布。版本发布只上传本次所选 ZIP、subset catalogs、签名及 SHA256SUMS.txt。
 
 先运行 `python scripts/check-source.py` 检查元数据、模板与本地文档链接。ABI 原生探测在限时 30 秒的独立 Python 子进程中进行，异常 DLL 不会无限卡住构建。CI 会验证上传后的真实下载文件；由 GITHUB_TOKEN 创建 release 不会触发另一条 release workflow，因此发布任务自身也执行这一步。
 
 版本发布一经存在就拒绝覆盖，请修正后使用新标签。上传先创建 draft，全部成功后才公开；若中途失败，请检查残留 draft 后重试。发布任务串行更新 `catalog-stable` / `catalog-preview` 两个预发布页上的目录及签名，这两个页面只存目录，不放设备 ZIP。目录替换时客户端如读到暂时不匹配的一对文件会保留上次已验证目录。空通道仅首发初始化，之后不会用空目录覆盖已有内容。
 
-每个非空通道目录是该通道的完整快照。准备后续发布时，不要无意从某通道删去仍需提供的设备；若只是发行整套预览版，可将本批全部条目设为 preview，原 stable 目录会保留。删除设备或合并跨版本目录需要维护者明确处理并重新签名，不能拼接未经重新签名的 JSON。
+不可变版本发布中的目录只列本批所选设备，便于与同一 release 的 ZIP 一一验证。频道发布器先下载并验证已有通道目录及签名，按设备 id 合并更新，完整保留其他设备条目，再重新签名后发布完整通道目录；不会改动版本发布的 subset catalogs。空输入保留另一个通道。删除设备须另行明确维护，不用遗漏条目或空目录暗示删除，也不能复用旧签名覆盖合并后的 JSON。
 
 可用 `python scripts/verify.py dist/catalog-stable.json --abi-check` 在64位Windows检查 ABI；该检查只传入无效UTF-8，在协议派发前即返回，不访问设备。驱动 manifest 的 core_min/core_max_exclusive、channel、capabilities 和 changelog 必须与 catalog 一致。
 

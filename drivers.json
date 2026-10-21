@@ -2,7 +2,7 @@
   {
     "id": "razer-deathadder-v3-pro",
     "name": "炼狱蝰蛇 V3 专业版",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "电量与常用设置；本机仅确认前进侧键可改键和触发软件宏，其他标记槽只读。",
     "device": {
       "key": "razer-deathadder-v3-pro",
@@ -51,12 +51,12 @@
       "bindings",
       "software-macro-trigger"
     ],
-    "changelog": "独立按需安装。前进侧键改键与软件宏触发已验证；未知标记保留。"
+    "changelog": "减少不相关设备代码，保持现有功能。"
   },
   {
     "id": "mchose-a5-ultra",
     "name": "迈从 A5 Ultra 初代",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "电量、传感器设置与六键改键；实验性宏只在原宏页可完整备份时开放。",
     "device": {
       "key": "mchose-a5-ultra",
@@ -101,12 +101,12 @@
       "experimental-onboard-macros",
       "software-macro-trigger"
     ],
-    "changelog": "独立管理鼠标设置；当前实测固件的宏页无法安全备份，保持拒写。"
+    "changelog": "减少不相关设备代码，保持现有功能。"
   },
   {
     "id": "mchose-g75-pro",
     "name": "迈从 G75 Pro",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "键盘设置、普通层与 Fn 层改键及灯色。",
     "device": {
       "key": "mchose-g75-pro",
@@ -150,12 +150,12 @@
       "key-colors",
       "software-macro-trigger"
     ],
-    "changelog": "独立管理键盘设置、普通/Fn层改键和灯色。"
+    "changelog": "减少不相关设备代码，保持现有功能。"
   },
   {
     "id": "hecate-g2-pro",
     "name": "漫步者 G2 Pro",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "音量、原驱动音效和耳罩灯光控制；音效需已安装官方组件。",
     "device": {
       "key": "hecate-g2-pro",
@@ -197,6 +197,6 @@
       "effects",
       "lighting"
     ],
-    "changelog": "独立提供音量、原有音效和灯光设置；音效仍需官方组件。"
+    "changelog": "减少不相关设备代码，保持现有功能。"
   }
 ]

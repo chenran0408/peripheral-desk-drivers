@@ -54,15 +54,17 @@ def main():
     if len({item["id"] for item in items}) != len(items):
         parser.error("Duplicate driver ids")
     if not args.skip_build:
-        command = [args.cargo]
-        if args.toolchain:
-            command.append("+" + args.toolchain)
-        command += ["build", "--release", "--target", args.target]
+        # Separate invocations keep per-device FFI features from unifying in
+        # a multi-package build and retaining unrelated protocol handlers.
         for item in items:
-            command += ["--package", item["id"] + "-driver"]
-        if args.release:
-            command.append("--locked")
-        subprocess.run(command, cwd=ROOT, check=True)
+            command = [args.cargo]
+            if args.toolchain:
+                command.append("+" + args.toolchain)
+            command += ["build", "--release", "--target", args.target,
+                        "--package", item["id"] + "-driver"]
+            if args.release:
+                command.append("--locked")
+            subprocess.run(command, cwd=ROOT, check=True)
     target = Path(os.environ.get("CARGO_TARGET_DIR", ROOT / "target"))
     if not target.is_absolute():
         target = ROOT / target

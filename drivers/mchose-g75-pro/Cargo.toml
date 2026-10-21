@@ -9,4 +9,4 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi", features = ["core-g75"] }

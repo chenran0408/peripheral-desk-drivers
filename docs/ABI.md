@@ -17,7 +17,7 @@ FFI 层检查空指针和 UTF-8，并用 catch_unwind 捕获 Rust panic；有效
 
 ## 请求
 
-现有四个 wrapper 将 JSON 转发给固定核心版本的 `peripheral_desk::plugin_entry::request(device_key,input)`，响应统一为：
+从驱动包0.4.1起，现有四个 wrapper 将 JSON 交给固定 SDK 中各自的专用协议入口，只链接本设备所需功能；旧的全设备 dispatcher 不再是新包的必经入口。响应仍统一为：
 
 ```json
 {"ok":true,"value":null,"error":""}
@@ -38,4 +38,4 @@ FFI 层检查空指针和 UTF-8，并用 catch_unwind 捕获 Rust panic；有效
 
 SDK 调用在宿主启动的单层 plugin-worker 中执行，由宿主控制超时与结束进程；DLL 不再自行启动另一层音效进程。CI 的 ABI 探测只发送无效 UTF-8，在 FFI 校验处返回，不能把它当作设备协议或硬件功能测试。
 
-新增设备可使用 `export_driver!("example-device", crate::adapter::request)`，自定义 Rust handler 签名为 `fn(&str,&str)->String`。它负责自己的设备匹配、协议和同样的 JSON schema；现有四款继续采用默认核心转发器。宿主从包 metadata 渲染设备能力，无需为了新品牌重写页面。
+新增设备可使用 `export_driver!("example-device", crate::adapter::request)`，自定义 Rust handler 签名为 `fn(&str,&str)->String`。它负责自己的设备匹配、协议和同样的 JSON schema。宿主从包 metadata 渲染设备能力，无需为了新品牌重写页面。包版本可独立增长；ABI仍为1、核心兼容范围仍为0.4.x，不因驱动版本从0.4.0升为0.4.1而改变。

@@ -3,14 +3,14 @@ resolver = "2"
 members = ["crates/driver-ffi", "drivers/razer-deathadder-v3-pro", "drivers/mchose-a5-ultra", "drivers/mchose-g75-pro", "drivers/hecate-g2-pro", "crates/protocol-hidpp", "drivers/logitech-g305"]
 
 [workspace.package]
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
 license = "AGPL-3.0-only"
 repository = "https://github.com/chenran0408/peripheral-desk-drivers"
 
 [workspace.dependencies]
 # SDK is pinned to an immutable reviewed core commit; see docs/ABI.md.
-peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "02e8c6435cd12f3a9b96222abd4d03fd92433e0e", default-features = false, features = ["driver-runtime"] }
+peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "126509ac9e35913892a5c135df186688d4976740", default-features = false, features = ["driver-runtime"] }
 serde_json = "1"
 
 [profile.release]

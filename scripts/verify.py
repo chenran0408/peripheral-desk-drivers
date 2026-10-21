@@ -71,6 +71,8 @@ def verify_catalog(path, abi, temporary, release_tag=None):
             raise ValueError("Driver channel or ABI mismatch")
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", entry["id"]):
             raise ValueError("Unsafe driver id")
+        if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?", entry["version"]):
+            raise ValueError("Invalid independently versioned driver package")
         if entry["device"]["key"] != entry["id"] or entry["device"]["image"] != "device.png":
             raise ValueError("Device identity/image mismatch")
         if entry["core_min"] != "0.4.0" or entry["core_max_exclusive"] != "0.5.0":
@@ -88,10 +90,16 @@ def verify_catalog(path, abi, temporary, release_tag=None):
             raise ValueError("ZIP size/hash mismatch: " + filename)
         with zipfile.ZipFile(package) as archive:
             names = archive.namelist()
+            if len(blob) > 64 * 1024 * 1024 or len(names) > 128 or sum(info.file_size for info in archive.infolist()) > 128 * 1024 * 1024:
+                raise ValueError("Package exceeds desktop installer limits")
             if len(set(names)) != len(names) or not {"driver.dll", "device.png", "manifest.json", "LICENSE"}.issubset(names):
                 raise ValueError("Missing or duplicate package files")
             if any(name.startswith(("/", "\\")) or ".." in name.replace("\\", "/").split("/") for name in names):
                 raise ValueError("Unsafe ZIP entry")
+            if any(name.lower().endswith((".exe", ".sys", ".msi", ".dll")) and name != "driver.dll" for name in names):
+                raise ValueError("Device package must not distribute other native binaries")
+            if archive.getinfo("manifest.json").file_size > 256 * 1024:
+                raise ValueError("Manifest exceeds desktop installer limit")
             manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
             if manifest.get("schema") != 1:
                 raise ValueError("Manifest schema mismatch")

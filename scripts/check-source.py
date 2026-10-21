@@ -13,6 +13,10 @@ def metadata(item):
         raise ValueError("Missing package contract fields")
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", item["id"]):
         raise ValueError("Unsafe package id")
+    if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?", item["version"]):
+        raise ValueError("Invalid independently versioned package")
+    if item["core_min"] != "0.4.0" or item["core_max_exclusive"] != "0.5.0":
+        raise ValueError("ABI 1 packages must retain the reviewed 0.4.x core range")
     if item["channel"] not in ("stable", "preview") or not item["changelog"]:
         raise ValueError("Missing channel or user-facing changelog")
     device = item["device"]
@@ -24,7 +28,7 @@ def metadata(item):
         for field in ("vid", "pid"):
             if type(match[field]) is not int or not 0 < match[field] <= 65535:
                 raise ValueError("VID/PID must be explicit nonzero u16 values")
-        for field in ("usage_page", "usage", "feature_len"):
+        for field in ("usage_page", "usage", "feature_len", "input_len", "output_len"):
             if field in match and (type(match[field]) is not int or not 0 <= match[field] <= 65535):
                 raise ValueError("Invalid matcher " + field)
     for advanced in device.get("advanced", []):
@@ -39,17 +43,20 @@ def metadata(item):
             raise ValueError("Duplicate advanced choice")
 
 def main():
-    items = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
-    if len({item["id"] for item in items}) != len(items):
-        raise ValueError("Duplicate package id")
-    for item in items:
-        metadata(item)
-        package = ROOT / "drivers" / item["id"]
-        source = (package / "src/lib.rs").read_text(encoding="utf-8")
-        if f'export_driver!("{item["id"]}"' not in source:
-            raise ValueError("Wrapper key does not match its metadata")
-        if not (ROOT / "assets" / (item["id"] + ".png")).read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
-            raise ValueError("Device image is not a PNG")
+    for filename, channel in (("drivers.json", "stable"), ("drivers-preview.json", "preview")):
+        items = json.loads((ROOT / filename).read_text(encoding="utf-8"))
+        if len({item["id"] for item in items}) != len(items):
+            raise ValueError("Duplicate package id in " + filename)
+        for item in items:
+            metadata(item)
+            if item["channel"] != channel:
+                raise ValueError("Package is in the wrong channel metadata")
+            package = ROOT / "drivers" / item["id"]
+            source = (package / "src/lib.rs").read_text(encoding="utf-8")
+            if not re.search(r'export_driver!\s*\(\s*"' + re.escape(item["id"]) + r'"', source):
+                raise ValueError("Wrapper key does not match its metadata")
+            if not (ROOT / "assets" / (item["id"] + ".png")).read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
+                raise ValueError("Device image is not a PNG")
     template = ROOT / "templates/device"
     metadata(json.loads((template / "metadata.json").read_text(encoding="utf-8")))
     if 'export_driver!("example-device", crate::adapter::request)' not in (template / "lib.rs.template").read_text(encoding="utf-8"):

@@ -1,5 +1,14 @@
 //! ABI 1 glue. Each DLL owns every response allocation and frees it itself.
+#[cfg(feature = "legacy-core")]
 pub use peripheral_desk::plugin_entry::request as core_request;
+#[cfg(feature = "core-g75")]
+pub use peripheral_desk::plugin_entry::request_g75 as core_g75_request;
+#[cfg(feature = "core-hecate")]
+pub use peripheral_desk::plugin_entry::request_hecate as core_hecate_request;
+#[cfg(feature = "core-mchose")]
+pub use peripheral_desk::plugin_entry::request_mchose as core_mchose_request;
+#[cfg(feature = "core-razer")]
+pub use peripheral_desk::plugin_entry::request_razer as core_razer_request;
 use std::{
     panic::{catch_unwind, AssertUnwindSafe},
     slice, str,
@@ -31,6 +40,7 @@ fn failure(device_key: &str, error: &str) -> String {
 /// # Safety
 /// A non-null input must point to `len` readable bytes; null is accepted only
 /// with zero length. Host and DLL must use the same pointer width (x64).
+#[cfg(feature = "legacy-core")]
 pub unsafe fn request(device_key: &str, input: *const u8, len: usize) -> Buffer {
     request_with(
         device_key,
@@ -42,7 +52,8 @@ pub unsafe fn request(device_key: &str, input: *const u8, len: usize) -> Buffer 
 /// A new device may supply its own protocol handler without changing the ABI.
 ///
 /// # Safety
-/// The pointer validity contract is the same as [`request`].
+/// A non-null input must point to `len` readable bytes; null is accepted only
+/// with zero length. Input is borrowed for this call, never retained.
 pub unsafe fn request_with(
     device_key: &str,
     input: *const u8,

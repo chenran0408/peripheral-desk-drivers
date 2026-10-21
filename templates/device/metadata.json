@@ -1,0 +1,76 @@
+{
+  "id": "example-device",
+  "name": "示例设备",
+  "version": "0.4.0",
+  "description": "介绍已经实现并确认的功能。",
+  "abi": 1,
+  "dll": "driver.dll",
+  "device": {
+    "key": "example-device",
+    "name": "示例设备",
+    "brand": "EXAMPLE",
+    "kind": "mouse",
+    "subtitle": "设备说明",
+    "image": "device.png",
+    "matches": [
+      {
+        "vid": 4660,
+        "pid": 22136,
+        "usage_page": 65281,
+        "usage": 1,
+        "feature_len": 65,
+        "product_equals": "Example device",
+        "path_contains": "mi_01"
+      }
+    ],
+    "dpi_range": [
+      100,
+      26000
+    ],
+    "dpi_step": 50,
+    "rates": [
+      125,
+      500,
+      1000
+    ],
+    "wired_rates": [
+      125,
+      500,
+      1000
+    ],
+    "sleeps": [
+      0,
+      60,
+      300,
+      600
+    ],
+    "advanced": [
+      {
+        "key": "Debounce",
+        "title": "按键防抖",
+        "hint": "仅在本设备协议已确认后开放。",
+        "choices": [
+          [
+            2,
+            "2 ms"
+          ],
+          [
+            4,
+            "4 ms"
+          ],
+          [
+            8,
+            "8 ms"
+          ]
+        ]
+      }
+    ]
+  },
+  "core_min": "0.4.0",
+  "core_max_exclusive": "0.5.0",
+  "channel": "preview",
+  "capabilities": [
+    "settings"
+  ],
+  "changelog": "首次预览，仅开放已确认设置。"
+}

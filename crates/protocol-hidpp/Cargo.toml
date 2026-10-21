@@ -1,0 +1,10 @@
+[package]
+name = "peripheral-desk-protocol-hidpp"
+version = "0.4.1-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Devices_HumanInterfaceDevice", "Win32_Storage_FileSystem", "Win32_System_Threading", "Win32_System_IO", "Win32_Security"] }

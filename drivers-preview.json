@@ -1,0 +1,47 @@
+[
+  {
+    "id": "logitech-g305",
+    "name": "罗技 G305 LIGHTSPEED",
+    "version": "0.4.1-preview.1",
+    "description": "公开实现适配未实测；仅 046D:C53F 接收器 + WPID 4074 + G305 精确名称校验后的只读电量。",
+    "device": {
+      "key": "logitech-g305",
+      "name": "罗技 G305 LIGHTSPEED",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4GHz / original 046D:C53F receiver, slot 1; runtime WPID 4074 and exact G305 name required"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/tree/e7304c4c451cc9bb4f206a914844525e67856a28",
+          "https://github.com/pwr-Solaar/Solaar/issues/850"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G305 只读电量预览适配。尚无实物测试；无法确认型号、休眠或协议异常时显示原因。"
+  }
+]

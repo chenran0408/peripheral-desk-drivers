@@ -1,0 +1,21 @@
+name: 驱动问题
+description: 报告可复现的设备功能异常
+labels: [bug]
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: 设备、驱动包版本、主程序版本和连接方式
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 操作步骤、实际现象与期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 错误提示或已去除隐私的日志
+      description: 不要公开机器路径、账号、接收器序列号等个人信息。

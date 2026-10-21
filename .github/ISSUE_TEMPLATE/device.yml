@@ -1,0 +1,29 @@
+name: 申请适配新设备
+description: 提供准确型号与连接信息
+labels: [device-support]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: 品牌、完整型号和硬件版本
+    validations:
+      required: true
+  - type: input
+    id: connection
+    attributes:
+      label: 连接方式与 VID/PID
+      description: USB、有线或接收器；不知道 VID/PID 可写未知。
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: 固件与官方驱动版本
+      description: 未知请写未知。
+  - type: textarea
+    id: functions
+    attributes:
+      label: 需要的功能与可用协议资料
+      description: 提供官方驱动公开下载页，不要上传有隐私的日志。
+    validations:
+      required: true

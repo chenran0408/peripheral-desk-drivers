@@ -1,0 +1,9 @@
+# MCHOSE / 迈从
+
+当前包：`mchose-a5-ultra`（初代）、`mchose-g75-pro`。状态以各包 manifest.validation 及既有实机记录为准，不把全品牌统称兼容。
+
+A5 初代：3837:100C、FF01 vendor集合、精确产品名；M HUB 取反 Feature 协议。初代电竞开关与新版三态性能模式、宏页格式均须区分。G75 Pro：3554:FA09、FF02集合，键盘性能/按键/灯色分块协议，不能沿用鼠标报文。厂商号相同不等于协议相同。
+
+上游线索：OpenMouse 的 a5-gen1 与新版 MCHOSE 分离、M HUB 本轮固定本地取样；不能借 A7 V2 Ultra+ 的实测结论覆盖初代 A5。A5 当前固件未能返回可完整备份的原宏页时，保持拒写。未来型号先读身份/电量，再补设置回读与恢复。
+
+完整来源与许可证见 [调查矩阵](../PROTOCOL-RESEARCH.md)。

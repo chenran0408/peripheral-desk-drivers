@@ -1,0 +1,7 @@
+* text=auto
+*.rs text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.png binary
+*.blob binary
+THIRD_PARTY_LICENSES/** -text

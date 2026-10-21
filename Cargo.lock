@@ -58,7 +58,7 @@ dependencies = [
 
 [[package]]
 name = "hecate-g2-pro-driver"
-version = "0.4.1"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]
@@ -86,14 +86,14 @@ dependencies = [
 
 [[package]]
 name = "mchose-a5-ultra-driver"
-version = "0.4.1"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]
 
 [[package]]
 name = "mchose-g75-pro-driver"
-version = "0.4.1"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]
@@ -106,8 +106,8 @@ checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
 
 [[package]]
 name = "peripheral-desk"
-version = "0.4.0"
-source = "git+https://github.com/chenran0408/peripheral-desk?rev=126509ac9e35913892a5c135df186688d4976740#126509ac9e35913892a5c135df186688d4976740"
+version = "0.4.2"
+source = "git+https://github.com/chenran0408/peripheral-desk?rev=ef82c5f9989413189de7848d03a7e0eb8c282fd5#ef82c5f9989413189de7848d03a7e0eb8c282fd5"
 dependencies = [
  "serde",
  "serde_json",
@@ -118,7 +118,7 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-driver-ffi"
-version = "0.4.1"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk",
  "serde_json",
@@ -152,7 +152,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v3-pro-driver"
-version = "0.4.1"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]

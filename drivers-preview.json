@@ -400,5 +400,165 @@
       "battery"
     ],
     "changelog": "新增 Viper Ultimate 有线只读电量预览。仅匹配 1532:007A；本地未实测。"
+  },
+  {
+    "id": "vgn-f2-pro-max",
+    "name": "VGN Dragonfly F2 Pro Max",
+    "version": "0.4.7-preview.1",
+    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:FB3E 接收器或 3554:FB3D 有线设备，只读电量与充电状态。",
+    "device": {
+      "key": "vgn-f2-pro-max",
+      "name": "VGN Dragonfly F2 Pro Max",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 64318,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 64317,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz receiver / USB 3554:FB3E / unique FF02 report-08 collection",
+          "USB wired / USB 3554:FB3D / unique FF02 report-08 collection"
+        ],
+        "firmware": "not requested; only battery command 0x04 is established for this model",
+        "source_refs": [
+          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 VGN Dragonfly F2 Pro Max 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+  },
+  {
+    "id": "vgn-f1-pro",
+    "name": "VGN F1 Pro",
+    "version": "0.4.7-preview.1",
+    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:F503 接收器或 3554:F502 有线设备，只读电量与充电状态。",
+    "device": {
+      "key": "vgn-f1-pro",
+      "name": "VGN F1 Pro",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62723,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 62722,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz receiver / USB 3554:F503 / unique FF02 report-08 collection",
+          "USB wired / USB 3554:F502 / unique FF02 report-08 collection"
+        ],
+        "firmware": "not requested; only battery command 0x04 is established for this model",
+        "source_refs": [
+          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 VGN F1 Pro 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+  },
+  {
+    "id": "razer-deathadder-v2-pro-wired",
+    "name": "Razer DeathAdder V2 Pro (有线)",
+    "version": "0.4.7-preview.1",
+    "description": "依据固定版本的 OpenRazer 公开协议实现；仅支持 1532:007C 有线设备，只读电量和充电状态，尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v2-pro-wired",
+      "name": "Razer DeathAdder V2 Pro",
+      "brand": "Razer",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 本地未验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 124,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / Razer DeathAdder V2 Pro / 1532:007C / MI_00, guarded 91-byte Feature report; no physical descriptor capture"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L1249-L1270",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L63-L64",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L33-L103",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1613",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1695-L1733",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L128-L137",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1057-L1074",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.h#L114-L128",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.c#L111-L124"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 DeathAdder V2 Pro 有线只读电量和充电状态预览；本地未实测。"
   }
 ]

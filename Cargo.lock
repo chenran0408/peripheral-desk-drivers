@@ -191,6 +191,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-razer-deathadder-v2-pro"
+version = "0.4.7-preview.1"
+dependencies = [
+ "peripheral-desk",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-razer-viper-ultimate"
 version = "0.4.6-preview.1"
 dependencies = [
@@ -243,6 +250,15 @@ version = "0.4.3-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-deathadder-v2-pro-wired-driver"
+version = "0.4.7-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-deathadder-v2-pro",
  "serde_json",
 ]
 
@@ -366,8 +382,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
+name = "vgn-f1-pro-driver"
+version = "0.4.7-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-vgn",
+ "serde_json",
+]
+
+[[package]]
 name = "vgn-f2-master-plus-driver"
 version = "0.4.4-preview.2"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-vgn",
+ "serde_json",
+]
+
+[[package]]
+name = "vgn-f2-pro-max-driver"
+version = "0.4.7-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-vgn",

@@ -1,4 +1,7 @@
-use super::{Connection, Result, Transport, PAYLOAD_LEN, REPORT_ID};
+use super::{
+    Connection, DeviceSpec, Result, Transport, F1_PRO, F2_MASTER_PLUS, F2_PRO_MAX, PAYLOAD_LEN,
+    REPORT_ID,
+};
 use peripheral_desk::hid::{self, Interface};
 use peripheral_hid_transport::WinTransport;
 use std::time::{Duration, Instant};
@@ -7,17 +10,28 @@ const USAGE_PAGE: u16 = 0xff02;
 const REPORT_BUFFER_LEN: usize = PAYLOAD_LEN + 1;
 const RESPONSE_TIMEOUT: Duration = Duration::from_millis(700);
 
-fn protocol_interface(interface: &Interface) -> bool {
+fn protocol_interface(interface: &Interface, device: DeviceSpec) -> bool {
     interface.vid == super::VID
-        && Connection::from_pid(interface.pid).is_some()
+        && Connection::from_pid_for(interface.pid, device).is_some()
         && interface.usage_page == USAGE_PAGE
+        && device
+            .required_usage
+            .is_none_or(|usage| interface.usage == usage)
         && interface.input_len as usize == REPORT_BUFFER_LEN
         && interface.output_len as usize == REPORT_BUFFER_LEN
 }
 
-fn conflicting_product_name(product: &str) -> bool {
+fn conflicting_product_name(product: &str, device: DeviceSpec) -> bool {
     let product = product.to_ascii_lowercase();
-    product.contains("f1 pro") || product.contains("f2 pro max")
+    let names = [F1_PRO, F2_PRO_MAX, F2_MASTER_PLUS];
+    names.iter().any(|other| {
+        other.key != device.key
+            && match other {
+                model if model.key == F1_PRO.key => product.contains("f1 pro"),
+                model if model.key == F2_PRO_MAX.key => product.contains("f2 pro max"),
+                _ => product.contains("f2 master+"),
+            }
+    })
 }
 
 struct VgnTransport(WinTransport);
@@ -57,37 +71,55 @@ impl Transport for VgnTransport {
 }
 
 pub fn read_vgn() -> Result<peripheral_desk::model::State> {
+    read_vgn_for(F2_MASTER_PLUS)
+}
+
+pub fn read_vgn_for(device: DeviceSpec) -> Result<peripheral_desk::model::State> {
     let interfaces = hid::enumerate()?;
     let candidates: Vec<_> = interfaces
         .iter()
-        .filter(|i| protocol_interface(i))
+        .filter(|i| protocol_interface(i, device))
         .collect();
     match candidates.as_slice() {
         [] => Ok(peripheral_desk::model::State {
-            key: super::DEVICE_KEY.into(),
+            key: device.key.into(),
             present: false,
-            error: "未找到唯一的 VGN F2 Master+ report-08 集合（仅 3554:FB56/FB57、FF02、17 字节）"
-                .into(),
-            settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。".into(),
+            error: format!(
+                "未找到唯一的 {} report-08 集合（仅 3554:{:04X}/{:04X}、FF02、17 字节）",
+                device.name, device.receiver_pid, device.wired_pid
+            ),
+            settings_error: if device.reads_firmware {
+                "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。"
+            } else {
+                "仅提供只读电量与充电状态；该型号未核对固件读取命令，未开放设置写入。"
+            }
+            .into(),
             ..Default::default()
         }),
         [interface] => {
-            if conflicting_product_name(&interface.product) {
+            if conflicting_product_name(&interface.product, device) {
                 return Ok(peripheral_desk::model::State {
-                    key: super::DEVICE_KEY.into(),
+                    key: device.key.into(),
                     present: false,
-                    error: "VGN 设备报告名称与 F2 Master+ 不符；未发送查询".into(),
-                    settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。"
-                        .into(),
+                    error: format!("VGN 设备报告名称与 {} 不符；未发送查询", device.name),
+                    settings_error: if device.reads_firmware {
+                        "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。"
+                    } else {
+                        "仅提供只读电量与充电状态；该型号未核对固件读取命令，未开放设置写入。"
+                    }
+                    .into(),
                     ..Default::default()
                 });
             }
-            let connection = Connection::from_pid(interface.pid)
-                .ok_or_else(|| "VGN 产品 ID 不属于 F2 Master+ 预览范围".to_string())?;
+            let connection = Connection::from_pid_for(interface.pid, device)
+                .ok_or_else(|| format!("VGN 产品 ID 不属于 {} 预览范围", device.name))?;
             let mut transport = VgnTransport(WinTransport::open(&interface.path)?);
-            Ok(super::read_with(&mut transport, connection))
+            Ok(super::read_with_model(&mut transport, connection, device))
         }
-        _ => Err("找到多个 VGN F2 Master+ report-08 集合；为避免查询错误集合，已停止".into()),
+        _ => Err(format!(
+            "找到多个 VGN {} report-08 集合；为避免查询错误集合，已停止",
+            device.name
+        )),
     }
 }
 
@@ -112,25 +144,46 @@ mod tests {
     #[test]
     fn only_exact_vgn_collection_and_report_shape_match() {
         let mut item = interface(super::super::RECEIVER_PID);
-        assert!(protocol_interface(&item));
+        assert!(protocol_interface(&item, F2_MASTER_PLUS));
         item.pid = 0xfb3d;
-        assert!(!protocol_interface(&item));
+        assert!(!protocol_interface(&item, F2_MASTER_PLUS));
         item = interface(super::super::WIRED_PID);
         item.usage_page = 0xff01;
-        assert!(!protocol_interface(&item));
+        assert!(!protocol_interface(&item, F2_MASTER_PLUS));
         item = interface(super::super::WIRED_PID);
         item.input_len = 16;
-        assert!(!protocol_interface(&item));
+        assert!(!protocol_interface(&item, F2_MASTER_PLUS));
         item = interface(super::super::WIRED_PID);
         item.vid = 0x3555;
-        assert!(!protocol_interface(&item));
+        assert!(!protocol_interface(&item, F2_MASTER_PLUS));
     }
 
     #[test]
     fn conflicting_product_identity_is_not_queried() {
-        assert!(!conflicting_product_name(""));
-        assert!(!conflicting_product_name("Dragonfly F2 Master+"));
-        assert!(conflicting_product_name("VGN F1 Pro"));
-        assert!(conflicting_product_name("Dragonfly F2 Pro Max"));
+        assert!(!conflicting_product_name("", F2_MASTER_PLUS));
+        assert!(!conflicting_product_name(
+            "Dragonfly F2 Master+",
+            F2_MASTER_PLUS
+        ));
+        assert!(conflicting_product_name("VGN F1 Pro", F2_MASTER_PLUS));
+        assert!(conflicting_product_name(
+            "Dragonfly F2 Pro Max",
+            F2_MASTER_PLUS
+        ));
+        assert!(conflicting_product_name("Dragonfly F2 Master+", F2_PRO_MAX));
+        assert!(!conflicting_product_name("VGN F2 Pro Max", F2_PRO_MAX));
+        assert!(conflicting_product_name("VGN F2 Pro Max", F1_PRO));
+        assert!(!conflicting_product_name("VGN F1 Pro", F1_PRO));
+    }
+
+    #[test]
+    fn new_vgn_profiles_require_the_vendor_collection_usage() {
+        for (device, pid) in [(F1_PRO, 0xf503), (F2_PRO_MAX, 0xfb3e)] {
+            let mut item = interface(pid);
+            item.usage = 2;
+            assert!(protocol_interface(&item, device));
+            item.usage = 0;
+            assert!(!protocol_interface(&item, device));
+        }
     }
 }

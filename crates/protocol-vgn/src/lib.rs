@@ -1,19 +1,60 @@
-//! Read-only VGN Dragonfly F2 Master+ protocol facts from OpenMouse
-//! `mouse-protocol` commit `bac031567b28f2a55c616fc525b03f2d5fa452cc`.
-//! See `docs/VGN-F2-MASTER-PLUS.md` for source and license attribution.
+//! Read-only VGN battery codec and model bindings. F2 Master+ protocol facts
+//! are sourced from OpenMouse `mouse-protocol` commit
+//! `bac031567b28f2a55c616fc525b03f2d5fa452cc`; F1 Pro and F2 Pro Max PID and
+//! battery facts are sourced from `quiet-battery` commit
+//! `d6eb4bdade47dccd7cb402e16ac50a6f351fcac0`. See the per-model docs.
 use peripheral_desk::model::State;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 pub type Result<T> = std::result::Result<T, String>;
 
-pub const DEVICE_KEY: &str = "vgn-f2-master-plus";
 pub const REPORT_ID: u8 = 0x08;
 pub const PAYLOAD_LEN: usize = 16;
 pub const VID: u16 = 0x3554;
-pub const RECEIVER_PID: u16 = 0xfb56;
-pub const WIRED_PID: u16 = 0xfb57;
+pub const DEVICE_KEY: &str = F2_MASTER_PLUS.key;
+pub const RECEIVER_PID: u16 = F2_MASTER_PLUS.receiver_pid;
+pub const WIRED_PID: u16 = F2_MASTER_PLUS.wired_pid;
 const BATTERY: u8 = 0x04;
 const FIRMWARE: u8 = 0x12;
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct DeviceSpec {
+    pub key: &'static str,
+    pub name: &'static str,
+    pub receiver_pid: u16,
+    pub wired_pid: u16,
+    pub reads_firmware: bool,
+    pub required_usage: Option<u16>,
+    pub rejects_battery_echo: bool,
+}
+
+pub const F2_MASTER_PLUS: DeviceSpec = DeviceSpec {
+    key: "vgn-f2-master-plus",
+    name: "VGN Dragonfly F2 Master+",
+    receiver_pid: 0xfb56,
+    wired_pid: 0xfb57,
+    reads_firmware: true,
+    required_usage: None,
+    rejects_battery_echo: false,
+};
+pub const F2_PRO_MAX: DeviceSpec = DeviceSpec {
+    key: "vgn-f2-pro-max",
+    name: "VGN Dragonfly F2 Pro Max",
+    receiver_pid: 0xfb3e,
+    wired_pid: 0xfb3d,
+    reads_firmware: false,
+    required_usage: Some(2),
+    rejects_battery_echo: true,
+};
+pub const F1_PRO: DeviceSpec = DeviceSpec {
+    key: "vgn-f1-pro",
+    name: "VGN F1 Pro",
+    receiver_pid: 0xf503,
+    wired_pid: 0xf502,
+    reads_firmware: false,
+    required_usage: Some(2),
+    rejects_battery_echo: true,
+};
 
 /// A serialized report-08 transaction. The Windows transport adds/removes the
 /// report-ID byte and must cancel and drain timed-out overlapped I/O.
@@ -22,7 +63,7 @@ pub trait Transport {
 }
 
 mod transport;
-pub use transport::read_vgn;
+pub use transport::{read_vgn, read_vgn_for};
 
 pub fn checksum(payload: &[u8; PAYLOAD_LEN]) -> u8 {
     let sum = payload[..15]
@@ -92,9 +133,13 @@ pub enum Connection {
 
 impl Connection {
     pub fn from_pid(pid: u16) -> Option<Self> {
+        Self::from_pid_for(pid, F2_MASTER_PLUS)
+    }
+
+    pub fn from_pid_for(pid: u16, device: DeviceSpec) -> Option<Self> {
         match pid {
-            RECEIVER_PID => Some(Self::Receiver),
-            WIRED_PID => Some(Self::Wired),
+            pid if pid == device.receiver_pid => Some(Self::Receiver),
+            pid if pid == device.wired_pid => Some(Self::Wired),
             _ => None,
         }
     }
@@ -103,25 +148,44 @@ impl Connection {
         self == Self::Wired
     }
 
-    fn pid(self) -> u16 {
+    fn pid_for(self, device: DeviceSpec) -> u16 {
         match self {
-            Self::Receiver => RECEIVER_PID,
-            Self::Wired => WIRED_PID,
+            Self::Receiver => device.receiver_pid,
+            Self::Wired => device.wired_pid,
         }
     }
 }
 
 pub fn read_with<T: Transport>(transport: &mut T, connection: Connection) -> State {
+    read_with_model(transport, connection, F2_MASTER_PLUS)
+}
+
+pub fn read_with_model<T: Transport>(
+    transport: &mut T,
+    connection: Connection,
+    device: DeviceSpec,
+) -> State {
     let mut state = State {
-        key: DEVICE_KEY.into(),
+        key: device.key.into(),
         present: true,
         wired: connection.wired(),
         identity: format!(
-            "VGN Dragonfly F2 Master+ · USB {:04X}:{:04X} · report 08 · firmware unknown",
+            "{} · USB {:04X}:{:04X} · report 08{}",
+            device.name,
             VID,
-            connection.pid()
+            connection.pid_for(device),
+            if device.reads_firmware {
+                " · firmware unknown"
+            } else {
+                ""
+            }
         ),
-        settings_error: "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。".into(),
+        settings_error: if device.reads_firmware {
+            "仅提供只读电量、充电状态和公开固件版本；未开放设置写入。"
+        } else {
+            "仅提供只读电量与充电状态；该型号未核对固件读取命令，未开放设置写入。"
+        }
+        .into(),
         updated: now(),
         ..Default::default()
     };
@@ -132,6 +196,10 @@ pub fn read_with<T: Transport>(transport: &mut T, connection: Connection) -> Sta
             return state;
         }
     };
+    if device.rejects_battery_echo && response.as_slice() == simple_request(BATTERY).as_slice() {
+        state.error = "VGN 电量请求收到原样回显，未返回有效电量".into();
+        return state;
+    }
     let battery = match parse_battery(&response) {
         Ok(battery) => battery,
         Err(error) => {
@@ -142,6 +210,9 @@ pub fn read_with<T: Transport>(transport: &mut T, connection: Connection) -> Sta
     state.fresh = true;
     state.percent = Some(battery.percent);
     state.charging = Some(battery.charging);
+    if !device.reads_firmware {
+        return state;
+    }
     match transport.exchange(&simple_request(FIRMWARE)) {
         Ok(response) => match parse_firmware(&response) {
             Some(version) => {
@@ -271,6 +342,19 @@ mod tests {
         assert_eq!(state.percent, None);
         assert_eq!(state.charging, None);
         assert_eq!(state.error, "fixture timeout");
+        assert!(fixture.0.is_empty());
+    }
+
+    #[test]
+    fn new_model_battery_echo_does_not_become_zero_percent() {
+        let mut fixture = Fixture([Ok(simple_request(BATTERY))].into());
+
+        let state = read_with_model(&mut fixture, Connection::Receiver, F2_PRO_MAX);
+
+        assert!(state.present && !state.fresh);
+        assert_eq!(state.percent, None);
+        assert_eq!(state.charging, None);
+        assert!(state.error.contains("原样回显"));
         assert!(fixture.0.is_empty());
     }
 }

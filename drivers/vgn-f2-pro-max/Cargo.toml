@@ -1,0 +1,14 @@
+[package]
+name = "vgn-f2-pro-max-driver"
+version = "0.4.7-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-vgn = { path = "../../crates/protocol-vgn" }
+serde_json.workspace = true

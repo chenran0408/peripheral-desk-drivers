@@ -10,15 +10,15 @@ Peripheral Desk 的公开设备驱动包仓库。每款设备使用独立 DLL，
 | `hecate-g2-pro` | 漫步者 G2 Pro |
 | `logitech-g305`（预览） | G305 LIGHTSPEED，只读电量，依据公开实现适配、尚未实机验证 |
 | `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线 1532:00AA，只读电量与充电状态，尚未实机验证 |
-
 | `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 3837:1018 接收器，只读电量，尚未实机验证 |
 | `vgn-f2-master-plus`（预览） | F2 Master+ 3554:FB56/FB57，只读电量与充电状态，尚未实机验证 |
-
 | `atk-x1-pro-max`（预览） | X1 Pro Max 有线与 8K 接收器，只读电量、运行时型号校验，尚未实机验证 |
 | `razer-viper-v2-pro-wired`（预览） | Viper V2 Pro 有线，只读电量与充电状态，尚未实机验证 |
-
 | `atk-a9-plus-nearlink`（预览） | A9 Plus Nearlink 有线与 NearLink 接收器，只读电量，尚未实机验证 |
 | `razer-viper-ultimate-wired`（预览） | Viper Ultimate 有线，只读电量与充电状态，尚未实机验证 |
+| `vgn-f2-pro-max`（预览） | F2 Pro Max 有线/接收器，电量与充电状态 |
+| `vgn-f1-pro`（预览） | F1 Pro 有线/接收器，电量与充电状态 |
+| `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量与充电状态 |
 
 ## 下载
 
@@ -33,6 +33,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 需要 Windows x64、Rust 和 Python 3.11+。设备插件共用 ABI 1；现有四款设备使用固定版本的 Peripheral Desk 核心库，新型号可在本仓库提供独立协议模块。只要 ABI 与请求模型保持兼容，新增设备可以在本仓库完成，不必改主界面的设备列表。
 
 - [本地构建与贡献](CONTRIBUTING.md)
+- [上游实现与证据复用](docs/UPSTREAM-REUSE.md)
 - [后续接入任务与验收标准](docs/ADAPTATION-ROADMAP.md)
 - [设备目录：品牌—协议系列—型号—连接方式](docs/DEVICE-CATALOG.md)
 - [C ABI 与 JSON 请求](docs/ABI.md)

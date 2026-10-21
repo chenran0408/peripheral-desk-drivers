@@ -22,6 +22,8 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 
 0.4.6-preview.1 继续新增 **ATK A9 Plus Nearlink**（有线 373B:1115 / NearLink 接收器 373B:10C9，CID/MID 2,83）及 **Viper Ultimate 有线**（1532:007A）。只读电量/充电状态，未实机验证，不开放写入。详见 [A9 范围](ATK-A9-PLUS-NEARLINK.md)与 [Viper Ultimate 范围](RAZER-VIPER-ULTIMATE.md)。
 
+0.4.7-preview.1 新增 **VGN F2 Pro Max**、**VGN F1 Pro** 的有线/接收器电量与充电状态，以及 **DeathAdder V2 Pro 有线**。均依据上游已有实现接入，移植后尚未实机复测，暂不提供设置写入；精确来源和范围见 [F2 Pro Max](VGN-F2-PRO-MAX.md)、[F1 Pro](VGN-F1-PRO.md)、[DeathAdder V2 Pro](RAZER-DEATHADDER-V2-PRO.md)。
+
 ## 通道
 
 - stable：可在普通驱动商店选择。兼容范围明确，说明仍保留已知限制。

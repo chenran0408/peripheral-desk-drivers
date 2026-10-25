@@ -94,13 +94,23 @@ fn is_ack(p: &[u8], sent: &[u8; 20]) -> bool {
         && p[4] == (sent[4] & 0x80)
 }
 
-#[derive(Default)]
 struct Assembler {
     packet: [u8; PACKET_LEN],
     total: u8,
     current: u8,
     sync: u8,
     len: usize,
+}
+impl Default for Assembler {
+    fn default() -> Self {
+        Self {
+            packet: [0; PACKET_LEN],
+            total: 0,
+            current: 0,
+            sync: 0,
+            len: 0,
+        }
+    }
 }
 impl Assembler {
     fn reset(&mut self) {

@@ -110,7 +110,7 @@ fn read_state() -> Result<State, String> {
     state.percent = Some(status.0);
     state.charging = Some(status.1);
     state.wired = false;
-    state.identity = format!("MCHOSE A7 V2 Pro · 2.4 GHz 接收器 3837:100A · 被动 E2 状态");
+    state.identity = "MCHOSE A7 V2 Pro · 2.4 GHz 接收器 3837:100A · 被动 E2 状态".into();
     state.updated = SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .unwrap_or_default()

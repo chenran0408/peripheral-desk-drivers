@@ -55,9 +55,9 @@ fn has_scope_keyboard(reply: &[u8]) -> bool {
         return false;
     }
     let mut found = false;
-    for entry in reply[5..5 + reply[3] as usize * 4].chunks_exact(4) {
+    for entry in reply[5..5 + reply[3] as usize * 4].as_chunks::<4>().0 {
         let product = u16::from_le_bytes([entry[0], entry[1]]);
-        if entry[2] != 2 || entry[3] != 4 || !matches!(product, 0x1aae | 0x1aaf | 0x1ab0) {
+        if entry[2] != 2 || entry[3] != 4 || !matches!(product, 0x1aae..=0x1ab0) {
             continue;
         }
         if found {

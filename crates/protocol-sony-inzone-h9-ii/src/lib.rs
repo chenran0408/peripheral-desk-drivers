@@ -12,10 +12,8 @@ use std::{
 };
 use windows_sys::Win32::{
     Devices::HumanInterfaceDevice::HidD_SetOutputReport,
-    Foundation::{CloseHandle, HANDLE, INVALID_HANDLE_VALUE},
-    Storage::FileSystem::{
-        CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, GENERIC_WRITE, OPEN_EXISTING,
-    },
+    Foundation::{CloseHandle, GENERIC_WRITE, HANDLE, INVALID_HANDLE_VALUE},
+    Storage::FileSystem::{CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, OPEN_EXISTING},
 };
 
 pub const DEVICE_KEY: &str = "sony-inzone-h9-ii";

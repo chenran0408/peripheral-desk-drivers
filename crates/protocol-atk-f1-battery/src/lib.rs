@@ -6,10 +6,8 @@ use peripheral_hid_transport::WinTransport;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use windows_sys::Win32::{
     Devices::HumanInterfaceDevice::HidD_SetOutputReport,
-    Foundation::{CloseHandle, INVALID_HANDLE_VALUE},
-    Storage::FileSystem::{
-        CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, GENERIC_WRITE, OPEN_EXISTING,
-    },
+    Foundation::{CloseHandle, GENERIC_WRITE, INVALID_HANDLE_VALUE},
+    Storage::FileSystem::{CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, OPEN_EXISTING},
 };
 
 const VID: u16 = 0x373b;

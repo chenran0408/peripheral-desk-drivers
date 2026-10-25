@@ -12,10 +12,8 @@ use std::{
 };
 use windows_sys::Win32::{
     Devices::HumanInterfaceDevice::HidD_GetInputReport,
-    Foundation::{CloseHandle, HANDLE, INVALID_HANDLE_VALUE},
-    Storage::FileSystem::{
-        CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, GENERIC_READ, OPEN_EXISTING,
-    },
+    Foundation::{CloseHandle, GENERIC_READ, HANDLE, INVALID_HANDLE_VALUE},
+    Storage::FileSystem::{CreateFileW, FILE_SHARE_READ, FILE_SHARE_WRITE, OPEN_EXISTING},
 };
 
 pub const DEVICE_KEY: &str = "akg-n9-hybrid";

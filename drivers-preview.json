@@ -1029,5 +1029,53 @@
       "bindings"
     ],
     "changelog": "新增 AJ179 PRO USB 与 2.4 GHz 接收器设置和六键改键；读写依托设备 id 校验、原值保留、读回核对及失败恢复。"
+  },
+  {
+    "id": "mchose-v9-pro",
+    "name": "迈从 V9 Pro 耳机",
+    "version": "0.4.10-preview.1",
+    "description": "Vigil Watt 贡献者单点抓包适配，Peripheral Desk 未实测；需主动查询，安装此预览包即允许其轮询电量。仅支持 291D:385D 精确耳机集合。",
+    "device": {
+      "key": "mchose-v9-pro",
+      "name": "迈从 V9 Pro",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "只读电量 · 主动查询 · 上游单点验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "usage_page": 65424,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "feature_len": 0,
+          "path_contains": "&mi_00&col05#"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 2.4 GHz receiver; exact MI_00 COL05 FF90:0001 64-byte input/output collection only"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/tree/a78e973b4eb634bdce37c9078dd48d1c07e3eb73",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/docs/hardware/mchose-v9-pro.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/LICENSE"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 V9 Pro 接收器电量预览。安装后会主动查询；充电状态未知，非满电映射未验证，本项目未实测。"
   }
 ]

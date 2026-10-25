@@ -1,0 +1,14 @@
+[package]
+name = "mchose-v9-pro-driver"
+version = "0.4.10-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-mchose-v9-pro = { path = "../../crates/protocol-mchose-v9-pro" }
+serde_json.workspace = true

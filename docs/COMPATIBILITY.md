@@ -24,6 +24,8 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 
 0.4.7-preview.1 新增 **VGN F2 Pro Max**、**VGN F1 Pro** 的有线/接收器电量与充电状态，以及 **DeathAdder V2 Pro 有线**。均依据上游已有实现接入，移植后尚未实机复测，暂不提供设置写入；精确来源和范围见 [F2 Pro Max](VGN-F2-PRO-MAX.md)、[F1 Pro](VGN-F1-PRO.md)、[DeathAdder V2 Pro](RAZER-DEATHADDER-V2-PRO.md)。
 
+0.4.10-preview.1 新增 **迈从 V9 Pro** 接收器电量读取。仅支持 `291D:385D`、`MI_00/COL05`、`FF90:0001` 64 字节电量接口；安装后主动查询。上游为贡献者单台设备的 100% 抓包，本项目未实测；充电状态和非满电映射未知。详情见 [V9 Pro 支持范围](MCHOSE-V9-PRO.md)。
+
 ## 0.4.8-preview.1 设置与灯效扩展
 
 | 型号 | 连接 | 功能 | 验证范围 |

@@ -116,6 +116,10 @@ def main():
             payloads[component_path] = data
         if driver_id == "hecate-g2-pro":
             payloads["THIRD_PARTY_LICENSES/HECATE-COMPONENTS-NOTICE.txt"] = (ROOT / "third_party/hecate-g2-pro/NOTICE.txt").read_bytes()
+        if driver_id == "mchose-v9-pro":
+            payloads["THIRD_PARTY_LICENSES/Vigil-Watt-MIT.txt"] = (
+                ROOT / "crates/protocol-mchose-v9-pro/VIGIL-WATT-MIT.txt"
+            ).read_bytes()
         payloads["SOURCE.txt"] = ("Driver wrapper source: https://github.com/chenran0408/peripheral-desk-drivers\nCore source: https://github.com/chenran0408/peripheral-desk/tree/" + (revision.group(1) if revision else "DEVELOPMENT-UNPINNED") + "\n").encode("utf-8")
         # Ship model-specific evidence/limitations alongside the binary.
         evidence = {
@@ -124,6 +128,7 @@ def main():
             "razer-viper-v2-pro-wired": "RAZER-VIPER-V2-PRO.md",
             "logitech-g305": "LOGITECH-G305.md",
             "mchose-a7-v3-ultra-plus": "MCHOSE-A7-V3.md",
+            "mchose-v9-pro": "MCHOSE-V9-PRO.md",
             "vgn-f2-master-plus": "VGN-F2-MASTER-PLUS.md",
             "atk-x1-pro-max": "ATK-X1-PRO-MAX.md",
             "atk-a9-plus-nearlink": "ATK-A9-PLUS-NEARLINK.md",

@@ -149,6 +149,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-v9-pro-driver"
+version = "0.4.10-preview.1"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-v9-pro",
+ "serde_json",
+]
+
+[[package]]
 name = "memchr"
 version = "2.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -217,6 +226,14 @@ dependencies = [
 [[package]]
 name = "peripheral-desk-protocol-mchose-v3"
 version = "0.4.9-preview.1"
+dependencies = [
+ "peripheral-desk",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-mchose-v9-pro"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk",
  "peripheral-hid-transport",

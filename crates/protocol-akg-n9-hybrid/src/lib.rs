@@ -29,7 +29,18 @@ const MAX_PAYLOAD: usize = 59;
 /// Fixed output report. This receiver requires the exact vendor-interface OUT report.
 pub fn query() -> [u8; REPORT_LEN] {
     let mut r = [0; REPORT_LEN];
-    r[..10].copy_from_slice(&[0x06, 0x07, 0x80, 0x05, 0x5A, 0x03, 0x00, 0xD6, 0x0C, 0x00]);
+    r[..10].copy_from_slice(&[
+        OUT_REPORT_ID,
+        0x07,
+        0x80,
+        0x05,
+        0x5A,
+        0x03,
+        0x00,
+        0xD6,
+        0x0C,
+        0x00,
+    ]);
     r
 }
 
@@ -158,7 +169,7 @@ fn query_one(path: &str) -> Result<u8, String> {
             if pending.len() < 4 {
                 break;
             }
-            if !matches!(pending[1], 0x5B | 0x5C | 0x5D) {
+            if !matches!(pending[1], 0x5B..=0x5D) {
                 return Err("AKG 返回未知消息类型".into());
             }
             let size = 4 + pending[2] as usize + ((pending[3] as usize) << 8);

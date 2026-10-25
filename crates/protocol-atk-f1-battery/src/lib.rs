@@ -77,7 +77,7 @@ fn write_with_feature_fallback(path: &str, frame: &[u8]) -> Result<(), String> {
         if handle == INVALID_HANDLE_VALUE {
             return Err("ATK 查询写入失败，且无法打开 Feature 报告后备通道".into());
         }
-        let success = HidD_SetOutputReport(handle, frame.as_ptr(), frame.len() as u32) != 0;
+        let success = HidD_SetOutputReport(handle, frame.as_ptr().cast(), frame.len() as u32);
         CloseHandle(handle);
         if success {
             Ok(())

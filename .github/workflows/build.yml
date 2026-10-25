@@ -41,14 +41,23 @@ jobs:
         shell: pwsh
         run: ./scripts/test-channel-merge.ps1
       - name: Check formatting and pure protocol tests
+        env:
+          DRIVER_PACKAGES: ${{ inputs.packages || '' }}
         shell: pwsh
         run: |
           cargo fmt --all -- --check
           if ($LASTEXITCODE -ne 0) { throw "Formatting check failed" }
+          if ($env:DRIVER_PACKAGES -eq "mchose-v9-pro") {
+            cargo clippy --locked -p peripheral-desk-protocol-mchose-v9-pro -p mchose-v9-pro-driver --all-targets -- -D warnings
+            if ($LASTEXITCODE -ne 0) { throw "V9 Pro package static check failed" }
+            cargo test --locked -p peripheral-desk-protocol-mchose-v9-pro --lib
+            if ($LASTEXITCODE -ne 0) { throw "V9 Pro protocol tests failed" }
+          } else {
           cargo clippy --locked --workspace --all-targets -- -D warnings
           if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
           cargo test --locked --workspace --lib
           if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }
+          }
       - name: Build pinned core and selected device packages
         env:
           RELEASE_TAG: ${{ inputs.release_tag || (github.ref_type == 'tag' && github.ref_name) || '' }}

@@ -87,7 +87,7 @@ pub fn read_state() -> Result<State, String> {
     }
     let handle = Device::open(&interface.path)?;
     let length = interface.feature_len as usize;
-    if length < 14 || length > 4096 {
+    if !(14..=4096).contains(&length) {
         return Err("Haute42 HID Feature 报告长度异常".into());
     }
     if !parse_firmware(&handle.receive(FIRMWARE, length)?) {

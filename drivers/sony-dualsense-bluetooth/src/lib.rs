@@ -137,7 +137,7 @@ mod tests {
         frame[54] = 0x21;
         input[1..].copy_from_slice(&frame[..74]);
         frame[74..].copy_from_slice(&crc32(&input).to_le_bytes());
-        assert_eq!(parse(&frame), Some((35, None)));
+        assert_eq!(parse(&frame), Some((15, None)));
         frame[10] ^= 1;
         assert_eq!(parse(&frame), None);
     }

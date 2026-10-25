@@ -24,7 +24,7 @@ fn parse(frame: &[u8]) -> Option<Option<u8>> {
     if raw == 0x50 {
         return Some(None);
     }
-    if !(0x08..=0x78).contains(&raw) || raw % 8 != 0 {
+    if !(0x08..=0x78).contains(&raw) || !raw.is_multiple_of(8) {
         return None;
     }
     let percent = ((u16::from(raw) * 100 + 60) / 120).min(100) as u8;

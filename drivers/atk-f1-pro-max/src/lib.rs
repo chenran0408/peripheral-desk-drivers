@@ -275,8 +275,8 @@ fn read_state() -> Result<State, String> {
     let dpi_bytes = read_eeprom(&mut t, 0x000c + active as u16 * 4, 4)?;
     let dpi = unpack_dpi(&dpi_bytes)?;
     if !(50..=36_000).contains(&dpi)
-        || (dpi <= 30_000 && dpi % 50 != 0)
-        || (dpi > 30_000 && dpi % 100 != 0)
+        || (dpi <= 30_000 && !dpi.is_multiple_of(50))
+        || (dpi > 30_000 && !dpi.is_multiple_of(100))
     {
         return Err("F1 Pro Max DPI 超出 PAW3950 范围".into());
     }
@@ -309,8 +309,8 @@ fn apply(action: Action) -> Result<(), String> {
     match action {
         Action::Dpi(dpi) => {
             if !(50..=36_000).contains(&dpi)
-                || (dpi <= 30_000 && dpi % 50 != 0)
-                || (dpi > 30_000 && dpi % 100 != 0)
+                || (dpi <= 30_000 && !dpi.is_multiple_of(50))
+                || (dpi > 30_000 && !dpi.is_multiple_of(100))
             {
                 return Err(
                     "PAW3950 DPI 支持 50–30000（每 50 递增）或 30100–36000（每 100 递增）".into(),

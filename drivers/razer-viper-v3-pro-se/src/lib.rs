@@ -141,7 +141,7 @@ fn rollback(
 fn apply(d: &Device, a: Action) -> Result<(), String> {
     match a {
         Action::Dpi(v) => {
-            if !(100..=35_000).contains(&v) || v % 50 != 0 {
+            if !(100..=35_000).contains(&v) || !v.is_multiple_of(50) {
                 return Err("DPI 必须在 100–35000 之间，按 50 递增".into());
             }
             let old = query(d, 4, 0x85, 7, &[1])?;

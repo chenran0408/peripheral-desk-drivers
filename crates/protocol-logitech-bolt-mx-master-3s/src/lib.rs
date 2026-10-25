@@ -16,7 +16,6 @@ const REPORT: usize = 20;
 const REPORT_ID: u8 = 0x11;
 const SOFTWARE_ID: u8 = 0x0B;
 const ROOT: u8 = 0;
-const RECEIVER: u8 = 0xFF;
 const NAME_FEATURE: u16 = 0x0005;
 const UNIFIED_BATTERY_FEATURE: u16 = 0x1004;
 const MAX_BOLT_SLOTS: u8 = 6;

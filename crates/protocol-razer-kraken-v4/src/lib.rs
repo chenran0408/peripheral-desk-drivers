@@ -19,8 +19,9 @@ const REPORT_ID: u8 = 0x02;
 const REPORT_LEN: usize = 64;
 const BATTERY: u8 = 0x21;
 const CHARGING: u8 = 0x2A;
+type LastSnapshot = (Option<u8>, Option<bool>, u64, u64);
 static NEXT: AtomicU8 = AtomicU8::new(0);
-static LAST: OnceLock<Mutex<(Option<u8>, Option<bool>, u64, u64)>> = OnceLock::new();
+static LAST: OnceLock<Mutex<LastSnapshot>> = OnceLock::new();
 
 pub fn build_query(command: u8) -> Option<[u8; REPORT_LEN]> {
     if command != BATTERY && command != CHARGING {

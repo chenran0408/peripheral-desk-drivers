@@ -1,0 +1,14 @@
+[package]
+name = "logitech-pro-x2-lightspeed-driver"
+version = "0.4.11-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-logitech-pro-x2-lightspeed = { package = "peripheral-desk-protocol-logitech-pro-x2", path = "../../crates/protocol-logitech-pro-x2" }
+serde_json.workspace = true

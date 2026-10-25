@@ -1,0 +1,8 @@
+[package]
+name = "peripheral-desk-protocol-haute42-4ds"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+peripheral-desk.workspace = true

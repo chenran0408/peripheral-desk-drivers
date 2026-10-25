@@ -2,7 +2,6 @@ name: Build and verify driver packages
 on:
   push:
     branches: [main]
-    tags: ["v*"]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -24,7 +23,7 @@ permissions:
 jobs:
   windows-x64:
     runs-on: windows-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -47,11 +46,31 @@ jobs:
         run: |
           cargo fmt --all -- --check
           if ($LASTEXITCODE -ne 0) { throw "Formatting check failed" }
-          if ($env:DRIVER_PACKAGES -eq "mchose-v9-pro") {
-            cargo clippy --locked -p peripheral-desk-protocol-mchose-v9-pro -p mchose-v9-pro-driver --all-targets -- -D warnings
-            if ($LASTEXITCODE -ne 0) { throw "V9 Pro package static check failed" }
-            cargo test --locked -p peripheral-desk-protocol-mchose-v9-pro --lib
-            if ($LASTEXITCODE -ne 0) { throw "V9 Pro protocol tests failed" }
+          if (-not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)) {
+            foreach ($package in $env:DRIVER_PACKAGES.Split(',')) {
+              $package = $package.Trim()
+              cargo clippy --locked -p "$package-driver" --all-targets -- -D warnings
+              if ($LASTEXITCODE -ne 0) { throw "Static check failed for $package" }
+              cargo test --locked -p "$package-driver" --lib
+              if ($LASTEXITCODE -ne 0) { throw "Parser checks failed for $package" }
+            }
+            $protocolPackages = @(
+              "peripheral-desk-protocol-akg-n9-hybrid",
+              "peripheral-desk-protocol-haute42-4ds",
+              "peripheral-desk-protocol-hyperx-cloud-flight-2",
+              "peripheral-desk-protocol-logitech-pro-x2",
+              "peripheral-desk-protocol-razer-blackshark-2023",
+              "peripheral-desk-protocol-razer-kraken-v4",
+              "peripheral-desk-protocol-sony-inzone-h9-ii",
+              "peripheral-desk-protocol-hecate-g5m-pro",
+              "peripheral-desk-protocol-hecate-g3m-pro-upgrade",
+              "peripheral-desk-protocol-logitech-bolt-mx-master-3s",
+              "peripheral-desk-protocol-atk-f1-battery"
+            )
+            foreach ($protocol in $protocolPackages) {
+              cargo test --locked -p $protocol --lib
+              if ($LASTEXITCODE -ne 0) { throw "Protocol parser checks failed for $protocol" }
+            }
           } else {
           cargo clippy --locked --workspace --all-targets -- -D warnings
           if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }

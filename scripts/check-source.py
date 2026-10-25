@@ -35,6 +35,8 @@ def metadata(item):
     device = item["device"]
     if device["key"] != item["id"] or device["image"] != "device.png" or device["kind"] not in ("mouse", "keyboard", "headset", "accessory"):
         raise ValueError("Device identity/kind mismatch")
+    if device["kind"] == "accessory" and tuple(map(int, item["core_min"].split("."))) < (0, 4, 8):
+        raise ValueError("Accessory device entries require the core's accessory-kind support (0.4.8+)")
     if not device["matches"]:
         raise ValueError("Hardware matching rules are required")
     components = device.get("components", [])

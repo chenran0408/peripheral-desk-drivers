@@ -1,5 +1,1479 @@
 [
   {
+    "id": "ajazz-aj179-pro",
+    "name": "AJAZZ AJ179 PRO",
+    "version": "0.4.8-preview.1",
+    "description": "AJ179 PRO GearHub-V5 有线与 2.4 GHz 接收器控制；运行时必须验证设备 id 1851。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "ajazz-aj179-pro",
+      "name": "AJAZZ AJ179 PRO",
+      "brand": "AJAZZ",
+      "kind": "mouse",
+      "subtitle": "DPI、回报率与按键控制 · USB / 2.4 GHz",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 16422,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        },
+        {
+          "vid": 12625,
+          "pid": 16429,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        }
+      ],
+      "dpi_range": [
+        50,
+        26000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000
+      ],
+      "sleeps": [
+        0,
+        60,
+        180,
+        300,
+        600,
+        1200,
+        1800,
+        3600
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB cable / 3151:4026 / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0); runtime device id 1851 required",
+          "2.4 GHz receiver / 3151:402D / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0), F6/F7/FC relay; runtime device id 1851 required"
+        ],
+        "firmware": "v3.03",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/ajazz-aj179-pro.md",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/ajazz-aj179-pro.json"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings",
+      "bindings"
+    ],
+    "changelog": "新增 AJ179 PRO USB 与 2.4 GHz 接收器设置和六键改键；读写依托设备 id 校验、原值保留、读回核对及失败恢复。"
+  },
+  {
+    "id": "ajazz-ak870",
+    "name": "AJAZZ AK870",
+    "version": "0.4.11-preview.1",
+    "description": "读取键盘身份确认后的接收器电量；充电状态未知，不提供键位或灯效控制。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "ajazz-ak870",
+      "name": "AJAZZ AK870",
+      "brand": "AJAZZ",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 16401,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 3151:4011, FFFF:0002, Feature 65-byte"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/ak870-ml903.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "akg-n9-hybrid",
+    "name": "AKG N9 Hybrid",
+    "version": "0.4.11-preview.1",
+    "description": "精确 2.4 GHz 接收器电量读取；不含 EQ、灯效或音频控制。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "akg-n9-hybrid",
+      "name": "AKG N9 Hybrid",
+      "brand": "AKG",
+      "kind": "headset",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 3787,
+          "pid": 8417,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB 2.4 GHz receiver only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/centurion.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "asus-rog-scope-ii-96-omni",
+    "name": "ROG Strix Scope II 96 Omni",
+    "version": "0.4.11-preview.1",
+    "description": "仅读取 Omni 接收器配对设备的电量；键盘控制不在插件范围。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-scope-ii-96-omni",
+      "name": "ROG Strix Scope II 96 Omni",
+      "brand": "ASUS ROG",
+      "kind": "keyboard",
+      "subtitle": "Omni 接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6862,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "path_contains": "mi_02&col02"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz Omni paired endpoint only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/asus.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "atk-a9-plus-nearlink",
+    "name": "ATK A9 Plus Nearlink",
+    "version": "0.4.9-preview.1",
+    "description": "依据 OpenMouse 固定版本源码和实机记录适配；仅支持 373B:1115 有线和 373B:10C9 NearLink 接收器，CID/MID 2,83 精确确认；DPI 100–30000/50 步进，回报率 125/250/500/1000 Hz；设置写入读回并尝试失败恢复，未本地实测。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-a9-plus-nearlink",
+      "name": "ATK A9 Plus Nearlink",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "DPI 100–30000 · 回报率至 1 kHz · 本地未验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4373,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        },
+        {
+          "vid": 14267,
+          "pid": 4297,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / ATK A9 Plus Nearlink / 373B:1115 / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,83 required",
+          "NearLink receiver / ATK A9 Plus Nearlink / 373B:10C9 / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,83 required"
+        ],
+        "firmware": "Mouse 1.20 and 1.30; receiver 1.20 and 1.23",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/atk-testing.md",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/wired.json",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/receiver.json",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/wired-1.30.json",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/receiver-1.30.json"
+        ]
+      },
+      "dpi_range": [
+        100,
+        30000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增精确型号校验后的 DPI 与回报率读写；保留设置块其余字节，失败时尝试恢复并读回。仅支持已验证有线和 NearLink 路径；未本地实测。"
+  },
+  {
+    "id": "atk-a98-pro",
+    "name": "ATK A98 Pro",
+    "version": "0.4.11-preview.1",
+    "description": "只读 VIA 电量；没有该型号布局与固件写入证据，改键、宏和灯效保持关闭。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-a98-pro",
+      "name": "ATK A98 Pro",
+      "brand": "ATK",
+      "kind": "keyboard",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4434,
+          "usage_page": 65376,
+          "usage": 97,
+          "input_len": 33,
+          "output_len": 33
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "VIA channel on exact 373B:1152 receiver"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/atk.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "atk-f1-pro-max",
+    "name": "ATK F1 Pro Max",
+    "version": "0.1.0",
+    "description": "提供 DPI 与回报率；有线/普通接收器至 1 kHz，8K 接收器至 8 kHz。无改键、宏、灯效。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-f1-pro-max",
+      "name": "ATK F1 Pro Max",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "DPI · 回报率 · 电量",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4117,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        },
+        {
+          "vid": 14267,
+          "pid": 4122,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        },
+        {
+          "vid": 14267,
+          "pid": 4123,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "有线 373B:1015；接收器 373B:101A/101B"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/atk.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      },
+      "dpi_range": [
+        50,
+        36000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增支持 DPI 与回报率设置。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "atk-f1-ultimate-2-0",
+    "name": "ATK F1 Ultimate 2.0",
+    "version": "0.4.11-preview.1",
+    "description": "仅匹配 373B:11D9 / 11E4 的 ATK 接口，读取电量、充电状态与电压；型号专属实机数据未见上游记录。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-f1-ultimate-2-0",
+      "name": "ATK F1 Ultimate 2.0",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4569,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 14267,
+          "pid": 4580,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "VID/PID mapping 373B:11D9 and 373B:11E4; generic ATK interface FF02:0002, reports at least 17 bytes. No model-specific capture or physical report.",
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 来源范围见上游记录；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/atk.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "加入精确型号电量与充电状态读取；仅实现上游记录的只读功能。"
+  },
+  {
+    "id": "atk-f1-v3-ultimate-plus",
+    "name": "ATK F1 V3 ULTIMATE+",
+    "version": "0.4.11-preview.1",
+    "description": "精确匹配 8K-M 接收器或有线本体，读取电量、充电状态与电压；无 DPI、按键、宏或灯光控制。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-f1-v3-ultimate-plus",
+      "name": "ATK F1 V3 ULTIMATE+",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4867,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01&col05"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "8K-M receiver 373B:1303, MI_01&COL05, FF02:0002, 17-byte reports; wired body 373B:12A9 with exact product string; wired report length was not measured upstream.",
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 来源范围见上游记录；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/atk.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "加入精确型号电量与充电状态读取；仅实现上游记录的只读功能。"
+  },
+  {
+    "id": "atk-x1-pro-max",
+    "name": "ATK X1 Pro Max",
+    "version": "0.4.9-preview.1",
+    "description": "依据 OpenMouse 固定版本源码和实机记录适配；仅支持 373B:1017 有线和 373B:101B 8K 接收器，CID/MID 2,39 精确确认；DPI 50–30000/50 步进，回报率 125–8000 Hz（有线至 1000 Hz）；设置写入读回并尝试失败恢复，未本地实测。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-x1-pro-max",
+      "name": "ATK X1 Pro Max",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "DPI 50–30000 · 回报率至 8 kHz · 本地未验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4119,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        },
+        {
+          "vid": 14267,
+          "pid": 4123,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / ATK X1 Pro Max / 373B:1017 / interface MI_01, FF02:0002, report 08 with 16-byte payload",
+          "USB 8K receiver / ATK X1 Pro Max / 373B:101B / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,39 required"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/atk-testing.md",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/atk/hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-x1-pro-max/wired.json",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-x1-pro-max/receiver.json"
+        ]
+      },
+      "dpi_range": [
+        50,
+        30000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wired_rates": [
+        125,
+        250,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增精确型号校验后的 DPI 与回报率读写；保留设置块其余字节，失败时尝试恢复并读回。仅支持有线与 8K 接收器；未本地实测。"
+  },
+  {
+    "id": "aula-f108-pro",
+    "name": "AULA F108 Pro",
+    "version": "0.4.11-preview.1",
+    "description": "只读 F108 接收器电量；与同 USB ID 的 GANSS 型号分开识别。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "aula-f108-pro",
+      "name": "AULA F108 Pro",
+      "brand": "AULA",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1452,
+          "pid": 591,
+          "usage_page": 65376,
+          "usage": 97,
+          "input_len": 33,
+          "output_len": 33,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz receiver 05AC:024F with F108 identity"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/ganss.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "aula-g9",
+    "name": "AULA G9",
+    "version": "0.4.11-preview.1",
+    "description": "被动读取耳机推送的电量与充电标志；旧固件 0/0 表示在线但无读数。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "aula-g9",
+      "name": "AULA G9",
+      "brand": "AULA",
+      "kind": "headset",
+      "subtitle": "被动电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14502,
+          "pid": 48,
+          "usage_page": 65451,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 38A6:0030, FFAB, 64-byte passive stream"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/aula.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "aula-hero-68-air",
+    "name": "AULA HERO 68 Air",
+    "version": "0.4.11-preview.1",
+    "description": "读取 UUID 确认后的电量与充电状态；没有键位、宏或灯光写入。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "aula-hero-68-air",
+      "name": "AULA HERO 68 Air",
+      "brand": "AULA",
+      "kind": "keyboard",
+      "subtitle": "接收器电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14126,
+          "pid": 4204,
+          "usage_page": 65376,
+          "usage": 97,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz receiver 372E:106C with UUID identity"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/aula.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "aula-l9-ultra",
+    "name": "AULA L9 Ultra",
+    "version": "0.4.11-preview.1",
+    "description": "主动查询该接收器电量/充电状态；不含 DPI、改键、宏或灯光。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "aula-l9-ultra",
+      "name": "AULA L9 Ultra",
+      "brand": "AULA",
+      "kind": "mouse",
+      "subtitle": "接收器电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14502,
+          "pid": 10493,
+          "usage_page": 65448
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz receiver 38A6:28FD, usage FFA8"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/aula.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+  },
+  {
+    "id": "betop-kunpeng20",
+    "name": "BETOP Kunpeng 20",
+    "version": "0.4.11-preview.1",
+    "description": "只支持明确型号身份的 2.4 GHz 接收器与 USB 有线设备；5191 变体不在范围内。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "betop-kunpeng20",
+      "name": "BETOP Kunpeng 20",
+      "brand": "BETOP",
+      "kind": "accessory",
+      "subtitle": "接收器/有线电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 8380,
+          "pid": 20825,
+          "usage_page": 255,
+          "usage": 3,
+          "input_len": 64,
+          "output_len": 64,
+          "product_contains": "KP20"
+        },
+        {
+          "vid": 8380,
+          "pid": 20824,
+          "usage_page": 255,
+          "usage": 3,
+          "input_len": 64,
+          "output_len": 64,
+          "product_contains": "KP20"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Dongle 20BC:5159 and wired 20BC:5158; product identity KP20"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/betop.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "betop-t9",
+    "name": "BETOP T9",
+    "version": "0.4.11-preview.1",
+    "description": "被动读取 T9 状态；上游离线占位值不显示为电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "betop-t9",
+      "name": "BETOP T9",
+      "brand": "BETOP",
+      "kind": "accessory",
+      "subtitle": "被动接收器电量",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 255,
+          "usage": 3,
+          "input_len": 24,
+          "path_contains": "col04"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz/USB status channel 20BC:5073, FF00:0003, Col04"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/betop.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+  },
+  {
+    "id": "cherry-pixiu75",
+    "name": "CHERRY PIXIU75",
+    "version": "0.4.11-preview.1",
+    "description": "读取精确接收器/有线接口的电量和已知充电状态；无灯效、改键或宏设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "cherry-pixiu75",
+      "name": "CHERRY PIXIU75",
+      "brand": "CHERRY",
+      "kind": "keyboard",
+      "subtitle": "电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1130,
+          "pid": 484,
+          "usage_page": 65308,
+          "usage": 146,
+          "input_len": 64,
+          "output_len": 64,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 1130,
+          "pid": 482,
+          "usage_page": 65308,
+          "usage": 146,
+          "path_contains": "col04",
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Wireless 046A:01E4 receiver; USB wired 046A:01E2, FF1C:0092, Col04"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/cherry.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+  },
+  {
+    "id": "delux-m900-pro",
+    "name": "DELUX M900 Pro",
+    "version": "0.4.11-preview.1",
+    "description": "被动读取独立 5 字节接口；通过用法与报告结构区分共用 VID/PID 的 INPHIC ZHEN。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "delux-m900-pro",
+      "name": "DELUX M900 Pro",
+      "brand": "DELUX",
+      "kind": "mouse",
+      "subtitle": "被动电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 7511,
+          "pid": 64101,
+          "usage_page": 10,
+          "usage": 0,
+          "input_len": 5
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 1D57:FA65, 000A:0000, 5-byte input, no output/feature"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/delux.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "eweadn-s9-series",
+    "name": "EWEADN S9 Pro/Max/Ultra",
+    "version": "0.4.11-preview.1",
+    "description": "同一协议明确覆盖 S9 Pro、Max、Ultra 接收器；只读电量/充电。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "eweadn-s9-series",
+      "name": "EWEADN S9 Pro/Max/Ultra",
+      "brand": "EWEADN",
+      "kind": "mouse",
+      "subtitle": "系列接收器电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14126,
+          "pid": 4134,
+          "usage_page": 65280,
+          "usage": 1,
+          "feature_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Shared S9 Pro/Max/Ultra 372E:1026, FF00:0001 Feature report 03"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/eweadn.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+  },
+  {
+    "id": "eweadn-x87",
+    "name": "EWEADN X87",
+    "version": "0.4.11-preview.1",
+    "description": "精确 X87 VIA 通道电量读取；与同系列 S9 鼠标接口分开。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "eweadn-x87",
+      "name": "EWEADN X87",
+      "brand": "EWEADN",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 3141,
+          "pid": 65278,
+          "usage_page": 65376,
+          "usage": 97,
+          "input_len": 33,
+          "output_len": 33,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB/receiver interface 0C45:FEFE, FF60:0061, MI_03, 33-byte"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/eweadn.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+  },
+  {
+    "id": "gamesir-g7-pro-ce",
+    "name": "GameSir G7 Pro CE",
+    "version": "0.4.11-preview.1",
+    "description": "每次读取需向精确 FFF0:0040 通道发送一次状态心跳；仅支持 VID 与两款上游记录修订号，不读取 XInput 电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gamesir-g7-pro-ce",
+      "name": "GameSir G7 Pro CE",
+      "brand": "GameSir",
+      "kind": "accessory",
+      "subtitle": "手柄电量与充电 · 主动读取",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13623,
+          "pid": 4281,
+          "usage_page": 65520,
+          "usage": 64,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 13623,
+          "pid": 1397,
+          "usage_page": 65520,
+          "usage": 64,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "G7 Pro CE revisions 3537:10B9 and 3537:0575, FFF0:0040, 64-byte reports"
+        ],
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/gamesir.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.11",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
+  },
+  {
+    "id": "haute42-adapter-4ds",
+    "name": "Haute42 Adapter 4DS",
+    "version": "0.4.11-preview.1",
+    "description": "只读确认 Haute42 固件与芯片；普通 DualSense 不会被当成适配器。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "haute42-adapter-4ds",
+      "name": "Haute42 Adapter 4DS",
+      "brand": "Haute42",
+      "kind": "accessory",
+      "subtitle": "固件识别 · 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1356,
+          "pid": 3302,
+          "usage_page": 1,
+          "usage": 5,
+          "feature_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB Haute42 firmware identity only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/haute.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "hecate-g3m-pro-upgrade",
+    "name": "HECATE D3FB 接收器（G3M Pro Upgrade 型号未确认）",
+    "version": "0.1.0",
+    "description": "只确认 35BB:D3FB 接收器状态；接收器协议不报告鼠标型号，G3M Pro Upgrade 标签来自上游配对记录，其他配对型号不能排除。充电字段未知。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hecate-g3m-pro-upgrade",
+      "name": "HECATE D3FB 接收器（G3M Pro Upgrade 型号未确认）",
+      "brand": "HECATE",
+      "kind": "mouse",
+      "subtitle": "接收器电量 · 型号标识有限",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13755,
+          "pid": 54267,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "Receiver 35BB:D3FB, FF02:0002, 17-byte STATUS/POWER reports; protocol does not identify paired mouse model"
+        ],
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/hecate.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
+  },
+  {
+    "id": "hecate-g5m-pro",
+    "name": "HECATE G5M Pro",
+    "version": "0.1.0",
+    "description": "每次状态读取向精确 G5M Pro 接收器发送一条只读查询；不含 DPI、改键、宏或灯效。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hecate-g5m-pro",
+      "name": "HECATE G5M Pro",
+      "brand": "HECATE",
+      "kind": "mouse",
+      "subtitle": "接收器电量与充电 · 主动只读查询",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13755,
+          "pid": 53259,
+          "usage_page": 65308,
+          "usage": 146,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 35BB:D00B, FF1C:0092, 64-byte report"
+        ],
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/hecate.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
+  },
+  {
+    "id": "hyperx-cloud-flight-2",
+    "name": "HyperX Cloud Flight 2",
+    "version": "0.4.11-preview.1",
+    "description": "被动读取接收器状态，不主动发送查询；不提供 EQ 或灯效。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-flight-2",
+      "name": "HyperX Cloud Flight 2",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "电量 · 充电 · 连接状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 2753,
+          "usage_page": 65424,
+          "usage": 65280,
+          "input_len": 64,
+          "path_contains": "mi_03&col04"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz passive receiver interface"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/hyperx.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "inphic-zhen",
+    "name": "INPHIC ZHEN",
+    "version": "0.4.11-preview.1",
+    "description": "被动读取 5 字节状态；未知标志不推测充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "inphic-zhen",
+      "name": "INPHIC ZHEN",
+      "brand": "INPHIC",
+      "kind": "mouse",
+      "subtitle": "被动电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 7511,
+          "pid": 64101,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 5
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 1D57:FA65, FF00:0001, 5-byte input"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/inphic.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "lingbao-m5pro-max",
+    "name": "LINGBAO M5PRO Max",
+    "version": "0.4.11-preview.1",
+    "description": "只支持 2.4 GHz 接收器；有线设备只回显查询，不会当成有效电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "lingbao-m5pro-max",
+      "name": "LINGBAO M5PRO Max",
+      "brand": "LINGBAO",
+      "kind": "mouse",
+      "subtitle": "2.4 GHz 接收器电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 16429,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz receiver 3151:402D, FFFF:0002, Feature >=65 bytes"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/lingbao.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "logitech-bolt-mx-master-3s",
+    "name": "Logitech Bolt + MX Master 3S",
+    "version": "0.1.0",
+    "description": "仅对精确 046D:C548 Bolt 的长 HID++ 接口，确认配对设备名为 MX Master 3S 后读取；蓝牙、有线和其他配对设备不适用。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-bolt-mx-master-3s",
+      "name": "Logitech Bolt + MX Master 3S",
+      "brand": "Logitech",
+      "kind": "mouse",
+      "subtitle": "Bolt 接收器电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50504,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "046D:C548 Bolt receiver, FF00:0002, 20-byte long HID++ interface; exact paired model name required"
+        ],
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/logitech.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
+  },
+  {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
     "version": "0.4.9-preview.3",
@@ -55,6 +1529,490 @@
       "settings"
     ],
     "changelog": "修复 G305 的 DPI 调节控件没有显示；板载配置开启时会明确说明暂不可调节，不改动板载模式。尚未实机验证。"
+  },
+  {
+    "id": "logitech-pro-x2-lightspeed",
+    "name": "Logitech PRO X 2 LIGHTSPEED",
+    "version": "0.4.11-preview.1",
+    "description": "读取 2.4 GHz 接收器电量和已知充电标志；不提供 G HUB EQ、环绕声或麦克风控制。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-pro-x2-lightspeed",
+      "name": "Logitech PRO X 2 LIGHTSPEED",
+      "brand": "Logitech",
+      "kind": "headset",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 2807,
+          "usage_page": 65440,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz receiver only; Bluetooth and wired excluded"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/centurion.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "mchose-a7-v2-pro",
+    "name": "MCHOSE A7 V2 Pro",
+    "version": "0.4.11-preview.1",
+    "description": "只匹配 A7 V2 Pro 3837:100A；监听被动 E2 电量状态，无被动帧时发文档化状态唤醒帧。不适用于 A7 V3 Ultra+。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-a7-v2-pro",
+      "name": "MCHOSE A7 V2 Pro",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "接收器电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4106,
+          "usage_page": 65282
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Contributor-validated A7 V2 Pro receiver 3837:100A; mouse V2 E2 status channel, report >=60 bytes"
+        ],
+        "firmware": "unknown",
+        "project_validation": "贡献者真机验证：E2 电量及状态唤醒流程。Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/mchose.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增本型号专属的电量与充电状态读取；支持边界见设备详情，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "mchose-a7-v3-ultra-plus",
+    "name": "MCHOSE A7 V3 Ultra+ 接收器",
+    "version": "0.4.9-preview.1",
+    "description": "仅支持精确型号字符串与运行时身份均匹配的 3837:1018 8K 接收器；支持活动 DPI（50–50000/50 步进）、无线回报率（125/500/1000/2000/4000/8000 Hz）和受限六键映射。未本地实测。",
+    "device": {
+      "key": "mchose-a7-v3-ultra-plus",
+      "name": "MCHOSE A7 V3 Ultra+ 接收器",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "DPI · 无线回报率 · 六键映射 · 本地未验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4120,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "product_equals": "MCHOSE A7 V3 Ultra+"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz / original 3837:1018 8 kHz receiver; exact host product string and runtime 0x0900 identity 3837:4026 required"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+        ]
+      },
+      "dpi_range": [
+        50,
+        50000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wireless_rates": [
+        125,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ]
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings",
+      "bindings"
+    ],
+    "changelog": "新增活动 DPI、无线回报率和六键受限映射；设置读回校验，失败尝试恢复。未知按键字节保留，未实机验证；不提供灯光、宏或固件操作。"
+  },
+  {
+    "id": "mchose-g87-v1",
+    "name": "MCHOSE G87 V1",
+    "version": "0.4.11-preview.1",
+    "description": "只支持 G87 V1 的 20 字节接收器通道；G87 V2 与 QHW 接收器不适用。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-g87-v1",
+      "name": "MCHOSE G87 V1",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "subtitle": "接收器电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8193,
+          "usage_page": 65282,
+          "usage": 1,
+          "input_len": 20,
+          "output_len": 20,
+          "path_contains": "mi_01&col01"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "G87 V1 receiver exact MI_01&Col01"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/mchose.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "mchose-g87-v2",
+    "name": "MCHOSE G87 V2",
+    "version": "0.4.11-preview.1",
+    "description": "只匹配 G87 V2 3837:201B；通过已知 V1 会话 ACK 后读取电量和充电状态，不适用于 QHW 接收器或 G87 V1。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-g87-v2",
+      "name": "MCHOSE G87 V2",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "subtitle": "V1 会话电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 8219,
+          "usage_page": 65282,
+          "usage": 1,
+          "input_len": 20,
+          "output_len": 20,
+          "path_contains": "mi_01&col01"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "贡献者验证的 G87 V2 3837:201B receiver; MI_01&Col01, FF02, 20-byte keyboard V1 session"
+        ],
+        "firmware": "unknown",
+        "project_validation": "贡献者真机验证：G87 V2 69% 回复。Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/mchose.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增本型号专属的电量与充电状态读取；支持边界见设备详情，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "mchose-magdock",
+    "name": "MCHOSE MagDock",
+    "version": "0.4.8-preview.2",
+    "description": "灯效读写预览；依据固定上游提交中真实 MagDock 的写入、读回与恢复记录移植，尚未在本项目实机验证。",
+    "device": {
+      "key": "mchose-magdock",
+      "name": "MCHOSE MagDock",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "充电底座灯效 · 上游实机验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4114,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "lighting_modes": [
+        {
+          "id": 0,
+          "label": "常亮",
+          "color": true,
+          "music_sync": false
+        },
+        {
+          "id": 1,
+          "label": "呼吸",
+          "color": true,
+          "music_sync": false
+        },
+        {
+          "id": 2,
+          "label": "闪耀",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 3,
+          "label": "变色循环",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 4,
+          "label": "流光",
+          "color": false,
+          "music_sync": false
+        },
+        {
+          "id": 5,
+          "label": "音乐",
+          "color": false,
+          "music_sync": true
+        }
+      ],
+      "lighting_speed_max": 4,
+      "lighting_brightness_max": 4,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "MCHOSE MagDock 3837:1012，usage page FF00 / usage 0001；上游真实设备完成灯效读取、完整写入、读回核对和原值恢复"
+        ],
+        "firmware": "unknown",
+        "project_validation": "本项目尚未连接设备实测；Windows HID/ABI 映射与安装升级数据保留尚待本项目环境验证",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/mchose/dock.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.test.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md"
+        ],
+        "upstream_license": "AGPL-3.0-or-later"
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-editor",
+      "lighting-switch"
+    ],
+    "changelog": "新增底座灯光开关、六种模式、颜色、速度与亮度设置；需先更新主程序至 0.4.8，修正旧版目录无法识别底座的问题。"
+  },
+  {
+    "id": "mchose-v9-pro",
+    "name": "迈从 V9 Pro 耳机",
+    "version": "0.4.10-preview.1",
+    "description": "Vigil Watt 贡献者单点抓包适配，Peripheral Desk 未实测；需主动查询，安装此预览包即允许其轮询电量。仅支持 291D:385D 精确耳机集合。",
+    "device": {
+      "key": "mchose-v9-pro",
+      "name": "迈从 V9 Pro",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "只读电量 · 主动查询 · 上游单点验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "usage_page": 65424,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "feature_len": 0,
+          "path_contains": "&mi_00&col05#"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 2.4 GHz receiver; exact MI_00 COL05 FF90:0001 64-byte input/output collection only"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/tree/a78e973b4eb634bdce37c9078dd48d1c07e3eb73",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/docs/hardware/mchose-v9-pro.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/LICENSE"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 V9 Pro 接收器电量预览。安装后会主动查询；充电状态未知，非满电映射未验证，本项目未实测。"
+  },
+  {
+    "id": "pulsar-x2-v2",
+    "name": "Pulsar X2 V2",
+    "version": "0.4.11-preview.1",
+    "description": "只支持原装 1 kHz 接收器；休眠时可能在线但暂时无电量回复。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "pulsar-x2-v2",
+      "name": "Pulsar X2 V2",
+      "brand": "Pulsar",
+      "kind": "mouse",
+      "subtitle": "1 kHz 接收器电量与充电",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62728,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17,
+          "path_contains": "mi_01&col05"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "1 kHz 2.4 GHz receiver 3554:F508, MI_01&Col05, FF02:0002, 17-byte"
+        ],
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/pulsar.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
+  },
+  {
+    "id": "rapoo-vt3-ii",
+    "name": "Rapoo VT3 II",
+    "version": "0.4.11-preview.1",
+    "description": "接收器在鼠标活动时被动发送报告；不发送查询。休眠时无新报告按未知处理。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "rapoo-vt3-ii",
+      "name": "Rapoo VT3 II",
+      "brand": "Rapoo",
+      "kind": "mouse",
+      "subtitle": "被动电量与充电状态",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9390,
+          "pid": 5138,
+          "input_len": 19
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Receiver 24AE:1412; exact 19-byte report 07 signature"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/rapoo.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
   },
   {
     "id": "razer-basilisk-v3-pro-wired",
@@ -148,608 +2106,99 @@
     "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
   },
   {
-    "id": "mchose-a7-v3-ultra-plus",
-    "name": "MCHOSE A7 V3 Ultra+ 接收器",
-    "version": "0.4.9-preview.1",
-    "description": "仅支持精确型号字符串与运行时身份均匹配的 3837:1018 8K 接收器；支持活动 DPI（50–50000/50 步进）、无线回报率（125/500/1000/2000/4000/8000 Hz）和受限六键映射。未本地实测。",
+    "id": "razer-blackshark-v2-pro-2023",
+    "name": "Razer BlackShark V2 Pro (2023)",
+    "version": "0.4.11-preview.1",
+    "description": "需在设备页启用主动查询；仅支持 2023 接收器，不支持 2020 版或其他 PID。",
+    "abi": 1,
+    "dll": "driver.dll",
     "device": {
-      "key": "mchose-a7-v3-ultra-plus",
-      "name": "MCHOSE A7 V3 Ultra+ 接收器",
-      "brand": "MCHOSE",
-      "kind": "mouse",
-      "subtitle": "DPI · 无线回报率 · 六键映射 · 本地未验证",
+      "key": "razer-blackshark-v2-pro-2023",
+      "name": "Razer BlackShark V2 Pro (2023)",
+      "brand": "Razer",
+      "kind": "headset",
+      "subtitle": "接收器电量与充电 · 主动查询",
       "image": "device.png",
       "matches": [
         {
-          "vid": 14391,
-          "pid": 4120,
-          "usage_page": 65281,
+          "vid": 5426,
+          "pid": 1365,
+          "usage_page": 65280,
           "usage": 1,
           "input_len": 64,
           "output_len": 64,
-          "product_equals": "MCHOSE A7 V3 Ultra+"
+          "path_contains": "mi_03&col02"
         }
       ],
       "advanced": [],
       "validation": {
-        "status": "public-implementation-untested",
+        "status": "upstream-hardware-verified-project-untested",
         "connections": [
-          "2.4 GHz / original 3837:1018 8 kHz receiver; exact host product string and runtime 0x0900 identity 3837:4026 required"
+          "2.4 GHz 2023 receiver only"
         ],
         "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
         "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
-        ]
-      },
-      "dpi_range": [
-        50,
-        50000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ],
-      "wireless_rates": [
-        125,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ]
-    },
-    "abi": 1,
-    "dll": "driver.dll",
-    "core_min": "0.4.0",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings",
-      "bindings"
-    ],
-    "changelog": "新增活动 DPI、无线回报率和六键受限映射；设置读回校验，失败尝试恢复。未知按键字节保留，未实机验证；不提供灯光、宏或固件操作。"
-  },
-  {
-    "id": "vgn-f2-master-plus",
-    "name": "VGN Dragonfly F2 Master+",
-    "version": "0.4.9-preview.3",
-    "description": "公开协议适配尚未实机验证；支持 3554:FB56 接收器或 3554:FB57 有线设备的电量、固件、DPI、回报率与六键映射预览。",
-    "device": {
-      "key": "vgn-f2-master-plus",
-      "name": "VGN Dragonfly F2 Master+",
-      "brand": "VGN",
-      "kind": "mouse",
-      "subtitle": "DPI · 回报率 · 按键映射 · 未实测",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 13652,
-          "pid": 64342,
-          "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
-        },
-        {
-          "vid": 13652,
-          "pid": 64343,
-          "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
-        }
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "2.4 GHz receiver / USB 3554:FB56 / unique FF02:0002 report-08 collection",
-          "USB wired / USB 3554:FB57 / unique FF02:0002 report-08 collection"
-        ],
-        "firmware": "report-08 command 0x12; DPI/rate profile reads are validated; key-table protocol is shared-layout evidence without a VGN vendor capture",
-        "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/protocol.test.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/vgn/index.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/teevolution/index.ts"
-        ]
-      },
-      "dpi_range": [
-        50,
-        26000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        250,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ],
-      "wired_rates": [
-        125,
-        250,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ],
-      "wireless_rates": [
-        125,
-        250,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ]
-    },
-    "abi": 1,
-    "dll": "driver.dll",
-    "core_min": "0.4.0",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings",
-      "bindings"
-    ],
-    "changelog": "新增 DPI、档位切换、回报率和鼠标键映射；修正 DPI 与回报率入口未显示。沿用公开布局，尚未实机验证。"
-  },
-  {
-    "id": "atk-x1-pro-max",
-    "name": "ATK X1 Pro Max",
-    "version": "0.4.9-preview.1",
-    "description": "依据 OpenMouse 固定版本源码和实机记录适配；仅支持 373B:1017 有线和 373B:101B 8K 接收器，CID/MID 2,39 精确确认；DPI 50–30000/50 步进，回报率 125–8000 Hz（有线至 1000 Hz）；设置写入读回并尝试失败恢复，未本地实测。",
-    "abi": 1,
-    "dll": "driver.dll",
-    "device": {
-      "key": "atk-x1-pro-max",
-      "name": "ATK X1 Pro Max",
-      "brand": "ATK",
-      "kind": "mouse",
-      "subtitle": "DPI 50–30000 · 回报率至 8 kHz · 本地未验证",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 14267,
-          "pid": 4119,
-          "usage_page": 65282,
-          "usage": 2,
-          "input_len": 17,
-          "output_len": 17,
-          "path_contains": "mi_01"
-        },
-        {
-          "vid": 14267,
-          "pid": 4123,
-          "usage_page": 65282,
-          "usage": 2,
-          "input_len": 17,
-          "output_len": 17,
-          "path_contains": "mi_01"
-        }
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "USB wired / ATK X1 Pro Max / 373B:1017 / interface MI_01, FF02:0002, report 08 with 16-byte payload",
-          "USB 8K receiver / ATK X1 Pro Max / 373B:101B / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,39 required"
-        ],
-        "firmware": "unknown",
-        "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/atk-testing.md",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/atk/hid.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-x1-pro-max/wired.json",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-x1-pro-max/receiver.json"
-        ]
-      },
-      "dpi_range": [
-        50,
-        30000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        250,
-        500,
-        1000,
-        2000,
-        4000,
-        8000
-      ],
-      "wired_rates": [
-        125,
-        250,
-        500,
-        1000
-      ]
-    },
-    "core_min": "0.4.0",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings"
-    ],
-    "changelog": "新增精确型号校验后的 DPI 与回报率读写；保留设置块其余字节，失败时尝试恢复并读回。仅支持有线与 8K 接收器；未本地实测。"
-  },
-  {
-    "id": "razer-viper-v2-pro-wired",
-    "name": "Razer Viper V2 Pro (有线)",
-    "version": "0.4.8-preview.1",
-    "description": "依据固定版本的 OpenRazer 公开协议实现；仅支持 1532:00A5 有线设备，可读取电量、充电状态、DPI 与回报率，并设置 DPI（100–30000，步进 50）和 125/500/1000 Hz 回报率；尚未实机验证。",
-    "abi": 1,
-    "dll": "driver.dll",
-    "device": {
-      "key": "razer-viper-v2-pro-wired",
-      "name": "Razer Viper V2 Pro",
-      "brand": "Razer",
-      "kind": "mouse",
-      "subtitle": "DPI 100–30000 · 回报率 125/500/1000 Hz · 本地未验证",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 5426,
-          "pid": 165,
-          "feature_len": 91,
-          "path_contains": "mi_00"
-        }
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "USB wired / Razer Viper V2 Pro / 1532:00A5 / MI_00, 91-byte Feature report guard; no physical descriptor capture"
-        ],
-        "firmware": "unknown",
-        "source_refs": [
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L1541-L1551",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L88-L89",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L33-L55",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1666",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1699-L1775",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1053-L1070",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.h#L124-L136",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.c#L108-L124",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1964-L2005",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2181-L2220",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2609-L2640",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2769-L2810",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3173-L3190",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3292-L3315",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1092-L1127",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1211-L1241",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1281-L1325",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2575",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2810",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3281"
-        ]
-      },
-      "dpi_range": [
-        100,
-        30000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        500,
-        1000
-      ],
-      "wired_rates": [
-        125,
-        500,
-        1000
-      ]
-    },
-    "core_min": "0.4.0",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings"
-    ],
-    "changelog": "新增 Viper V2 Pro 有线 DPI 与回报率读取和设置；失败时恢复原设置并核对，改 DPI 时保留其他档位和未识别数据。仅支持 1532:00A5；本地未实测。"
-  },
-  {
-    "id": "atk-a9-plus-nearlink",
-    "name": "ATK A9 Plus Nearlink",
-    "version": "0.4.9-preview.1",
-    "description": "依据 OpenMouse 固定版本源码和实机记录适配；仅支持 373B:1115 有线和 373B:10C9 NearLink 接收器，CID/MID 2,83 精确确认；DPI 100–30000/50 步进，回报率 125/250/500/1000 Hz；设置写入读回并尝试失败恢复，未本地实测。",
-    "abi": 1,
-    "dll": "driver.dll",
-    "device": {
-      "key": "atk-a9-plus-nearlink",
-      "name": "ATK A9 Plus Nearlink",
-      "brand": "ATK",
-      "kind": "mouse",
-      "subtitle": "DPI 100–30000 · 回报率至 1 kHz · 本地未验证",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 14267,
-          "pid": 4373,
-          "usage_page": 65282,
-          "usage": 2,
-          "input_len": 17,
-          "output_len": 17,
-          "path_contains": "mi_01"
-        },
-        {
-          "vid": 14267,
-          "pid": 4297,
-          "usage_page": 65282,
-          "usage": 2,
-          "input_len": 17,
-          "output_len": 17,
-          "path_contains": "mi_01"
-        }
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "USB wired / ATK A9 Plus Nearlink / 373B:1115 / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,83 required",
-          "NearLink receiver / ATK A9 Plus Nearlink / 373B:10C9 / interface MI_01, FF02:0002, report 08 with 16-byte payload; runtime CID/MID 2,83 required"
-        ],
-        "firmware": "Mouse 1.20 and 1.30; receiver 1.20 and 1.23",
-        "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/atk-testing.md",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/wired.json",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/receiver.json",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/wired-1.30.json",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/atk-a9-plus-nk/receiver-1.30.json"
-        ]
-      },
-      "dpi_range": [
-        100,
-        30000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        250,
-        500,
-        1000
-      ],
-      "wired_rates": [
-        125,
-        250,
-        500,
-        1000
-      ]
-    },
-    "core_min": "0.4.0",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings"
-    ],
-    "changelog": "新增精确型号校验后的 DPI 与回报率读写；保留设置块其余字节，失败时尝试恢复并读回。仅支持已验证有线和 NearLink 路径；未本地实测。"
-  },
-  {
-    "id": "razer-viper-ultimate-wired",
-    "name": "Razer Viper Ultimate (有线)",
-    "version": "0.4.9-preview.3",
-    "description": "依据固定版本 OpenRazer 公开协议适配，尚未实机验证；可读取电量、充电状态、DPI、回报率与Logo亮度，并设置 DPI、回报率、亮度及上游支持的Logo灯效。灯效与颜色无法读回。",
-    "abi": 1,
-    "dll": "driver.dll",
-    "device": {
-      "key": "razer-viper-ultimate-wired",
-      "name": "Razer Viper Ultimate",
-      "brand": "Razer",
-      "kind": "mouse",
-      "subtitle": "DPI 100–20000 · 125/500/1000 Hz · Logo 亮度与灯效 · 未实测",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 5426,
-          "pid": 122,
-          "feature_len": 91,
-          "path_contains": "mi_00"
-        }
-      ],
-      "dpi_range": [
-        100,
-        20000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        500,
-        1000
-      ],
-      "wired_rates": [
-        125,
-        500,
-        1000
-      ],
-      "lighting_brightness_max": 255,
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "USB wired / Razer Viper Ultimate / 1532:007A / unique MI_00, 91-byte Feature report guard; no physical descriptor capture"
-        ],
-        "firmware": "unknown",
-        "source_refs": [
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L817-L840",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L32-L101",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2660",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3162-L3253",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1949-L2005",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L4280-L4385",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1053-L1127",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1211-L1325",
-          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L709-L741"
-        ]
-      },
-      "lighting_write_only": true,
-      "lighting_speed_max": 4,
-      "lighting_modes": [
-        {
-          "label": "静态颜色",
-          "music_sync": false,
-          "color": true,
-          "id": 0
-        },
-        {
-          "label": "光谱循环",
-          "music_sync": false,
-          "color": false,
-          "id": 1
-        },
-        {
-          "label": "响应",
-          "music_sync": false,
-          "color": true,
-          "id": 2
-        },
-        {
-          "label": "呼吸",
-          "music_sync": false,
-          "color": true,
-          "id": 3
-        },
-        {
-          "label": "随机呼吸",
-          "music_sync": false,
-          "color": false,
-          "id": 4
-        }
-      ]
-    },
-    "core_min": "0.4.9",
-    "core_max_exclusive": "0.5.0",
-    "channel": "preview",
-    "capabilities": [
-      "battery",
-      "settings",
-      "lighting-editor",
-      "lighting-switch"
-    ],
-    "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
-  },
-  {
-    "id": "vgn-f2-pro-max",
-    "name": "VGN Dragonfly F2 Pro Max",
-    "version": "0.4.7-preview.1",
-    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:FB3E 接收器或 3554:FB3D 有线设备，只读电量与充电状态。",
-    "device": {
-      "key": "vgn-f2-pro-max",
-      "name": "VGN Dragonfly F2 Pro Max",
-      "brand": "VGN",
-      "kind": "mouse",
-      "subtitle": "只读电量 · 未实测",
-      "image": "device.png",
-      "matches": [
-        {
-          "vid": 13652,
-          "pid": 64318,
-          "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
-        },
-        {
-          "vid": 13652,
-          "pid": 64317,
-          "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
-        }
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "public-implementation-untested",
-        "connections": [
-          "2.4 GHz receiver / USB 3554:FB3E / unique FF02 report-08 collection",
-          "USB wired / USB 3554:FB3D / unique FF02 report-08 collection"
-        ],
-        "firmware": "not requested; only battery command 0x04 is established for this model",
-        "source_refs": [
-          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/razer.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
         ]
       }
     },
-    "abi": 1,
-    "dll": "driver.dll",
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
       "battery"
     ],
-    "changelog": "新增 VGN Dragonfly F2 Pro Max 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
   },
   {
-    "id": "vgn-f1-pro",
-    "name": "VGN F1 Pro",
-    "version": "0.4.7-preview.1",
-    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:F503 接收器或 3554:F502 有线设备，只读电量与充电状态。",
+    "id": "razer-darkrim-shadow",
+    "name": "DARKRIM SHADOW",
+    "version": "0.4.11-preview.1",
+    "description": "只支持精确接收器接口；检测到官方 DARKRIM 程序运行或无法确认时会让位，不读取设备。",
+    "abi": 1,
+    "dll": "driver.dll",
     "device": {
-      "key": "vgn-f1-pro",
-      "name": "VGN F1 Pro",
-      "brand": "VGN",
+      "key": "razer-darkrim-shadow",
+      "name": "DARKRIM SHADOW",
+      "brand": "DARKRIM",
       "kind": "mouse",
-      "subtitle": "只读电量 · 未实测",
+      "subtitle": "接收器电量与充电 · 让位保护",
       "image": "device.png",
       "matches": [
         {
-          "vid": 13652,
-          "pid": 62723,
+          "vid": 13908,
+          "pid": 26881,
           "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
-        },
-        {
-          "vid": 13652,
-          "pid": 62722,
-          "usage_page": 65282,
-          "input_len": 17,
-          "output_len": 17
+          "usage": 2,
+          "input_len": 65,
+          "output_len": 65,
+          "path_contains": "mi_03"
         }
       ],
       "advanced": [],
       "validation": {
-        "status": "public-implementation-untested",
+        "status": "upstream-hardware-verified-project-untested",
         "connections": [
-          "2.4 GHz receiver / USB 3554:F503 / unique FF02 report-08 collection",
-          "USB wired / USB 3554:F502 / unique FF02 report-08 collection"
+          "3654:6901, FF02:0002, MI_03, 65-byte HID interface"
         ],
-        "firmware": "not requested; only battery command 0x04 is established for this model",
+        "firmware": "unknown",
+        "project_validation": "上游实物使用证据适用于上述具体接口；Peripheral Desk 尚未实机验证。具体不确定项已写在说明中。",
         "source_refs": [
-          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
-          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/darkrim.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
         ]
       }
     },
-    "abi": 1,
-    "dll": "driver.dll",
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
       "battery"
     ],
-    "changelog": "新增 VGN F1 Pro 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+    "changelog": "新增按已记录型号/连接方式读取电量；主动查询范围及型号识别边界见设备详情。"
   },
   {
     "id": "razer-deathadder-v2-pro-wired",
@@ -855,126 +2304,660 @@
     "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
   },
   {
-    "id": "mchose-magdock",
-    "name": "MCHOSE MagDock",
-    "version": "0.4.8-preview.2",
-    "description": "灯效读写预览；依据固定上游提交中真实 MagDock 的写入、读回与恢复记录移植，尚未在本项目实机验证。",
+    "id": "razer-kraken-v4",
+    "name": "Razer Kraken V4",
+    "version": "0.1.0",
+    "description": "每次读取仅发送一条已知查询；不含 EQ、灯效或其他设置。",
+    "abi": 1,
+    "dll": "driver.dll",
     "device": {
-      "key": "mchose-magdock",
-      "name": "MCHOSE MagDock",
-      "brand": "MCHOSE",
-      "kind": "accessory",
-      "subtitle": "充电底座灯效 · 上游实机验证",
+      "key": "razer-kraken-v4",
+      "name": "Razer Kraken V4",
+      "brand": "Razer",
+      "kind": "headset",
+      "subtitle": "接收器电量与充电 · 只读查询",
       "image": "device.png",
       "matches": [
         {
-          "vid": 14391,
-          "pid": 4114,
-          "usage_page": 65280,
+          "vid": 5426,
+          "pid": 1388,
+          "usage_page": 65298,
           "usage": 1,
           "input_len": 64,
           "output_len": 64
         }
       ],
       "advanced": [],
-      "lighting_modes": [
-        {
-          "id": 0,
-          "label": "常亮",
-          "color": true,
-          "music_sync": false
-        },
-        {
-          "id": 1,
-          "label": "呼吸",
-          "color": true,
-          "music_sync": false
-        },
-        {
-          "id": 2,
-          "label": "闪耀",
-          "color": false,
-          "music_sync": false
-        },
-        {
-          "id": 3,
-          "label": "变色循环",
-          "color": false,
-          "music_sync": false
-        },
-        {
-          "id": 4,
-          "label": "流光",
-          "color": false,
-          "music_sync": false
-        },
-        {
-          "id": 5,
-          "label": "音乐",
-          "color": false,
-          "music_sync": true
-        }
-      ],
-      "lighting_speed_max": 4,
-      "lighting_brightness_max": 4,
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
         "connections": [
-          "MCHOSE MagDock 3837:1012，usage page FF00 / usage 0001；上游真实设备完成灯效读取、完整写入、读回核对和原值恢复"
+          "USB receiver FF14 report"
         ],
         "firmware": "unknown",
-        "project_validation": "本项目尚未连接设备实测；Windows HID/ABI 映射与安装升级数据保留尚待本项目环境验证",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
         "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/mchose/dock.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.test.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md"
-        ],
-        "upstream_license": "AGPL-3.0-or-later"
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/razer.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
       }
     },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "razer-viper-ultimate-wired",
+    "name": "Razer Viper Ultimate (有线)",
+    "version": "0.4.9-preview.3",
+    "description": "依据固定版本 OpenRazer 公开协议适配，尚未实机验证；可读取电量、充电状态、DPI、回报率与Logo亮度，并设置 DPI、回报率、亮度及上游支持的Logo灯效。灯效与颜色无法读回。",
     "abi": 1,
     "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-ultimate-wired",
+      "name": "Razer Viper Ultimate",
+      "brand": "Razer",
+      "kind": "mouse",
+      "subtitle": "DPI 100–20000 · 125/500/1000 Hz · Logo 亮度与灯效 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 122,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "dpi_range": [
+        100,
+        20000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000
+      ],
+      "wired_rates": [
+        125,
+        500,
+        1000
+      ],
+      "lighting_brightness_max": 255,
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / Razer Viper Ultimate / 1532:007A / unique MI_00, 91-byte Feature report guard; no physical descriptor capture"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L817-L840",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L32-L101",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2660",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3162-L3253",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1949-L2005",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L4280-L4385",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1053-L1127",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1211-L1325",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L709-L741"
+        ]
+      },
+      "lighting_write_only": true,
+      "lighting_speed_max": 4,
+      "lighting_modes": [
+        {
+          "label": "静态颜色",
+          "music_sync": false,
+          "color": true,
+          "id": 0
+        },
+        {
+          "label": "光谱循环",
+          "music_sync": false,
+          "color": false,
+          "id": 1
+        },
+        {
+          "label": "响应",
+          "music_sync": false,
+          "color": true,
+          "id": 2
+        },
+        {
+          "label": "呼吸",
+          "music_sync": false,
+          "color": true,
+          "id": 3
+        },
+        {
+          "label": "随机呼吸",
+          "music_sync": false,
+          "color": false,
+          "id": 4
+        }
+      ]
+    },
+    "core_min": "0.4.9",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings",
+      "lighting-editor",
+      "lighting-switch"
+    ],
+    "changelog": "新增 DPI、回报率及灯效编辑；修正灯效入口未显示。亮度可读回，模式与颜色显示本工具上次设置，尚未实机验证。"
+  },
+  {
+    "id": "razer-viper-v2-pro-wired",
+    "name": "Razer Viper V2 Pro (有线)",
+    "version": "0.4.8-preview.1",
+    "description": "依据固定版本的 OpenRazer 公开协议实现；仅支持 1532:00A5 有线设备，可读取电量、充电状态、DPI 与回报率，并设置 DPI（100–30000，步进 50）和 125/500/1000 Hz 回报率；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v2-pro-wired",
+      "name": "Razer Viper V2 Pro",
+      "brand": "Razer",
+      "kind": "mouse",
+      "subtitle": "DPI 100–30000 · 回报率 125/500/1000 Hz · 本地未验证",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 165,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB wired / Razer Viper V2 Pro / 1532:00A5 / MI_00, 91-byte Feature report guard; no physical descriptor capture"
+        ],
+        "firmware": "unknown",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L1541-L1551",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L88-L89",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L33-L55",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1666",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1699-L1775",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1053-L1070",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.h#L124-L136",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razercommon.c#L108-L124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1964-L2005",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2181-L2220",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2609-L2640",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2769-L2810",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3173-L3190",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3292-L3315",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1092-L1127",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1211-L1241",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L1281-L1325",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2575",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2810",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L3281"
+        ]
+      },
+      "dpi_range": [
+        100,
+        30000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000
+      ],
+      "wired_rates": [
+        125,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增 Viper V2 Pro 有线 DPI 与回报率读取和设置；失败时恢复原设置并核对，改 DPI 时保留其他档位和未识别数据。仅支持 1532:00A5；本地未实测。"
+  },
+  {
+    "id": "razer-viper-v3-pro-se",
+    "name": "Razer Viper V3 Pro SE",
+    "version": "0.1.0",
+    "description": "支持接收器电量、DPI 与 125/500/1000 Hz 回报率；无休眠、改键、宏或灯效。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v3-pro-se",
+      "name": "Razer Viper V3 Pro SE",
+      "brand": "Razer",
+      "kind": "mouse",
+      "subtitle": "DPI · 回报率 · 接收器电量",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 223,
+          "usage_page": 1,
+          "usage": 2,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "原装 2.4 GHz receiver 1532:00DF only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/razer.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      },
+      "dpi_range": [
+        100,
+        35000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000
+      ],
+      "wireless_rates": [
+        125,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增支持 DPI 与回报率设置。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "razer-viper-v4-pro",
+    "name": "Razer Viper V4 Pro",
+    "version": "0.1.0",
+    "description": "支持 DPI、回报率与休眠；未开放改键、宏或灯效。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v4-pro",
+      "name": "Razer Viper V4 Pro",
+      "brand": "Razer",
+      "kind": "mouse",
+      "subtitle": "DPI · 回报率 · 休眠 · 电量",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 230,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        },
+        {
+          "vid": 5426,
+          "pid": 229,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "有线 1532:00E5；2.4 GHz receiver 1532:00E6"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/razer.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      },
+      "dpi_range": [
+        100,
+        45000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "wireless_rates": [
+        125,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings"
+    ],
+    "changelog": "新增支持 DPI、回报率和休眠设置。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "sony-dualsense-bluetooth",
+    "name": "Sony DualSense Bluetooth",
+    "version": "0.4.11-preview.1",
+    "description": "仅被动监听蓝牙 HID 报告；电量以 10% 档位显示上游给定的整档估算，不支持有线、Edge、虚拟控制器或 Haute42。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "sony-dualsense-bluetooth",
+      "name": "Sony DualSense Bluetooth",
+      "brand": "Sony",
+      "kind": "accessory",
+      "subtitle": "蓝牙电量 · 10% 档位",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1356,
+          "pid": 3302,
+          "usage_page": 1,
+          "usage": 5,
+          "input_len": 78,
+          "path_contains": "00001124-0000-1000-8000-00805f9b34fb"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "Physical DualSense Bluetooth HID 054C:0CE6, UUID 1124, usage 1:5, 78-byte reports"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/dualsense.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
     "core_min": "0.4.8",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "lighting-editor",
-      "lighting-switch"
+      "battery"
     ],
-    "changelog": "新增底座灯光开关、六种模式、颜色、速度与亮度设置；需先更新主程序至 0.4.8，修正旧版目录无法识别底座的问题。"
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
   },
   {
-    "id": "ajazz-aj179-pro",
-    "name": "AJAZZ AJ179 PRO",
-    "version": "0.4.8-preview.1",
-    "description": "AJ179 PRO GearHub-V5 有线与 2.4 GHz 接收器控制；运行时必须验证设备 id 1851。",
+    "id": "sony-inzone-h9-ii",
+    "name": "Sony INZONE H9 II (WH-G900N2)",
+    "version": "0.1.0",
+    "description": "读取 USB 接收器电量与充电状态；不提供 EQ、音量、灯光或其他设置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
-      "key": "ajazz-aj179-pro",
-      "name": "AJAZZ AJ179 PRO",
-      "brand": "AJAZZ",
-      "kind": "mouse",
-      "subtitle": "DPI、回报率与按键控制 · USB / 2.4 GHz",
+      "key": "sony-inzone-h9-ii",
+      "name": "Sony INZONE H9 II (WH-G900N2)",
+      "brand": "Sony",
+      "kind": "headset",
+      "subtitle": "接收器电量与充电状态 · 只读",
       "image": "device.png",
       "matches": [
         {
-          "vid": 12625,
-          "pid": 16422,
-          "usage_page": 65535,
-          "usage": 2,
-          "feature_len": 65
-        },
-        {
-          "vid": 12625,
-          "pid": 16429,
-          "usage_page": 65535,
-          "usage": 2,
-          "feature_len": 65
+          "vid": 1356,
+          "pid": 4008,
+          "usage_page": 65284,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "path_contains": "mi_05&col03"
         }
       ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "USB wireless receiver only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sony.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "thunderobot-ml903-nearlink-se",
+    "name": "THUNDEROBOT ML903 NearLink Se",
+    "version": "0.4.11-preview.1",
+    "description": "只接受已知 TLV 电量标签；不会把工作模式误作电量或充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "thunderobot-ml903-nearlink-se",
+      "name": "THUNDEROBOT ML903 NearLink Se",
+      "brand": "THUNDEROBOT",
+      "kind": "mouse",
+      "subtitle": "NearLink 接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13979,
+          "pid": 564,
+          "usage_page": 65440,
+          "usage": 2,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "NearLink receiver 369B:0234, FFA0:0002, 64-byte reports"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 validation scope is limited to the listed model and connection; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/ak870-ml903.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+  },
+  {
+    "id": "vgn-f1-pro",
+    "name": "VGN F1 Pro",
+    "version": "0.4.7-preview.1",
+    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:F503 接收器或 3554:F502 有线设备，只读电量与充电状态。",
+    "device": {
+      "key": "vgn-f1-pro",
+      "name": "VGN F1 Pro",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62723,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 62722,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz receiver / USB 3554:F503 / unique FF02 report-08 collection",
+          "USB wired / USB 3554:F502 / unique FF02 report-08 collection"
+        ],
+        "firmware": "not requested; only battery command 0x04 is established for this model",
+        "source_refs": [
+          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 VGN F1 Pro 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+  },
+  {
+    "id": "vgn-f1-v5-turbo-plus",
+    "name": "VGN F1 V5 Turbo+",
+    "version": "0.1.0",
+    "description": "读取精确有线/接收器通道的电量与充电状态；控制字段尚无型号专属证据。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "vgn-f1-v5-turbo-plus",
+      "name": "VGN F1 V5 Turbo+",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14621,
+          "pid": 6691,
+          "usage_page": 65217,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 14621,
+          "pid": 4134,
+          "usage_page": 65217,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "有线 391D:1026；2.4 GHz receiver 391D:1A23"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/vgn.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "vgn-f2-master-plus",
+    "name": "VGN Dragonfly F2 Master+",
+    "version": "0.4.9-preview.3",
+    "description": "公开协议适配尚未实机验证；支持 3554:FB56 接收器或 3554:FB57 有线设备的电量、固件、DPI、回报率与六键映射预览。",
+    "device": {
+      "key": "vgn-f2-master-plus",
+      "name": "VGN Dragonfly F2 Master+",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "DPI · 回报率 · 按键映射 · 未实测",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 64342,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 64343,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz receiver / USB 3554:FB56 / unique FF02:0002 report-08 collection",
+          "USB wired / USB 3554:FB57 / unique FF02:0002 report-08 collection"
+        ],
+        "firmware": "report-08 command 0x12; DPI/rate profile reads are validated; key-table protocol is shared-layout evidence without a VGN vendor capture",
+        "source_refs": [
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/protocol.test.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/vgn/index.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/vgn/hid.ts",
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/teevolution/index.ts"
+        ]
+      },
       "dpi_range": [
         50,
         26000
@@ -993,33 +2976,23 @@
         125,
         250,
         500,
-        1000
+        1000,
+        2000,
+        4000,
+        8000
       ],
-      "sleeps": [
-        0,
-        60,
-        180,
-        300,
-        600,
-        1200,
-        1800,
-        3600
-      ],
-      "advanced": [],
-      "validation": {
-        "status": "upstream-hardware-verified-project-untested",
-        "connections": [
-          "USB cable / 3151:4026 / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0); runtime device id 1851 required",
-          "2.4 GHz receiver / 3151:402D / FFFF:0002 / 64-byte payload (65-byte Windows feature buffer including report id 0), F6/F7/FC relay; runtime device id 1851 required"
-        ],
-        "firmware": "v3.03",
-        "source_refs": [
-          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/ajazz-aj179-pro.md",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/ajazz-aj179-pro.json"
-        ]
-      }
+      "wireless_rates": [
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ]
     },
+    "abi": 1,
+    "dll": "driver.dll",
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
@@ -1028,43 +3001,50 @@
       "settings",
       "bindings"
     ],
-    "changelog": "新增 AJ179 PRO USB 与 2.4 GHz 接收器设置和六键改键；读写依托设备 id 校验、原值保留、读回核对及失败恢复。"
+    "changelog": "新增 DPI、档位切换、回报率和鼠标键映射；修正 DPI 与回报率入口未显示。沿用公开布局，尚未实机验证。"
   },
   {
-    "id": "mchose-v9-pro",
-    "name": "迈从 V9 Pro 耳机",
-    "version": "0.4.10-preview.1",
-    "description": "Vigil Watt 贡献者单点抓包适配，Peripheral Desk 未实测；需主动查询，安装此预览包即允许其轮询电量。仅支持 291D:385D 精确耳机集合。",
+    "id": "vgn-f2-pro-max",
+    "name": "VGN Dragonfly F2 Pro Max",
+    "version": "0.4.7-preview.1",
+    "description": "公开实现适配，尚未进行本机实测；仅支持 3554:FB3E 接收器或 3554:FB3D 有线设备，只读电量与充电状态。",
     "device": {
-      "key": "mchose-v9-pro",
-      "name": "迈从 V9 Pro",
-      "brand": "MCHOSE",
-      "kind": "headset",
-      "subtitle": "只读电量 · 主动查询 · 上游单点验证",
+      "key": "vgn-f2-pro-max",
+      "name": "VGN Dragonfly F2 Pro Max",
+      "brand": "VGN",
+      "kind": "mouse",
+      "subtitle": "只读电量 · 未实测",
       "image": "device.png",
       "matches": [
         {
-          "vid": 10525,
-          "pid": 14429,
-          "usage_page": 65424,
-          "usage": 1,
-          "input_len": 64,
-          "output_len": 64,
-          "feature_len": 0,
-          "path_contains": "&mi_00&col05#"
+          "vid": 13652,
+          "pid": 64318,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 64317,
+          "usage_page": 65282,
+          "input_len": 17,
+          "output_len": 17
         }
       ],
       "advanced": [],
       "validation": {
         "status": "public-implementation-untested",
         "connections": [
-          "USB 2.4 GHz receiver; exact MI_00 COL05 FF90:0001 64-byte input/output collection only"
+          "2.4 GHz receiver / USB 3554:FB3E / unique FF02 report-08 collection",
+          "USB wired / USB 3554:FB3D / unique FF02 report-08 collection"
         ],
-        "firmware": "unknown",
+        "firmware": "not requested; only battery command 0x04 is established for this model",
         "source_refs": [
-          "https://github.com/evren-oct/vigil-watt/tree/a78e973b4eb634bdce37c9078dd48d1c07e3eb73",
-          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/docs/hardware/mchose-v9-pro.md",
-          "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/LICENSE"
+          "https://github.com/TheWebDog/quiet-battery/tree/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/src/device/compx.rs",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/docs/DEVICE-SUPPORT.md",
+          "https://github.com/TheWebDog/quiet-battery/blob/d6eb4bdade47dccd7cb402e16ac50a6f351fcac0/LICENSE",
+          "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc"
         ]
       }
     },
@@ -1076,6 +3056,51 @@
     "capabilities": [
       "battery"
     ],
-    "changelog": "新增 V9 Pro 接收器电量预览。安装后会主动查询；充电状态未知，非满电映射未验证，本项目未实测。"
+    "changelog": "新增 VGN Dragonfly F2 Pro Max 只读电量预览；仅支持列明的接收器与有线设备，尚未实机验证。"
+  },
+  {
+    "id": "vgn-v98-pro",
+    "name": "VGN V98 Pro",
+    "version": "0.4.11-preview.1",
+    "description": "读取电量和已知充电标志；键位、宏和灯光控制不在此适配中。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "vgn-v98-pro",
+      "name": "VGN V98 Pro",
+      "brand": "VGN",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12815,
+          "pid": 20616,
+          "usage_page": 65308,
+          "usage": 146,
+          "output_len": 8
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "VGN V98 Pro exact receiver 320F:5088"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Vigil Watt v1.3.0 upstream evidence applies only to this model and listed connection; Peripheral Desk has not tested the hardware.",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/vgn.md",
+          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
   }
 ]

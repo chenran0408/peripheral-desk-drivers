@@ -1,0 +1,15 @@
+[package]
+name = "mchose-g87-v1-driver"
+version = "0.4.11-preview.1"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../../crates/hid-transport" }
+serde_json.workspace = true

@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import tomllib
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -120,6 +121,28 @@ def main():
             payloads["THIRD_PARTY_LICENSES/Vigil-Watt-MIT.txt"] = (
                 ROOT / "crates/protocol-mchose-v9-pro/VIGIL-WATT-MIT.txt"
             ).read_bytes()
+        driver_source = ROOT / "drivers" / driver_id
+        for documentation in ("UPSTREAM.md", "PROVENANCE.md", "README.md"):
+            source = driver_source / documentation
+            if source.is_file():
+                payloads["DEVICE_SUPPORT.md"] = source.read_bytes()
+                break
+        source_license = driver_source / "UPSTREAM-MIT.txt"
+        if source_license.is_file():
+            payloads["THIRD_PARTY_LICENSES/Vigil-Watt-MIT.txt"] = source_license.read_bytes()
+        package_licenses = driver_source / "THIRD_PARTY_LICENSES"
+        if package_licenses.is_dir():
+            for license_path in sorted(package_licenses.rglob("*")):
+                if license_path.is_file():
+                    relative = license_path.relative_to(package_licenses).as_posix()
+                    payloads[f"THIRD_PARTY_LICENSES/{relative}"] = license_path.read_bytes()
+        driver_manifest = tomllib.loads((driver_source / "Cargo.toml").read_text(encoding="utf-8"))
+        for dependency in driver_manifest.get("dependencies", {}).values():
+            if not isinstance(dependency, dict) or "path" not in dependency:
+                continue
+            dependency_root = (driver_source / dependency["path"]).resolve()
+            for license_file in sorted(dependency_root.glob("VIGIL-WATT-*.txt")):
+                payloads[f"THIRD_PARTY_LICENSES/{license_file.name}"] = license_file.read_bytes()
         payloads["SOURCE.txt"] = ("Driver wrapper source: https://github.com/chenran0408/peripheral-desk-drivers\nCore source: https://github.com/chenran0408/peripheral-desk/tree/" + (revision.group(1) if revision else "DEVELOPMENT-UNPINNED") + "\n").encode("utf-8")
         # Ship model-specific evidence/limitations alongside the binary.
         evidence = {

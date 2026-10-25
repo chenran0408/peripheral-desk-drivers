@@ -1,0 +1,3 @@
+# Logitech Bolt + MX Master 3S
+
+Read-only battery and charging for an MX Master 3S paired to an exact 046D:C548 Bolt receiver. The plugin uses only the 20-byte long HID++ interface and verifies the paired device name is exactly “MX Master 3S” before reading Unified Battery status function 1. Bluetooth, USB wired, other receivers, and other device names are out of scope. Vigil Watt v1.3.0 records local hardware validation, including 90% / charging. This Rust implementation is independent; it does not copy Vigil Watt or GPL Solaar code. DPI, buttons, macros, lighting, and audio controls are not included.

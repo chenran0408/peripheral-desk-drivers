@@ -1,0 +1,3 @@
+# HECATE G3M Pro Upgrade (D3FB receiver)
+
+Read-only percentage for the 35BB:D3FB three-slot receiver, FF02:0002, 17-byte report 0x08. The plugin sends documented STATUS and POWER queries, requires a connected-device status and valid checksum, and reads the raw integer percent. Charging byte `[7]` is deliberately not exposed because Vigil Watt lists it as unverified. Important: the receiver protocol itself does not identify the mouse model; Vigil Watt associated this receiver with G3M Pro Upgrade from its connected-device record, and notes other receiver models are unknown. No DPI, remapping, macros, lighting, or audio support.

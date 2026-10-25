@@ -23,6 +23,49 @@
 | `ajazz-aj179-pro`（预览） | AJ179 PRO USB / 接收器，DPI、回报率、休眠、鼠标键映射；上游已实测，本项目未复测 |
 | `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.8 |
 | `mchose-v9-pro`（预览） | MCHOSE V9 Pro 2.4 GHz 接收器，只读电量；主动查询，充电状态未知，非满电映射尚无证据 |
+| `mchose-g87-v1`（预览） | MCHOSE G87 V1，接收器电量与充电状态；不支持 G87 V2/QHW |
+| `mchose-g87-v2`（预览） | MCHOSE G87 V2 精确接收器，只读电量/充电（独立代际插件） |
+| `mchose-a7-v2-pro`（预览） | MCHOSE A7 V2 Pro 接收器被动状态与电量；与 A7 V3 分开 |
+| `akg-n9-hybrid`（预览） | AKG N9 Hybrid 接收器，只读电量 |
+| `asus-rog-scope-ii-96-omni`（预览） | ROG Scope II 96 Omni 配对接收器，只读电量 |
+| `atk-a98-pro`（预览） | ATK A98 Pro VIA 电量；没有型号专属写入定义 |
+| `atk-f1-pro-max`（预览） | ATK F1 Pro Max 电量、DPI 与回报率；有线/普通接收器至 1 kHz，8K 接收器至 8 kHz |
+| `atk-f1-v3-ultimate-plus`（预览） | ATK F1 V3 ULTIMATE+ 指定 8K-M 接收器/有线只读电量；有线报告长度未上游实测 |
+| `atk-f1-ultimate-2-0`（预览） | ATK F1 Ultimate 2.0 指定 VID/PID 只读电量；型号协议尚无实机报告 |
+| `aula-f108-pro`（预览） | AULA F108 Pro 接收器只读电量 |
+| `aula-hero-68-air`（预览） | AULA HERO 68 Air 接收器电量与充电状态，需 UUID 匹配 |
+| `haute42-adapter-4ds`（预览） | Haute42 Adapter 4DS 只读识别与电量；普通 DualSense 不适用 |
+| `hyperx-cloud-flight-2`（预览） | HyperX Cloud Flight 2 被动读取电量、充电与连接状态 |
+| `logitech-pro-x2-lightspeed`（预览） | Logitech PRO X 2 LIGHTSPEED 接收器只读电量；不含 EQ/环绕声 |
+| `razer-blackshark-v2-pro-2023`（预览） | 2023 版接收器电量/充电主动查询；需在设备页启用 |
+| `razer-kraken-v4`（预览） | Razer Kraken V4 接收器只读电量/充电 |
+| `razer-viper-v3-pro-se`（预览） | Viper V3 Pro SE 接收器电量、DPI 与最高 1 kHz 回报率 |
+| `razer-viper-v4-pro`（预览） | Viper V4 Pro 电量、DPI、回报率与休眠设置 |
+| `sony-inzone-h9-ii`（预览） | Sony INZONE H9 II 接收器电量与充电状态 |
+| `vgn-f1-v5-turbo-plus`（预览） | VGN F1 V5 Turbo+ 有线/接收器只读电量与充电状态 |
+| `vgn-v98-pro`（预览） | VGN V98 Pro 接收器只读电量与充电状态 |
+| `aula-g9`（预览） | AULA G9 被动读取电量/充电；没有音效或灯光控制 |
+| `aula-l9-ultra`（预览） | AULA L9 Ultra 接收器电量与充电状态 |
+| `betop-t9`（预览） | BETOP T9 被动接收器电量 |
+| `betop-kunpeng20`（预览） | BETOP 鲲鹏20 2.4G/有线电量与已知充电状态；不含 5191 变体 |
+| `cherry-pixiu75`（预览） | CHERRY PIXIU75 接收器/有线电量与充电状态 |
+| `delux-m900-pro`（预览） | DELUX M900 Pro 独立被动报告接口，只读电量与充电 |
+| `eweadn-s9-series`（预览） | EWEADN S9 Pro/Max/Ultra 系列接收器电量与充电 |
+| `eweadn-x87`（预览） | EWEADN X87 接收器只读电量 |
+| `inphic-zhen`（预览） | INPHIC ZHEN 被动电量/充电，和共用 VID/PID 的 DELUX 分接口识别 |
+| `lingbao-m5pro-max`（预览） | 凌豹 M5PRO Max 接收器电量与充电；排除仅回显的有线通道 |
+| `rapoo-vt3-ii`（预览） | Rapoo VT3 II 被动心跳电量/充电 |
+| `ajazz-ak870`（预览） | AJAZZ AK870 接收器电量，只读 |
+| `thunderobot-ml903-nearlink-se`（预览） | 雷神 ML903 NearLink Se 接收器只读电量 |
+| `sony-dualsense-bluetooth`（预览） | DualSense 蓝牙只读 10% 档位电量；不适用 USB/Edge/Haute42 |
+| `pulsar-x2-v2`（预览） | Pulsar X2 V2 原装 1 kHz 接收器电量/充电；休眠时电量可未知 |
+| `razer-darkrim-shadow`（预览） | DARKRIM SHADOW 精确接收器电量；官方程序运行或进程状态不明时让位 |
+| `gamesir-g7-pro-ce`（预览） | GameSir G7 Pro CE 手柄电量/充电；按设备请求主动发送只读心跳 |
+| `hecate-g5m-pro`（预览） | HECATE G5M Pro 接收器电量/充电；主动只读查询 |
+| `hecate-g3m-pro-upgrade`（预览） | HECATE D3FB 接收器电量；接收器协议不确认配对鼠标型号 |
+| `logitech-bolt-mx-master-3s`（预览） | Logitech Bolt 配对 MX Master 3S 电量/充电；先核对精确配对设备名 |
+
+Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载
 
@@ -48,6 +91,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 - [图片来源](ASSET_SOURCES.md)
 - [G2 Pro 灯光接口与实测边界](docs/G2_LIGHTING.md)
 - [五品牌协议调查、固定来源版本与许可证](docs/PROTOCOL-RESEARCH.md)
+- [Vigil Watt v1.3.0 全设备迁移清单、上游验证范围与未接入项](docs/VIGIL-WATT-MIGRATION.md)
 - [G305 只读预览的精确型号与连接范围](docs/LOGITECH-G305.md)
 - [Basilisk V3 Pro 有线预览的协议依据与范围](docs/RAZER-BASILISK-V3-PRO.md)
 

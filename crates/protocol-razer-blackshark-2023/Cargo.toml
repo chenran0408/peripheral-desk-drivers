@@ -1,0 +1,9 @@
+[package]
+name = "peripheral-desk-protocol-razer-blackshark-2023"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../hid-transport" }

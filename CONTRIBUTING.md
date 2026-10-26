@@ -1,5 +1,7 @@
 # 添加设备与更新驱动
 
+新贡献者请先看[社区设备适配 Wiki](docs/COMMUNITY-ADAPTATION-WIKI.md)，其中包含从确认型号、复用协议到提交 PR 的步骤，以及可复制给编程 Agent 的提示词。
+
 ## 本地构建
 
 辅助脚本使用 Python 3.11 或更新版本（CI 使用 3.12）。[接入任务队列](docs/ADAPTATION-ROADMAP.md)按证据和可复用协议安排新型号，领取任务前先核对现有实现。

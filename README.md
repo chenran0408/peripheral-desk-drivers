@@ -80,6 +80,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 需要 Windows x64、Rust 和 Python 3.11+。设备插件共用 ABI 1；现有四款设备使用固定版本的 Peripheral Desk 核心库，新型号可在本仓库提供独立协议模块。只要 ABI 与请求模型保持兼容，新增设备可以在本仓库完成，不必改主界面的设备列表。
 
 - [本地构建与贡献](CONTRIBUTING.md)
+- [社区设备适配 Wiki（含可交给 Agent 的提示词）](docs/COMMUNITY-ADAPTATION-WIKI.md)
 - [上游实现与证据复用](docs/UPSTREAM-REUSE.md)
 - [后续接入任务与验收标准](docs/ADAPTATION-ROADMAP.md)
 - [设备目录：品牌—协议系列—型号—连接方式](docs/DEVICE-CATALOG.md)

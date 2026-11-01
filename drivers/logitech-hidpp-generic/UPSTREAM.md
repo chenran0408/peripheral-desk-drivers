@@ -1,0 +1,7 @@
+# Logitech HID++ shared receiver battery
+
+- Sources: Solaar `e7304c4c451cc9bb4f206a914844525e67856a28`, `lib/logitech_receiver/base_usb.py`, `hidpp10.py`, `hidpp20.py`; GPL-2.0-or-later. Voltide `73f16fd2be44570c0a861cef6b4804d743656893`, `src/Providers/LogitechProvider.cs`; MIT. Only protocol facts are referenced; Rust implementation is independent.
+- Solaar records Unifying C52B/C532, Lightspeed C539/C53A/C53D/C53F/C541/C545/C547/C54D, Bolt C548. Solaar records HID++ 1.0 register 0D as percentage and 07 as approximate level. Its HID++ 2.0 unified battery feature 1004 requests function 1.
+- Voltide records a real 1004 function 1 response (`11 01 06 1E 61 08 00`, 97%) and the specific failure caused by function 0 (voltage). This adapter never calls function 0 for 1004.
+- Each receiver slot 1–5 is queried separately. A name comes from public feature 0005, or falls back to a slot label. Only devices with actual battery responses are returned. Direct USB uses 0xFF and then 0x00; C09B is the currently explicit wired matcher.
+- Verification: upstream protocol observations and code only. Peripheral Desk has not tested these receivers or direct USB devices on hardware. ABI 1's `read-state` accepts a single state; the plugin also offers `read-devices` for an array of independently keyed slot states. The current host does not call `read-devices`, so its UI shows the first valid slot until host support is added.

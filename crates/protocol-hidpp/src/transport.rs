@@ -1,5 +1,5 @@
 //! Windows interrupt-report transport. Feature IOCTLs are not HID++ replies.
-use super::{matching_reply, Result, Transport};
+use super::{matching_reply, Result, ShortTransport, Transport};
 use std::{
     mem::zeroed,
     ptr::{null, null_mut},
@@ -123,5 +123,32 @@ impl Transport for WinTransport {
             }
         }
         Err("G305 未响应本次只读查询，可能休眠或被其他驱动占用；未猜测电量".into())
+    }
+}
+
+impl ShortTransport for WinTransport {
+    fn exchange_short(&mut self, request: &[u8; 7]) -> Result<Vec<u8>> {
+        if !unsafe { HidD_FlushQueue(self.reader.0) } {
+            return Err(std::io::Error::last_os_error().to_string());
+        }
+        let mut wire = *request;
+        if Self::transfer(&self.writer, &mut wire, true, 500)? != 7 {
+            return Err("HID++ 短查询未完整发送".into());
+        }
+        let deadline = Instant::now() + Duration::from_millis(600);
+        while Instant::now() < deadline {
+            let mut reply = [0; 7];
+            let count = Self::transfer(&self.reader, &mut reply, false, 100)?;
+            if count < 7 || reply[0] != 0x10 || reply[1] != request[1] {
+                continue;
+            }
+            if reply[2] == 0x8f && reply[3..5] == request[2..4] {
+                return Err(format!("HID++ 1.0 错误码 {:02X}", reply[5]));
+            }
+            if reply[2..4] == request[2..4] {
+                return Ok(reply[4..].to_vec());
+            }
+        }
+        Err("HID++ 短查询超时".into())
     }
 }

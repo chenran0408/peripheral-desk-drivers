@@ -18,6 +18,10 @@ pub trait Transport {
     fn exchange(&mut self, request: &[u8; 20]) -> Result<Vec<u8>>;
 }
 
+pub trait ShortTransport {
+    fn exchange_short(&mut self, request: &[u8; 7]) -> Result<Vec<u8>>;
+}
+
 fn request(feature: u8, function: u8, args: &[u8]) -> [u8; 20] {
     assert!(function & 0x0f == 0 && args.len() <= 16);
     let mut out = [0; 20];
@@ -33,7 +37,7 @@ pub fn matching_reply(wire: &[u8], req: &[u8; 20]) -> Result<Option<Vec<u8>>> {
         Some(0x11) => 20,
         _ => return Ok(None),
     };
-    if wire.len() < size || wire[1] != req[1] {
+    if wire.len() < size || (wire[1] != req[1] && wire[1] != !req[1]) {
         return Ok(None);
     }
     if wire[2] == 0xff || wire[2] == 0x8f {
@@ -375,6 +379,146 @@ fn battery(body: &[u8]) -> Result<(Option<u8>, Option<bool>)> {
     Ok(((body[0] != 0).then_some(body[0]), charging))
 }
 
+/// Enumerate paired devices independently. The caller may expose these through
+/// a multi-device host API; ABI 1 read-state itself accepts only one State.
+pub fn read_shared_devices<T: Transport, S: ShortTransport>(
+    mut long: T,
+    mut short: Option<S>,
+    pid: u16,
+    product: &str,
+    receiver: bool,
+) -> Vec<peripheral_desk::model::State> {
+    let mut devices = Vec::new();
+    let slots: Vec<u8> = if receiver {
+        (1..=5).collect()
+    } else {
+        vec![0xff, 0]
+    };
+    for slot in slots {
+        let call = |io: &mut T, feature: u8, function: u8, args: &[u8]| {
+            let mut req = [0; 20];
+            req[..4].copy_from_slice(&[0x11, slot, feature, function | SOFTWARE_ID]);
+            req[4..4 + args.len()].copy_from_slice(args);
+            io.exchange(&req)
+        };
+        let feature = |io: &mut T, id: u16| -> Result<u8> {
+            let body = call(io, 0, 0, &id.to_be_bytes())?;
+            let index = *body.first().ok_or("HID++ 特性回复为空")?;
+            if index == 0 || body.get(1).is_some_and(|flags| flags & 0xc0 != 0) {
+                return Err(format!("设备未公开 HID++ 特性 {id:04X}"));
+            }
+            Ok(index)
+        };
+        let ping = call(&mut long, 0, 0x10, &[0, 0, slot]);
+        let online = ping.as_ref().is_ok_and(|b| b.len() >= 3 && b[2] == slot);
+        if !online && !(receiver && short.is_some()) {
+            continue;
+        }
+        let reading = if online {
+            feature(&mut long, 0x1000)
+                .and_then(|index| call(&mut long, index, 0, &[]))
+                .and_then(|body| battery(&body))
+                .or_else(|_| {
+                    let index = feature(&mut long, 0x1004)?;
+                    // 0x1004 function 0 returns voltage on affected firmware.
+                    let body = call(&mut long, index, 0x10, &[])?;
+                    parse_shared_level(&body)
+                })
+        } else {
+            Err("没有 HID++ 2.0 应答".into())
+        };
+        let reading = reading.or_else(|_| -> Result<(Option<u8>, Option<bool>)> {
+            let io = short.as_mut().ok_or("没有短 HID++ 接口")?;
+            for reg in [0x0d, 0x07] {
+                let req = [0x10, slot, 0x81, reg, 0, 0, 0];
+                if let Ok(body) = io.exchange_short(&req) {
+                    if let Ok(level) = parse_short_level(reg, &body) {
+                        return Ok(level);
+                    }
+                }
+            }
+            Err("设备没有有效电量回复".into())
+        });
+        let Ok((Some(percent), charging)) = reading else {
+            continue;
+        };
+        let name = feature(&mut long, 0x0005)
+            .and_then(|index| {
+                let count = *call(&mut long, index, 0, &[])?.first().ok_or("名称为空")? as usize;
+                if count == 0 || count > 64 {
+                    return Err("名称长度无效".into());
+                }
+                let mut bytes = Vec::with_capacity(count);
+                while bytes.len() < count {
+                    let part = call(&mut long, index, 0x10, &[bytes.len() as u8])?;
+                    let size = part.len().min(count - bytes.len());
+                    if size == 0 {
+                        return Err("名称片段为空".into());
+                    }
+                    bytes.extend_from_slice(&part[..size]);
+                }
+                String::from_utf8(bytes).map_err(|e| e.to_string())
+            })
+            .ok()
+            .filter(|name| !name.trim().is_empty())
+            .unwrap_or_else(|| {
+                if product.is_empty() || receiver {
+                    format!("罗技无线设备 {slot}")
+                } else {
+                    product.to_string()
+                }
+            });
+        devices.push(peripheral_desk::model::State {
+            key: format!("logitech-hidpp-generic-{pid:04x}-{slot}"),
+            present: true,
+            fresh: true,
+            percent: Some(percent),
+            charging,
+            wired: !receiver,
+            updated: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap_or_default()
+                .as_secs(),
+            identity: format!("{name} · Logitech {pid:04X} · device {slot}"),
+            settings_error: "仅支持电量读取。".into(),
+            ..Default::default()
+        });
+        if !receiver {
+            break;
+        }
+    }
+    devices
+}
+
+fn parse_shared_level(body: &[u8]) -> Result<(Option<u8>, Option<bool>)> {
+    let level = *body.first().ok_or("HID++ 0x1004 电量回复为空")?;
+    if level > 100 {
+        return Err("HID++ 0x1004 电量字段超出范围".into());
+    }
+    let flags = *body.get(1).ok_or("HID++ 0x1004 状态缺失")?;
+    Ok(((level != 0).then_some(level), Some(flags & 2 != 0)))
+}
+
+fn parse_short_level(reg: u8, body: &[u8]) -> Result<(Option<u8>, Option<bool>)> {
+    match reg {
+        0x0d if body.len() >= 3 && body[0] <= 100 => Ok((
+            (body[0] != 0).then_some(body[0]),
+            Some(body[2] & 0xf0 == 0x50),
+        )),
+        0x07 if body.len() >= 2 => {
+            let level = match body[0] {
+                7 => 100,
+                5 => 75,
+                3 => 50,
+                1 => 25,
+                _ => return Err("旧 HID++ 电量档位未知".into()),
+            };
+            Ok((Some(level), Some(body[1] & 0x21 == 0x21)))
+        }
+        _ => Err("旧 HID++ 电量回复无效".into()),
+    }
+}
+
 pub fn read_with<T: Transport>(transport: T) -> Result<peripheral_desk::model::State> {
     let (mut reader, identity_feature, ids) = verify_session(transport)?;
     let reading = reader
@@ -555,6 +699,32 @@ pub fn read_g305() -> Result<peripheral_desk::model::State> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn shared_slot_frame_and_battery_fields() {
+        let req = [
+            0x11, 3, 0x1e, 0x1c, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        ];
+        let mut reply = req;
+        reply[4..7].copy_from_slice(&[97, 2, 0]);
+        assert_eq!(
+            parse_shared_level(&matching_reply(&reply, &req).unwrap().unwrap()).unwrap(),
+            (Some(97), Some(true))
+        );
+        reply[1] = 2;
+        assert!(matching_reply(&reply, &req).unwrap().is_none());
+        reply[1] = 3;
+        reply[3] = 0x0c; // 0x1004 function 0 is voltage, not percentage.
+        assert!(matching_reply(&reply, &req).unwrap().is_none());
+        assert!(parse_shared_level(&[101, 0]).is_err());
+        assert_eq!(
+            parse_short_level(0x0d, &[68, 0, 0x50]).unwrap(),
+            (Some(68), Some(true))
+        );
+        assert_eq!(
+            parse_short_level(0x07, &[3, 0]).unwrap(),
+            (Some(50), Some(false))
+        );
+    }
     #[test]
     fn identity_is_exact_not_receiver_wide() {
         let mut ids = [0; 16];

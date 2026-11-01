@@ -1,0 +1,12 @@
+[package]
+name = "asus-rog-gladius-iii-wireless-driver"
+version = "0.4.13-preview.20"
+edition.workspace = true
+license.workspace = true
+publish = false
+[lib]
+crate-type = ["cdylib"]
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-asus-rog-gladius-iii-wireless = { path = "../../crates/protocol-asus-rog-gladius-iii-wireless" }
+serde_json.workspace = true

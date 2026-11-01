@@ -84,11 +84,11 @@ Voltide v2.1.2 已报告 G304（`046D:C53F`，与 G305 共用接收器 PID）、
 
 | Voltide 型号 | 共享接口 | Peripheral Desk 决策 | 兼容边界 |
 | --- | --- | --- | --- |
-| MCHOSE K99 v2 | `3554:FA09`、`FF02`、Report ID `0x13`、20 字节输入/输出 | 不新增独立包；与 [`mchose-g75-pro`](../drivers/mchose-g75-pro) 共用 PID | Voltide provider 只按 USB 接口特征发现并将该 PID 命名为 K99 v2，同时承认 MCHOSE、G75、狼蛛等型号可能共享该标识。Peripheral Desk 的 G75 核心发送 `0x05` 型号查询，仅接受签名 `[03 00 00 00 01 15]` 后才读写；没有该签名的设备不会被当作 G75。 |
+| MCHOSE K99 v2 | `3554:FA09`、`FF02`、Report ID `0x13`、20 字节输入/输出 | [`mchose-k99-v2`](../drivers/mchose-k99-v2) preview，共用接收器，手动认领 | 仅提供只读电量及已知充电状态。Voltide v2.1.2 的上游验证范围是共用接收器的 K99 v2 电量；本项目未实机复测。接收器无法证明具体键盘型号，用户须先确认；无设置、改键、宏和灯光。 |
 | MCHOSE G75 Pro | 同上 | [`mchose-g75-pro`](../drivers/mchose-g75-pro) stable | 电量、设置、普通/Fn 改键与灯色沿用现有 G75 协议；Voltide 的 36% 贡献者样本不等同于本项目重新实测。其他 `3554:FA09` 键盘不因 PID 自动获得 G75 能力。 |
-| ROG Azoth Extreme | `0B05:1ACE` Omni 接收器、`FF00:0001`、64 字节输入/输出 | 不新增 Azoth 别名包；与 [`asus-rog-scope-ii-96-omni`](../drivers/asus-rog-scope-ii-96-omni) 共用接收器 PID | 现有 Scope II 包会先查配对设备，并仅接受 Scope II 产品 ID `0x1AAE..0x1AB0`；Azoth 的接收器 PID 本身不足以证明具体型号，因此不把通用 Omni 回复标成 Azoth。 |
+| ROG Azoth Extreme | `0B05:1ACE` Omni 接收器、`FF00:0001`、64 字节输入/输出 | [`asus-rog-azoth-extreme`](../drivers/asus-rog-azoth-extreme) preview，共用接收器，手动认领 | 仅提供只读电量与充电状态。Voltide v2.1.2 上游验证范围是 Azoth Extreme 的 Omni 状态帧；本项目未实机复测。配对回复不能证明具体型号，用户须先确认；无设置、改键、宏和灯光。 |
 
-这三项属于明确记录的上游能力缺口：共享 PID 没有可靠型号分流时，目录不发布会误导用户的型号别名；如后续获得 Azoth 或 K99 的运行时身份应答，再单独增加精确匹配包。
+K99 V2 和 Azoth Extreme 的手动认领只依赖用户确认型号，不能视作运行时型号识别；两个包均不会因共享接收器自动认领。G75 Pro 的独立型号签名与 Scope II 96 的配对产品 ID 校验仍分别约束原有插件。
 
 
 ## Voltide v2.1.2 全清单补齐
@@ -117,4 +117,8 @@ Voltide v2.1.2 已报告 G304（`046D:C53F`，与 G305 共用接收器 PID）、
 | Razer Lancehead | `1532:005A` | `razer-lancehead` | 电量、充电状态 |
 | Razer Mamba Chroma | `1532:0045` | `razer-mamba-chroma` | 电量、充电状态 |
 
-G304/G305 身份会在接收器应答后解歧；仅相似 VID/PID 不够。MCHOSE K99 v2 与 G75 Pro 共用 `3554:FA09`，Voltide 当前 provider 没有可靠型号签名；ROG Azoth Extreme 与 Scope II Omni 共用 `0B05:1ACE`，只有通用接收器应答，故这两个型号未发布别名插件。
+G304/G305 身份会在接收器应答后解歧；仅相似 VID/PID 不够。MCHOSE K99 v2 与 G75 Pro 共用 `3554:FA09`，ROG Azoth Extreme 与 Scope II Omni 共用 `0B05:1ACE`；K99 v2 和 Azoth Extreme 只提供手动认领的预览包，不通过接收器自动确认型号。
+
+## 六款上游实机记录设备（preview）
+
+这六个独立插件只读取电量及协议中可知的充电状态；上游项目有实物验证记录，Peripheral Desk 尚未独立实测。NZXT CAM 同时运行时 Lift Elite 接收器可能不回应；LAMZU Maya X 的有线 ID 上游没有单独确认；ROG Gladius III Wireless 不支持蓝牙；Corsair Dark Core RGB Pro SE 只收录 `1B1C:1B7F` 接收器，回复没有充电字段。各型号连接、协议及来源见[设备目录](DEVICE-CATALOG.md)和相应驱动包内的 UPSTREAM/PROVENANCE 文件。HaloBattery/rivalcfg 许可文本位于仓库 `THIRD_PARTY_LICENSES`；rogdrv-web 的 GPL-3.0 实现只用于参考协议事实，未复制代码。

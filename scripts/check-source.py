@@ -35,6 +35,9 @@ def metadata(item):
     device = item["device"]
     if device["key"] != item["id"] or device["image"] != "device.png" or device["kind"] not in ("mouse", "keyboard", "headset", "accessory"):
         raise ValueError("Device identity/kind mismatch")
+    if "manual" in device or "manual_hint" in device:
+        if device.get("manual") is not True or not isinstance(device.get("manual_hint"), str) or not device["manual_hint"].strip():
+            raise ValueError("Manual device requires manual: true and a nonempty manual_hint: " + item["id"])
     if device["kind"] == "accessory" and tuple(map(int, item["core_min"].split("."))) < (0, 4, 8):
         raise ValueError("Accessory device entries require the core's accessory-kind support (0.4.8+)")
     if not device["matches"]:
@@ -71,6 +74,19 @@ def metadata(item):
             raise ValueError("Lighting modes require an accessible editor: " + item["id"])
         if device.get("lighting_write_only") and int(item["core_min"].split(".")[2]) < 9:
             raise ValueError("Partial lighting readback requires core 0.4.9")
+    manual = device.get("manual", False)
+    if type(manual) is not bool:
+        raise ValueError("manual must be a boolean: " + item["id"])
+    hint = device.get("manual_hint")
+    if manual and (not isinstance(hint, str) or not hint.strip()):
+        raise ValueError("Manual-claim entries need a shared-receiver explanation: " + item["id"])
+    if not manual and hint is not None:
+        raise ValueError("manual_hint requires manual: true: " + item["id"])
+    runtime_identity = device.get("runtime_identity", False)
+    if type(runtime_identity) is not bool:
+        raise ValueError("runtime_identity must be a boolean: " + item["id"])
+    if runtime_identity and manual:
+        raise ValueError("runtime_identity and manual are mutually exclusive: " + item["id"])
     for match in device["matches"]:
         for field in ("vid", "pid"):
             if type(match[field]) is not int or not 0 < match[field] <= 65535:
@@ -95,8 +111,18 @@ def main():
         items = json.loads((ROOT / filename).read_text(encoding="utf-8"))
         if len({item["id"] for item in items}) != len(items):
             raise ValueError("Duplicate package id in " + filename)
+        automatic_matches = {}
         for item in items:
             metadata(item)
+            # Two plugins may only share a full matcher when each verifies the
+            # exact model at runtime, or when one side is user-claimed.
+            if (not item["device"].get("manual", False)
+                    and not item["device"].get("runtime_identity", False)):
+                for match in item["device"]["matches"]:
+                    key = tuple(sorted(match.items()))
+                    if key in automatic_matches and automatic_matches[key] != item["id"]:
+                        raise ValueError(f"Duplicate automatic match in {filename}: {automatic_matches[key]} and {item['id']} ({key})")
+                    automatic_matches[key] = item["id"]
             if item["channel"] != channel:
                 raise ValueError("Package is in the wrong channel metadata")
             package = ROOT / "drivers" / item["id"]

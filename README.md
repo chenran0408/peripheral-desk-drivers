@@ -7,12 +7,19 @@
 | `razer-deathadder-v3-pro` | 雷蛇炼狱蝰蛇 V3 专业版 |
 | `mchose-a5-ultra` | 迈从 A5 Ultra 初代 |
 | `mchose-g75-pro` | 迈从 G75 Pro |
+| `mchose-k99-v2`（预览） | MCHOSE K99 V2，共用接收器，需确认型号后手动认领；只读电量 |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
 | `logitech-g305`（预览） | G305 LIGHTSPEED，电量、条件允许时的 DPI 设置；需关闭板载配置，尚未实机验证 |
 | `logitech-g304`（预览） | G304 LIGHTSPEED，精确身份校验后的电量与充电状态，只读，尚未实机验证 |
 | `logitech-g-pro-x-superlight-2`（预览） | G Pro X Superlight 2（GPW3）LIGHTSPEED 接收器/有线，电量与充电状态，只读 |
 | `logitech-m750m`（预览） | M750M Logi Bolt 接收器，电量与充电状态，只读 |
 | `logitech-g102`（预览） | G102 指定 HID++ 接口，电量与充电状态，只读 |
+| `nzxt-lift-elite-wireless`（预览） | NZXT Lift Elite Wireless 接收器/有线只读电量；NZXT CAM 并行可能阻止接收器回复 |
+| `lamzu-maya-x`（预览） | LAMZU Maya X 8K 接收器/有线只读电量；有线 ID 尚无独立实测 |
+| `asus-rog-gladius-iii-wireless`（预览） | ROG Gladius III Wireless AimPoint 36K 接收器/有线只读电量；不含蓝牙 |
+| `steelseries-aerox-9-wireless`（预览） | SteelSeries Aerox 9 Wireless 接收器/有线只读电量 |
+| `corsair-dark-core-rgb-pro-se`（预览） | Corsair Dark Core RGB Pro SE 接收器只读电量；不含有线 |
+| `steelseries-arctis-nova-elite`（预览） | SteelSeries Arctis Nova Elite 无线基站耳机电量/充电状态只读 |
 
 | `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线，电量、DPI、回报率、灯效；尚未实机验证 |
 | `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 接收器，电量、DPI、回报率、鼠标键映射；尚未实机验证 |
@@ -33,6 +40,7 @@
 | `mchose-a7-v2-pro`（预览） | MCHOSE A7 V2 Pro 接收器被动状态与电量；与 A7 V3 分开 |
 | `akg-n9-hybrid`（预览） | AKG N9 Hybrid 接收器，只读电量 |
 | `asus-rog-scope-ii-96-omni`（预览） | ROG Scope II 96 Omni 配对接收器，只读电量 |
+| `asus-rog-azoth-extreme`（预览） | ROG Azoth Extreme Omni 共用接收器，需确认型号后手动认领；只读电量 |
 | `atk-a98-pro`（预览） | ATK A98 Pro VIA 电量；没有型号专属写入定义 |
 | `atk-f1-pro-max`（预览） | ATK F1 Pro Max 电量、DPI 与回报率；有线/普通接收器至 1 kHz，8K 接收器至 8 kHz |
 | `atk-f1-v3-ultimate-plus`（预览） | ATK F1 V3 ULTIMATE+ 指定 8K-M 接收器/有线只读电量；有线报告长度未上游实测 |
@@ -75,6 +83,8 @@ Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备�
 ## 下载
 
 在 [Peripheral Desk](https://github.com/chenran0408/peripheral-desk/releases) 下载主程序，再到驱动商店选择设备。手动下载可用本仓库的 [发布页面](https://github.com/chenran0408/peripheral-desk-drivers/releases)。每个 ZIP 对应一款设备；请通过主程序安装，不要双击或注册 DLL。离线安装需同时保留来自维护者同一 release 的受信 catalog-stable.json（或预览通道目录）及其 `.json.sig`，由主程序核对签名、ZIP 与 DLL 的 SHA256。
+
+K99 V2 与 G75 Pro、Azoth Extreme 与 Scope II 96 各自共用接收器标识。K99 V2 和 Azoth Extreme 必须先由用户确认型号，再在驱动商店手动安装；主程序不会自动认领。两个预览包的识别图片分别复用本仓库的 `assets/mchose-g75-pro.png` 和 `assets/asus-rog-scope-ii-96-omni.png`，仅用于目录识别，不代表准确产品外观或厂商照片；图片来源说明见 [图片来源](ASSET_SOURCES.md)。
 
 G2 Pro 插件 0.4.10 附带所需 x64 SDK、官方音频驱动、扩展和 APO，自动连接音效组件；首次使用可在 EQ 页点击“安装音效驱动”，无需运行官方控制面板。主程序仍不预装任何设备插件。厂商组件的版权和来源单独列于 [组件说明](docs/G2-PRO-COMPONENTS.md)。
 

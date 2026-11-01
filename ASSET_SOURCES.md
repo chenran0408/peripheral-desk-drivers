@@ -28,3 +28,5 @@ The Vigil Watt migration preview images use original generic category illustrati
 ATK F1 battery parsing in `protocol-atk-f1-battery` is adapted from Vigil Watt v1.3.0 (`a78e973b4eb634bdce37c9078dd48d1c07e3eb73`); the MIT license and copyright notice ship with the plugin.
 
 The newly added Razer receiver variants use the project's original neutral mouse illustration for identification, not vendor product photographs.
+
+The six preview icons for NZXT Lift Elite Wireless, LAMZU Maya X, ROG Gladius III Wireless, SteelSeries Aerox 9 Wireless, Corsair Dark Core RGB Pro SE, and SteelSeries Arctis Nova Elite are original 256px PNG letter icons generated locally with Pillow. Their circular backgrounds use distinct brand-inspired colors; the letters are model identifiers, not vendor logos or product artwork.

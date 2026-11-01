@@ -1,0 +1,5 @@
+# SteelSeries Aerox 9 Wireless protocol and scope
+
+- rivalcfg [wired](https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py) and [wireless](https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py) device definitions (WTFPL; [`../../THIRD_PARTY_LICENSES/rivalcfg-WTFPL.txt`](../../THIRD_PARTY_LICENSES/rivalcfg-WTFPL.txt)) and [HaloBattery hardware records](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md) (MIT; [`../../THIRD_PARTY_LICENSES/HaloBattery-MIT.txt`](../../THIRD_PARTY_LICENSES/HaloBattery-MIT.txt)).
+- Receiver `1038:1858/1874`, cable `1038:185A/1876`. Wired battery opcode `92`; receiver ORs `40` to `D2`. Reply byte 1 uses bit 7 for charging and 1..21 for `(step-1)*5%`; a 64-byte receiver reply uses only the command and level fields.
+- HaloBattery issue #79 confirms `D2 04` = 15% on an Aerox 9 against SteelSeries GG; its charging bit has not separately been confirmed there. Independently implemented from protocol facts. Peripheral Desk has not tested hardware.

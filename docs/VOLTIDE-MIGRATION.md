@@ -8,9 +8,9 @@
 | Logitech G Pro X Superlight 2 | `046D:C547` / `C54D` 接收器；`C09B` 有线 | `logitech-g-pro-x-superlight-2` | 已新增只读电量/充电状态插件；Voltide 上游真机报告，本项目未独立实测。 |
 | Logitech M750M | `046D:C548` Logi Bolt | `logitech-m750m` | 已新增精确 PID 只读电量/充电状态插件；不复用 MX Master 3S 身份。 |
 | Logitech G102 | `046D:C539`，HID++ 2.0 | `logitech-g102` | 已新增精确 PID 只读电量/充电状态插件；本项目未独立实测。 |
-| MCHOSE K99 v2 | `3554:FA09`，MCHOSE 20 字节无线键盘协议 | 与 [`mchose-g75-pro`](COMPATIBILITY.md) 存在同号风险 | Voltide provider 仅按 VID/PID、FF02 集合和 20 字节报告发现，并把该 PID 显示为 K99 v2；README 同时说明该标识也可能属于 G75、狼蛛等键盘。不能只按 VID/PID 自动标成 K99 或 G75，必须先通过型号/协议应答区分；当前不新增 K99 别名包。 |
+| MCHOSE K99 v2 | `3554:FA09`，MCHOSE 20 字节无线键盘协议 | [`mchose-k99-v2`](COMPATIBILITY.md)，与 G75 共用接收器，手动认领 | Voltide v2.1.2 上游验证范围为 K99 电量；本项目未实机复测。仅提供只读电量/已知充电状态，不提供 G75 设置/改键。接收器无法自动确认型号，须用户手动选择。 |
 | MCHOSE G75 Pro | `3554:FA09`，MCHOSE 20 字节无线键盘协议 | [`mchose-g75-pro`](COMPATIBILITY.md) | Peripheral Desk 保留独立设备适配。核心在读写前查询 `0x05`，只接受 G75 Pro 型号签名 `[03 00 00 00 01 15]`；其验证记录与 Voltide 上游贡献者样本分别记录。 |
-| ROG Azoth Extreme | `0B05:1ACE` Omni 接收器，FF00/0001、64 字节帧 | 与 [`asus-rog-scope-ii-96-omni`](COMPATIBILITY.md) 共用接收器标识 | Voltide 的状态帧能读取电量，但接收器 PID 不携带具体配对键盘身份。现有 Scope II 包还要求配对产品 ID 落在 Scope II 范围；无法安全确认 Azoth 时不额外创建重复识别插件。 |
+| ROG Azoth Extreme | `0B05:1ACE` Omni 接收器，FF00/0001、64 字节帧 | [`asus-rog-azoth-extreme`](COMPATIBILITY.md)，与 Scope II 96 共用接收器，手动认领 | Voltide v2.1.2 上游验证范围为 Azoth Omni 电量；本项目未实机复测。仅只读电量/充电，Omni 配对回复不能证明型号，须用户手动选择。 |
 | Razer Viper Ultimate 无线 | 接收器 `1532:007B`；91 字节 Feature、`MI_00` | `razer-viper-ultimate-receiver` | 已接入单独只读电量插件；不与有线 `007A` 条目混用。 |
 | Voltide Razer 无线 PID 清单 | `00C1,00C3,00BF,00E6,00AB,00CD,00D7,00C5,00D1,00C8,00D4,00B0,00DB,00B4,00B8,00B9,009A,005A,0045`；91 字节 Feature、`MI_00` | 18 个按 PID 区分的插件，见[兼容表](COMPATIBILITY.md) | 只读电量/充电字段；精确按 PID 匹配，转发 Voltide 的事务校验与 `0..100`/`0..255` 百分比换算。不提供其他设置。 |
 | Razer BlackShark V2 Pro | `1532:0555`，64 字节音频接收器通道 | [`razer-blackshark-v2-pro-2023`](COMPATIBILITY.md) | 已有 2023 版专用插件；不推广至其他 BlackShark 代际。 |

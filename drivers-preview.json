@@ -35,7 +35,8 @@
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G304%20Lightspeed%20Wireless%20Gaming%20Mouse%204074.txt",
           "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
         ]
-      }
+      },
+      "runtime_identity": true
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
@@ -358,7 +359,8 @@
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/ajazz-aj179-pro.md",
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/captures/ajazz-aj179-pro.json"
         ]
-      }
+      },
+      "runtime_identity": true
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
@@ -462,6 +464,54 @@
       "battery"
     ],
     "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "asus-rog-azoth-extreme",
+    "name": "ROG Azoth Extreme",
+    "version": "0.4.13-preview.20",
+    "description": "Omni 共用接收器电量与充电状态读取；确认型号后手动认领，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-azoth-extreme",
+      "name": "ROG Azoth Extreme",
+      "brand": "ASUS ROG",
+      "kind": "keyboard",
+      "subtitle": "Omni 接收器电量 · 手动认领 · 只读",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "与 ROG Scope II 96 共用 Omni 接收器标识，无法自动区分；请确认你的键盘型号后手动安装认领",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6862,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64,
+          "path_contains": "mi_02&col02"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz Omni paired endpoint only"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports Azoth Extreme on this shared Omni endpoint; Peripheral Desk has not independently tested it. The pairing report does not prove the model.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/AsusRogProvider.cs"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Azoth Extreme Omni 接收器电量读取，须手动确认型号；只读，本项目尚未实机验证。"
   },
   {
     "id": "asus-rog-scope-ii-96-omni",
@@ -708,7 +758,8 @@
         250,
         500,
         1000
-      ]
+      ],
+      "runtime_identity": true
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
@@ -886,7 +937,8 @@
         250,
         500,
         1000
-      ]
+      ],
+      "runtime_identity": true
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
@@ -1671,7 +1723,7 @@
     "id": "lingbao-m5pro-max",
     "name": "LINGBAO M5PRO Max",
     "version": "0.4.11-preview.1",
-    "description": "只支持 2.4 GHz 接收器；有线设备只回显查询，不会当成有效电量。",
+    "description": "灵豹 M5PRO Max 2.4 GHz 接收器电量读取；与 AJ179 Pro 共用接收器标识，需手动认领。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -1703,7 +1755,9 @@
           "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
           "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
         ]
-      }
+      },
+      "manual": true,
+      "manual_hint": "与 AJAZZ AJ179 Pro 共用 3151:402D 接收器标识，插件无法自动区分型号；请确认你的鼠标型号后手动安装认领"
     },
     "core_min": "0.4.0",
     "core_max_exclusive": "0.5.0",
@@ -1711,7 +1765,7 @@
     "capabilities": [
       "battery"
     ],
-    "changelog": "新增精确型号电量读取；设备详情列出连接范围和电量精度边界，未实测 Peripheral Desk。"
+    "changelog": "灵豹 M5PRO Max 改为手动认领插件：与 AJ179 Pro 共用接收器标识，需确认型号后安装。"
   },
   {
     "id": "logitech-bolt-mx-master-3s",
@@ -1803,7 +1857,8 @@
         200,
         12000
       ],
-      "dpi_step": 50
+      "dpi_step": 50,
+      "runtime_identity": true
     },
     "abi": 1,
     "dll": "driver.dll",
@@ -1973,6 +2028,52 @@
       "bindings"
     ],
     "changelog": "新增活动 DPI、无线回报率和六键受限映射；设置读回校验，失败尝试恢复。未知按键字节保留，未实机验证；不提供灯光、宏或固件操作。"
+  },
+  {
+    "id": "mchose-k99-v2",
+    "name": "MCHOSE K99 V2",
+    "version": "0.4.13-preview.20",
+    "description": "共用接收器电量与已知充电状态读取；确认型号后手动认领，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-k99-v2",
+      "name": "MCHOSE K99 V2",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 手动认领 · 只读",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "与迈从 G75 Pro 共用接收器标识，无法自动区分；请确认你的键盘型号后手动安装认领",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 64009,
+          "usage_page": 65282,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "2.4 GHz shared receiver 3554:FA09 / FF02 / 20-byte input/output"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports K99 V2 battery reading for this shared receiver protocol; Peripheral Desk has not independently tested the model or charging state.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/MchoseProvider.cs"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 K99 V2 共用接收器电量读取，须手动确认型号；只读，本项目尚未实机验证。"
   },
   {
     "id": "mchose-g87-v1",
@@ -4187,5 +4288,35 @@
       "battery"
     ],
     "changelog": "新增 Viper Ultimate 接收器电量读取，与有线版本分开安装。"
+  },
+  {
+    "id": "nzxt-lift-elite-wireless", "name": "NZXT Lift Elite Wireless", "version": "0.4.13-preview.20", "description": "2.4G 接收器和有线电量、充电状态只读。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "nzxt-lift-elite-wireless", "name": "NZXT Lift Elite Wireless", "brand": "NZXT", "kind": "mouse", "subtitle": "电量与接线充电状态 · 只读", "image": "device.png", "matches": [{"vid": 7793, "pid": 8449, "usage_page": 65482, "usage": 1, "input_len": 64, "output_len": 64}, {"vid": 7793, "pid": 8489, "usage_page": 65482, "usage": 1, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1E71:2101 接收器 / 1E71:2129 有线，FFCA:0001", "firmware": "unknown", "project_validation": "HaloBattery issue #148 reporter captured and confirmed both connection modes; Peripheral Desk has not tested hardware. NZXT CAM running concurrently may prevent receiver replies.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"]}},
+    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 NZXT Lift Elite Wireless 接收器和有线只读电量；NZXT CAM 同时运行时接收器可能不回应。"
+  },
+  {
+    "id": "lamzu-maya-x", "name": "LAMZU Maya X", "version": "0.4.13-preview.20", "description": "8K 接收器和有线 Feature 电量只读。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "lamzu-maya-x", "name": "LAMZU Maya X", "brand": "LAMZU", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 14142, "pid": 30, "usage_page": 65535, "usage": 0, "feature_len": 64, "path_contains": "mi_02"}, {"vid": 14142, "pid": 28, "usage_page": 65535, "usage": 0, "feature_len": 64, "path_contains": "mi_02"}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "373E:001E 8K 接收器；373E:001C 有线 ID 未由上游单独确认；接口 2", "firmware": "unknown", "project_validation": "HaloBattery reports a real Maya X 8K dongle diagnostic; wired ID lacks separate upstream confirmation. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py", "https://github.com/Sheroune/lamzu-battery-monitory"]}},
+    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py", "https://github.com/Sheroune/lamzu-battery-monitory"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 LAMZU Maya X 8K 接收器电量读取；有线连接尚无独立实测。"
+  },
+  {
+    "id": "asus-rog-gladius-iii-wireless", "name": "ROG Gladius III Wireless AimPoint 36K", "version": "0.4.13-preview.20", "description": "接收器和有线电量只读；蓝牙不支持。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "asus-rog-gladius-iii-wireless", "name": "ROG Gladius III Wireless AimPoint 36K", "brand": "ASUS ROG", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 2821, "pid": 6770, "usage_page": 65281, "usage": 1, "input_len": 64, "output_len": 64}, {"vid": 2821, "pid": 6768, "usage_page": 65281, "usage": 1, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "0B05:1A72 接收器 / 0B05:1A70 有线；不含蓝牙 1A74", "firmware": "unknown", "project_validation": "rogdrv-web documents the exact device exchange; protocol facts only, GPL-3.0 source code not copied. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"]}},
+    "sources": ["https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 ROG Gladius III Wireless 接收器和有线只读电量；不含蓝牙。"
+  },
+  {
+    "id": "steelseries-aerox-9-wireless", "name": "SteelSeries Aerox 9 Wireless", "version": "0.4.13-preview.20", "description": "接收器和有线 21 档电量只读。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "steelseries-aerox-9-wireless", "name": "SteelSeries Aerox 9 Wireless", "brand": "SteelSeries", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 4152, "pid": 6232, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6260, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6234, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6262, "usage_page": 65472, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1038:1858/1874 接收器；185A/1876 有线", "firmware": "unknown", "project_validation": "rivalcfg battery definitions; HaloBattery issue #79 confirms Aerox 9 D2 04 = 15% against GG, charging bit not separately confirmed. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py", "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py", "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"]}},
+    "sources": ["https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py", "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py", "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Aerox 9 Wireless 接收器与有线电量和充电状态读取。"
+  },
+  {
+    "id": "corsair-dark-core-rgb-pro-se", "name": "Corsair Dark Core RGB Pro SE", "version": "0.4.13-preview.20", "description": "2.4G 接收器路由属性电量只读。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "corsair-dark-core-rgb-pro-se", "name": "Corsair Dark Core RGB Pro SE", "brand": "Corsair", "kind": "mouse", "subtitle": "接收器电量 · 只读", "image": "device.png", "matches": [{"vid": 6940, "pid": 7039, "usage_page": 65346, "usage": 1}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1B1C:1B7F 2.4G 接收器；不含有线 1B7E", "firmware": "unknown", "project_validation": "HaloBattery issue #56 confirms the route and battery against SignalRGB; Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"]}},
+    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Dark Core RGB Pro SE 接收器只读电量；两次一致读数后显示。"
+  },
+  {
+    "id": "steelseries-arctis-nova-elite", "name": "SteelSeries Arctis Nova Elite", "version": "0.4.13-preview.20", "description": "无线基站电量及充电状态只读。", "abi": 1, "dll": "driver.dll",
+    "device": {"key": "steelseries-arctis-nova-elite", "name": "SteelSeries Arctis Nova Elite", "brand": "SteelSeries", "kind": "headset", "subtitle": "耳机电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 4152, "pid": 8772, "usage_page": 65472, "input_len": 64, "output_len": 64, "path_contains": "mi_03"}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1038:2244 无线基站接口 3；FFC0 集合，另监听接口 3 的 07 报告集合", "firmware": "unknown", "project_validation": "HaloBattery issue #138 reporter confirmed direct 01 B0 level and charging against SteelSeries GG; Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"]}},
+    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Arctis Nova Elite 无线基站耳机电量与充电状态读取。"
   }
 ]

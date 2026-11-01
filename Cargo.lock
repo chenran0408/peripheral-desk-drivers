@@ -32,6 +32,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "asus-rog-azoth-extreme-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "asus-rog-gladius-iii-wireless-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-gladius-iii-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "asus-rog-scope-ii-96-omni-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -208,6 +227,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "corsair-dark-core-rgb-pro-se-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-corsair-dark-core-rgb-pro-se",
+ "serde_json",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -343,6 +371,15 @@ name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
+
+[[package]]
+name = "lamzu-maya-x-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-lamzu-maya-x",
+ "serde_json",
+]
 
 [[package]]
 name = "libc"
@@ -481,6 +518,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-k99-v2-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
 name = "mchose-magdock-driver"
 version = "0.4.8-preview.2"
 dependencies = [
@@ -503,6 +549,15 @@ name = "memchr"
 version = "2.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
+
+[[package]]
+name = "nzxt-lift-elite-wireless-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-nzxt-lift-elite-wireless",
+ "serde_json",
+]
 
 [[package]]
 name = "peripheral-desk"
@@ -554,6 +609,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-asus-rog-gladius-iii-wireless"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-atk"
 version = "0.4.9-preview.1"
 dependencies = [
@@ -576,6 +639,14 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
  "windows-sys",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-corsair-dark-core-rgb-pro-se"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -618,6 +689,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-lamzu-maya-x"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-logitech-bolt-mx-master-3s"
 version = "0.1.0"
 dependencies = [
@@ -651,6 +729,14 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-mchose-v9-pro"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-nzxt-lift-elite-wireless"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
@@ -719,6 +805,22 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
  "windows-sys",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-steelseries-aerox-9-wireless"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-steelseries-arctis-nova-elite"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -1105,6 +1207,24 @@ version = "0.1.0"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-sony-inzone-h9-ii",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-aerox-9-wireless-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-aerox-9-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-arctis-nova-elite-driver"
+version = "0.4.13-preview.20"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-arctis-nova-elite",
  "serde_json",
 ]
 

@@ -58,3 +58,10 @@ The wave-6 device previews (G-Wolves VUK, HT-S2, Fenrir Max, HTS Ultra and HSK
 Plus ACE, Razer Naga Pro and Viper Mini Signature Edition) use the same original
 generated brand-color letter icons for identification; they are not vendor
 artwork or product photographs.
+
+The wave-7 device previews (Razer Atheris, Lancehead/Mamba wireless receivers,
+Pro Click, DeathAdder V2 Pro receiver, Basilisk X Hyperspeed, Basilisk
+Ultimate, Orochi V2, DeathAdder V2 X Hyperspeed, Viper V2 Pro receiver, Naga V2
+Pro, and Logitech G522 Lightspeed) use the same original generated brand-color
+letter icons for identification; they are not vendor artwork or product
+photographs.

@@ -170,6 +170,19 @@
 | `razer-naga-pro`（预览） | 无线接收器电量读取；只读。 |
 | `razer-viper-mini-signature-edition`（预览） | 无线接收器电量读取；只读。 |
 
+| `razer-atheris`（预览） | 无线接收器只读电量。 |
+| `razer-lancehead-wireless-receiver`（预览） | 无线接收器只读电量。 |
+| `razer-mamba-wireless-receiver`（预览） | 无线接收器只读电量。 |
+| `razer-pro-click`（预览） | 无线接收器只读电量。 |
+| `razer-deathadder-v2-pro-receiver`（预览） | 无线接收器只读电量。 |
+| `razer-basilisk-x-hyperspeed`（预览） | 无线接收器只读电量。 |
+| `razer-basilisk-ultimate`（预览） | 无线接收器只读电量。 |
+| `razer-orochi-v2`（预览） | 无线接收器只读电量。 |
+| `razer-deathadder-v2-x-hyperspeed`（预览） | 无线接收器只读电量。 |
+| `razer-viper-v2-pro-receiver`（预览） | 无线接收器只读电量。 |
+| `razer-naga-v2-pro`（预览） | 无线接收器只读电量。 |
+| `logitech-g522-lightspeed`（预览） | 2.4 GHz 接收器电量与充电状态读取；只读。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

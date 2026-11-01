@@ -828,6 +828,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-g522-lightspeed-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-logitech-g522",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-g533-driver"
 version = "0.4.13-preview.23"
 dependencies = [
@@ -1319,6 +1328,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-logitech-g522"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-logitech-gseries-headset"
 version = "0.4.2"
 dependencies = [
@@ -1452,6 +1469,7 @@ name = "peripheral-desk-protocol-razer-wireless"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
+ "serde_json",
 ]
 
 [[package]]
@@ -1600,6 +1618,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-atheris-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
 name = "razer-barracuda-pro-driver"
 version = "0.4.13-preview.22"
 dependencies = [
@@ -1615,6 +1641,14 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-ultimate-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]
@@ -1660,6 +1694,14 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-x-hyperspeed-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]
@@ -1750,12 +1792,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-deathadder-v2-pro-receiver-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
 name = "razer-deathadder-v2-pro-wired-driver"
 version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-deathadder-v2-pro",
  "serde_json",
+]
+
+[[package]]
+name = "razer-deathadder-v2-x-hyperspeed-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]
@@ -1831,12 +1889,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-lancehead-wireless-receiver-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
 name = "razer-mamba-chroma-driver"
 version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
+]
+
+[[package]]
+name = "razer-mamba-wireless-receiver-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]
@@ -1855,6 +1929,30 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
+]
+
+[[package]]
+name = "razer-naga-v2-pro-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
+name = "razer-orochi-v2-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
+name = "razer-pro-click-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]
@@ -1909,6 +2007,14 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-viper-ultimate",
  "serde_json",
+]
+
+[[package]]
+name = "razer-viper-v2-pro-receiver-driver"
+version = "0.4.13-preview.27"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
 ]
 
 [[package]]

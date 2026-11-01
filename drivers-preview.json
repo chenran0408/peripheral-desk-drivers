@@ -9517,5 +9517,537 @@
       "battery"
     ],
     "changelog": "新增 Viper Mini Signature Edition 无线接收器电量读取；尚待实机验证。"
+  },
+  {
+    "id": "razer-atheris",
+    "name": "Razer Atheris",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-atheris",
+      "name": "Razer Atheris",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 98,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0062 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含蓝牙",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Atheris 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-orochi-v2",
+    "name": "Razer Orochi V2",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-orochi-v2",
+      "name": "Razer Orochi V2",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 148,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0094 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含蓝牙 0095",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Orochi V2 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-pro-click",
+    "name": "Razer Pro Click",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-pro-click",
+      "name": "Razer Pro Click",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 119,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0077 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含有线 0080",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Pro Click 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-basilisk-ultimate",
+    "name": "Razer Basilisk Ultimate",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-ultimate",
+      "name": "Razer Basilisk Ultimate",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 136,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0088 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含有线 0086",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk Ultimate 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-naga-v2-pro",
+    "name": "Razer Naga V2 Pro",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-naga-v2-pro",
+      "name": "Razer Naga V2 Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 168,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:00A8 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含有线 00A7",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Naga V2 Pro 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-viper-v2-pro-receiver",
+    "name": "Razer Viper V2 Pro 无线接收器",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v2-pro-receiver",
+      "name": "Razer Viper V2 Pro 无线接收器",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 166,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:00A6 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含有线 00A5 或共享 HyperPolling 接收器",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Viper V2 Pro 独立接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-deathadder-v2-pro-receiver",
+    "name": "Razer DeathAdder V2 Pro 无线接收器",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v2-pro-receiver",
+      "name": "Razer DeathAdder V2 Pro 无线接收器",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 125,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:007D 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 3F；不含有线 007C",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer DeathAdder V2 Pro 独立接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-basilisk-x-hyperspeed",
+    "name": "Razer Basilisk X HyperSpeed",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-x-hyperspeed",
+      "name": "Razer Basilisk X HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 131,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0083 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID FF；不含蓝牙",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk X HyperSpeed 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-lancehead-wireless-receiver",
+    "name": "Razer Lancehead Wireless 无线接收器",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-lancehead-wireless-receiver",
+      "name": "Razer Lancehead Wireless 无线接收器",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 111,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:006F 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含有线 0070 或旧款 005A",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Lancehead Wireless 独立接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-mamba-wireless-receiver",
+    "name": "Razer Mamba Wireless 无线接收器",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-mamba-wireless-receiver",
+      "name": "Razer Mamba Wireless 无线接收器",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 114,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0072 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 3F；不含有线 0073 或旧款 0045",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Mamba Wireless 独立接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "razer-deathadder-v2-x-hyperspeed",
+    "name": "Razer DeathAdder V2 X HyperSpeed",
+    "version": "0.4.13-preview.27",
+    "description": "无线接收器只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v2-x-hyperspeed",
+      "name": "Razer DeathAdder V2 X HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 156,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:009C 独立 2.4 GHz 接收器；MI_00，91 字节 Feature，TID 1F；不含蓝牙",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 代码明确此 PID 的 07:80 电量事务，未见此型号真机读数；本项目未实测。",
+        "source_license": "GPL-2.0-or-later; protocol facts only",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1590-L1692",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer DeathAdder V2 X HyperSpeed 接收器电量读取；尚未实机验证。"
+  },
+  {
+    "id": "logitech-g522-lightspeed",
+    "name": "Logitech G522 LIGHTSPEED",
+    "version": "0.4.13-preview.27",
+    "description": "2.4 GHz 接收器电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g522-lightspeed",
+      "name": "Logitech G522 LIGHTSPEED",
+      "brand": "LOGITECH",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 2840,
+          "usage_page": 65440,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-verified",
+        "connections": "046D:0B18 LIGHTSPEED 2.4 GHz 接收器、FFA0:0001、64 字节 Centurion 桥接；不含蓝牙或 USB 有线",
+        "firmware": "unknown",
+        "project_validation": "HeadsetControl 有 G522 实际帧记录与模拟应答；Peripheral Desk 未实机验证。",
+        "source_license": "GPL-3.0; protocol facts only",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_g522_lightspeed.hpp",
+          "https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/protocols/logitech_centurion_protocol.hpp",
+          "https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/tests/test_protocols.cpp",
+          "https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/license"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Logitech G522 LIGHTSPEED 接收器电量和充电状态读取；本项目尚未实机验证。"
   }
 ]

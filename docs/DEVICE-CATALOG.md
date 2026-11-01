@@ -72,6 +72,18 @@ ATK 的 `373B:1216` / `FF05` Feature 事务与上表 17 字节候选不同；现
 | G-Wolves | HSK Plus ACE | `33E4:5903` 接收器、`5904` 有线；Feature 报告 65 字节 | 电量及充电，只读；HaloBattery、mouse.xyz 协议事实参考；本项目未实机验证 |
 | Razer | Naga Pro | `1532:0090` 无线 | 电量，只读；[OpenRazer](https://github.com/openrazer/openrazer) GPL-2.0 协议事实参考，未复制代码；本项目未实机验证 |
 | Razer | Viper Mini Signature Edition | `1532:009F` 无线 | 电量，只读；OpenRazer GPL-2.0 协议事实参考，未复制代码；本项目未实机验证 |
+| Razer | Atheris | `1532:0062` 无线 | 电量，只读；[OpenRazer](https://github.com/openrazer/openrazer) GPL-2.0 协议事实参考，未复制代码；本项目未实机验证 |
+| Razer | Lancehead 接收器 | `1532:006F` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Mamba Wireless 接收器 | `1532:0072` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Pro Click | `1532:0077` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | DeathAdder V2 Pro 接收器 | `1532:007D` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Basilisk X Hyperspeed | `1532:0083` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Basilisk Ultimate | `1532:0088` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Orochi V2 | `1532:0094` 无线接收器 | 电量，只读；蓝牙不支持；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | DeathAdder V2 X Hyperspeed | `1532:009C` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Viper V2 Pro 接收器 | `1532:00A6` | 电量，只读；与 HyperPolling 共享接收器区分；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Razer | Naga V2 Pro | `1532:00A8` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
+| Logitech | G522 Lightspeed | `046D:0B18` | 电量及充电，只读；Centurion 桥接协议；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_g522_lightspeed.hpp) GPL-3.0 协议事实参考 |
 | SteelSeries | Aerox 9 Wireless | `1038:1858/1874` 接收器、`185A/1876` 有线；`92/D2` | 21 档电量及充电位。[rivalcfg](https://github.com/flozz/rivalcfg/tree/master/rivalcfg/devices)、[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md) |
 | Corsair | Dark Core RGB Pro SE | `1B1C:1B7F` 接收器，`FF42:0001` 路由帧 | 只读电量且须重复一致；有线 `1B7E` 未覆盖。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se) |
 | SteelSeries | Arctis Nova Elite | `1038:2244` 基站接口 3，64 字节 `01 B0/07 B7/07 B5` | 耳机电量/充电；不含备用电池。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite) |

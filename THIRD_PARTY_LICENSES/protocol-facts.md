@@ -37,3 +37,6 @@ a separate license file in this directory states otherwise.
 - HeyOkay/HaloBattery, MIT (see HaloBattery-MIT.txt) — protocol notes and
   hardware verification reports referenced per device in the catalog
   metadata. Facts only.
+- seerge/g-helper, GPL-3.0 — ASUS ROG Harpe Ace Aim Lab Edition, Spatha X,
+  Pugio II, Strix Impact II Wireless and Gladius III Wireless battery frame
+  layouts. Facts only.

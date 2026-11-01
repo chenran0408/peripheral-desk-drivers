@@ -138,6 +138,14 @@
 | `eightbitdo-pro-2`（预览） | 蓝牙 D-input 手柄增强报告电量被动监听。 |
 | `nintendo-switch-pro`（预览） | 蓝牙手柄电量和充电状态只读。 |
 
+| `asus-rog-harpe-ace-aim-lab`（预览） | 2.4 GHz 接收器或 USB 有线连接的电量与充电状态，只读。 |
+| `asus-rog-spatha-x`（预览） | 2.4 GHz 接收器或 USB 有线连接的电量与充电状态，只读。 |
+| `asus-rog-pugio-ii`（预览） | 2.4 GHz 接收器或 USB 有线连接的五档电量与充电状态，只读。 |
+| `asus-rog-strix-impact-ii-wireless`（预览） | 2.4 GHz 接收器或 USB 有线连接的五档电量与充电状态，只读。 |
+| `asus-rog-gladius-iii-legacy`（预览） | 初代 Gladius III Wireless 的 2.4 GHz 接收器或 USB 有线电量与充电状态，只读。 |
+| `gwolves-hsk-pro-2`（预览） | 专用接收器或 USB 有线连接的电量与充电状态，只读。 |
+| `gwolves-hts-plus-ace`（预览） | 专用接收器或 USB 有线连接的电量与充电状态，只读。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

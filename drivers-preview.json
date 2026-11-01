@@ -8017,5 +8017,352 @@
       "battery"
     ],
     "changelog": "新增 Switch Pro 和 Joy-Con 的蓝牙电量读取。"
+  },
+  {
+    "id": "asus-rog-harpe-ace-aim-lab",
+    "name": "ASUS ROG Harpe Ace Aim Lab Edition",
+    "version": "0.4.13-preview.24",
+    "description": "2.4 GHz 接收器或 USB 有线连接的电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-harpe-ace-aim-lab",
+      "name": "ASUS ROG Harpe Ace Aim Lab Edition",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6804
+        },
+        {
+          "vid": 2821,
+          "pid": 6802
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1A94 接收器；0B05:1A92 USB 有线；MI_00 厂商 HID 接口，64 字节输入和输出报告；蓝牙不支持",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery 与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/seerge/g-helper/blob/main/app/Peripherals/Mouse/Models/HarpeAceAimLab.cs",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py"
+        ],
+        "source_licenses": {
+          "G-Helper": "GPL-3.0（仅参考协议事实）",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ROG Harpe Ace Aim Lab Edition 电量读取。"
+  },
+  {
+    "id": "asus-rog-spatha-x",
+    "name": "ASUS ROG Spatha X",
+    "version": "0.4.13-preview.24",
+    "description": "2.4 GHz 接收器或 USB 有线连接的电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-spatha-x",
+      "name": "ASUS ROG Spatha X",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6521
+        },
+        {
+          "vid": 2821,
+          "pid": 6519
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1979 接收器；0B05:1977 USB 有线；MI_00 厂商 HID 接口，64 字节输入和输出报告；蓝牙不支持",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery 与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/seerge/g-helper/blob/main/app/Peripherals/Mouse/Models/SpathaX.cs",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py"
+        ],
+        "source_licenses": {
+          "G-Helper": "GPL-3.0（仅参考协议事实）",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ROG Spatha X 电量读取。"
+  },
+  {
+    "id": "asus-rog-pugio-ii",
+    "name": "ASUS ROG Pugio II",
+    "version": "0.4.13-preview.24",
+    "description": "2.4 GHz 接收器或 USB 有线连接的五档电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-pugio-ii",
+      "name": "ASUS ROG Pugio II",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "五档电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6408
+        },
+        {
+          "vid": 2821,
+          "pid": 6406
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1908 接收器；0B05:1906 USB 有线；MI_00 厂商 HID 接口，64 字节输入和输出报告；蓝牙不支持",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery（0-4 档换算）与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/seerge/g-helper/blob/main/app/Peripherals/Mouse/Models/PugioII.cs",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py"
+        ],
+        "source_licenses": {
+          "G-Helper": "GPL-3.0（仅参考协议事实）",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ROG Pugio II 五档电量读取。"
+  },
+  {
+    "id": "asus-rog-strix-impact-ii-wireless",
+    "name": "ASUS ROG Strix Impact II Wireless",
+    "version": "0.4.13-preview.24",
+    "description": "2.4 GHz 接收器或 USB 有线连接的五档电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-strix-impact-ii-wireless",
+      "name": "ASUS ROG Strix Impact II Wireless",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "五档电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6473
+        },
+        {
+          "vid": 2821,
+          "pid": 6471
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1949 接收器；0B05:1947 USB 有线；MI_00 厂商 HID 接口，64 字节输入和输出报告；蓝牙不支持",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery（0-4 档换算）与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/seerge/g-helper/blob/main/app/Peripherals/Mouse/Models/StrixImpactIIWireless.cs",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py"
+        ],
+        "source_licenses": {
+          "G-Helper": "GPL-3.0（仅参考协议事实）",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ROG Strix Impact II Wireless 五档电量读取。"
+  },
+  {
+    "id": "asus-rog-gladius-iii-legacy",
+    "name": "ASUS ROG Gladius III Wireless（初代）",
+    "version": "0.4.13-preview.24",
+    "description": "初代 Gladius III Wireless 的 2.4 GHz 接收器或 USB 有线电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-gladius-iii-legacy",
+      "name": "ASUS ROG Gladius III Wireless（初代）",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6527
+        },
+        {
+          "vid": 2821,
+          "pid": 6525
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:197F 接收器；0B05:197D USB 有线；MI_00 厂商 HID 接口，64 字节输入和输出报告；与 1A72/1A70 AimPoint 版不同",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery 与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/seerge/g-helper/blob/main/app/Peripherals/Mouse/Models/GladiusIIIWireless.cs",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py"
+        ],
+        "source_licenses": {
+          "G-Helper": "GPL-3.0（仅参考协议事实）",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增初代 ROG Gladius III Wireless 电量读取。"
+  },
+  {
+    "id": "gwolves-hsk-pro-2",
+    "name": "G-Wolves HSK Pro 2.0",
+    "version": "0.4.13-preview.24",
+    "description": "专用接收器或 USB 有线连接的电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-hsk-pro-2",
+      "name": "G-Wolves HSK Pro 2.0",
+      "brand": "G-Wolves",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 26647,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 26632,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:6817 专用接收器；33E4:6808 USB 有线；厂商 HID 且 feature report 长度 65 字节",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery 与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://mouse.xyz/",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/gwolves.py"
+        ],
+        "source_licenses": {
+          "mouse.xyz": "官方 web driver；仅参考协议事实",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 HSK Pro 2.0 电量读取。"
+  },
+  {
+    "id": "gwolves-hts-plus-ace",
+    "name": "G-Wolves HTS Plus ACE",
+    "version": "0.4.13-preview.24",
+    "description": "专用接收器或 USB 有线连接的电量与充电状态，只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-hts-plus-ace",
+      "name": "G-Wolves HTS Plus ACE",
+      "brand": "G-Wolves",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 21507,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 21508,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:5403 专用接收器；33E4:5404 USB 有线；厂商 HID 且 feature report 长度 65 字节",
+        "receiver-shared": false,
+        "firmware": "unknown",
+        "project_validation": "battery 与 charging 均为 code-only，Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://mouse.xyz/",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/gwolves.py"
+        ],
+        "source_licenses": {
+          "mouse.xyz": "官方 web driver；仅参考协议事实",
+          "HaloBattery": "MIT（仅参考协议事实）"
+        }
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 HTS Plus ACE 电量读取。"
   }
 ]

@@ -69,11 +69,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "asus-rog-gladius-iii-legacy-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-mice",
+ "serde_json",
+]
+
+[[package]]
 name = "asus-rog-gladius-iii-wireless-driver"
 version = "0.4.13-preview.20"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-asus-rog-gladius-iii-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "asus-rog-harpe-ace-aim-lab-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-mice",
  "serde_json",
 ]
 
@@ -87,12 +105,39 @@ dependencies = [
 ]
 
 [[package]]
+name = "asus-rog-pugio-ii-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-mice",
+ "serde_json",
+]
+
+[[package]]
 name = "asus-rog-scope-ii-96-omni-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "asus-rog-spatha-x-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-mice",
+ "serde_json",
+]
+
+[[package]]
+name = "asus-rog-strix-impact-ii-wireless-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-asus-rog-mice",
  "serde_json",
 ]
 
@@ -395,11 +440,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "gwolves-hsk-pro-2-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
 name = "gwolves-hsk-pro-ace-driver"
 version = "0.4.13-preview.22"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
+name = "gwolves-hts-plus-ace-driver"
+version = "0.4.13-preview.24"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
  "serde_json",
 ]
 

@@ -41,3 +41,8 @@ ATK F1 battery parsing in `protocol-atk-f1-battery` is adapted from Vigil Watt v
 The newly added Razer receiver variants use the project's original neutral mouse illustration for identification, not vendor product photographs.
 
 The six preview icons for NZXT Lift Elite Wireless, LAMZU Maya X, ROG Gladius III Wireless, SteelSeries Aerox 9 Wireless, Corsair Dark Core RGB Pro SE, and SteelSeries Arctis Nova Elite are original 256px PNG letter icons generated locally with Pillow. Their circular backgrounds use distinct brand-inspired colors; the letters are model identifiers, not vendor logos or product artwork.
+
+The wave-4 device previews (ROG Harpe Ace Aim Lab Edition, Spatha X, Pugio II,
+Strix Impact II Wireless, legacy Gladius III Wireless, G-Wolves HSK Pro 2.0 and
+HTS Plus ACE) use the same original generated brand-color letter icons for
+identification; they are not vendor artwork or product photographs.

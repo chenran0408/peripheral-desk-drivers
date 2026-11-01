@@ -1,0 +1,14 @@
+[package]
+name = "razer-lancehead-driver"
+version = "0.4.13-preview.15"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-razer-wireless = { path = "../../crates/protocol-razer-wireless" }
+serde_json.workspace = true

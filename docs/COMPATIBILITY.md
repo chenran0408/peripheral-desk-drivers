@@ -1,8 +1,8 @@
 # 兼容与验证记录
 
-以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**；本次雷蛇灯效编辑器需 **>=0.4.9**）。四款原有设备包为 **stable**；G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
+以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**；本次雷蛇灯效编辑器需 **>=0.4.9**）。四款原有设备包为 **stable**；G304、G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
 
-设备包独立版本：四款稳定包为0.4.2；G305为0.4.1-preview.1；Basilisk V3 Pro有线为0.4.3-preview.1。它们继续使用ABI 1及上述0.4.x主程序范围，包版本变化不等于新增实机验证。
+设备包独立版本：四款稳定包为0.4.2；G304为0.4.13-preview.14；G305为0.4.1-preview.1；Basilisk V3 Pro有线为0.4.3-preview.1。它们继续使用ABI 1及上述0.4.x主程序范围，包版本变化不等于新增实机验证。
 
 | 设备 | 已有核心适配实测连接 | 固件 | 初始包能力 | 边界 |
 | --- | --- | --- | --- | --- |
@@ -11,6 +11,7 @@
 | G75 Pro | 2.4 GHz 接收器 3554:FA09 | 未知 | 电量、设置、普通/Fn改键、灯色 | 宏地址未确证，未开放设备宏写入 |
 | G2 Pro | USB 35BB:A100 | 未知 | 音量、原有音效、灯光 | 音效需官方组件；灯光开关已验证切换与恢复，模式/RGB未在本次写入验证，只显示本工具保存值 |
 | Logitech G305 LIGHTSPEED（preview） | 未实测；仅接收器 046D:C53F、配对槽 1，须同时确认 WPID 4074、HID++ 4.2 与 G305 精确名称 | 本机未知；上游公开版本不算本机验证 | 仅公开只读电量与身份查询，无设置写入 | 不支持 G304、其他接收器/多槽或蓝牙；尚未实测 Windows 电量、唤醒、拔插与并发，详见 [G305 范围](LOGITECH-G305.md) |
+| Logitech G304 LIGHTSPEED（preview） | 未实测；仅接收器 046D:C53F、配对槽 1，须同时确认 WPID 4074、HID++ 4.2 与 G304 精确名称 | 本机未知；上游公开版本不算本机验证 | 仅公开只读电量与身份查询，无设置写入 | 不支持 G305、其他接收器/多槽或蓝牙；尚未实测 Windows 电量、唤醒、拔插与并发，详见 [G304 范围](../drivers/logitech-g304/UPSTREAM.md) |
 
 此表区分已有核心协议验证和新 DLL 的 ABI/打包检查；不把软件检查写成实机通过。连接模式或固件尚未单独确认时应明确保留未知。
 
@@ -77,4 +78,14 @@ G2 Pro 包需主程序 >=0.4.10，内含匹配 35BB:A100 的 x64 SDK、音频驱
 
 ## Logitech Voltide 设备（preview）
 
-Voltide v2.1.2 已报告 G Pro X Superlight 2（GPW3，LIGHTSPEED `046D:C547/C54D` 与有线 `C09B`）、M750M（`046D:C548`）和 G102（`046D:C539`）的 HID++ 电量读取。Peripheral Desk 为每个 PID 提供独立只读插件，并校验 HID++ 4.2 ping；本项目尚未独立实测。不开放 DPI、回报率、改键、宏或灯效。
+Voltide v2.1.2 已报告 G304（`046D:C53F`，与 G305 共用接收器 PID）、G Pro X Superlight 2（GPW3，LIGHTSPEED `046D:C547/C54D` 与有线 `C09B`）、M750M（`046D:C548`）和 G102（`046D:C539`）的 HID++ 电量读取。Peripheral Desk 为每个精确型号提供独立只读插件，并校验 HID++ 4.2 ping；G304/G305 还必须匹配 WPID `4074` 和完整设备名，避免共用接收器误认。本项目尚未独立实测。不开放 DPI、回报率、改键、宏或灯效。
+
+## Voltide 共享身份缺口
+
+| Voltide 型号 | 共享接口 | Peripheral Desk 决策 | 兼容边界 |
+| --- | --- | --- | --- |
+| MCHOSE K99 v2 | `3554:FA09`、`FF02`、Report ID `0x13`、20 字节输入/输出 | 不新增独立包；与 [`mchose-g75-pro`](../drivers/mchose-g75-pro) 共用 PID | Voltide provider 只按 USB 接口特征发现并将该 PID 命名为 K99 v2，同时承认 MCHOSE、G75、狼蛛等型号可能共享该标识。Peripheral Desk 的 G75 核心发送 `0x05` 型号查询，仅接受签名 `[03 00 00 00 01 15]` 后才读写；没有该签名的设备不会被当作 G75。 |
+| MCHOSE G75 Pro | 同上 | [`mchose-g75-pro`](../drivers/mchose-g75-pro) stable | 电量、设置、普通/Fn 改键与灯色沿用现有 G75 协议；Voltide 的 36% 贡献者样本不等同于本项目重新实测。其他 `3554:FA09` 键盘不因 PID 自动获得 G75 能力。 |
+| ROG Azoth Extreme | `0B05:1ACE` Omni 接收器、`FF00:0001`、64 字节输入/输出 | 不新增 Azoth 别名包；与 [`asus-rog-scope-ii-96-omni`](../drivers/asus-rog-scope-ii-96-omni) 共用接收器 PID | 现有 Scope II 包会先查配对设备，并仅接受 Scope II 产品 ID `0x1AAE..0x1AB0`；Azoth 的接收器 PID 本身不足以证明具体型号，因此不把通用 Omni 回复标成 Azoth。 |
+
+这三项属于明确记录的上游能力缺口：共享 PID 没有可靠型号分流时，目录不发布会误导用户的型号别名；如后续获得 Azoth 或 K99 的运行时身份应答，再单独增加精确匹配包。

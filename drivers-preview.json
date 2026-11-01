@@ -1,5 +1,51 @@
 [
   {
+    "id": "logitech-g304",
+    "name": "罗技 G304 LIGHTSPEED",
+    "version": "0.4.13-preview.14",
+    "description": "精确 G304 身份校验后的电量与充电状态读取；只读，不提供其他控制功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g304",
+      "name": "罗技 G304 LIGHTSPEED",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz LIGHTSPEED 接收器 / 046D:C53F / HID++ 4.2；WPID 4074；G304 完整名称",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 G304; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G304%20Lightspeed%20Wireless%20Gaming%20Mouse%204074.txt",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G304 指定接收器和完整身份校验后的电量与充电状态读取；与共用 C53F/WPID 4074 的 G305 严格区分，尚未实机验证。"
+  },
+  {
     "id": "logitech-g102",
     "name": "罗技 G102",
     "version": "0.4.13-preview.14",
@@ -3342,5 +3388,761 @@
       "battery"
     ],
     "changelog": "新增支持电量与已知连接状态读取。上游和本项目验证范围见设备详情；未包含的功能不会显示为可用。"
+  },
+  {
+    "id": "razer-viper-v3-pro",
+    "name": "Razer Viper V3 Pro",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v3-pro",
+      "name": "Razer Viper V3 Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 193,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00C1 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Viper V3 Pro 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-deathadder-v3-pro-alt",
+    "name": "Razer DeathAdder V3 Pro (alternate receiver)",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v3-pro-alt",
+      "name": "Razer DeathAdder V3 Pro (alternate receiver)",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 195,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00C3 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer DeathAdder V3 Pro (alternate receiver) 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-deathadder-v4-pro",
+    "name": "Razer DeathAdder V4 Pro",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v4-pro",
+      "name": "Razer DeathAdder V4 Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 191,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00BF / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer DeathAdder V4 Pro 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-basilisk-v3-pro",
+    "name": "Razer Basilisk V3 Pro",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-v3-pro",
+      "name": "Razer Basilisk V3 Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 171,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00AB / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk V3 Pro 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-basilisk-v3-pro-35k",
+    "name": "Razer Basilisk V3 Pro 35K",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-v3-pro-35k",
+      "name": "Razer Basilisk V3 Pro 35K",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 205,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00CD / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk V3 Pro 35K 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-basilisk-v3-pro-35k-phantom",
+    "name": "Razer Basilisk V3 Pro 35K Phantom",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-v3-pro-35k-phantom",
+      "name": "Razer Basilisk V3 Pro 35K Phantom",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 215,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00D7 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk V3 Pro 35K Phantom 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-deathadder-v3-hyperspeed",
+    "name": "Razer DeathAdder V3 HyperSpeed",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathadder-v3-hyperspeed",
+      "name": "Razer DeathAdder V3 HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 197,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00C5 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer DeathAdder V3 HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-pro-click-v2",
+    "name": "Razer Pro Click V2",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-pro-click-v2",
+      "name": "Razer Pro Click V2",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 209,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00D1 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Pro Click V2 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-pro-click-v2-vertical",
+    "name": "Razer Pro Click V2 Vertical",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-pro-click-v2-vertical",
+      "name": "Razer Pro Click V2 Vertical",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 200,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00C8 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Pro Click V2 Vertical 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-basilisk-mobile",
+    "name": "Razer Basilisk Mobile",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-mobile",
+      "name": "Razer Basilisk Mobile",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 212,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00D4 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk Mobile 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-cobra-pro",
+    "name": "Razer Cobra Pro",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-cobra-pro",
+      "name": "Razer Cobra Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 176,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00B0 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Cobra Pro 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-cobra-hyperspeed",
+    "name": "Razer Cobra HyperSpeed",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-cobra-hyperspeed",
+      "name": "Razer Cobra HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 219,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00DB / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Cobra HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-naga-v2-hyperspeed",
+    "name": "Razer Naga V2 HyperSpeed",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-naga-v2-hyperspeed",
+      "name": "Razer Naga V2 HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 180,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00B4 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Naga V2 HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-viper-v3-hyperspeed",
+    "name": "Razer Viper V3 HyperSpeed",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-v3-hyperspeed",
+      "name": "Razer Viper V3 HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 184,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00B8 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Viper V3 HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-basilisk-v3-x-hyperspeed",
+    "name": "Razer Basilisk V3 X HyperSpeed",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-v3-x-hyperspeed",
+      "name": "Razer Basilisk V3 X HyperSpeed",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 185,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:00B9 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Basilisk V3 X HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-pro-click-mini",
+    "name": "Razer Pro Click Mini",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-pro-click-mini",
+      "name": "Razer Pro Click Mini",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 154,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:009A / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Pro Click Mini 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-lancehead",
+    "name": "Razer Lancehead",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-lancehead",
+      "name": "Razer Lancehead",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 90,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:005A / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Lancehead 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "razer-mamba-chroma",
+    "name": "Razer Mamba Chroma",
+    "version": "0.4.13-preview.15",
+    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-mamba-chroma",
+      "name": "Razer Mamba Chroma",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量与连接状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 69,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2.4 GHz 接收器 / 1532:0045 / 91 字节 Feature Report",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Mamba Chroma 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
   }
 ]

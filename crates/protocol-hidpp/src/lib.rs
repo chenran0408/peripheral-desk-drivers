@@ -9,6 +9,7 @@ pub mod transport;
 
 pub const G305_KEY: &str = "logitech-g305";
 pub const G305_NAME: &str = "G305 Lightspeed Wireless Gaming Mouse";
+pub const G304_NAME: &str = "G304 Lightspeed Wireless Gaming Mouse";
 const SLOT: u8 = 1;
 const SOFTWARE_ID: u8 = 0x0c;
 
@@ -201,12 +202,24 @@ fn verify_session<T: Transport>(transport: T) -> Result<(Reader<T>, u8, Vec<u8>)
 
 /// Public 0x0003 transport IDs are authoritative; receiver VID/PID alone is not.
 fn verify_model(ids: &[u8], name: &str) -> Result<()> {
+    verify_logitech_model(ids, name, 0x4074, G305_NAME)
+}
+
+/// Validate the paired device identity independently of the receiver PID.
+/// G304 and G305 share both `C53F` and WPID `4074`, so the complete name is
+/// required before a model-specific battery path is opened.
+fn verify_logitech_model(
+    ids: &[u8],
+    name: &str,
+    expected_wpid: u16,
+    expected_name: &str,
+) -> Result<()> {
     if ids.len() < 13 {
-        return Err("设备身份回复不完整".into());
+        return Err("Logitech 设备身份回复不完整".into());
     }
     let flags = ids[6];
     if flags & 0xf0 != 0 {
-        return Err("设备身份包含未知 transport 标志".into());
+        return Err("Logitech 设备身份包含未知 transport 标志".into());
     }
     let mut offset = 7;
     let mut wpid = None;
@@ -214,16 +227,16 @@ fn verify_model(ids: &[u8], name: &str) -> Result<()> {
         if flags & bit != 0 {
             let pair = ids
                 .get(offset..offset + 2)
-                .ok_or("设备 transport ID 越界")?;
+                .ok_or("Logitech transport ID 越界")?;
             if bit == 4 {
                 wpid = Some(u16::from_be_bytes([pair[0], pair[1]]));
             }
             offset += 2;
         }
     }
-    if wpid != Some(0x4074) || name != G305_NAME {
+    if wpid != Some(expected_wpid) || name != expected_name {
         return Err(format!(
-            "接收器配对型号不匹配：{name} / WPID {}；本驱动仅适配 G305 4074",
+            "配对型号不匹配：{name} / WPID {}；预期 {expected_name} / {expected_wpid:04X}",
             wpid.map(|v| format!("{v:04X}"))
                 .unwrap_or_else(|| "unknown".into())
         ));
@@ -253,33 +266,7 @@ pub fn read_logitech_battery<T: Transport>(
     let ids = reader.call(identity, 0, &[])?;
     let name_feature = reader.feature(0x0005)?;
     let name = reader.name(name_feature)?;
-    if ids.len() < 13 {
-        return Err("Logitech 设备身份回复不完整".into());
-    }
-    let flags = ids[6];
-    if flags & 0xf0 != 0 {
-        return Err("Logitech 设备身份包含未知 transport 标志".into());
-    }
-    let mut offset = 7;
-    let mut wpid = None;
-    for bit in [1, 2, 4, 8] {
-        if flags & bit != 0 {
-            let pair = ids
-                .get(offset..offset + 2)
-                .ok_or("Logitech transport ID 越界")?;
-            if bit == 4 {
-                wpid = Some(u16::from_be_bytes([pair[0], pair[1]]));
-            }
-            offset += 2;
-        }
-    }
-    if wpid != Some(expected_wpid) || name != expected_name {
-        return Err(format!(
-            "配对型号不匹配：{name} / WPID {}",
-            wpid.map(|v| format!("{v:04X}"))
-                .unwrap_or_else(|| "unknown".into())
-        ));
-    }
+    verify_logitech_model(&ids, &name, expected_wpid, expected_name)?;
     let reading = reader
         .feature(0x1000)
         .and_then(|index| reader.call(index, 0, &[]))
@@ -575,6 +562,14 @@ mod tests {
         ids[7..9].copy_from_slice(&[0x40, 0x74]);
         assert!(verify_model(&ids, G305_NAME).is_ok());
         assert!(verify_model(&ids, "G304 Lightspeed Wireless Gaming Mouse").is_err());
+        assert!(verify_logitech_model(
+            &ids,
+            "G304 Lightspeed Wireless Gaming Mouse",
+            0x4074,
+            "G304 Lightspeed Wireless Gaming Mouse",
+        )
+        .is_ok());
+        assert!(verify_logitech_model(&ids, G305_NAME, 0x4074, G304_NAME).is_err());
         ids[8] = 0x93;
         assert!(verify_model(&ids, G305_NAME).is_err());
         assert!(verify_model(&[0; 8], G305_NAME).is_err());

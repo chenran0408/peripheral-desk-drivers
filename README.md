@@ -9,6 +9,7 @@
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
 | `logitech-g305`（预览） | G305 LIGHTSPEED，电量、条件允许时的 DPI 设置；需关闭板载配置，尚未实机验证 |
+| `logitech-g304`（预览） | G304 LIGHTSPEED，精确身份校验后的电量与充电状态，只读，尚未实机验证 |
 | `logitech-g-pro-x-superlight-2`（预览） | G Pro X Superlight 2（GPW3）LIGHTSPEED 接收器/有线，电量与充电状态，只读 |
 | `logitech-m750m`（预览） | M750M Logi Bolt 接收器，电量与充电状态，只读 |
 | `logitech-g102`（预览） | G102 指定 HID++ 接口，电量与充电状态，只读 |

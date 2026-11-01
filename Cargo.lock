@@ -389,6 +389,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-g304-driver"
+version = "0.4.13-preview.14"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-g305-driver"
 version = "0.4.9-preview.3"
 dependencies = [
@@ -696,6 +706,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-razer-wireless"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-sony-inzone-h9-ii"
 version = "0.1.0"
 dependencies = [
@@ -758,6 +775,42 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-basilisk-mobile-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-v3-pro-35k-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-v3-pro-35k-phantom-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-v3-pro-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-basilisk-v3-pro-wired-driver"
 version = "0.4.9-preview.3"
 dependencies = [
@@ -767,11 +820,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-basilisk-v3-x-hyperspeed-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-blackshark-v2-pro-2023-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-blackshark-2023",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-cobra-hyperspeed-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-cobra-pro-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
  "serde_json",
 ]
 
@@ -796,10 +876,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-deathadder-v3-hyperspeed-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-deathadder-v3-pro-alt-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-deathadder-v3-pro-driver"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk-driver-ffi",
+]
+
+[[package]]
+name = "razer-deathadder-v4-pro-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
 ]
 
 [[package]]
@@ -808,6 +915,60 @@ version = "0.1.0"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-kraken-v4",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-lancehead-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-mamba-chroma-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-naga-v2-hyperspeed-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-pro-click-mini-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-pro-click-v2-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-pro-click-v2-vertical-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
  "serde_json",
 ]
 
@@ -826,6 +987,24 @@ version = "0.4.8-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-viper-v2-pro",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-viper-v3-hyperspeed-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-viper-v3-pro-driver"
+version = "0.4.13-preview.15"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
  "serde_json",
 ]
 

@@ -167,6 +167,129 @@ pub fn read_state(spec: &Spec) -> Result<State, String> {
     })
 }
 
+pub fn read_g933() -> Result<State, String> {
+    let Some(i) = hid::enumerate()?.into_iter().find(|i| {
+        i.vid == 0x046d
+            && i.pid == 0x0a5b
+            && i.usage_page == 0xff43
+            && i.usage == 0x0202
+            && i.input_len >= 7
+            && i.output_len >= 20
+    }) else {
+        return Ok(State {
+            key: "logitech-g933".into(),
+            error: "未找到 G933 控制接口".into(),
+            ..State::default()
+        });
+    };
+    let mut io = WinTransport::open(&i.path)?;
+    io.flush()?;
+    let mut request = vec![0; i.output_len as usize];
+    request[..4].copy_from_slice(&[0x11, 0xff, 0x08, 0x0a]);
+    io.write(&request, Duration::from_millis(500))?;
+    for _ in 0..8 {
+        let r = io.read(i.input_len as usize, Duration::from_millis(150))?;
+        if r.len() < 7 || r[..4] != [0x11, 0xff, 0x08, 0x0a] {
+            continue;
+        }
+        let mv = u16::from_be_bytes([r[4], r[5]]);
+        if mv < 3150 {
+            return Err("G933 未返回有效电压".into());
+        }
+        let curve: &[(u16, u8)] = &[
+            (4100, 100),
+            (3950, 80),
+            (3850, 60),
+            (3750, 40),
+            (3650, 20),
+            (3500, 10),
+            (3300, 5),
+            (3150, 0),
+        ];
+        let percent = if mv >= 4100 {
+            100
+        } else {
+            curve
+                .windows(2)
+                .find_map(|points| {
+                    let (hi_mv, hi_pct) = points[0];
+                    let (lo_mv, lo_pct) = points[1];
+                    (mv >= lo_mv).then(|| {
+                        lo_pct
+                            + ((mv - lo_mv) as u32 * (hi_pct - lo_pct) as u32
+                                / (hi_mv - lo_mv) as u32) as u8
+                    })
+                })
+                .unwrap_or(0)
+        };
+        return Ok(State {
+            key: "logitech-g933".into(),
+            present: true,
+            fresh: true,
+            percent: Some(percent),
+            charging: match r[6] {
+                1 => Some(false),
+                3 => Some(true),
+                _ => None,
+            },
+            identity: "Logitech G933 · 046D:0A5B".into(),
+            updated: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap_or_default()
+                .as_secs(),
+            settings_error: "电压换算电量，仅供参考；只读。".into(),
+            ..State::default()
+        });
+    }
+    Err("G933 未返回电量报告".into())
+}
+
+pub fn read_g930() -> Result<State, String> {
+    let Some(i) = hid::enumerate()?.into_iter().find(|i| {
+        i.vid == 0x046d
+            && i.pid == 0x0a1f
+            && i.usage_page == 0xff00
+            && i.usage == 1
+            && i.feature_len >= 64
+    }) else {
+        return Ok(State {
+            key: "logitech-g930".into(),
+            error: "未找到 G930 控制接口".into(),
+            ..State::default()
+        });
+    };
+    let device = hid::Device::open(&i.path)?;
+    let mut request = vec![0; i.feature_len as usize];
+    request[..11].copy_from_slice(&[
+        0xff, 0x09, 0, 0xfd, 0xf4, 0x10, 0x05, 0xb1, 0xbf, 0xa0, 0x04,
+    ]);
+    device.send(&request)?;
+    let mut raw = None;
+    for n in 0..3 {
+        let reply = device.receive(0xff, i.feature_len as usize)?;
+        if reply.len() > 13 && reply[13] >= 44 && reply[13] <= 91 {
+            raw = Some(reply[13]);
+        }
+        if n < 2 {
+            std::thread::sleep(Duration::from_millis(100));
+        }
+    }
+    let level = raw.ok_or("G930 未返回有效电量")?;
+    Ok(State {
+        key: "logitech-g930".into(),
+        present: true,
+        fresh: true,
+        percent: Some(((level - 44) as u16 * 100 / 47) as u8),
+        identity: "Logitech G930 · 046D:0A1F".into(),
+        updated: SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        settings_error: "电量为原始档位换算；设备无充电状态字段。".into(),
+        ..State::default()
+    })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

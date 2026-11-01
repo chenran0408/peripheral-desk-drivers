@@ -13,6 +13,7 @@ use windows_sys::Win32::{
 };
 
 pub const KEY: &str = "audeze-maxwell";
+pub const MAXWELL2_KEY: &str = "audeze-maxwell2";
 const LEN: usize = 62;
 const BATTERY: &[u8] = &[6, 7, 0x80, 5, 0x5a, 3, 0, 0xd6, 0x0c];
 const INIT: &[&[u8]] = &[
@@ -131,19 +132,20 @@ fn sequence(
 }
 
 pub fn read_state() -> Result<State, String> {
+    read_state_for(KEY, &[0x4b19, 0x4b1a])
+}
+
+pub fn read_state_for(key: &str, pids: &[u16]) -> Result<State, String> {
     let mut interfaces: Vec<_> = hid::enumerate()?
         .into_iter()
         .filter(|i| {
-            i.vid == 0x3329
-                && matches!(i.pid, 0x4b19 | 0x4b1a)
-                && i.usage_page == 0xff13
-                && i.usage == 1
+            i.vid == 0x3329 && pids.contains(&i.pid) && i.usage_page == 0xff13 && i.usage == 1
         })
         .collect();
     interfaces.sort_by_key(|i| i.pid != 0x4b1a);
     if interfaces.is_empty() {
         return Ok(State {
-            key: KEY.into(),
+            key: key.into(),
             error: "未找到 Maxwell 控制接口".into(),
             ..State::default()
         });
@@ -166,24 +168,37 @@ pub fn read_state() -> Result<State, String> {
         };
         if let Some(percent) = percent {
             return Ok(State {
-                key: KEY.into(),
+                key: key.into(),
                 present: true,
                 fresh: true,
                 percent: Some(percent),
-                charging: Some(i.pid == 0x4b1a),
-                wired: i.pid == 0x4b1a,
-                identity: format!("Audeze Maxwell · 3329:{:04X}", i.pid),
+                charging: (key == KEY).then_some(i.pid == 0x4b1a),
+                wired: key == KEY && i.pid == 0x4b1a,
+                identity: format!(
+                    "{} · 3329:{:04X}",
+                    if key == KEY {
+                        "Audeze Maxwell"
+                    } else {
+                        "Audeze Maxwell 2"
+                    },
+                    i.pid
+                ),
                 updated: SystemTime::now()
                     .duration_since(UNIX_EPOCH)
                     .unwrap_or_default()
                     .as_secs(),
-                settings_error: "仅支持只读电量；USB 连接推断充电。".into(),
+                settings_error: if key == KEY {
+                    "仅支持只读电量；USB 连接推断充电。"
+                } else {
+                    "仅支持只读电量；未验证充电状态。"
+                }
+                .into(),
                 ..State::default()
             });
         }
     }
     Ok(State {
-        key: KEY.into(),
+        key: key.into(),
         present: true,
         error: "Maxwell 电量未知（耳机可能未连接）".into(),
         ..State::default()

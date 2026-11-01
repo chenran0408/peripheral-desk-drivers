@@ -17,6 +17,7 @@ use windows_sys::Win32::{
 };
 
 pub const DEVICE_KEY: &str = "sony-inzone-h9-ii";
+pub const H5_KEY: &str = "sony-inzone-h5";
 const VID: u16 = 0x054C;
 const PID: u16 = 0x0FA8;
 const USAGE_PAGE: u16 = 0xFF04;
@@ -55,6 +56,74 @@ pub fn parse_battery(f: &[u8]) -> Option<(u8, bool)> {
         return None;
     }
     Some((f[14], f[13] == 1))
+}
+
+pub fn parse_h5_battery(f: &[u8]) -> Option<(u8, bool)> {
+    if f.len() < LEN
+        || f[0] != RID
+        || f[1] < 14
+        || f[1] as usize >= LEN - 1
+        || f[2] != 4
+        || f[3] != 0xff
+        || f[5] != 0
+        || f[6..8] != [0x96, 0xc3]
+        || f[8] >> 4 != 1
+        || f[9] != 4
+        || !matches!(f[10], 0x10 | 0xa0)
+        || f[11..13] != [2, 0]
+        || f[14] > 100
+    {
+        return None;
+    }
+    let length = f[1] as usize;
+    let checksum = f[5..=length]
+        .iter()
+        .fold(0u8, |sum, byte| sum.wrapping_add(*byte));
+    (checksum == f[length + 1]).then_some((f[14], f[13] != 0))
+}
+
+pub fn read_h5() -> Result<State, String> {
+    let Some(i) = hid::enumerate()?.into_iter().find(|i| {
+        i.vid == 0x054c
+            && i.pid == 0x0ebf
+            && i.usage_page == 0xff04
+            && i.usage == 2
+            && i.input_len as usize == LEN
+            && i.output_len as usize == LEN
+    }) else {
+        return Ok(State {
+            key: H5_KEY.into(),
+            error: "未找到 INZONE H5 接收器控制接口".into(),
+            ..State::default()
+        });
+    };
+    let output = OutputHandle::open(&i.path)?;
+    let mut input = WinTransport::open(&i.path)?;
+    let mut request = request_frame(0x41, 4).ok_or("未知 INZONE 查询")?;
+    request[11] = 2;
+    request[13] = request[13].wrapping_add(1);
+    output.send_control_report(&request)?;
+    let deadline = Instant::now() + Duration::from_millis(1000);
+    while Instant::now() < deadline {
+        let reply = input.read(LEN, Duration::from_millis(250))?;
+        if let Some((percent, charging)) = parse_h5_battery(&reply) {
+            return Ok(State {
+                key: H5_KEY.into(),
+                present: true,
+                fresh: true,
+                percent: Some(percent),
+                charging: Some(charging),
+                identity: "Sony INZONE H5 · 054C:0EBF".into(),
+                updated: SystemTime::now()
+                    .duration_since(UNIX_EPOCH)
+                    .unwrap_or_default()
+                    .as_secs(),
+                settings_error: "仅支持只读电量与充电状态；Windows 实机尚未验证。".into(),
+                ..State::default()
+            });
+        }
+    }
+    Err("INZONE H5 未返回有效电量".into())
 }
 fn supported(i: &Interface) -> bool {
     i.vid == VID
@@ -159,4 +228,22 @@ pub fn read_state() -> Result<State, String> {
         settings_error: "只读电量和充电状态；EQ、音量、灯效和其他设置未适配。".into(),
         ..State::default()
     })
+}
+
+#[cfg(test)]
+mod h5_tests {
+    use super::*;
+
+    #[test]
+    fn battery_event_checks_transaction_and_checksum() {
+        let mut frame = [0; LEN];
+        frame[..15]
+            .copy_from_slice(&[2, 14, 4, 0xff, 0, 0, 0x96, 0xc3, 0x14, 4, 0x10, 2, 0, 1, 75]);
+        frame[15] = frame[5..=14]
+            .iter()
+            .fold(0u8, |sum, b| sum.wrapping_add(*b));
+        assert_eq!(parse_h5_battery(&frame), Some((75, true)));
+        frame[11] = 1;
+        assert_eq!(parse_h5_battery(&frame), None);
+    }
 }

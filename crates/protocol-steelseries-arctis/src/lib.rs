@@ -11,6 +11,8 @@ pub const NOVA7: &[u16] = &[
     0x22a1, 0x2202, 0x227e, 0x2206, 0x2258, 0x229e, 0x22ad, 0x22a4, 0x22a5, 0x223a, 0x22a9, 0x227a,
     0x220a, 0x22a7, 0x2298, 0x2232, 0x2253,
 ];
+pub const NOVA3P: &[u16] = &[0x2269, 0x226d];
+pub const NOVA3P_KEY: &str = "steelseries-arctis-nova-3p-wireless";
 
 pub fn request(pro: bool) -> Vec<u8> {
     let mut frame = vec![0; if pro { 31 } else { LEN }];
@@ -26,7 +28,7 @@ pub fn parse(reply: &[u8], pid: u16, pro: bool) -> Option<(u8, bool)> {
         return Some((((reply[6] as u16 * 100) / 8) as u8, reply[15] == 2));
     }
     let r = reply.strip_prefix(&[0]).unwrap_or(reply);
-    if matches!(pid, 0x2232 | 0x2253) {
+    if matches!(pid, 0x2232 | 0x2253 | 0x2269 | 0x226d) {
         if r.len() < 5 || r[0] != 0xb0 || r[1] == 2 || r[3] > 100 {
             return None;
         }
@@ -49,12 +51,12 @@ pub fn parse(reply: &[u8], pid: u16, pro: bool) -> Option<(u8, bool)> {
     Some((percent, matches!(r[3], 1 | 2)))
 }
 
-fn candidate(i: &hid::Interface, pro: bool) -> bool {
+fn candidate(i: &hid::Interface, pro: bool, pids: &[u16]) -> bool {
     i.vid == 0x1038
         && (if pro {
             matches!(i.pid, 0x12e0 | 0x12e5)
         } else {
-            NOVA7.contains(&i.pid)
+            pids.contains(&i.pid)
         })
         && i.usage_page >= 0xff00
         && (pro || (i.usage_page == 0xffc0 && i.usage == 1))
@@ -65,9 +67,19 @@ fn candidate(i: &hid::Interface, pro: bool) -> bool {
 }
 
 pub fn read_state(pro: bool) -> Result<State, String> {
-    let key = if pro { PRO_KEY } else { NOVA7_KEY };
+    read_state_for(
+        if pro { PRO_KEY } else { NOVA7_KEY },
+        if pro { &[] } else { NOVA7 },
+        pro,
+    )
+}
+
+pub fn read_state_for(key: &str, pids: &[u16], pro: bool) -> Result<State, String> {
     let interfaces = hid::enumerate()?;
-    let mut choices: Vec<_> = interfaces.iter().filter(|i| candidate(i, pro)).collect();
+    let mut choices: Vec<_> = interfaces
+        .iter()
+        .filter(|i| candidate(i, pro, pids))
+        .collect();
     choices.sort_by_key(|i| i.usage_page != 0xffc0);
     if choices.is_empty() {
         return Ok(State {
@@ -117,6 +129,7 @@ mod tests {
         assert_eq!(parse(&[0xb0, 3, 77, 3], 0x22a1, false), Some((77, false)));
         assert_eq!(parse(&[0xb0, 3, 3, 1], 0x2202, false), Some((75, true)));
         assert_eq!(parse(&[0xb0, 1, 0, 65, 1], 0x2232, false), Some((65, true)));
+        assert_eq!(parse(&[0xb0, 1, 0, 65, 1], 0x2269, false), Some((65, true)));
         let mut pro = [0; 64];
         pro[6] = 5;
         pro[15] = 8;

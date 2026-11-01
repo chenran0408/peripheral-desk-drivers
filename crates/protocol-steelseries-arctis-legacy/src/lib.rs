@@ -10,6 +10,7 @@ pub enum Model {
     ProWireless,
     Arctis7Plus,
     GameBuds,
+    Arctis1,
 }
 
 impl Model {
@@ -20,6 +21,7 @@ impl Model {
             Self::ProWireless => "steelseries-arctis-pro-wireless",
             Self::Arctis7Plus => "steelseries-arctis-7-plus",
             Self::GameBuds => "steelseries-gamebuds",
+            Self::Arctis1 => "steelseries-arctis-1",
         }
     }
     pub fn pids(self) -> &'static [u16] {
@@ -29,12 +31,14 @@ impl Model {
             Self::ProWireless => &[0x1290],
             Self::Arctis7Plus => &[0x220e, 0x2212, 0x2216, 0x2236],
             Self::GameBuds => &[0x230a],
+            Self::Arctis1 => &[0x12b3, 0x12b6],
         }
     }
     fn request(self, len: usize) -> Vec<u8> {
         let mut frame = vec![0; len];
         let command: &[u8] = match self {
             Self::Arctis7 => &[0x06, 0x18],
+            Self::Arctis1 => &[0x06, 0x12],
             Self::Arctis9 => &[0x00, 0x20],
             Self::ProWireless => &[0x41, 0xaa],
             Self::Arctis7Plus | Self::GameBuds => &[0x00, 0xb0],
@@ -51,6 +55,12 @@ pub fn parse(model: Model, reply: &[u8]) -> Option<(u8, bool)> {
                 return None;
             }
             Some((reply[2], false))
+        }
+        Model::Arctis1 => {
+            if reply.len() < 4 || reply[..2] != [6, 0x12] || reply[2] == 1 || reply[3] > 100 {
+                return None;
+            }
+            Some((reply[3], false))
         }
         Model::Arctis9 => {
             if reply.len() < 5 || reply[..2] != [0xaa, 1] || !(0x64..=0x9a).contains(&reply[3]) {
@@ -89,6 +99,7 @@ fn candidate(i: &hid::Interface, model: Model) -> bool {
     let path = i.path.to_ascii_lowercase();
     match model {
         Model::Arctis7 => i.usage_page == 0xff43 && i.usage == 0x0202 && path.contains("mi_05"),
+        Model::Arctis1 => i.usage_page == 0xff43 && i.usage == 0x0202 && path.contains("mi_03"),
         Model::Arctis9 | Model::ProWireless => path.contains("mi_00"),
         Model::Arctis7Plus | Model::GameBuds => {
             i.usage_page == 0xffc0 && i.usage == 1 && path.contains("mi_03")
@@ -174,6 +185,10 @@ mod tests {
     #[test]
     fn layouts() {
         assert_eq!(parse(Model::Arctis7, &[6, 0x18, 75]), Some((75, false)));
+        assert_eq!(
+            parse(Model::Arctis1, &[6, 0x12, 0, 75, 0, 0, 0, 0]),
+            Some((75, false))
+        );
         assert_eq!(
             parse(Model::Arctis9, &[0xaa, 1, 0, 0x9a, 1]),
             Some((100, true))

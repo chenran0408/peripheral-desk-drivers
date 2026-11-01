@@ -5,6 +5,11 @@ use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 pub const VIRTUOSO_KEY: &str = "corsair-virtuoso-rgb-se-xt";
 pub const VOID_KEY: &str = "corsair-void-v2-family";
+pub const VOID_RICH_KEY: &str = "corsair-void-rich";
+pub const VOID_RICH_PIDS: &[u16] = &[
+    0x1b1c, 0x1b27, 0x0a14, 0x0a16, 0x0a17, 0x0a1d, 0x0a1a, 0x1b2a, 0x1b23, 0x1b29, 0x0a55, 0x0a51,
+    0x0a52, 0x0a38, 0x0a4f, 0x0a2b, 0x0a75, 0x0a56,
+];
 const LEN: usize = 64;
 
 pub fn virtuoso_request(target: u8, property: u8) -> [u8; LEN] {
@@ -30,6 +35,60 @@ pub fn parse_void(reply: &[u8]) -> Option<u8> {
     }
     let raw = u16::from_le_bytes([reply[4], reply[5]]);
     (raw > 0 && raw <= 1000).then_some((raw / 10) as u8)
+}
+
+pub fn parse_void_rich(reply: &[u8]) -> Option<(u8, bool)> {
+    if reply.len() < 5 || reply[0] != 100 || reply[1] != 0 || reply[3] != 177 {
+        return None;
+    }
+    let charging = match reply[4] {
+        1 | 2 => false,
+        4 | 5 => true,
+        _ => return None,
+    };
+    let percent = reply[2] & 0x7f;
+    (percent <= 100).then_some((percent, charging))
+}
+
+pub fn read_void_rich() -> Result<State, String> {
+    let interfaces = hid::enumerate()?;
+    let mut candidates = interfaces.iter().filter(|i| {
+        i.vid == 0x1b1c
+            && VOID_RICH_PIDS.contains(&i.pid)
+            && i.usage_page == 0xffc5
+            && i.usage == 1
+            && i.path.to_ascii_lowercase().contains("mi_03")
+            && i.output_len >= 2
+            && i.input_len >= 5
+    });
+    let Some(i) = candidates.next() else {
+        return Ok(State {
+            key: VOID_RICH_KEY.into(),
+            error: "未找到 Corsair Void 控制接口".into(),
+            ..State::default()
+        });
+    };
+    let mut io = WinTransport::open(&i.path)?;
+    io.flush()?;
+    let mut request = vec![0; i.output_len as usize];
+    request[..2].copy_from_slice(&[0xc9, 0x64]);
+    io.write(&request, Duration::from_millis(500))?;
+    let reply = io.read(i.input_len as usize, Duration::from_millis(1000))?;
+    let (percent, charging) = parse_void_rich(&reply).ok_or("Corsair Void 未返回有效状态")?;
+    Ok(State {
+        key: VOID_RICH_KEY.into(),
+        present: true,
+        fresh: true,
+        percent: Some(percent),
+        charging: Some(charging),
+        identity: format!("Corsair Void · 1B1C:{:04X}", i.pid),
+        updated: SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        settings_error: "仅支持只读电量与充电状态。".into(),
+        ..State::default()
+    })
 }
 
 fn base(key: &str, i: &hid::Interface, percent: u8, charging: Option<bool>) -> State {
@@ -194,5 +253,10 @@ mod tests {
         assert_eq!(parse_virtuoso(&[0x0e, 1, 2, 0, 0xca, 3, 0, 0]), None);
         assert_eq!(&void_request(9, 15)[..5], &[0, 2, 9, 2, 15]);
         assert_eq!(parse_void(&[0, 0, 0, 0, 0xe8, 3]), Some(100));
+        assert_eq!(
+            parse_void_rich(&[100, 0, 0x80 | 74, 177, 4]),
+            Some((74, true))
+        );
+        assert_eq!(parse_void_rich(&[100, 0, 74, 177, 0]), None);
     }
 }

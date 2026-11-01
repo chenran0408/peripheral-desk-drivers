@@ -65,3 +65,7 @@ Ultimate, Orochi V2, DeathAdder V2 X Hyperspeed, Viper V2 Pro receiver, Naga V2
 Pro, and Logitech G522 Lightspeed) use the same original generated brand-color
 letter icons for identification; they are not vendor artwork or product
 photographs.
+
+The logitech-hidpp-generic preview uses the same original generated brand-color
+letter icon for identification; it is not vendor artwork or a product
+photograph.

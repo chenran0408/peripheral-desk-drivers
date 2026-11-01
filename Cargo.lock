@@ -891,6 +891,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-hidpp-generic-driver"
+version = "0.4.13-preview.28"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-m750m-driver"
 version = "0.4.13-preview.14"
 dependencies = [

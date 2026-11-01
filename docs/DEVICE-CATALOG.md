@@ -84,6 +84,7 @@ ATK 的 `373B:1216` / `FF05` Feature 事务与上表 17 字节候选不同；现
 | Razer | Viper V2 Pro 接收器 | `1532:00A6` | 电量，只读；与 HyperPolling 共享接收器区分；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
 | Razer | Naga V2 Pro | `1532:00A8` | 电量，只读；OpenRazer GPL-2.0 协议事实参考；本项目未实机验证 |
 | Logitech | G522 Lightspeed | `046D:0B18` | 电量及充电，只读；Centurion 桥接协议；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_g522_lightspeed.hpp) GPL-3.0 协议事实参考 |
+| Logitech | HID++ 通用接收器/有线 | Unifying `C52B/C532`、Lightspeed `C539/C53A/C53D/C53F/C541/C545/C547/C54D`、Bolt `C548`、有线 `C09B`；共享接收器需手动认领 | 电量，只读；HID++ 2.0 `0x1004` 功能 1 及 1.0 寄存器回退；当前主程序界面显示首个有效设备；[Solaar](https://github.com/pwr-Solaar/Solaar) GPL-2.0、[Voltide](https://github.com/sdparklab/Voltide) MIT 协议事实参考，未复制代码；本项目未实机验证 |
 | SteelSeries | Aerox 9 Wireless | `1038:1858/1874` 接收器、`185A/1876` 有线；`92/D2` | 21 档电量及充电位。[rivalcfg](https://github.com/flozz/rivalcfg/tree/master/rivalcfg/devices)、[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md) |
 | Corsair | Dark Core RGB Pro SE | `1B1C:1B7F` 接收器，`FF42:0001` 路由帧 | 只读电量且须重复一致；有线 `1B7E` 未覆盖。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se) |
 | SteelSeries | Arctis Nova Elite | `1038:2244` 基站接口 3，64 字节 `01 B0/07 B7/07 B5` | 耳机电量/充电；不含备用电池。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite) |

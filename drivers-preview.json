@@ -10049,5 +10049,143 @@
       "battery"
     ],
     "changelog": "新增 Logitech G522 LIGHTSPEED 接收器电量和充电状态读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-hidpp-generic",
+    "name": "Logitech HID++ 通用电量",
+    "version": "0.4.13-preview.28",
+    "description": "罗技 Unifying、Lightspeed、Bolt 接收器及指定 USB 设备的只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-hidpp-generic",
+      "name": "Logitech HID++ 通用电量",
+      "brand": "LOGITECH",
+      "kind": "accessory",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50490,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50493,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50497,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50501,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50504,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 49307,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "manual": true,
+      "manual_hint": "同一接收器可能配对多台设备，需手动认领；请核对实际设备名称与索引。",
+      "validation": {
+        "status": "upstream-verified",
+        "connections": "Solaar 列出的 046D:C52B/C532 Unifying、C539/C53A/C53D/C53F/C541/C545/C547/C54D LIGHTSPEED、C548 Bolt，以及 046D:C09B USB 厂商 HID；同一接收器可能配对多台设备，需手动认领。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 验证了接收器分类及 HID++ 电量协议；Voltide 有 0x1004 功能 1 的 USB 实测帧。各 PID 与设备组合未逐一实测；本项目仅代码与解析测试，尚无真机验证。当前 ABI 1 UI 只显示首个有效索引，多设备条目通过 read-devices 提供。",
+        "source_license": "Solaar GPL-2.0-or-later; Voltide MIT; protocol facts only",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp10.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 HID++ 接收器电量读取；多设备界面展示仍需主程序支持。"
   }
 ]

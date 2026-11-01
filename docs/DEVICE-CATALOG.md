@@ -50,6 +50,21 @@ ATK 的 `373B:1216` / `FF05` Feature 事务与上表 17 字节候选不同；现
 | ASUS ROG | Gladius III Wireless（初代） | `0B05:197F` 接收器、`197D` 有线；MI_00 厂商 HID，64 字节报告 | 电量及充电，只读；与 AimPoint 版 `1A72/1A70` 区分；G-Helper GPL-3.0 协议事实参考，未复制代码；本项目未实机验证 |
 | G-Wolves | HSK Pro 2.0 | `33E4:6817` 接收器、`6808` 有线；Feature 报告 65 字节 | 电量及充电，只读；mouse.xyz 官方 web driver 协议事实参考；本项目未实机验证 |
 | G-Wolves | HTS Plus ACE | `33E4:5403` 接收器、`5404` 有线；Feature 报告 65 字节 | 电量及充电，只读；mouse.xyz 官方 web driver 协议事实参考；本项目未实机验证 |
+| Jabra | Evolve2 65 Flex | `0B0E:2519`，GNP 协议 | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/jabra_evolve2_65_flex.hpp) GPL-3.0 协议事实参考，未复制代码 |
+| Jabra | Link 380 | `0B0E:24C7`，GNP 协议 | 已配对耳机电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/jabra_link_380.hpp) GPL-3.0 协议事实参考 |
+| Jabra | Link 390 | `0B0E:2E57`，GNP 协议 | 已配对耳机电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/jabra_link_390.hpp) GPL-3.0 协议事实参考 |
+| Lenovo | Wireless VoIP 适配器 | `17EF:A07D` | 电量，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/lenovo_wireless_voip.hpp) GPL-3.0 协议事实参考 |
+| Poly (Plantronics) | BT600 适配器 | `047F:02EE` | 已配对耳机电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/plantronics_bt600.hpp) GPL-3.0 协议事实参考 |
+| Sony | INZONE H5 | `054C:0EBF` | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/sony_inzone_h5.hpp) GPL-3.0 协议事实参考 |
+| Logitech | G930 | `046D:0A1F` | 档位换算电量，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_g930.hpp) GPL-3.0 协议事实参考 |
+| Logitech | G933 | `046D:0A5B` | 电压估算电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_g633_g933_935.hpp) GPL-3.0 协议事实参考 |
+| Logitech G / Astro | A50 Gen 4 | `9886:002C` | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/logitech_astro_a50_gen4.hpp) GPL-3.0 协议事实参考 |
+| Audeze | Maxwell 2 | `3329:4B29/4B28` | 电量，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/audeze_maxwell2.hpp) GPL-3.0 协议事实参考 |
+| Corsair | Void 有线/富功能系列 | `1B1C:1B1C` 等 18 个 PID | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/corsair_void_rich.hpp) GPL-3.0 协议事实参考 |
+| HyperX（Kingston 旧版） | Cloud II Wireless 旧版 | `0951:1718` | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/hyperx_cloud_2_wireless_kingston.hpp) GPL-3.0 协议事实参考 |
+| MCHOSE | X9 | `3837:6045` | 电量，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/mchose_x9.hpp) GPL-3.0 协议事实参考 |
+| SteelSeries | Arctis 1 | `1038:12B3/12B6` | 电量，只读；协议无充电状态字段；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/steelseries_arctis_1.hpp) GPL-3.0 协议事实参考 |
+| SteelSeries | Arctis Nova 3P Wireless | `1038:2269/226D` | 电量及充电，只读；[HeadsetControl](https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/steelseries_arctis_nova_3p_wireless.hpp) GPL-3.0 协议事实参考 |
 | SteelSeries | Aerox 9 Wireless | `1038:1858/1874` 接收器、`185A/1876` 有线；`92/D2` | 21 档电量及充电位。[rivalcfg](https://github.com/flozz/rivalcfg/tree/master/rivalcfg/devices)、[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md) |
 | Corsair | Dark Core RGB Pro SE | `1B1C:1B7F` 接收器，`FF42:0001` 路由帧 | 只读电量且须重复一致；有线 `1B7E` 未覆盖。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se) |
 | SteelSeries | Arctis Nova Elite | `1038:2244` 基站接口 3，64 字节 `01 B0/07 B7/07 B5` | 耳机电量/充电；不含备用电池。[HaloBattery](https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite) |

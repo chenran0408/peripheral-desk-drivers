@@ -6,7 +6,10 @@ report IDs, byte offsets, USB IDs); no source code was copied from them unless
 a separate license file in this directory states otherwise.
 
 - HeadsetControl (Sapd/HeadsetControl), GPL-3.0 — Corsair, HyperX Cloud II
-  Wireless, Arctis/Nova station layouts, Astro A50. Facts only.
+  Wireless (both HP and Kingston editions, Void rich family), Arctis/Nova
+  station layouts, Arctis 1, Arctis Nova 3P Wireless, Astro A50 Gen 4/Gen 5,
+  Logitech G930/G933, Jabra GNP devices, Lenovo wireless VoIP, Plantronics
+  BT600, Sony INZONE H5 and MCHOSE X9. Facts only.
 - LennardKittner/HyperHeadset, MIT — HyperX Cloud III / Cloud III S framing.
   Facts only.
 - yurtemre7/steel-mouse, MIT — SteelSeries Aerox/Rival reply decoding.

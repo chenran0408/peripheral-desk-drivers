@@ -146,6 +146,22 @@
 | `gwolves-hsk-pro-2`（预览） | 专用接收器或 USB 有线连接的电量与充电状态，只读。 |
 | `gwolves-hts-plus-ace`（预览） | 专用接收器或 USB 有线连接的电量与充电状态，只读。 |
 
+| `steelseries-arctis-1`（预览） | Arctis 1 / Arctis 1 Xbox 接收器的电量百分比，只读；设备没有可报告的充电状态字段。 |
+| `steelseries-arctis-nova-3p-wireless`（预览） | Nova 3P/3X 无线接收器的电量和充电状态，只读。 |
+| `mchose-x9`（预览） | X9 无线耳机接收器的电量百分比，只读；无充电状态。 |
+| `lenovo-wireless-voip`（预览） | Lenovo 无线 VoIP 耳机接收器的电量百分比，只读；无充电状态。 |
+| `hyperx-cloud-ii-wireless-kingston`（预览） | Kingston 版 Cloud II Wireless 接收器的电量与充电状态，只读；区别于 HP 版。 |
+| `corsair-void-rich`（预览） | Corsair Void Pro / RGB 及同协议型号的电量和充电状态，只读；区别于 Void V2。 |
+| `jabra-evolve2-65-flex`（预览） | USB 直连 Evolve2 65 Flex 的电量与充电状态，只读；Windows 实机尚未验证。 |
+| `jabra-link-380`（预览） | 通过 Link 380 读取已配对 Jabra 耳机的电量与充电状态，只读；Windows 实机尚未验证。 |
+| `jabra-link-390`（预览） | 通过 Link 390 读取已配对 Jabra 耳机的电量与充电状态，只读；Windows 实机尚未验证。 |
+| `audeze-maxwell2`（预览） | Maxwell 2 PlayStation/PC 与 Xbox 接收器的电量，只读；充电状态不展示。 |
+| `logitech-g933`（预览） | G933 接收器的电压换算电量与充电状态，只读；百分比为估算值。 |
+| `logitech-g930`（预览） | G930 接收器的电量档位换算百分比，只读；无充电状态字段。 |
+| `logitech-astro-a50-gen4`（预览） | 第四代 A50 基座所连接耳机的电量与充电状态，只读；区别于第五代。 |
+| `plantronics-bt600`（预览） | 通过 BT600 接收器读取已配对 Voyager 8200 UC 的十档电量与充电状态，只读。 |
+| `sony-inzone-h5`（预览） | INZONE H5 专用接收器的电量与充电状态，只读；Windows 实机尚未验证。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

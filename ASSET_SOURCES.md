@@ -46,3 +46,10 @@ The wave-4 device previews (ROG Harpe Ace Aim Lab Edition, Spatha X, Pugio II,
 Strix Impact II Wireless, legacy Gladius III Wireless, G-Wolves HSK Pro 2.0 and
 HTS Plus ACE) use the same original generated brand-color letter icons for
 identification; they are not vendor artwork or product photographs.
+
+The wave-5 device previews (Jabra Evolve2 65 Flex, Link 380 and Link 390,
+Lenovo wireless VoIP, Plantronics BT600, Sony INZONE H5, Logitech G930/G933 and
+Astro A50 Gen 4, Audeze Maxwell 2, Corsair Void rich family, Kingston Cloud II
+Wireless, MCHOSE X9, SteelSeries Arctis 1 and Arctis Nova 3P Wireless) use the
+same original generated brand-color letter icons for identification; they are
+not vendor artwork or product photographs.

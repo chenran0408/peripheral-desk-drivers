@@ -78,6 +78,52 @@
 | `hecate-g3m-pro-upgrade`（预览） | HECATE D3FB 接收器电量；接收器协议不确认配对鼠标型号 |
 | `logitech-bolt-mx-master-3s`（预览） | Logitech Bolt 配对 MX Master 3S 电量/充电；先核对精确配对设备名 |
 
+| `corsair-virtuoso-rgb-se-xt`（预览） | 无线接收器或 USB 线缆读取耳机电量与充电状态；仅提供只读功能。 |
+| `corsair-void-v2-family`（预览） | 无线接收器读取耳机电量；仅提供只读功能，不报告未确认的充电状态。 |
+| `hyperx-cloud-alpha-2`（预览） | 2.4G 基站读取耳机电量与充电状态；仅提供只读功能。 |
+| `hyperx-cloud-ii-core-wireless`（预览） | 无线接收器读取耳机电量与充电状态；两个产品 ID 共用一个图标，仅提供只读功能。 |
+| `hyperx-cloud-ii-wireless`（预览） | 无线接收器读取耳机电量与充电状态；仅提供只读功能。 |
+| `hyperx-cloud-iii-s-wireless`（预览） | 无线接收器读取耳机电量与充电状态；仅提供只读功能。 |
+| `hyperx-cloud-iii-wireless`（预览） | 无线接收器读取耳机电量与充电状态；仅提供只读功能。 |
+| `audeze-maxwell`（预览） | 无线接收器或 USB 线缆读取耳机电量，USB 线缆推断充电；仅提供只读功能。 |
+| `astro-a50-gen5`（预览） | USB 基座读取耳机电量和停靠充电状态；仅提供只读功能。 |
+| `steelseries-arctis-nova-7`（预览） | 无线耳机电量和充电状态只读。 |
+| `steelseries-arctis-nova-pro-wireless`（预览） | 基站九档电量与充电状态只读。 |
+| `jbl-quantum-910`（预览） | 被动监听电量，静默时显示上次读数。 |
+| `razer-barracuda-pro`（预览） | 2.4 GHz 接收器电量与充电状态只读。 |
+| `razer-blackshark-v2-pro-2020`（预览） | 接收器电量与电源状态只读，充电时隐藏不准确的电量。 |
+| `steelseries-aerox-3-wireless`（预览） | 无线鼠标电量与充电状态只读。 |
+| `steelseries-aerox-5-wireless`（预览） | 无线鼠标电量与充电状态只读。 |
+| `steelseries-rival-3-wireless`（预览） | 无线鼠标电量与充电状态只读。 |
+| `mchose-a5-pro-max`（预览） | 读取电量与充电状态；只读。 |
+| `mchose-a7-v2-ultra`（预览） | 接收器电量与充电状态读取；只读。 |
+| `mchose-g7`（预览） | 电量与充电状态读取；只读。 |
+| `mchose-m7-ultra`（预览） | 接收器和线缆电量读取；只读。 |
+| `vxe-r1-pro-max`（预览） | 接收器和线缆电量读取；只读。 |
+| `vxe-r1-se-plus`（预览） | 接收器和线缆电量读取；只读。 |
+| `pulsar-x2-crazylight-mini`（预览） | 接收器和线缆电量读取；只读。 |
+| `am-infinity-8k`（预览） | 接收器电量读取；只读。 |
+| `wlmouse-beast-x-max`（预览） | 电量与充电状态读取；只读。 |
+| `wlmouse-beast-x`（预览） | 电量与充电状态读取；只读。 |
+| `wlmouse-beast-x-mini-pro`（预览） | 电量与充电状态读取；只读。 |
+| `gwolves-hsk-pro-ace`（预览） | 接收器和线缆电量读取；只读。 |
+| `hitscan-hyperlight`（预览） | 接收器和线缆电量读取；只读。 |
+| `logitech-g502-lightspeed`（预览） | 运行期按设备名校验，型号不符时不显示；只读电量。 |
+| `logitech-g502-x-plus`（预览） | 运行期按设备名校验，型号不符时不显示；只读电量。 |
+| `logitech-mk710`（预览） | 运行期按设备名校验，型号不符时不显示；旧 HID++ 电量为粗略档位。 |
+| `keychron-ultralink-8k`（预览） | 指定接口电量读取；尚未实机验证。 |
+| `keychron-m5`（预览） | 指定接口电量读取；尚未实机验证。 |
+| `lofree-hyzen`（预览） | 仅从接收器读取电量；尚未实机验证。 |
+| `razer-blackwidow-v3-pro`（预览） | 指定控制接口的电量与充电状态读取；尚未实机验证。 |
+| `razer-deathstalker-v2-pro-tkl`（预览） | 指定控制接口电量与充电状态读取。 |
+| `razer-deathstalker-v2-pro`（预览） | 指定控制接口电量与充电状态读取；尚未实机验证。 |
+| `razer-blackwidow-v3-mini`（预览） | 指定控制接口电量与充电状态读取；尚未实机验证。 |
+| `razer-blackwidow-v4-mini`（预览） | 指定控制接口电量与充电状态读取；尚未实机验证。 |
+| `razer-blackwidow-v4-tkl-hyperspeed`（预览） | 指定控制接口电量与充电状态读取；尚未实机验证。 |
+| `eightbitdo-pro-3`（预览） | D-input 蓝牙输入报告被动读取电量；不向手柄发送命令。 |
+| `sony-dualshock-4`（预览） | USB 与蓝牙输入报告被动读取电量；不向手柄发送命令。 |
+| `steam-controller-2025`（预览） | puck 槽位被动监听电量；静默时保留过期读数。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

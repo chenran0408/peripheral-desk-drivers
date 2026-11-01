@@ -1480,7 +1480,7 @@
         ]
       }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.8",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -4290,33 +4290,2578 @@
     "changelog": "新增 Viper Ultimate 接收器电量读取，与有线版本分开安装。"
   },
   {
-    "id": "nzxt-lift-elite-wireless", "name": "NZXT Lift Elite Wireless", "version": "0.4.13-preview.20", "description": "2.4G 接收器和有线电量、充电状态只读。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "nzxt-lift-elite-wireless", "name": "NZXT Lift Elite Wireless", "brand": "NZXT", "kind": "mouse", "subtitle": "电量与接线充电状态 · 只读", "image": "device.png", "matches": [{"vid": 7793, "pid": 8449, "usage_page": 65482, "usage": 1, "input_len": 64, "output_len": 64}, {"vid": 7793, "pid": 8489, "usage_page": 65482, "usage": 1, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1E71:2101 接收器 / 1E71:2129 有线，FFCA:0001", "firmware": "unknown", "project_validation": "HaloBattery issue #148 reporter captured and confirmed both connection modes; Peripheral Desk has not tested hardware. NZXT CAM running concurrently may prevent receiver replies.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"]}},
-    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 NZXT Lift Elite Wireless 接收器和有线只读电量；NZXT CAM 同时运行时接收器可能不回应。"
+    "id": "nzxt-lift-elite-wireless",
+    "name": "NZXT Lift Elite Wireless",
+    "version": "0.4.13-preview.20",
+    "description": "2.4G 接收器和有线电量、充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "nzxt-lift-elite-wireless",
+      "name": "NZXT Lift Elite Wireless",
+      "brand": "NZXT",
+      "kind": "mouse",
+      "subtitle": "电量与接线充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 7793,
+          "pid": 8449,
+          "usage_page": 65482,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 7793,
+          "pid": 8489,
+          "usage_page": 65482,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1E71:2101 接收器 / 1E71:2129 有线，FFCA:0001",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery issue #148 reporter captured and confirmed both connection modes; Peripheral Desk has not tested hardware. NZXT CAM running concurrently may prevent receiver replies.",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#nzxt-lift-elite-wireless-1e712101",
+      "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nzxt.py"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 NZXT Lift Elite Wireless 接收器和有线只读电量；NZXT CAM 同时运行时接收器可能不回应。"
   },
   {
-    "id": "lamzu-maya-x", "name": "LAMZU Maya X", "version": "0.4.13-preview.20", "description": "8K 接收器和有线 Feature 电量只读。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "lamzu-maya-x", "name": "LAMZU Maya X", "brand": "LAMZU", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 14142, "pid": 30, "usage_page": 65535, "usage": 0, "feature_len": 64, "path_contains": "mi_02"}, {"vid": 14142, "pid": 28, "usage_page": 65535, "usage": 0, "feature_len": 64, "path_contains": "mi_02"}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "373E:001E 8K 接收器；373E:001C 有线 ID 未由上游单独确认；接口 2", "firmware": "unknown", "project_validation": "HaloBattery reports a real Maya X 8K dongle diagnostic; wired ID lacks separate upstream confirmation. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py", "https://github.com/Sheroune/lamzu-battery-monitory"]}},
-    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py", "https://github.com/Sheroune/lamzu-battery-monitory"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 LAMZU Maya X 8K 接收器电量读取；有线连接尚无独立实测。"
+    "id": "lamzu-maya-x",
+    "name": "LAMZU Maya X",
+    "version": "0.4.13-preview.20",
+    "description": "8K 接收器和有线 Feature 电量只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "lamzu-maya-x",
+      "name": "LAMZU Maya X",
+      "brand": "LAMZU",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14142,
+          "pid": 30,
+          "usage_page": 65535,
+          "usage": 0,
+          "feature_len": 64,
+          "path_contains": "mi_02"
+        },
+        {
+          "vid": 14142,
+          "pid": 28,
+          "usage_page": 65535,
+          "usage": 0,
+          "feature_len": 64,
+          "path_contains": "mi_02"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "373E:001E 8K 接收器；373E:001C 有线 ID 未由上游单独确认；接口 2",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery reports a real Maya X 8K dongle diagnostic; wired ID lacks separate upstream confirmation. Peripheral Desk has not tested hardware.",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py",
+          "https://github.com/Sheroune/lamzu-battery-monitory"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#lamzu-maya-x",
+      "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lamzu.py",
+      "https://github.com/Sheroune/lamzu-battery-monitory"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 LAMZU Maya X 8K 接收器电量读取；有线连接尚无独立实测。"
   },
   {
-    "id": "asus-rog-gladius-iii-wireless", "name": "ROG Gladius III Wireless AimPoint 36K", "version": "0.4.13-preview.20", "description": "接收器和有线电量只读；蓝牙不支持。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "asus-rog-gladius-iii-wireless", "name": "ROG Gladius III Wireless AimPoint 36K", "brand": "ASUS ROG", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 2821, "pid": 6770, "usage_page": 65281, "usage": 1, "input_len": 64, "output_len": 64}, {"vid": 2821, "pid": 6768, "usage_page": 65281, "usage": 1, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "0B05:1A72 接收器 / 0B05:1A70 有线；不含蓝牙 1A74", "firmware": "unknown", "project_validation": "rogdrv-web documents the exact device exchange; protocol facts only, GPL-3.0 source code not copied. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"]}},
-    "sources": ["https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts", "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 ROG Gladius III Wireless 接收器和有线只读电量；不含蓝牙。"
+    "id": "asus-rog-gladius-iii-wireless",
+    "name": "ROG Gladius III Wireless AimPoint 36K",
+    "version": "0.4.13-preview.20",
+    "description": "接收器和有线电量只读；蓝牙不支持。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-gladius-iii-wireless",
+      "name": "ROG Gladius III Wireless AimPoint 36K",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6770,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 2821,
+          "pid": 6768,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "0B05:1A72 接收器 / 0B05:1A70 有线；不含蓝牙 1A74",
+        "firmware": "unknown",
+        "project_validation": "rogdrv-web documents the exact device exchange; protocol facts only, GPL-3.0 source code not copied. Peripheral Desk has not tested hardware.",
+        "source_refs": [
+          "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts",
+          "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts",
+          "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/codec.ts",
+      "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/constants.ts",
+      "https://github.com/AriseFX/rogdrv-web/blob/main/src/protocol/asus/transport.ts"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ROG Gladius III Wireless 接收器和有线只读电量；不含蓝牙。"
   },
   {
-    "id": "steelseries-aerox-9-wireless", "name": "SteelSeries Aerox 9 Wireless", "version": "0.4.13-preview.20", "description": "接收器和有线 21 档电量只读。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "steelseries-aerox-9-wireless", "name": "SteelSeries Aerox 9 Wireless", "brand": "SteelSeries", "kind": "mouse", "subtitle": "电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 4152, "pid": 6232, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6260, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6234, "usage_page": 65472, "input_len": 64, "output_len": 64}, {"vid": 4152, "pid": 6262, "usage_page": 65472, "input_len": 64, "output_len": 64}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1038:1858/1874 接收器；185A/1876 有线", "firmware": "unknown", "project_validation": "rivalcfg battery definitions; HaloBattery issue #79 confirms Aerox 9 D2 04 = 15% against GG, charging bit not separately confirmed. Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py", "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py", "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"]}},
-    "sources": ["https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py", "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py", "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Aerox 9 Wireless 接收器与有线电量和充电状态读取。"
+    "id": "steelseries-aerox-9-wireless",
+    "name": "SteelSeries Aerox 9 Wireless",
+    "version": "0.4.13-preview.20",
+    "description": "接收器和有线 21 档电量只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-aerox-9-wireless",
+      "name": "SteelSeries Aerox 9 Wireless",
+      "brand": "SteelSeries",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 6232,
+          "usage_page": 65472,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 4152,
+          "pid": 6260,
+          "usage_page": 65472,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 4152,
+          "pid": 6234,
+          "usage_page": 65472,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 4152,
+          "pid": 6262,
+          "usage_page": 65472,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1038:1858/1874 接收器；185A/1876 有线",
+        "firmware": "unknown",
+        "project_validation": "rivalcfg battery definitions; HaloBattery issue #79 confirms Aerox 9 D2 04 = 15% against GG, charging bit not separately confirmed. Peripheral Desk has not tested hardware.",
+        "source_refs": [
+          "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py",
+          "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wired.py",
+      "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox9_wireless_wireless.py",
+      "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Aerox 9 Wireless 接收器与有线电量和充电状态读取。"
   },
   {
-    "id": "corsair-dark-core-rgb-pro-se", "name": "Corsair Dark Core RGB Pro SE", "version": "0.4.13-preview.20", "description": "2.4G 接收器路由属性电量只读。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "corsair-dark-core-rgb-pro-se", "name": "Corsair Dark Core RGB Pro SE", "brand": "Corsair", "kind": "mouse", "subtitle": "接收器电量 · 只读", "image": "device.png", "matches": [{"vid": 6940, "pid": 7039, "usage_page": 65346, "usage": 1}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1B1C:1B7F 2.4G 接收器；不含有线 1B7E", "firmware": "unknown", "project_validation": "HaloBattery issue #56 confirms the route and battery against SignalRGB; Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"]}},
-    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Dark Core RGB Pro SE 接收器只读电量；两次一致读数后显示。"
+    "id": "corsair-dark-core-rgb-pro-se",
+    "name": "Corsair Dark Core RGB Pro SE",
+    "version": "0.4.13-preview.20",
+    "description": "2.4G 接收器路由属性电量只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "corsair-dark-core-rgb-pro-se",
+      "name": "Corsair Dark Core RGB Pro SE",
+      "brand": "Corsair",
+      "kind": "mouse",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 6940,
+          "pid": 7039,
+          "usage_page": 65346,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1B1C:1B7F 2.4G 接收器；不含有线 1B7E",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery issue #56 confirms the route and battery against SignalRGB; Peripheral Desk has not tested hardware.",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#corsair-dark-core-rgb-pro-se",
+      "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Dark Core RGB Pro SE 接收器只读电量；两次一致读数后显示。"
   },
   {
-    "id": "steelseries-arctis-nova-elite", "name": "SteelSeries Arctis Nova Elite", "version": "0.4.13-preview.20", "description": "无线基站电量及充电状态只读。", "abi": 1, "dll": "driver.dll",
-    "device": {"key": "steelseries-arctis-nova-elite", "name": "SteelSeries Arctis Nova Elite", "brand": "SteelSeries", "kind": "headset", "subtitle": "耳机电量与充电状态 · 只读", "image": "device.png", "matches": [{"vid": 4152, "pid": 8772, "usage_page": 65472, "input_len": 64, "output_len": 64, "path_contains": "mi_03"}], "advanced": [], "validation": {"status": "upstream-hardware-verified-project-untested", "connections": "1038:2244 无线基站接口 3；FFC0 集合，另监听接口 3 的 07 报告集合", "firmware": "unknown", "project_validation": "HaloBattery issue #138 reporter confirmed direct 01 B0 level and charging against SteelSeries GG; Peripheral Desk has not tested hardware.", "source_refs": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"]}},
-    "sources": ["https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite", "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"], "core_min": "0.4.0", "core_max_exclusive": "0.5.0", "channel": "preview", "capabilities": ["battery"], "changelog": "新增 Arctis Nova Elite 无线基站耳机电量与充电状态读取。"
+    "id": "steelseries-arctis-nova-elite",
+    "name": "SteelSeries Arctis Nova Elite",
+    "version": "0.4.13-preview.20",
+    "description": "无线基站电量及充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-nova-elite",
+      "name": "SteelSeries Arctis Nova Elite",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 8772,
+          "usage_page": 65472,
+          "input_len": 64,
+          "output_len": 64,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1038:2244 无线基站接口 3；FFC0 集合，另监听接口 3 的 07 报告集合",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery issue #138 reporter confirmed direct 01 B0 level and charging against SteelSeries GG; Peripheral Desk has not tested hardware.",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"
+        ]
+      }
+    },
+    "sources": [
+      "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md#steelseries-arctis-nova-elite",
+      "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries_elite.py"
+    ],
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis Nova Elite 无线基站耳机电量与充电状态读取。"
+  },
+  {
+    "id": "corsair-virtuoso-rgb-se-xt",
+    "name": "海盗船 Virtuoso RGB Wireless SE / XT",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器或 USB 线缆读取耳机电量与充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "corsair-virtuoso-rgb-se-xt",
+      "name": "海盗船 Virtuoso RGB Wireless SE / XT",
+      "brand": "Corsair",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 6940,
+          "pid": 2622,
+          "usage_page": 65346,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 6940,
+          "pid": 2621,
+          "usage_page": 65346,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 6940,
+          "pid": 2624,
+          "usage_page": 65346,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 6940,
+          "pid": 2660,
+          "usage_page": 65346,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 6940,
+          "pid": 2658,
+          "usage_page": 65346,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1B1C:0A3E/0A40 SE 接收器、0A3D SE 线缆；0A64 XT 接收器、0A62 XT 线缆；FF42:0001 裸 64 字节请求",
+        "firmware": "unknown",
+        "project_validation": "HeadsetControl #568/#570 作者在四个 SE/XT PID 上测试；HaloBattery #204 的 @jeffpeng3 实测 0A40 接收器电量与充电，Peripheral Desk 尚未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/204",
+          "https://github.com/Sapd/HeadsetControl/pull/570",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/corsair_virtuoso_xt.hpp"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Virtuoso RGB SE / XT 接收器与有线耳机电量、充电状态读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "corsair-void-v2-family",
+    "name": "海盗船 Void v2 / Virtuoso Max / HS80 Max",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器读取耳机电量；仅提供只读功能，不报告未确认的充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "corsair-void-v2-family",
+      "name": "海盗船 Void v2 / Virtuoso Max / HS80 Max",
+      "brand": "Corsair",
+      "kind": "headset",
+      "subtitle": "耳机电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 6940,
+          "pid": 10760,
+          "path_contains": "mi_04"
+        },
+        {
+          "vid": 6940,
+          "pid": 10754,
+          "path_contains": "mi_04"
+        },
+        {
+          "vid": 6940,
+          "pid": 2711,
+          "path_contains": "mi_04"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1B1C:2A08 Void v2、2A02 Virtuoso Max、0A97 HS80 Max；无线接收器接口 4",
+        "firmware": "unknown",
+        "project_validation": "上游 HaloBattery 未实测这组耳机；HeadsetControl 的 1–1000 原始值除以 10，协议文档文字写法不一致；待实机确认。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/corsair.py",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/corsair_void_v2w.hpp"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增三款海盗船无线耳机接收器电量读取；尚待实机验证。"
+  },
+  {
+    "id": "hyperx-cloud-alpha-2",
+    "name": "极度未知 Cloud Alpha 2",
+    "version": "0.4.13-preview.22",
+    "description": "2.4G 基站读取耳机电量与充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-alpha-2",
+      "name": "极度未知 Cloud Alpha 2",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 2238,
+          "usage_page": 65299,
+          "usage": 65280,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "03F0:08BE 2.4G 基站 FF13:FF00；不包括仅音频的 0ABE",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #26 @azizen12 的 USBPcap/NGENUITY 对照及最终实机测试确认电量、充电状态；Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/hyperx_alpha2.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/26"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Cloud Alpha 2 基站电量与充电状态读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "hyperx-cloud-ii-core-wireless",
+    "name": "极度未知 Cloud II Core Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器读取耳机电量与充电状态；两个产品 ID 共用一个图标，仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-ii-core-wireless",
+      "name": "极度未知 Cloud II Core Wireless",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 2453,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        },
+        {
+          "vid": 1008,
+          "pid": 1941,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "03F0:0995/0795 无线接收器的两种枚举模式，FF13:0001",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #155 @dantifrice 录制 NGENUITY USBPcap 并实机确认双 PID 的电量和充电；Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/hyperx_cloud3.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/155"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Cloud II Core Wireless 两种接收器模式的电量与充电状态读取。"
+  },
+  {
+    "id": "hyperx-cloud-ii-wireless",
+    "name": "极度未知 Cloud II Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器读取耳机电量与充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-ii-wireless",
+      "name": "极度未知 Cloud II Wireless",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 1686,
+          "usage_page": 65424,
+          "usage": 771,
+          "input_len": 20,
+          "output_len": 52
+        },
+        {
+          "vid": 1008,
+          "pid": 395,
+          "usage_page": 65424,
+          "usage": 771,
+          "input_len": 20,
+          "output_len": 52
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "03F0:0696/018B 2.4G 接收器，FF90:0303 集合",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 上游未实机验证；协议来自 HeadsetControl，Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/hyperx.py",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Cloud II Wireless 两个版本接收器的电量与充电状态读取；尚待实机验证。"
+  },
+  {
+    "id": "hyperx-cloud-iii-s-wireless",
+    "name": "极度未知 Cloud III S Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器读取耳机电量与充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-iii-s-wireless",
+      "name": "极度未知 Cloud III S Wireless",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 716
+        },
+        {
+          "vid": 1008,
+          "pid": 1726
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "03F0:02CC/06BE 无线接收器；请求和回复可能在不同 HID 集合",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #106 证实 02CC 电量与 NGENUITY 一致；#156 证实 06BE 电量及充电状态；Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/hyperx_cloud3s.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/106",
+          "https://github.com/HeyOkay/HaloBattery/issues/156",
+          "https://github.com/LennardKittner/HyperHeadset/issues/36"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Cloud III S Wireless 两种接收器的电量与充电状态读取。"
+  },
+  {
+    "id": "hyperx-cloud-iii-wireless",
+    "name": "极度未知 Cloud III Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器读取耳机电量与充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hyperx-cloud-iii-wireless",
+      "name": "极度未知 Cloud III Wireless",
+      "brand": "HyperX",
+      "kind": "headset",
+      "subtitle": "耳机电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1008,
+          "pid": 1463,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        },
+        {
+          "vid": 1008,
+          "pid": 3229,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "03F0:05B7/0C9D 无线接收器，FF13:0001 集合",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 上游未实机验证；协议据 HyperHeadset，Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/hyperx_cloud3.py",
+          "https://github.com/LennardKittner/HyperHeadset"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Cloud III Wireless 接收器的电量与充电状态读取；尚待实机验证。"
+  },
+  {
+    "id": "audeze-maxwell",
+    "name": "奥蒂兹 Maxwell",
+    "version": "0.4.13-preview.22",
+    "description": "无线接收器或 USB 线缆读取耳机电量，USB 线缆推断充电；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "audeze-maxwell",
+      "name": "奥蒂兹 Maxwell",
+      "brand": "Audeze",
+      "kind": "headset",
+      "subtitle": "耳机电量与接线充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13097,
+          "pid": 19225,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        },
+        {
+          "vid": 13097,
+          "pid": 19226,
+          "usage_page": 65299,
+          "usage": 1,
+          "input_len": 62,
+          "output_len": 62
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "3329:4B19 无线接收器 / 4B1A USB-C 线缆；FF13:0001",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 在 Maxwell 接收器和 USB-C 线缆上实测单报文电量，接收器断开时依产品字符串屏蔽陈旧电量；充电为线缆推断，Peripheral Desk 尚未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/audeze.py",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Maxwell 无线与 USB-C 电量读取；接线时显示充电，未连接耳机时不显示旧读数。"
+  },
+  {
+    "id": "astro-a50-gen5",
+    "name": "Astro A50 第五代",
+    "version": "0.4.13-preview.22",
+    "description": "USB 基座读取耳机电量和停靠充电状态；仅提供只读功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "astro-a50-gen5",
+      "name": "Astro A50 第五代",
+      "brand": "Astro",
+      "kind": "headset",
+      "subtitle": "耳机电量与停靠充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 2844,
+          "usage_page": 65330,
+          "usage": 116,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "046D:0B1C USB 基座，FF32:0074 控制集合",
+        "firmware": "unknown",
+        "project_validation": "HeadsetControl 基于 G HUB 抓包验证该 USB ID 的协议；HaloBattery 上游应用未持有设备实测，Peripheral Desk 亦未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/astro.py",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Astro A50 第五代基座的电量与停靠充电状态读取；尚待本项目实机验证。"
+  },
+  {
+    "id": "logitech-g502-lightspeed",
+    "name": "罗技 G502 LIGHTSPEED",
+    "version": "0.4.13-preview.22",
+    "description": "运行期按设备名校验，型号不符时不显示；只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g502-lightspeed",
+      "name": "罗技 G502 LIGHTSPEED",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "LIGHTSPEED 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 LIGHTSPEED 名称",
+        "firmware": "unknown",
+        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G502 LIGHTSPEED 型号校验后电量读取。"
+  },
+  {
+    "id": "logitech-g502-x-plus",
+    "name": "罗技 G502 X PLUS",
+    "version": "0.4.13-preview.22",
+    "description": "运行期按设备名校验，型号不符时不显示；只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g502-x-plus",
+      "name": "罗技 G502 X PLUS",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "LIGHTSPEED 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 X PLUS 名称",
+        "firmware": "unknown",
+        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G502 X PLUS 型号校验后电量读取。"
+  },
+  {
+    "id": "logitech-mk710",
+    "name": "罗技 MK710",
+    "version": "0.4.13-preview.22",
+    "description": "运行期按设备名校验，型号不符时不显示；旧 HID++ 电量为粗略档位。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mk710",
+      "name": "罗技 MK710",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "Unifying 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 7,
+          "output_len": 7
+        }
+      ],
+      "advanced": [],
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "046D:C52B Unifying 接收器，运行期 MK710/M710 名称",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #159 测试版获实机确认；本项目未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/issues/159",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp10.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 MK710 接收器名称校验与旧电量档位读取。"
+  },
+  {
+    "id": "keychron-ultralink-8k",
+    "name": "Keychron Ultra-Link 8K",
+    "version": "0.4.13-preview.22",
+    "description": "指定接口电量读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "keychron-ultralink-8k",
+      "name": "Keychron Ultra-Link 8K",
+      "brand": "KEYCHRON",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13364,
+          "pid": 53288,
+          "path_contains": "mi_04",
+          "input_len": 64,
+          "feature_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "3434:D028 接收器 / MI_04",
+        "firmware": "unknown",
+        "project_validation": "依据 keychron-battery-dkms 公开实现；本项目和上游 HaloBattery 无此设备实测。",
+        "source_refs": [
+          "https://github.com/csutcliff/keychron-battery-dkms",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/keychron.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Ultra-Link 8K 电量读取。"
+  },
+  {
+    "id": "keychron-m5",
+    "name": "Keychron M5",
+    "version": "0.4.13-preview.22",
+    "description": "指定接口电量读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "keychron-m5",
+      "name": "Keychron M5",
+      "brand": "KEYCHRON",
+      "kind": "mouse",
+      "subtitle": "有线电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13364,
+          "pid": 53320,
+          "path_contains": "mi_04",
+          "input_len": 64,
+          "feature_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "3434:D048 USB / MI_04",
+        "firmware": "unknown",
+        "project_validation": "依据 keychron-battery-dkms 公开实现；本项目和上游 HaloBattery 无此设备实测。",
+        "source_refs": [
+          "https://github.com/csutcliff/keychron-battery-dkms",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/keychron.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 M5 电量读取。"
+  },
+  {
+    "id": "lofree-hyzen",
+    "name": "Lofree Hyzen",
+    "version": "0.4.13-preview.22",
+    "description": "仅从接收器读取电量；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "lofree-hyzen",
+      "name": "Lofree Hyzen",
+      "brand": "LOFREE",
+      "kind": "keyboard",
+      "subtitle": "2.4 GHz 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14477,
+          "pid": 37,
+          "usage_page": 65308,
+          "usage": 146,
+          "output_len": 32
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "388D:0025 接收器 / FF1C:0092",
+        "firmware": "unknown",
+        "project_validation": "依据 Lofree 官方网页驱动和 HaloBattery 协议记录；尚未实机验证。",
+        "source_refs": [
+          "https://hyzen.lofree.tech/",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/lofree.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Hyzen 接收器电量读取。"
+  },
+  {
+    "id": "razer-blackwidow-v3-pro",
+    "name": "Razer BlackWidow V3 Pro",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口的电量与充电状态读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v3-pro",
+      "name": "Razer BlackWidow V3 Pro",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 604,
+          "feature_len": 91,
+          "path_contains": "mi_02"
+        },
+        {
+          "vid": 5426,
+          "pid": 602,
+          "feature_len": 91,
+          "path_contains": "mi_02"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:025C 接收器 / 025A 线缆",
+        "firmware": "unknown",
+        "project_validation": "依据 OpenRazer 型号表；无本项目实机测试。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 BlackWidow V3 Pro 电量读取。"
+  },
+  {
+    "id": "razer-deathstalker-v2-pro-tkl",
+    "name": "Razer DeathStalker V2 Pro TKL",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口电量与充电状态读取。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathstalker-v2-pro-tkl",
+      "name": "Razer DeathStalker V2 Pro TKL",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 662,
+          "feature_len": 91,
+          "path_contains": "mi_02"
+        },
+        {
+          "vid": 5426,
+          "pid": 664,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1532:0296 接收器 / 0298 线缆",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #106 接收器实机验证；线缆仅依据 OpenRazer 参数，本项目未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/issues/106",
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 DeathStalker V2 Pro TKL 电量读取。"
+  },
+  {
+    "id": "razer-deathstalker-v2-pro",
+    "name": "Razer DeathStalker V2 Pro",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口电量与充电状态读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-deathstalker-v2-pro",
+      "name": "Razer DeathStalker V2 Pro",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 656,
+          "feature_len": 91,
+          "path_contains": "mi_02"
+        },
+        {
+          "vid": 5426,
+          "pid": 658,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0290 接收器 / 0292 线缆",
+        "firmware": "unknown",
+        "project_validation": "依据 OpenRazer 型号表；无实机测试。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 DeathStalker V2 Pro 电量读取。"
+  },
+  {
+    "id": "razer-blackwidow-v3-mini",
+    "name": "Razer BlackWidow V3 Mini HyperSpeed",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口电量与充电状态读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v3-mini",
+      "name": "Razer BlackWidow V3 Mini HyperSpeed",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 625,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        },
+        {
+          "vid": 5426,
+          "pid": 600,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0271 接收器 / 0258 线缆",
+        "firmware": "unknown",
+        "project_validation": "依据 OpenRazer 型号表；无实机测试。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 BlackWidow V3 Mini 电量读取。"
+  },
+  {
+    "id": "razer-blackwidow-v4-mini",
+    "name": "Razer BlackWidow V4 Mini HyperSpeed",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口电量与充电状态读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v4-mini",
+      "name": "Razer BlackWidow V4 Mini HyperSpeed",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 698,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        },
+        {
+          "vid": 5426,
+          "pid": 697,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:02BA 接收器 / 02B9 线缆",
+        "firmware": "unknown",
+        "project_validation": "依据 OpenRazer 型号表；无实机测试。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 BlackWidow V4 Mini 电量读取。"
+  },
+  {
+    "id": "razer-blackwidow-v4-tkl-hyperspeed",
+    "name": "Razer BlackWidow V4 TKL HyperSpeed",
+    "version": "0.4.13-preview.22",
+    "description": "指定控制接口电量与充电状态读取；尚未实机验证。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v4-tkl-hyperspeed",
+      "name": "Razer BlackWidow V4 TKL HyperSpeed",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "电量与充电 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 725,
+          "feature_len": 91,
+          "path_contains": "mi_02"
+        },
+        {
+          "vid": 5426,
+          "pid": 727,
+          "feature_len": 91,
+          "path_contains": "mi_03"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:02D5 接收器 / 02D7 线缆",
+        "firmware": "unknown",
+        "project_validation": "依据 OpenRazer 型号表；无实机测试。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/master/driver/razerkbd_driver.c",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/razer.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 BlackWidow V4 TKL HyperSpeed 电量读取。"
+  },
+  {
+    "id": "eightbitdo-pro-3",
+    "name": "8BitDo Pro 3",
+    "version": "0.4.13-preview.22",
+    "description": "D-input 蓝牙输入报告被动读取电量；不向手柄发送命令。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "eightbitdo-pro-3",
+      "name": "8BitDo Pro 3",
+      "brand": "8BITDO",
+      "kind": "accessory",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 11720,
+          "pid": 24585,
+          "path_contains": "{00001124-0000-1000-8000-00805f9b34fb}"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2DC8:6009 D-input 蓝牙 / report 04",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 上游实机确认蓝牙在 Steam 未启动时仍上报；本项目未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/eightbitdo.py",
+          "https://github.com/libsdl-org/SDL/blob/main/src/joystick/hidapi/SDL_hidapi_8bitdo.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Pro 3 蓝牙 D-input 电量被动监听。"
+  },
+  {
+    "id": "sony-dualshock-4",
+    "name": "Sony DualShock 4",
+    "version": "0.4.13-preview.22",
+    "description": "USB 与蓝牙输入报告被动读取电量；不向手柄发送命令。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "sony-dualshock-4",
+      "name": "Sony DualShock 4",
+      "brand": "SONY",
+      "kind": "accessory",
+      "subtitle": "USB/蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1356,
+          "pid": 2508,
+          "usage_page": 1,
+          "usage": 5
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "054C:09CC USB / Bluetooth",
+        "firmware": "unknown",
+        "project_validation": "依据 HaloBattery 与 SDL 输入报告协议；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/playstation.py",
+          "https://github.com/libsdl-org/SDL/blob/main/src/joystick/hidapi/SDL_hidapi_ps4.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 DualShock 4 USB 与蓝牙电量监听。"
+  },
+  {
+    "id": "steam-controller-2025",
+    "name": "Steam Controller 2025",
+    "version": "0.4.13-preview.22",
+    "description": "puck 槽位被动监听电量；静默时保留过期读数。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steam-controller-2025",
+      "name": "Steam Controller 2025",
+      "brand": "STEAM",
+      "kind": "accessory",
+      "subtitle": "puck 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10462,
+          "pid": 4868,
+          "usage_page": 65280,
+          "usage": 1
+        },
+        {
+          "vid": 10462,
+          "pid": 4869,
+          "usage_page": 65280,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "28DE:1304/1305 puck，MI_02 至 MI_05",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #58 由 @Kosminaut13 实机确认 95% 放电与 100% 充满；本项目未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/issues/58",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steam.py",
+          "https://github.com/libsdl-org/SDL/blob/main/src/joystick/hidapi/SDL_hidapi_steam_triton.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Steam Controller 2025 puck 电量监听。"
+  },
+  {
+    "id": "mchose-a5-pro-max",
+    "name": "MCHOSE A5 Pro Max",
+    "version": "0.4.13-preview.22",
+    "description": "读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-a5-pro-max",
+      "name": "MCHOSE A5 Pro Max",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 8227,
+          "pid": 61459,
+          "usage_page": 65535
+        },
+        {
+          "vid": 8227,
+          "pid": 61461,
+          "usage_page": 65535
+        },
+        {
+          "vid": 8227,
+          "pid": 61465,
+          "usage_page": 65535
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "2023:F013 1K 接收器实机验证；F015 4K 与 F019 线缆未验证",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #149 @Pekish992 验证 1K 接收器；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/mchose.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/149",
+          "https://github.com/z750sasr/mchose-a5-pro-max-web-driver",
+          "https://github.com/Klegus/mchose-macos"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 A5 Pro Max 的接收器和线缆电量读取；仅 1K 接收器有上游实测。"
+  },
+  {
+    "id": "mchose-a7-v2-ultra",
+    "name": "MCHOSE A7 V2 Ultra",
+    "version": "0.4.13-preview.22",
+    "description": "接收器电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-a7-v2-ultra",
+      "name": "MCHOSE A7 V2 Ultra",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4107,
+          "usage_page": 65281,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "3837:100B 接收器；FF01:0001",
+        "firmware": "unknown",
+        "project_validation": "上游未实测 A7 V2 Ultra；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/mchose.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/4",
+          "https://github.com/alexfrih/mchose-linux"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 A7 V2 Ultra 接收器电量读取；尚待实机验证。"
+  },
+  {
+    "id": "mchose-g7",
+    "name": "MCHOSE G7",
+    "version": "0.4.13-preview.22",
+    "description": "电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-g7",
+      "name": "MCHOSE G7",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 43173,
+          "pid": 8789,
+          "usage_page": 65281
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "A8A5:2255 接收器和线缆，FF01 配置集合",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #8 @kek353 实机验证接收器及线缆；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/mchose.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/8"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G7 接收器与线缆电量读取。"
+  },
+  {
+    "id": "mchose-m7-ultra",
+    "name": "MCHOSE M7 Ultra",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-m7-ultra",
+      "name": "MCHOSE M7 Ultra",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 21075,
+          "pid": 4128,
+          "usage_page": 65281,
+          "usage": 1
+        },
+        {
+          "vid": 21075,
+          "pid": 49,
+          "usage_page": 65281,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "5253:1020 接收器、0031 线缆；FF01:0001",
+        "firmware": "unknown",
+        "project_validation": "上游 M7 Ultra 协议实测；此项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/mchose.py",
+          "https://github.com/alexfrih/mchose-linux"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 M7 Ultra 接收器和线缆电量读取。"
+  },
+  {
+    "id": "vxe-r1-pro-max",
+    "name": "VXE R1 Pro Max",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "vxe-r1-pro-max",
+      "name": "VXE R1 Pro Max",
+      "brand": "VXE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62858,
+          "usage_page": 65282,
+          "usage": 2
+        },
+        {
+          "vid": 13652,
+          "pid": 62860,
+          "usage_page": 65282,
+          "usage": 2
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "3554:F58A 接收器、F58C 线缆；FF02:0002",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #87 实机验证接收器和线缆；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/issues/87",
+          "https://github.com/andrewrabert/python-pulsar-mouse-tool",
+          "https://github.com/openmouse/protocol"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 R1 Pro Max 接收器和线缆电量读取。"
+  },
+  {
+    "id": "vxe-r1-se-plus",
+    "name": "VXE R1 SE+",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "vxe-r1-se-plus",
+      "name": "VXE R1 SE+",
+      "brand": "VXE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14139,
+          "pid": 4229,
+          "usage_page": 65282,
+          "usage": 2
+        },
+        {
+          "vid": 13652,
+          "pid": 62863,
+          "usage_page": 65282,
+          "usage": 2
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "373B:1085 接收器、3554:F58F 线缆；FF02:0002",
+        "firmware": "unknown",
+        "project_validation": "上游未实测该型号；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/pulsar.py",
+          "https://github.com/andrewrabert/python-pulsar-mouse-tool",
+          "https://github.com/openmouse/protocol"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 R1 SE+ 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "pulsar-x2-crazylight-mini",
+    "name": "Pulsar X2 CrazyLight Mini",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "pulsar-x2-crazylight-mini",
+      "name": "Pulsar X2 CrazyLight Mini",
+      "brand": "PULSAR",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14096,
+          "pid": 21510,
+          "usage_page": 65282,
+          "usage": 2
+        },
+        {
+          "vid": 14096,
+          "pid": 13332,
+          "usage_page": 65282,
+          "usage": 2
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "3710:5406 接收器、3414 线缆；FF02:0002",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #164 实机验证接收器和线缆；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/issues/164",
+          "https://github.com/andrewrabert/python-pulsar-mouse-tool"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 CrazyLight Mini 接收器和线缆电量读取。"
+  },
+  {
+    "id": "am-infinity-8k",
+    "name": "AM Infinity 8K",
+    "version": "0.4.13-preview.22",
+    "description": "接收器电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "am-infinity-8k",
+      "name": "AM Infinity 8K",
+      "brand": "ANGRY MIAO",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 20487,
+          "usage_page": 65535,
+          "usage": 2
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "3151:5007 接收器；FFFF:0002",
+        "firmware": "unknown",
+        "project_validation": "上游未实测 AM Infinity 8K；按 AJAZZ Control Center 状态布局适配，Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/am_infinity.py",
+          "https://github.com/Aiacos/ajazz-control-center",
+          "https://github.com/HeyOkay/HaloBattery/issues/72"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 AM Infinity 8K 接收器电量读取；尚待实机验证。"
+  },
+  {
+    "id": "wlmouse-beast-x-max",
+    "name": "WLmouse Beast X Max",
+    "version": "0.4.13-preview.22",
+    "description": "电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "wlmouse-beast-x-max",
+      "name": "WLmouse Beast X Max",
+      "brand": "WLMOUSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13991,
+          "pid": 43136,
+          "usage_page": 65535,
+          "usage": 0,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "36A7:A880 接收器及线缆；FFFF:0000",
+        "firmware": "unknown",
+        "project_validation": "上游 Beast X Max 协议实测；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/wlmouse.py",
+          "https://mouse.xyz"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Beast X Max 电量与充电状态读取。"
+  },
+  {
+    "id": "wlmouse-beast-x",
+    "name": "WLmouse Beast X",
+    "version": "0.4.13-preview.22",
+    "description": "电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "wlmouse-beast-x",
+      "name": "WLmouse Beast X",
+      "brand": "WLMOUSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13991,
+          "pid": 43143,
+          "usage_page": 65535,
+          "usage": 0,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "36A7:A887 接收器及线缆；FFFF:0000",
+        "firmware": "unknown",
+        "project_validation": "上游未实测 Beast X；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/wlmouse.py",
+          "https://mouse.xyz"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Beast X 电量与充电状态读取；尚待实机验证。"
+  },
+  {
+    "id": "wlmouse-beast-x-mini-pro",
+    "name": "WLmouse Beast X Mini Pro",
+    "version": "0.4.13-preview.22",
+    "description": "电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "wlmouse-beast-x-mini-pro",
+      "name": "WLmouse Beast X Mini Pro",
+      "brand": "WLMOUSE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13991,
+          "pid": 43112,
+          "usage_page": 65535,
+          "usage": 0,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "36A7:A868 接收器及线缆；FFFF:0000",
+        "firmware": "unknown",
+        "project_validation": "上游未实测 Beast X Mini Pro；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/wlmouse.py",
+          "https://mouse.xyz"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Beast X Mini Pro 电量与充电状态读取；尚待实机验证。"
+  },
+  {
+    "id": "gwolves-hsk-pro-ace",
+    "name": "G-Wolves HSK Pro ACE",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-hsk-pro-ace",
+      "name": "G-Wolves HSK Pro ACE",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 22531,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 22532,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:5803 接收器、5804 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游未实测 HSK Pro ACE；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/gwolves.py",
+          "https://mouse.xyz",
+          "https://github.com/HeyOkay/HaloBattery/issues/105"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 HSK Pro ACE 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "hitscan-hyperlight",
+    "name": "Hitscan Hyperlight",
+    "version": "0.4.13-preview.22",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "hitscan-hyperlight",
+      "name": "Hitscan Hyperlight",
+      "brand": "HITSCAN",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14192,
+          "pid": 512,
+          "usage_page": 65282,
+          "usage": 2
+        },
+        {
+          "vid": 14192,
+          "pid": 256,
+          "usage_page": 65282,
+          "usage": 2
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "3770:0200 接收器、0100 线缆；FF02:0002",
+        "firmware": "unknown",
+        "project_validation": "sopparus/hitscan-battery 有设备 USB 抓包，但 HaloBattery 未实测应用读数；Peripheral Desk 未独立实测。",
+        "source_refs": [
+          "https://github.com/sopparus/hitscan-battery",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/pulsar.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/105"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Hyperlight 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "steelseries-arctis-nova-7",
+    "name": "SteelSeries Arctis Nova 7 / 5 family",
+    "version": "0.4.13-preview.22",
+    "description": "无线耳机电量和充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-nova-7",
+      "name": "SteelSeries Arctis Nova 7 / 5 family",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 8865,
+          "usage_page": 65472,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 4152,
+          "pid": 8706,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8830,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8710,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8792,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8862,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8877,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8868,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8869,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8762,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8873,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8826,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8714,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8871,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8856,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8754,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8787,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:22A1 等 Nova 7/7P/7X、Nova 5/5X 接收器",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 22A1 已实机验证；其他变体上游未逐一实测；Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_nova_7.hpp",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_nova_7p.hpp",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_nova_5.hpp"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Nova 7 和 Nova 5 系列接收器电量读取。"
+  },
+  {
+    "id": "steelseries-arctis-nova-pro-wireless",
+    "name": "SteelSeries Arctis Nova Pro Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "基站九档电量与充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-nova-pro-wireless",
+      "name": "SteelSeries Arctis Nova Pro Wireless",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "九档电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 4832,
+          "usage_page": 65472
+        },
+        {
+          "vid": 4152,
+          "pid": 4837,
+          "usage_page": 65472
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:12E0/12E5 无线基站接口 3/4",
+        "firmware": "unknown",
+        "project_validation": "上游未实测；仅按 HeadsetControl 布局移植，Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py",
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_nova_pro_wireless.hpp"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Nova Pro Wireless 基站的九档电量读取。"
+  },
+  {
+    "id": "jbl-quantum-910",
+    "name": "JBL Quantum 910 Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "被动监听电量，静默时显示上次读数。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "jbl-quantum-910",
+      "name": "JBL Quantum 910 Wireless",
+      "brand": "JBL",
+      "kind": "headset",
+      "subtitle": "被动电量监听 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 3787,
+          "pid": 8328,
+          "usage_page": 65299,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "0ECB:2088 接收器 FF13:0001",
+        "firmware": "unknown",
+        "project_validation": "plugato/JBL_Baterry_Monitor 和 HaloBattery 实机确认 08 电量事件；Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/jbl.py",
+          "https://github.com/plugato/JBL_Baterry_Monitor"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Quantum 910 接收器被动电量监听。"
+  },
+  {
+    "id": "razer-barracuda-pro",
+    "name": "Razer Barracuda Pro",
+    "version": "0.4.13-preview.22",
+    "description": "2.4 GHz 接收器电量与充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-barracuda-pro",
+      "name": "Razer Barracuda Pro",
+      "brand": "Razer",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 1338,
+          "usage_page": 65280
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "1532:053A 2.4 GHz 接收器",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery #10 的 Synapse 实机抓包及 @phl23 实机读数；Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/barracuda.py",
+          "https://github.com/HeyOkay/HaloBattery/issues/10"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Barracuda Pro 接收器电量与充电状态读取。"
+  },
+  {
+    "id": "razer-blackshark-v2-pro-2020",
+    "name": "Razer BlackShark V2 Pro (2020)",
+    "version": "0.4.13-preview.22",
+    "description": "接收器电量与电源状态只读，充电时隐藏不准确的电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackshark-v2-pro-2020",
+      "name": "Razer BlackShark V2 Pro (2020)",
+      "brand": "Razer",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 1320,
+          "usage_page": 65280,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0528 2.4 GHz 接收器；不含 052E 线缆",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 直接 HID 实机观察电源状态；Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/blackshark2020.py",
+          "https://github.com/openrazer/openrazer/issues/1280",
+          "https://github.com/Modzeleczek/RazerNariBatteryLevel"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 BlackShark 2020 版接收器电源状态读取。"
+  },
+  {
+    "id": "steelseries-aerox-3-wireless",
+    "name": "SteelSeries Aerox 3 Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线鼠标电量与充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-aerox-3-wireless",
+      "name": "SteelSeries Aerox 3 Wireless",
+      "brand": "SteelSeries",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 6200,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 6264,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:1838/1878 接收器",
+        "firmware": "unknown",
+        "project_validation": "alloyctl 对 1838 的 D2 报文已在硬件上逆向，1878 上游未实测；Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py",
+          "https://github.com/yurtemre7/steel-mouse",
+          "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox3_wireless_wireless.py",
+          "https://github.com/gort818/aerox3-wireless"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Aerox 3 Wireless 及 CS2 版电量读取。"
+  },
+  {
+    "id": "steelseries-aerox-5-wireless",
+    "name": "SteelSeries Aerox 5 Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线鼠标电量与充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-aerox-5-wireless",
+      "name": "SteelSeries Aerox 5 Wireless",
+      "brand": "SteelSeries",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 6226,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 6236,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 6240,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:1852/185C/1860 接收器",
+        "firmware": "unknown",
+        "project_validation": "上游未实测本型号；rivalcfg 按 Aerox Wireless 协议定义，Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py",
+          "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/aerox5_wireless_wireless.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Aerox 5 Wireless 各版本电量读取。"
+  },
+  {
+    "id": "steelseries-rival-3-wireless",
+    "name": "SteelSeries Rival 3 Wireless",
+    "version": "0.4.13-preview.22",
+    "description": "无线鼠标电量与充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-rival-3-wireless",
+      "name": "SteelSeries Rival 3 Wireless",
+      "brand": "SteelSeries",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 6192,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 6258,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:1830/1872 接收器",
+        "firmware": "unknown",
+        "project_validation": "上游未实测两种应答形态；steel-mouse 与 rivalcfg 布局有分歧，Peripheral Desk 未实测。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py",
+          "https://github.com/yurtemre7/steel-mouse",
+          "https://github.com/flozz/rivalcfg/blob/master/rivalcfg/devices/rival3_wireless.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Rival 3 Wireless 和第二代电量读取。"
   }
 ]

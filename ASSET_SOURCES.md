@@ -18,6 +18,12 @@ A9 Plus Nearlink and Viper Ultimate wired previews reuse the original neutral mo
 
 F2 Pro Max and F1 Pro previews reuse the original neutral mouse illustration, not vendor artwork.
 
+The wave-2 device previews (Corsair, HyperX, Audeze, Astro, SteelSeries, JBL,
+Razer Barracuda/BlackShark, MCHOSE, Pulsar/VXE, WLmouse, G-Wolves, Hitscan,
+AM, Logitech G502/MK710, Keychron, Lofree, 8BitDo, DualShock 4, Steam
+Controller 2025) use original generated brand-color letter icons drawn for
+identification; they are not vendor artwork or product photographs.
+
 DeathAdder V2 Pro wired uses the [Razer official support product image](https://assets.razerzone.com/eeimages/support/products/1714/comp_1_00000.png), downloaded on 2026-10-21 (152,930 bytes). This is vendor artwork used for product identification, not a project-created neutral illustration; the artwork and trademarks belong to Razer.
 
 Correction for 0.4.7-preview.1: its bundled attribution incorrectly grouped this Razer image with the neutral illustrations. This paragraph and the release attribution correction supersede that statement; the package bytes remain unchanged.

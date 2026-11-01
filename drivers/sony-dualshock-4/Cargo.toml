@@ -1,0 +1,12 @@
+[package]
+name = "sony-dualshock-4-driver"
+version = "0.4.13-preview.22"
+edition.workspace = true
+license.workspace = true
+publish = false
+[lib]
+crate-type = ["cdylib"]
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-dualshock4 = { path = "../../crates/protocol-dualshock4" }
+serde_json.workspace = true

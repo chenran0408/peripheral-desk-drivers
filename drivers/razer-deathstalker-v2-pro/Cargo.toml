@@ -1,0 +1,13 @@
+[package]
+name = "razer-deathstalker-v2-pro-driver"
+version = "0.4.13-preview.22"
+edition.workspace = true
+license.workspace = true
+publish = false
+[lib]
+crate-type = ["cdylib"]
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-razer = { path = "../../crates/protocol-razer" }
+serde_json.workspace = true
+peripheral-desk.workspace = true

@@ -32,6 +32,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "am-infinity-8k-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "astro-a50-gen5-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-astro-a50",
+ "serde_json",
+]
+
+[[package]]
 name = "asus-rog-azoth-extreme-driver"
 version = "0.4.13-preview.20"
 dependencies = [
@@ -142,6 +160,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "audeze-maxwell-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-audeze-maxwell",
+ "serde_json",
+]
+
+[[package]]
 name = "aula-f108-pro-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -236,6 +263,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "corsair-virtuoso-rgb-se-xt-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-corsair-headsets",
+ "serde_json",
+]
+
+[[package]]
+name = "corsair-void-v2-family-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-corsair-headsets",
+ "serde_json",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -272,6 +317,15 @@ checksum = "9ed9a281f7bc9b7576e61468ba615a66a5c8cfdff42420a70aa82701a3b1e292"
 dependencies = [
  "block-buffer",
  "crypto-common",
+]
+
+[[package]]
+name = "eightbitdo-pro-3-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-8bitdo-pro3",
+ "serde_json",
 ]
 
 [[package]]
@@ -314,6 +368,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "gwolves-hsk-pro-ace-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
 name = "haute42-adapter-4ds-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -348,11 +411,65 @@ dependencies = [
 ]
 
 [[package]]
+name = "hitscan-hyperlight-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-pulsar-17",
+ "serde_json",
+]
+
+[[package]]
+name = "hyperx-cloud-alpha-2-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hyperx-cloud",
+ "serde_json",
+]
+
+[[package]]
 name = "hyperx-cloud-flight-2-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-hyperx-cloud-flight-2",
+ "serde_json",
+]
+
+[[package]]
+name = "hyperx-cloud-ii-core-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hyperx-cloud",
+ "serde_json",
+]
+
+[[package]]
+name = "hyperx-cloud-ii-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hyperx-cloud",
+ "serde_json",
+]
+
+[[package]]
+name = "hyperx-cloud-iii-s-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hyperx-cloud",
+ "serde_json",
+]
+
+[[package]]
+name = "hyperx-cloud-iii-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hyperx-cloud",
  "serde_json",
 ]
 
@@ -371,6 +488,33 @@ name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
+
+[[package]]
+name = "jbl-quantum-910-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-jbl-quantum",
+ "serde_json",
+]
+
+[[package]]
+name = "keychron-m5-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-keychron",
+ "serde_json",
+]
+
+[[package]]
+name = "keychron-ultralink-8k-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-keychron",
+ "serde_json",
+]
 
 [[package]]
 name = "lamzu-maya-x-driver"
@@ -393,6 +537,15 @@ version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "lofree-hyzen-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-lofree",
  "serde_json",
 ]
 
@@ -445,6 +598,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-g502-lightspeed-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-g502-x-plus-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-m750m-driver"
 version = "0.4.13-preview.14"
 dependencies = [
@@ -455,11 +628,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-mk710-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-pro-x2-lightspeed-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-logitech-pro-x2",
+ "serde_json",
+]
+
+[[package]]
+name = "mchose-a5-pro-max-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-mice",
  "serde_json",
 ]
 
@@ -481,12 +674,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-a7-v2-ultra-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-mice",
+ "serde_json",
+]
+
+[[package]]
 name = "mchose-a7-v3-ultra-plus-driver"
 version = "0.4.9-preview.1"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-v3",
+ "serde_json",
+]
+
+[[package]]
+name = "mchose-g7-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-mice",
  "serde_json",
 ]
 
@@ -523,6 +734,15 @@ version = "0.4.13-preview.20"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "mchose-m7-ultra-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-mice",
  "serde_json",
 ]
 
@@ -592,6 +812,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-8bitdo-pro3"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-ajazz-aj179-pro"
 version = "0.4.8-preview.1"
 dependencies = [
@@ -606,6 +834,14 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
  "windows-sys",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-astro-a50"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -642,11 +878,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-audeze-maxwell"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+ "windows-sys",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-corsair-dark-core-rgb-pro-se"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-corsair-headsets"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-dualshock4"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-gwolves-old"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
 ]
 
 [[package]]
@@ -681,8 +949,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-hyperx-cloud"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-hyperx-cloud-flight-2"
 version = "0.1.0"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-jbl-quantum"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-keychron"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
@@ -693,6 +985,14 @@ name = "peripheral-desk-protocol-lamzu-maya-x"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-lofree"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -716,6 +1016,14 @@ name = "peripheral-desk-protocol-mchose-magdock"
 version = "0.4.8-preview.2"
 dependencies = [
  "peripheral-desk 0.4.2",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-mchose-mice"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
 ]
 
@@ -744,11 +1052,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-pulsar-17"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-razer"
 version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "serde_json",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-razer-blackshark-2020"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+ "windows-sys",
 ]
 
 [[package]]
@@ -770,6 +1095,14 @@ dependencies = [
 [[package]]
 name = "peripheral-desk-protocol-razer-kraken-v4"
 version = "0.1.0"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-razer-pa"
+version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
@@ -808,7 +1141,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-steam-puck"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-steelseries-aerox-9-wireless"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-steelseries-arctis"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
@@ -824,11 +1173,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-steelseries-mice"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-vgn"
 version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-wlmouse"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
 ]
 
 [[package]]
@@ -845,6 +1209,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "pulsar-x2-crazylight-mini-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-pulsar-17",
+ "serde_json",
 ]
 
 [[package]]
@@ -873,6 +1246,15 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-barracuda-pro-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-pa",
  "serde_json",
 ]
 
@@ -931,11 +1313,60 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-blackshark-v2-pro-2020-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-blackshark-2020",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-blackshark-v2-pro-2023-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-blackshark-2023",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-blackwidow-v3-mini-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-blackwidow-v3-pro-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-blackwidow-v4-mini-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-blackwidow-v4-tkl-hyperspeed-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
  "serde_json",
 ]
 
@@ -1008,6 +1439,26 @@ version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-deathstalker-v2-pro-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-deathstalker-v2-pro-tkl-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
  "serde_json",
 ]
 
@@ -1202,11 +1653,47 @@ dependencies = [
 ]
 
 [[package]]
+name = "sony-dualshock-4-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-dualshock4",
+ "serde_json",
+]
+
+[[package]]
 name = "sony-inzone-h9-ii-driver"
 version = "0.1.0"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-sony-inzone-h9-ii",
+ "serde_json",
+]
+
+[[package]]
+name = "steam-controller-2025-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steam-puck",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-aerox-3-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-mice",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-aerox-5-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-mice",
  "serde_json",
 ]
 
@@ -1220,11 +1707,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "steelseries-arctis-nova-7-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-arctis",
+ "serde_json",
+]
+
+[[package]]
 name = "steelseries-arctis-nova-elite-driver"
 version = "0.4.13-preview.20"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-steelseries-arctis-nova-elite",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-arctis-nova-pro-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-arctis",
+ "serde_json",
+]
+
+[[package]]
+name = "steelseries-rival-3-wireless-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-steelseries-mice",
  "serde_json",
 ]
 
@@ -1322,6 +1836,24 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "vxe-r1-pro-max-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-pulsar-17",
+ "serde_json",
+]
+
+[[package]]
+name = "vxe-r1-se-plus-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-pulsar-17",
  "serde_json",
 ]
 
@@ -1449,6 +1981,33 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b66463ad2e0ea3bbf808b7f1d371311c80e115c0b71d60efc142cafbcfb057a6"
 dependencies = [
  "windows-link 0.1.3",
+]
+
+[[package]]
+name = "wlmouse-beast-x-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-wlmouse",
+ "serde_json",
+]
+
+[[package]]
+name = "wlmouse-beast-x-max-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-wlmouse",
+ "serde_json",
+]
+
+[[package]]
+name = "wlmouse-beast-x-mini-pro-driver"
+version = "0.4.13-preview.22"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-wlmouse",
+ "serde_json",
 ]
 
 [[package]]

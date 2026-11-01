@@ -125,6 +125,56 @@ pub fn read_state(key: &str, model: &str, pid: u16) -> Result<State, String> {
     })
 }
 
+/// OpenRazer documents transaction 0x1F and a 0..255 raw battery scale for
+/// these specific mice. Do not infer charging from the battery reply.
+pub fn read_openrazer_battery(key: &str, model: &str, pid: u16) -> Result<State, String> {
+    let interfaces = hid::enumerate()?;
+    let matches: Vec<_> = interfaces
+        .iter()
+        .filter(|interface| supported(interface, pid))
+        .collect();
+    let interface = match matches.as_slice() {
+        [] => {
+            return Ok(State {
+                key: key.into(),
+                error: format!("未找到 Razer {model} 接收器（1532:{pid:04X}）"),
+                ..State::default()
+            });
+        }
+        [interface] => interface,
+        _ => return Err(format!("发现多个 Razer {model} 匹配接口，已停止查询")),
+    };
+    let device = Device::open(&interface.path)?;
+    let mut last_error = String::from("Razer 接收器没有返回电量");
+    for _ in 0..4 {
+        device.send(&request(0x1f))?;
+        std::thread::sleep(Duration::from_millis(160));
+        match battery_from_reply(&device.receive(0, REPORT_LEN)?, 0x1f) {
+            Ok((raw, _, _)) => {
+                let percent = ((u16::from(raw) * 100 + 127) / 255) as u8;
+                return Ok(State {
+                    key: key.into(),
+                    present: true,
+                    fresh: true,
+                    percent: Some(percent),
+                    battery_raw: Some(raw),
+                    wired: false,
+                    updated: SystemTime::now()
+                        .duration_since(UNIX_EPOCH)
+                        .unwrap_or_default()
+                        .as_secs(),
+                    identity: format!("Razer {model} · 1532:{pid:04X} · 91-byte Feature"),
+                    settings_error: "仅支持只读电量。".into(),
+                    ..State::default()
+                });
+            }
+            Err(error) => last_error = error,
+        }
+        std::thread::sleep(Duration::from_millis(120));
+    }
+    Err(last_error)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -23,21 +23,30 @@ pub fn parse(reply: &[u8]) -> Option<(u8, bool)> {
     (percent <= 100).then_some((percent, *reply.get(at + 4)? != 0))
 }
 pub fn read_state() -> Result<State, String> {
+    read_model_state(KEY, "HSK Pro ACE", 0x5803, 0x5804)
+}
+
+pub fn read_model_state(
+    key: &str,
+    model: &str,
+    receiver_pid: u16,
+    wired_pid: u16,
+) -> Result<State, String> {
     let mut candidates: Vec<_> = hid::enumerate()?
         .into_iter()
         .filter(|i| {
             i.vid == 0x33e4
-                && matches!(i.pid, 0x5803 | 0x5804)
+                && (i.pid == receiver_pid || i.pid == wired_pid)
                 && i.feature_len == 65
                 && i.usage_page >= 0xff00
         })
         .collect();
-    candidates.sort_by_key(|i| i.pid != 0x5804);
+    candidates.sort_by_key(|i| i.pid != wired_pid);
     let mut first_error = None;
     for i in &candidates {
         let result = (|| {
             let device = hid::Device::open(&i.path)?;
-            device.send(&request(i.feature_len as usize, i.pid == 0x5804))?;
+            device.send(&request(i.feature_len as usize, i.pid == wired_pid))?;
             for _ in 0..15 {
                 std::thread::sleep(Duration::from_millis(50));
                 if let Ok(reply) = device.receive(0, i.feature_len as usize) {
@@ -52,13 +61,13 @@ pub fn read_state() -> Result<State, String> {
             Ok(reply) => {
                 if let Some((percent, charging)) = parse(&reply) {
                     return Ok(State {
-                        key: KEY.into(),
+                        key: key.into(),
                         present: true,
                         fresh: true,
                         percent: Some(percent),
                         charging: Some(charging),
-                        identity: format!("G-Wolves HSK Pro ACE · 33E4:{:04X}", i.pid),
-                        wired: i.pid == 0x5804,
+                        identity: format!("G-Wolves {model} · 33E4:{:04X}", i.pid),
+                        wired: i.pid == wired_pid,
                         updated: SystemTime::now()
                             .duration_since(UNIX_EPOCH)
                             .unwrap_or_default()
@@ -76,9 +85,9 @@ pub fn read_state() -> Result<State, String> {
         }
     }
     Ok(State {
-        key: KEY.into(),
+        key: key.into(),
         present: !candidates.is_empty(),
-        error: first_error.unwrap_or_else(|| "HSK Pro ACE 未取得有效电量回复".into()),
+        error: first_error.unwrap_or_else(|| format!("{model} 未取得有效电量回复")),
         ..State::default()
     })
 }

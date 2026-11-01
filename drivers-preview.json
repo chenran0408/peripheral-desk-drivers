@@ -1,5 +1,90 @@
 [
   {
+    "id": "atk-a9-air-master-plus",
+    "name": "ATK A9 Air 大师+",
+    "version": "0.4.13-preview.12",
+    "description": "仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-a9-air-master-plus",
+      "name": "ATK A9 Air 大师+",
+      "brand": "ATK",
+      "kind": "mouse",
+      "subtitle": "接收器电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4728,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "仅 2.4 GHz 接收器 373B:1278 / FF02:0002 / 17 字节输入与输出；HID SetOutputReport 查询，回复校验和为 0x4D",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 contributor yiwluoq reports real-device validation for this exact model and receiver on 2026-11-01. Peripheral Desk has not independently tested the device.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/ATKA9AiraddProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ATK A9 Air 大师+ 指定接收器的电量、充电标志和电压读取；采用 Voltide 已报告真机验证的协议范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "atk-n9-v2-ultimate",
+    "name": "ATK N9 V2 Ultimate",
+    "version": "0.4.13-preview.12",
+    "description": "373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "atk-n9-v2-ultimate",
+      "name": "ATK N9 V2 Ultimate",
+      "brand": "ATK",
+      "kind": "headset",
+      "subtitle": "接收器电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14267,
+          "pid": 4706,
+          "usage_page": 65424,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "仅 2.4 GHz 接收器 373B:1262 / FF90 / 输入与输出 64 字节；report ID 55 经中断 OUT 发送",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports contributor hardware verification for this exact receiver/model; Peripheral Desk has not independently tested the device.",
+        "source_refs": "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893 https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/ATKN9V2UltimateProvider.cs https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 ATK N9 V2 Ultimate 接收器电量和已知充电状态读取；基于 Voltide v2.1.2 的指定型号硬件验证记录，Peripheral Desk 尚未独立实测。"
+  },
+  {
     "id": "ajazz-aj179-pro",
     "name": "AJAZZ AJ179 PRO",
     "version": "0.4.8-preview.1",

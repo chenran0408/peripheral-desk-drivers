@@ -42,6 +42,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "atk-a9-air-master-plus-driver"
+version = "0.4.13-preview.12"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-hid-transport",
+ "serde_json",
+ "windows-sys",
+]
+
+[[package]]
 name = "atk-a9-plus-nearlink-driver"
 version = "0.4.9-preview.1"
 dependencies = [
@@ -88,6 +99,16 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-atk-f1-battery",
+ "serde_json",
+]
+
+[[package]]
+name = "atk-n9-v2-ultimate-driver"
+version = "0.4.13-preview.12"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-hid-transport",
  "serde_json",
 ]
 

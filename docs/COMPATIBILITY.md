@@ -66,3 +66,11 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 ## G2 Pro 0.4.10 完整组件包
 
 G2 Pro 包需主程序 >=0.4.10，内含匹配 35BB:A100 的 x64 SDK、音频驱动、扩展和 APO，完整清单与来源见 [组件说明](G2-PRO-COMPONENTS.md)。插件会自动连接 SDK；系统驱动由用户在 EQ 页点击安装并通过 Windows 管理员与签名检查。旧 11.1.1.6 驱动的音效读取已实测；附带 11.2.1.0 / APO 2.1.0.2 的系统安装本轮未在用户机器执行。插件回退不回退 Windows 驱动。
+
+## ATK A9 Air 大师+（preview）
+
+仅支持 `373B:1278` / `FF02:0002` / 17 字节接口的 2.4 GHz 接收器，读取电量、充电标志和电压。协议依据 Voltide v2.1.2 贡献者对该精确型号/接收器的真机验证记录；Peripheral Desk 尚未独立实测。不覆盖 NearLink、有线、蓝牙或其他 ATK 型号，不提供 DPI、回报率、改键、宏或灯效。详见 [ATK A9 Air 范围与来源](ATK-A9-AIR-MASTER-PLUS.md)。
+
+## ATK N9 V2 Ultimate（preview）
+
+仅支持 `373B:1262` 接收器的 `FF90`、64 字节接口，通过中断输出查询，读取电量和已知充电状态。协议依据 Voltide v2.1.2 对该精确型号/接收器的贡献者真机验证记录；Peripheral Desk 尚未独立实测。不提供 EQ、虚拟 7.1、灯效或其他控制功能。详见 [ATK N9 V2 Ultimate 范围与来源](ATK-N9-V2-ULTIMATE.md)。

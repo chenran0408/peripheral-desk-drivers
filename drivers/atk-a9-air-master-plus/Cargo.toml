@@ -1,0 +1,16 @@
+[package]
+name = "atk-a9-air-master-plus-driver"
+version = "0.4.13-preview.12"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../../crates/hid-transport" }
+serde_json.workspace = true
+windows-sys = { version = "0.61", features = ["Win32_Devices_HumanInterfaceDevice", "Win32_Foundation", "Win32_Storage_FileSystem"] }

@@ -82,6 +82,7 @@ A5 Ultra 的板载宏仍为实验功能：当前实测固件未返回可完整�
 - [本地构建与贡献](CONTRIBUTING.md)
 - [社区设备适配 Wiki（含可交给 Agent 的提示词）](docs/COMMUNITY-ADAPTATION-WIKI.md)
 - [上游实现与证据复用](docs/UPSTREAM-REUSE.md)
+- [Voltide v2.1.2 设备映射与迁移](docs/VOLTIDE-MIGRATION.md)
 - [后续接入任务与验收标准](docs/ADAPTATION-ROADMAP.md)
 - [设备目录：品牌—协议系列—型号—连接方式](docs/DEVICE-CATALOG.md)
 - [C ABI 与 JSON 请求](docs/ABI.md)

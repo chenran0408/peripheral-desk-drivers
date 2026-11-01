@@ -162,6 +162,14 @@
 | `plantronics-bt600`（预览） | 通过 BT600 接收器读取已配对 Voyager 8200 UC 的十档电量与充电状态，只读。 |
 | `sony-inzone-h5`（预览） | INZONE H5 专用接收器的电量与充电状态，只读；Windows 实机尚未验证。 |
 
+| `gwolves-vuk`（预览） | 接收器和线缆电量读取；只读。 |
+| `gwolves-ht-s2`（预览） | 接收器和线缆电量读取；只读。 |
+| `gwolves-fenrir-max`（预览） | 接收器和线缆电量读取；只读。 |
+| `gwolves-hts-ultra`（预览） | 接收器和线缆电量读取；只读。 |
+| `gwolves-hsk-plus-ace`（预览） | 接收器和线缆电量读取；只读。 |
+| `razer-naga-pro`（预览） | 无线接收器电量读取；只读。 |
+| `razer-viper-mini-signature-edition`（预览） | 无线接收器电量读取；只读。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

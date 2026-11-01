@@ -53,3 +53,8 @@ Astro A50 Gen 4, Audeze Maxwell 2, Corsair Void rich family, Kingston Cloud II
 Wireless, MCHOSE X9, SteelSeries Arctis 1 and Arctis Nova 3P Wireless) use the
 same original generated brand-color letter icons for identification; they are
 not vendor artwork or product photographs.
+
+The wave-6 device previews (G-Wolves VUK, HT-S2, Fenrir Max, HTS Ultra and HSK
+Plus ACE, Razer Naga Pro and Viper Mini Signature Edition) use the same original
+generated brand-color letter icons for identification; they are not vendor
+artwork or product photographs.

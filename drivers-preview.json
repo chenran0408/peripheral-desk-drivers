@@ -9186,5 +9186,336 @@
       "battery"
     ],
     "changelog": "新增 Sony INZONE H5 电量读取。"
+  },
+  {
+    "id": "gwolves-vuk",
+    "name": "G-Wolves VUK",
+    "version": "0.4.13-preview.26",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-vuk",
+      "name": "G-Wolves VUK",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 14615,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 14600,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:3917 接收器、33E4:3908 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游型号表有独立 PID 和旧版协议记录，但没有此型号的实机电量记录；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/providers/gwolves.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/docs/protocols.md",
+          "https://mouse.xyz"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G-Wolves VUK 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "gwolves-ht-s2",
+    "name": "G-Wolves HT-S2",
+    "version": "0.4.13-preview.26",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-ht-s2",
+      "name": "G-Wolves HT-S2",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 30995,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 30980,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:7913 接收器、33E4:7904 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游型号表有独立 PID 和旧版协议记录，但没有此型号的实机电量记录；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/providers/gwolves.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/docs/protocols.md",
+          "https://mouse.xyz"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G-Wolves HT-S2 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "gwolves-fenrir-max",
+    "name": "G-Wolves Fenrir Max",
+    "version": "0.4.13-preview.26",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-fenrir-max",
+      "name": "G-Wolves Fenrir Max",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 14103,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 14088,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:3717 接收器、33E4:3708 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游型号表有独立 PID 和旧版协议记录，但没有此型号的实机电量记录；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/providers/gwolves.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/docs/protocols.md",
+          "https://mouse.xyz"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G-Wolves Fenrir Max 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "gwolves-hts-ultra",
+    "name": "G-Wolves HTS Ultra",
+    "version": "0.4.13-preview.26",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-hts-ultra",
+      "name": "G-Wolves HTS Ultra",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 21271,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 21256,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:5317 接收器、33E4:5308 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游型号表有独立 PID 和旧版协议记录，但没有此型号的实机电量记录；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/providers/gwolves.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/docs/protocols.md",
+          "https://mouse.xyz"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G-Wolves HTS Ultra 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "gwolves-hsk-plus-ace",
+    "name": "G-Wolves HSK Plus ACE",
+    "version": "0.4.13-preview.26",
+    "description": "接收器和线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "gwolves-hsk-plus-ace",
+      "name": "G-Wolves HSK Plus ACE",
+      "brand": "G-WOLVES",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13284,
+          "pid": 22787,
+          "feature_len": 65
+        },
+        {
+          "vid": 13284,
+          "pid": 22788,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "33E4:5903 接收器、33E4:5904 线缆；旧版 8F feature 协议",
+        "firmware": "unknown",
+        "project_validation": "上游型号表有独立 PID 和旧版协议记录，但没有此型号的实机电量记录；本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/providers/gwolves.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/2251f0534a8e886c9692ead42056059b4f69d8c0/docs/protocols.md",
+          "https://mouse.xyz"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 G-Wolves HSK Plus ACE 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "razer-naga-pro",
+    "name": "Razer Naga Pro",
+    "version": "0.4.13-preview.26",
+    "description": "无线接收器电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-naga-pro",
+      "name": "Razer Naga Pro",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 144,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:0090 无线接收器，MI_00、91 字节 Feature；有线 008F 未包含",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 实现此 PID 的电量命令；没有此型号的上游实机读数记录，本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Razer Naga Pro 无线接收器电量读取；尚待实机验证。"
+  },
+  {
+    "id": "razer-viper-mini-signature-edition",
+    "name": "Razer Viper Mini Signature Edition",
+    "version": "0.4.13-preview.26",
+    "description": "无线接收器电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-viper-mini-signature-edition",
+      "name": "Razer Viper Mini Signature Edition",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 159,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1532:009F 无线接收器，MI_00、91 字节 Feature；有线 009E 和 HyperPolling 共用接收器未包含",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 实现此 PID 的电量命令；没有此型号的上游实机读数记录，本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c"
+        ]
+      },
+      "version": "0.4.13-preview.26"
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Viper Mini Signature Edition 无线接收器电量读取；尚待实机验证。"
   }
 ]

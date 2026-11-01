@@ -458,6 +458,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "gwolves-fenrir-max-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
+name = "gwolves-hsk-plus-ace-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
 name = "gwolves-hsk-pro-2-driver"
 version = "0.4.13-preview.24"
 dependencies = [
@@ -476,11 +494,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "gwolves-ht-s2-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
 name = "gwolves-hts-plus-ace-driver"
 version = "0.4.13-preview.24"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "gwolves-hts-ultra-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
+ "serde_json",
+]
+
+[[package]]
+name = "gwolves-vuk-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-gwolves-old",
  "serde_json",
 ]
 
@@ -1795,6 +1840,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-naga-pro-driver"
+version = "0.4.13-preview.26"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-naga-v2-hyperspeed-driver"
 version = "0.4.13-preview.19"
 dependencies = [
@@ -1824,6 +1878,15 @@ dependencies = [
 [[package]]
 name = "razer-pro-click-v2-vertical-driver"
 version = "0.4.13-preview.19"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-viper-mini-signature-edition-driver"
+version = "0.4.13-preview.26"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",

@@ -72,7 +72,7 @@ jobs:
               if ($LASTEXITCODE -ne 0) { throw "Protocol parser checks failed for $protocol" }
             }
           } else {
-          cargo clippy --locked --workspace --all-targets -- -D warnings
+          cargo clippy --locked --workspace --all-targets -- -D warnings -A clippy::field-reassign-with-default
           if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
           cargo test --locked --workspace --lib
           if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }

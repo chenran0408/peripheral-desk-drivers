@@ -973,6 +973,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-viper-ultimate-receiver-driver"
+version = "0.4.13-preview.16"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-viper-ultimate-wired-driver"
 version = "0.4.9-preview.3"
 dependencies = [

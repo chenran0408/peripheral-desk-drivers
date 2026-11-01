@@ -5,7 +5,7 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 pub type Result<T> = std::result::Result<T, String>;
 pub use peripheral_desk::model::Action;
-mod transport;
+pub mod transport;
 
 pub const G305_KEY: &str = "logitech-g305";
 pub const G305_NAME: &str = "G305 Lightspeed Wireless Gaming Mouse";
@@ -229,6 +229,146 @@ fn verify_model(ids: &[u8], name: &str) -> Result<()> {
         ));
     }
     Ok(())
+}
+
+/// Read-only HID++ battery path for the other exact Logitech models listed by
+/// Voltide. Receiver PID and the paired product identity are checked separately;
+/// this deliberately does not expose G305 DPI/profile writes to those models.
+pub fn read_logitech_battery<T: Transport>(
+    transport: T,
+    expected_wpid: u16,
+    expected_name: &str,
+    display_name: &str,
+) -> Result<peripheral_desk::model::State> {
+    let mut reader = Reader(transport);
+    let mark = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default()
+        .subsec_nanos() as u8;
+    let ping = reader.call(0, 0x10, &[0, 0, mark])?;
+    if ping.len() < 3 || ping[0..2] != [4, 2] || ping[2] != mark {
+        return Err("Logitech HID++ 4.2 ping 校验失败".into());
+    }
+    let identity = reader.feature(0x0003)?;
+    let ids = reader.call(identity, 0, &[])?;
+    let name_feature = reader.feature(0x0005)?;
+    let name = reader.name(name_feature)?;
+    if ids.len() < 13 {
+        return Err("Logitech 设备身份回复不完整".into());
+    }
+    let flags = ids[6];
+    if flags & 0xf0 != 0 {
+        return Err("Logitech 设备身份包含未知 transport 标志".into());
+    }
+    let mut offset = 7;
+    let mut wpid = None;
+    for bit in [1, 2, 4, 8] {
+        if flags & bit != 0 {
+            let pair = ids
+                .get(offset..offset + 2)
+                .ok_or("Logitech transport ID 越界")?;
+            if bit == 4 {
+                wpid = Some(u16::from_be_bytes([pair[0], pair[1]]));
+            }
+            offset += 2;
+        }
+    }
+    if wpid != Some(expected_wpid) || name != expected_name {
+        return Err(format!(
+            "配对型号不匹配：{name} / WPID {}",
+            wpid.map(|v| format!("{v:04X}"))
+                .unwrap_or_else(|| "unknown".into())
+        ));
+    }
+    let reading = reader
+        .feature(0x1000)
+        .and_then(|index| reader.call(index, 0, &[]))
+        .and_then(|body| battery(&body))
+        .or_else(|_| {
+            // Voltide's newer Logitech devices expose BATTERY_VOLTAGE 0x1004;
+            // function 0 is millivolts, while function 1 returns percentage.
+            let index = reader.feature(0x1004)?;
+            let body = reader.call(index, 0x10, &[])?;
+            let level = *body.first().ok_or("HID++ 0x1004 电量回复不完整")?;
+            if level > 100 {
+                return Err("HID++ 0x1004 电量字段超出 0–100".into());
+            }
+            let flags = *body.get(1).ok_or("HID++ 0x1004 充电标志缺失")?;
+            Ok(((level != 0).then_some(level), Some(flags & 0x02 != 0)))
+        });
+    let (percent, charging, error, fresh) = match reading {
+        Ok((percent, charging)) => (percent, charging, String::new(), true),
+        Err(error) => (None, None, error, false),
+    };
+    Ok(peripheral_desk::model::State {
+        key: display_name.to_string(),
+        present: true,
+        fresh,
+        percent,
+        charging,
+        error,
+        wired: false,
+        updated: SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        identity: format!("046D HID++ 4.2 · WPID {:04X} · {name}", expected_wpid),
+        settings_error: "仅支持电量读取；DPI、回报率、改键、宏和灯光未在该型号插件中开放。".into(),
+        ..Default::default()
+    })
+}
+
+/// Voltide's receiver provider identifies these Logitech devices by their
+/// receiver PID and HID++ battery reply. Keep each PID in its own plugin while
+/// sharing the transport/parser here.
+pub fn read_logitech_pid<T: Transport>(
+    transport: T,
+    pid: u16,
+    model: &str,
+) -> Result<peripheral_desk::model::State> {
+    let mut reader = Reader(transport);
+    let mark = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default()
+        .subsec_nanos() as u8;
+    let ping = reader.call(0, 0x10, &[0, 0, mark])?;
+    if ping.len() < 3 || ping[0..2] != [4, 2] || ping[2] != mark {
+        return Err("Logitech HID++ 4.2 ping 校验失败".into());
+    }
+    let reading = reader
+        .feature(0x1000)
+        .and_then(|index| reader.call(index, 0, &[]))
+        .and_then(|body| battery(&body))
+        .or_else(|_| {
+            let index = reader.feature(0x1004)?;
+            let body = reader.call(index, 0x10, &[])?;
+            let level = *body.first().ok_or("HID++ 0x1004 电量回复不完整")?;
+            if level > 100 {
+                return Err("HID++ 0x1004 电量字段超出 0–100".into());
+            }
+            let flags = *body.get(1).ok_or("HID++ 0x1004 充电标志缺失")?;
+            Ok(((level != 0).then_some(level), Some(flags & 0x02 != 0)))
+        });
+    let (percent, charging, error, fresh) = match reading {
+        Ok((percent, charging)) => (percent, charging, String::new(), true),
+        Err(error) => (None, None, error, false),
+    };
+    Ok(peripheral_desk::model::State {
+        key: format!("logitech-{pid:04x}"),
+        present: true,
+        fresh,
+        percent,
+        charging,
+        error,
+        wired: pid == 0xC09B,
+        updated: SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        identity: format!("Logitech {model} · PID {pid:04X} · HID++ 4.2"),
+        settings_error: "仅支持电量读取；DPI、回报率、改键、宏和灯光未在该型号插件中开放。".into(),
+        ..Default::default()
+    })
 }
 fn battery(body: &[u8]) -> Result<(Option<u8>, Option<bool>)> {
     if body.len() < 3 {

@@ -74,3 +74,7 @@ G2 Pro 包需主程序 >=0.4.10，内含匹配 35BB:A100 的 x64 SDK、音频驱
 ## ATK N9 V2 Ultimate（preview）
 
 仅支持 `373B:1262` 接收器的 `FF90`、64 字节接口，通过中断输出查询，读取电量和已知充电状态。协议依据 Voltide v2.1.2 对该精确型号/接收器的贡献者真机验证记录；Peripheral Desk 尚未独立实测。不提供 EQ、虚拟 7.1、灯效或其他控制功能。详见 [ATK N9 V2 Ultimate 范围与来源](ATK-N9-V2-ULTIMATE.md)。
+
+## Logitech Voltide 设备（preview）
+
+Voltide v2.1.2 已报告 G Pro X Superlight 2（GPW3，LIGHTSPEED `046D:C547/C54D` 与有线 `C09B`）、M750M（`046D:C548`）和 G102（`046D:C539`）的 HID++ 电量读取。Peripheral Desk 为每个 PID 提供独立只读插件，并校验 HID++ 4.2 ping；本项目尚未独立实测。不开放 DPI、回报率、改键、宏或灯效。

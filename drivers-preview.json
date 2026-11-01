@@ -1,5 +1,160 @@
 [
   {
+    "id": "logitech-g102",
+    "name": "罗技 G102",
+    "version": "0.4.13-preview.13",
+    "description": "USB/接收器电量与充电状态读取；只读，不提供其他控制功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g102",
+      "name": "罗技 G102",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "USB/接收器 / 046D:C539 / HID++ 2.0",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 G102; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 罗技 G102 指定连接的电量与充电状态读取；采用 Voltide 已报告真机验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "logitech-m750m",
+    "name": "罗技 M750M",
+    "version": "0.4.13-preview.13",
+    "description": "Logi Bolt 接收器电量与充电状态读取；只读，不提供其他控制功能。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m750m",
+      "name": "罗技 M750M",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50504,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Logi Bolt 接收器 / 046D:C548 / HID++ 2.0",
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 M750M; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 罗技 M750M 指定连接的电量与充电状态读取；采用 Voltide 已报告真机验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
+    "id": "logitech-g-pro-x-superlight-2",
+    "name": "罗技 G Pro X Superlight 2",
+    "version": "0.4.13-preview.13",
+    "description": "支持指定 C547/C54D LIGHTSPEED 接收器与 C09B 有线接口的电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g-pro-x-superlight-2",
+      "name": "罗技 G Pro X Superlight 2",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 49307,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "G Pro X Superlight 2 LIGHTSPEED receiver 046D:C547",
+          "G Pro X Superlight 2 spare LIGHTSPEED receiver 046D:C54D",
+          "G Pro X Superlight 2 wired HID++ endpoint 046D:C09B"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 G Pro X Superlight 2; Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs",
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 罗技 G Pro X Superlight 2 指定连接的电量与充电状态读取；采用 Voltide 已报告真机验证范围，Peripheral Desk 尚未独立实测。"
+  },
+  {
     "id": "atk-a9-air-master-plus",
     "name": "ATK A9 Air 大师+",
     "version": "0.4.13-preview.12",

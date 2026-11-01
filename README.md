@@ -9,6 +9,10 @@
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
 | `logitech-g305`（预览） | G305 LIGHTSPEED，电量、条件允许时的 DPI 设置；需关闭板载配置，尚未实机验证 |
+| `logitech-g-pro-x-superlight-2`（预览） | G Pro X Superlight 2（GPW3）LIGHTSPEED 接收器/有线，电量与充电状态，只读 |
+| `logitech-m750m`（预览） | M750M Logi Bolt 接收器，电量与充电状态，只读 |
+| `logitech-g102`（预览） | G102 指定 HID++ 接口，电量与充电状态，只读 |
+
 | `razer-basilisk-v3-pro-wired`（预览） | Basilisk V3 Pro 有线，电量、DPI、回报率、灯效；尚未实机验证 |
 | `mchose-a7-v3-ultra-plus`（预览） | A7 V3 Ultra+ 接收器，电量、DPI、回报率、鼠标键映射；尚未实机验证 |
 | `vgn-f2-master-plus`（预览） | F2 Master+ 有线/接收器，电量、DPI、档位、回报率、鼠标键映射；尚未实机验证 |

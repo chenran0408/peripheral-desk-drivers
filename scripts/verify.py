@@ -120,7 +120,7 @@ def verify_catalog(path, abi, temporary, release_tag=None):
             raise ValueError("ZIP size/hash mismatch: " + filename)
         with zipfile.ZipFile(package) as archive:
             names = archive.namelist()
-            if len(blob) > 64 * 1024 * 1024 or len(names) > 128 or sum(info.file_size for info in archive.infolist()) > 128 * 1024 * 1024:
+            if len(blob) > 64 * 1024 * 1024 or len(names) > 256 or sum(info.file_size for info in archive.infolist()) > 128 * 1024 * 1024:
                 raise ValueError("Package exceeds desktop installer limits")
             if len(set(names)) != len(names) or not {"driver.dll", "device.png", "manifest.json", "LICENSE"}.issubset(names):
                 raise ValueError("Missing or duplicate package files")

@@ -6863,5 +6863,1159 @@
       "battery"
     ],
     "changelog": "新增 Rival 3 Wireless 和第二代电量读取。"
+  },
+  {
+    "id": "logitech-g533",
+    "name": "罗技 G533",
+    "version": "0.4.13-preview.23",
+    "description": "运行期按设备名校验；型号不符时不显示，仅提供只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g533",
+      "name": "罗技 G533",
+      "brand": "LOGITECH",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50478,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50481,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50484,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50485,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50487,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50490,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50493,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50497,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50501,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2662,
+          "usage_page": 65347,
+          "usage": 514,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "046D:0A66 直连集合与共享接收器；运行期校验 G533 名称",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将 G 系耳机列为 likely；各型号未逐一实测，本项目也未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G533只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "logitech-g535",
+    "name": "罗技 G535",
+    "version": "0.4.13-preview.23",
+    "description": "运行期按设备名校验；型号不符时不显示，仅提供只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g535",
+      "name": "罗技 G535",
+      "brand": "LOGITECH",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50478,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50481,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50484,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50485,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50487,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50490,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50493,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50497,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50501,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2756,
+          "usage_page": 12,
+          "usage": 1,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "046D:0AC4 直连集合与共享接收器；运行期校验 G535 名称",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将 G 系耳机列为 likely；各型号未逐一实测，本项目也未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G535只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "logitech-g733",
+    "name": "罗技 G733",
+    "version": "0.4.13-preview.23",
+    "description": "运行期按设备名校验；型号不符时不显示，仅提供只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g733",
+      "name": "罗技 G733",
+      "brand": "LOGITECH",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50478,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50481,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50484,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50485,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50487,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50490,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50493,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50497,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50501,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2741,
+          "usage_page": 65347,
+          "usage": 514,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2814,
+          "usage_page": 65347,
+          "usage": 514,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2847,
+          "usage_page": 65347,
+          "usage": 514,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "046D:0AB5/0AFE/0B1F 直连集合与共享接收器；运行期校验 G733 名称",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将 G 系耳机列为 likely；各型号未逐一实测，本项目也未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G733只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "logitech-g935",
+    "name": "罗技 G935",
+    "version": "0.4.13-preview.23",
+    "description": "运行期按设备名校验；型号不符时不显示，仅提供只读电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g935",
+      "name": "罗技 G935",
+      "brand": "LOGITECH",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50478,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50481,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50484,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50485,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50487,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50489,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50490,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50493,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50495,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50497,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50501,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50503,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50509,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 2695,
+          "usage_page": 65347,
+          "usage": 514,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "046D:0A87 直连集合与共享接收器；运行期校验 G935 名称",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将 G 系耳机列为 likely；各型号未逐一实测，本项目也未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/Sapd/HeadsetControl"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G935只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "asus-rog-chakram-x",
+    "name": "ROG Chakram X",
+    "version": "0.4.13-preview.23",
+    "description": "2.4 GHz 接收器或 USB 有线只读电量；蓝牙不支持。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-chakram-x",
+      "name": "ROG Chakram X",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6682,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 2821,
+          "pid": 6682,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 65,
+          "output_len": 65
+        },
+        {
+          "vid": 2821,
+          "pid": 6680,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 2821,
+          "pid": 6680,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1A1A 接收器 / 1A18 USB 有线；不含蓝牙",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将此设备族列为 no；按 G-Helper 协议事实适配，本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/seerge/g-helper"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增ROG Chakram X只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "asus-rog-keris-wireless",
+    "name": "ROG Keris Wireless",
+    "version": "0.4.13-preview.23",
+    "description": "2.4 GHz 接收器或 USB 有线只读电量；蓝牙不支持。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "asus-rog-keris-wireless",
+      "name": "ROG Keris Wireless",
+      "brand": "ASUS ROG",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 2821,
+          "pid": 6496,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 2821,
+          "pid": 6496,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 65,
+          "output_len": 65
+        },
+        {
+          "vid": 2821,
+          "pid": 6494,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        },
+        {
+          "vid": 2821,
+          "pid": 6494,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "0B05:1960 接收器 / 195E USB 有线；不含蓝牙",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 将此设备族列为 no；按 G-Helper 协议事实适配，本项目未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/asus.py",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/devices.md",
+          "https://github.com/seerge/g-helper"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增ROG Keris Wireless只读电量与充电状态；尚未实机验证。"
+  },
+  {
+    "id": "steelseries-arctis-7-2019",
+    "name": "SteelSeries Arctis 7 (2019)",
+    "version": "0.4.13-preview.23",
+    "description": "无线耳机电量只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-7-2019",
+      "name": "SteelSeries Arctis 7 (2019)",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 4781,
+          "usage_page": 65347,
+          "usage": 514
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:12AD 接收器 FF43:0202 接口 5",
+        "firmware": "unknown",
+        "project_validation": "根据 HeadsetControl 查询实现；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_7.hpp",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis 7 (2019) 电量读取。"
+  },
+  {
+    "id": "steelseries-arctis-9",
+    "name": "SteelSeries Arctis 9",
+    "version": "0.4.13-preview.23",
+    "description": "无线耳机电量和充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-9",
+      "name": "SteelSeries Arctis 9",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 4802
+        },
+        {
+          "vid": 4152,
+          "pid": 4804
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:12C2/12C4 接收器接口 0；12C4 为 HeadsetControl 未实机确认修订版",
+        "firmware": "unknown",
+        "project_validation": "根据 HeadsetControl 查询实现；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_9.hpp",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis 9 电量与充电状态读取。"
+  },
+  {
+    "id": "steelseries-arctis-pro-wireless",
+    "name": "SteelSeries Arctis Pro Wireless",
+    "version": "0.4.13-preview.23",
+    "description": "无线耳机基站电量只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-pro-wireless",
+      "name": "SteelSeries Arctis Pro Wireless",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "五档电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 4752
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:1290 无线基站接口 0",
+        "firmware": "unknown",
+        "project_validation": "根据 HeadsetControl 查询实现；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_pro_wireless.hpp",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis Pro Wireless 基站电量读取。"
+  },
+  {
+    "id": "steelseries-arctis-7-plus",
+    "name": "SteelSeries Arctis 7+",
+    "version": "0.4.13-preview.23",
+    "description": "无线耳机电量和充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-arctis-7-plus",
+      "name": "SteelSeries Arctis 7+",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "五档电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 8718,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8722,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8726,
+          "usage_page": 65472,
+          "usage": 1
+        },
+        {
+          "vid": 4152,
+          "pid": 8758,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:220E/2212/2216/2236 接收器 FFC0:0001 接口 3",
+        "firmware": "unknown",
+        "project_validation": "HeadsetControl 与 HaloBattery 均记录五档（0-4）电量；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_7_plus.hpp",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis 7+ 五档电量与充电状态读取。"
+  },
+  {
+    "id": "steelseries-gamebuds",
+    "name": "SteelSeries Arctis GameBuds",
+    "version": "0.4.13-preview.23",
+    "description": "显示佩戴中耳塞的较低电量。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "steelseries-gamebuds",
+      "name": "SteelSeries Arctis GameBuds",
+      "brand": "SteelSeries",
+      "kind": "headset",
+      "subtitle": "耳塞电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 4152,
+          "pid": 8970,
+          "usage_page": 65472,
+          "usage": 1
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "1038:230A 接收器 FFC0:0001 接口 3",
+        "firmware": "unknown",
+        "project_validation": "仅显示活跃耳塞的较低电量，不读取充电盒；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/Sapd/HeadsetControl/blob/master/lib/devices/steelseries_arctis_gamebuds.hpp",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/steelseries.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Arctis GameBuds 耳塞电量读取。"
+  },
+  {
+    "id": "eightbitdo-pro-2",
+    "name": "8BitDo Pro 2 / SN30 Pro / SF30 Pro",
+    "version": "0.4.13-preview.23",
+    "description": "蓝牙 D-input 手柄增强报告电量被动监听。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "eightbitdo-pro-2",
+      "name": "8BitDo Pro 2 / SN30 Pro / SF30 Pro",
+      "brand": "8BitDo",
+      "kind": "accessory",
+      "subtitle": "增强报告电量 · 被动只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 11720,
+          "pid": 24576
+        },
+        {
+          "vid": 11720,
+          "pid": 24832
+        },
+        {
+          "vid": 11720,
+          "pid": 24577
+        },
+        {
+          "vid": 11720,
+          "pid": 24833
+        },
+        {
+          "vid": 11720,
+          "pid": 24579
+        },
+        {
+          "vid": 11720,
+          "pid": 24582
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "2DC8:6000/6100/6001/6101/6003/6006 蓝牙 D-input；仅游戏已开启增强报告时读取",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 仅 Pro 3 电量实测；本系列电量适配器未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/eightbitdo.py",
+          "https://github.com/libsdl-org/SDL/blob/main/src/joystick/hidapi/SDL_hidapi_8bitdo.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 8BitDo Pro 2、SN30 Pro 和 SF30 Pro 的蓝牙被动电量监听。"
+  },
+  {
+    "id": "nintendo-switch-pro",
+    "name": "Nintendo Switch Pro Controller / Joy-Con",
+    "version": "0.4.13-preview.23",
+    "description": "蓝牙手柄电量和充电状态只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "nintendo-switch-pro",
+      "name": "Nintendo Switch Pro Controller / Joy-Con",
+      "brand": "Nintendo",
+      "kind": "accessory",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1406,
+          "pid": 8201
+        },
+        {
+          "vid": 1406,
+          "pid": 8198
+        },
+        {
+          "vid": 1406,
+          "pid": 8199
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "057E:2009/2006/2007 蓝牙；不更改报告模式",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery 标记未实机验证；Peripheral Desk 未实机验证。",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/nintendo.py",
+          "https://github.com/libsdl-org/SDL/blob/main/src/joystick/hidapi/SDL_hidapi_switch.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Switch Pro 和 Joy-Con 的蓝牙电量读取。"
   }
 ]

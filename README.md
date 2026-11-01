@@ -124,6 +124,20 @@
 | `sony-dualshock-4`（预览） | USB 与蓝牙输入报告被动读取电量；不向手柄发送命令。 |
 | `steam-controller-2025`（预览） | puck 槽位被动监听电量；静默时保留过期读数。 |
 
+| `logitech-g533`（预览） | 运行期按设备名校验；型号不符时不显示，仅提供只读电量。 |
+| `logitech-g535`（预览） | 运行期按设备名校验；型号不符时不显示，仅提供只读电量。 |
+| `logitech-g733`（预览） | 运行期按设备名校验；型号不符时不显示，仅提供只读电量。 |
+| `logitech-g935`（预览） | 运行期按设备名校验；型号不符时不显示，仅提供只读电量。 |
+| `asus-rog-chakram-x`（预览） | 2.4 GHz 接收器或 USB 有线只读电量；蓝牙不支持。 |
+| `asus-rog-keris-wireless`（预览） | 2.4 GHz 接收器或 USB 有线只读电量；蓝牙不支持。 |
+| `steelseries-arctis-7-2019`（预览） | 无线耳机电量只读。 |
+| `steelseries-arctis-9`（预览） | 无线耳机电量和充电状态只读。 |
+| `steelseries-arctis-pro-wireless`（预览） | 无线耳机基站电量只读。 |
+| `steelseries-arctis-7-plus`（预览） | 无线耳机电量和充电状态只读。 |
+| `steelseries-gamebuds`（预览） | 显示佩戴中耳塞的较低电量。 |
+| `eightbitdo-pro-2`（预览） | 蓝牙 D-input 手柄增强报告电量被动监听。 |
+| `nintendo-switch-pro`（预览） | 蓝牙手柄电量和充电状态只读。 |
+
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 
 ## 下载

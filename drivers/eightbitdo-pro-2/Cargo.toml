@@ -1,0 +1,12 @@
+[package]
+name = "eightbitdo-pro-2-driver"
+version = "0.4.13-preview.23"
+edition.workspace = true
+license.workspace = true
+publish = false
+[lib]
+crate-type = ["cdylib"]
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-8bitdo-pro2 = { path = "../../crates/protocol-8bitdo-pro2" }
+serde_json.workspace = true

@@ -370,7 +370,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g-pro-x-superlight-2-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -380,7 +380,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g102-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -390,7 +390,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g304-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -400,7 +400,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g305-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-hidpp",
@@ -776,7 +776,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-mobile-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -785,7 +785,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-v3-pro-35k-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -794,7 +794,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-v3-pro-35k-phantom-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -803,7 +803,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-v3-pro-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -821,7 +821,7 @@ dependencies = [
 
 [[package]]
 name = "razer-basilisk-v3-x-hyperspeed-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -839,7 +839,7 @@ dependencies = [
 
 [[package]]
 name = "razer-cobra-hyperspeed-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -848,7 +848,7 @@ dependencies = [
 
 [[package]]
 name = "razer-cobra-pro-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -877,7 +877,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v3-hyperspeed-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -886,7 +886,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v3-pro-alt-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -902,7 +902,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v4-pro-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -920,7 +920,7 @@ dependencies = [
 
 [[package]]
 name = "razer-lancehead-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -929,7 +929,7 @@ dependencies = [
 
 [[package]]
 name = "razer-mamba-chroma-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -938,7 +938,7 @@ dependencies = [
 
 [[package]]
 name = "razer-naga-v2-hyperspeed-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -947,7 +947,7 @@ dependencies = [
 
 [[package]]
 name = "razer-pro-click-mini-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -956,7 +956,7 @@ dependencies = [
 
 [[package]]
 name = "razer-pro-click-v2-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -965,7 +965,7 @@ dependencies = [
 
 [[package]]
 name = "razer-pro-click-v2-vertical-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -974,7 +974,7 @@ dependencies = [
 
 [[package]]
 name = "razer-viper-ultimate-receiver-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -1001,7 +1001,7 @@ dependencies = [
 
 [[package]]
 name = "razer-viper-v3-hyperspeed-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
@@ -1010,7 +1010,7 @@ dependencies = [
 
 [[package]]
 name = "razer-viper-v3-pro-driver"
-version = "0.4.13-preview.17"
+version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",

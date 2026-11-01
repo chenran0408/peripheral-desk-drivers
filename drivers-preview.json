@@ -2,7 +2,7 @@
   {
     "id": "logitech-g304",
     "name": "罗技 G304 LIGHTSPEED",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "精确 G304 身份校验后的电量与充电状态读取；只读，不提供其他控制功能。",
     "abi": 1,
     "dll": "driver.dll",
@@ -48,7 +48,7 @@
   {
     "id": "logitech-g102",
     "name": "罗技 G102",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "USB/接收器电量与充电状态读取；只读，不提供其他控制功能。",
     "abi": 1,
     "dll": "driver.dll",
@@ -138,7 +138,7 @@
   {
     "id": "logitech-g-pro-x-superlight-2",
     "name": "罗技 G Pro X Superlight 2",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "支持指定 C547/C54D LIGHTSPEED 接收器与 C09B 有线接口的电量读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -1762,7 +1762,7 @@
   {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "公开实现适配未实测；精确 G305 身份校验后的电量与 DPI 设置。板载配置开启时拒绝 DPI 写入。",
     "device": {
       "key": "logitech-g305",
@@ -3392,7 +3392,7 @@
   {
     "id": "razer-viper-v3-pro",
     "name": "Razer Viper V3 Pro",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3434,7 +3434,7 @@
   {
     "id": "razer-deathadder-v3-pro-alt",
     "name": "Razer DeathAdder V3 Pro (alternate receiver)",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3476,7 +3476,7 @@
   {
     "id": "razer-deathadder-v4-pro",
     "name": "Razer DeathAdder V4 Pro",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3518,7 +3518,7 @@
   {
     "id": "razer-basilisk-v3-pro",
     "name": "Razer Basilisk V3 Pro",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3560,7 +3560,7 @@
   {
     "id": "razer-basilisk-v3-pro-35k",
     "name": "Razer Basilisk V3 Pro 35K",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3602,7 +3602,7 @@
   {
     "id": "razer-basilisk-v3-pro-35k-phantom",
     "name": "Razer Basilisk V3 Pro 35K Phantom",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3644,7 +3644,7 @@
   {
     "id": "razer-deathadder-v3-hyperspeed",
     "name": "Razer DeathAdder V3 HyperSpeed",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3686,7 +3686,7 @@
   {
     "id": "razer-pro-click-v2",
     "name": "Razer Pro Click V2",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3728,7 +3728,7 @@
   {
     "id": "razer-pro-click-v2-vertical",
     "name": "Razer Pro Click V2 Vertical",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3770,7 +3770,7 @@
   {
     "id": "razer-basilisk-mobile",
     "name": "Razer Basilisk Mobile",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3812,7 +3812,7 @@
   {
     "id": "razer-cobra-pro",
     "name": "Razer Cobra Pro",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3854,7 +3854,7 @@
   {
     "id": "razer-cobra-hyperspeed",
     "name": "Razer Cobra HyperSpeed",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3896,7 +3896,7 @@
   {
     "id": "razer-naga-v2-hyperspeed",
     "name": "Razer Naga V2 HyperSpeed",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3938,7 +3938,7 @@
   {
     "id": "razer-viper-v3-hyperspeed",
     "name": "Razer Viper V3 HyperSpeed",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3980,7 +3980,7 @@
   {
     "id": "razer-basilisk-v3-x-hyperspeed",
     "name": "Razer Basilisk V3 X HyperSpeed",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -4022,7 +4022,7 @@
   {
     "id": "razer-pro-click-mini",
     "name": "Razer Pro Click Mini",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -4064,7 +4064,7 @@
   {
     "id": "razer-lancehead",
     "name": "Razer Lancehead",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -4106,7 +4106,7 @@
   {
     "id": "razer-mamba-chroma",
     "name": "Razer Mamba Chroma",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",
@@ -4148,7 +4148,7 @@
   {
     "id": "razer-viper-ultimate-receiver",
     "name": "Razer Viper Ultimate（2.4 GHz 接收器）",
-    "version": "0.4.13-preview.18",
+    "version": "0.4.13-preview.19",
     "description": "91 字节 Feature 接收器电量与充电状态读取；只读。",
     "abi": 1,
     "dll": "driver.dll",

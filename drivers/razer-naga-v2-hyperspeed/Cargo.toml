@@ -1,6 +1,6 @@
 [package]
 name = "razer-naga-v2-hyperspeed-driver"
-version = "0.4.13-preview.18"
+version = "0.4.13-preview.19"
 edition.workspace = true
 license.workspace = true
 publish = false

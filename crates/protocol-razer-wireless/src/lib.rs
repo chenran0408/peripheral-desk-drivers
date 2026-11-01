@@ -128,6 +128,16 @@ pub fn read_state(key: &str, model: &str, pid: u16) -> Result<State, String> {
 /// OpenRazer documents transaction 0x1F and a 0..255 raw battery scale for
 /// these specific mice. Do not infer charging from the battery reply.
 pub fn read_openrazer_battery(key: &str, model: &str, pid: u16) -> Result<State, String> {
+    read_openrazer_battery_with_tid(key, model, pid, 0x1f)
+}
+
+/// OpenRazer assigns a transaction ID per model in its battery-read switch.
+pub fn read_openrazer_battery_with_tid(
+    key: &str,
+    model: &str,
+    pid: u16,
+    transaction_id: u8,
+) -> Result<State, String> {
     let interfaces = hid::enumerate()?;
     let matches: Vec<_> = interfaces
         .iter()
@@ -147,9 +157,9 @@ pub fn read_openrazer_battery(key: &str, model: &str, pid: u16) -> Result<State,
     let device = Device::open(&interface.path)?;
     let mut last_error = String::from("Razer 接收器没有返回电量");
     for _ in 0..4 {
-        device.send(&request(0x1f))?;
+        device.send(&request(transaction_id))?;
         std::thread::sleep(Duration::from_millis(160));
-        match battery_from_reply(&device.receive(0, REPORT_LEN)?, 0x1f) {
+        match battery_from_reply(&device.receive(0, REPORT_LEN)?, transaction_id) {
             Ok((raw, _, _)) => {
                 let percent = ((u16::from(raw) * 100 + 127) / 255) as u8;
                 return Ok(State {
@@ -173,6 +183,33 @@ pub fn read_openrazer_battery(key: &str, model: &str, pid: u16) -> Result<State,
         std::thread::sleep(Duration::from_millis(120));
     }
     Err(last_error)
+}
+
+/// Shared ABI request handler for exact-PID, read-only OpenRazer adapters.
+pub fn dispatch_openrazer(
+    key: &str,
+    input: &str,
+    expected: &str,
+    model: &str,
+    pid: u16,
+    tid: u8,
+) -> String {
+    let result = (|| {
+        if key != expected {
+            return Err("驱动型号标识不匹配".to_string());
+        }
+        let request: serde_json::Value = serde_json::from_str(input).map_err(|e| e.to_string())?;
+        if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
+            return Err("仅支持只读电量".into());
+        }
+        serde_json::to_value(read_openrazer_battery_with_tid(expected, model, pid, tid)?)
+            .map_err(|e| e.to_string())
+    })();
+    match result {
+        Ok(v) => serde_json::json!({"ok":true,"value":v,"error":""}),
+        Err(e) => serde_json::json!({"ok":false,"value":null,"error":e}),
+    }
+    .to_string()
 }
 
 #[cfg(test)]

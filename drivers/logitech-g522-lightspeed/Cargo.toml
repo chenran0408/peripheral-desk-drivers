@@ -1,0 +1,14 @@
+[package]
+name = "logitech-g522-lightspeed-driver"
+version = "0.4.13-preview.27"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-logitech-g522 = { path = "../../crates/protocol-logitech-g522" }
+serde_json.workspace = true

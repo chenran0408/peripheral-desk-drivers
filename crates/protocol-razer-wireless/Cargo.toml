@@ -7,3 +7,4 @@ publish = false
 
 [dependencies]
 peripheral-desk.workspace = true
+serde_json.workspace = true

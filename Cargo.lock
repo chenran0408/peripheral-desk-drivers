@@ -43,7 +43,7 @@ dependencies = [
 
 [[package]]
 name = "atk-a9-air-master-plus-driver"
-version = "0.4.13-preview.12"
+version = "0.4.13-preview.14"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -104,7 +104,7 @@ dependencies = [
 
 [[package]]
 name = "atk-n9-v2-ultimate-driver"
-version = "0.4.13-preview.12"
+version = "0.4.13-preview.14"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -370,7 +370,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g-pro-x-superlight-2-driver"
-version = "0.4.13-preview.13"
+version = "0.4.13-preview.14"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -380,7 +380,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g102-driver"
-version = "0.4.13-preview.13"
+version = "0.4.13-preview.14"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -399,7 +399,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-m750m-driver"
-version = "0.4.13-preview.13"
+version = "0.4.13-preview.14"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",

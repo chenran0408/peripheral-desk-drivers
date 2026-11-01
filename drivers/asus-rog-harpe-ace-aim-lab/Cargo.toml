@@ -1,0 +1,14 @@
+[package]
+name = "asus-rog-harpe-ace-aim-lab-driver"
+version = "0.4.13-preview.24"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-asus-rog-mice = { path = "../../crates/protocol-asus-rog-mice" }
+serde_json.workspace = true

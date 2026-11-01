@@ -9,14 +9,12 @@ fn handler(key: &str, input: &str) -> String {
         if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
             return Err("This plugin provides battery and connection state only; DPI, polling, key mapping, macros and lighting are unavailable.".into());
         }
-        Ok(
-            serde_json::to_value(peripheral_desk_protocol_razer_wireless::read_state(
-                "razer-basilisk-v3-pro-35k",
-                "Basilisk V3 Pro 35K",
-                0x00CD,
-            ))
-            .map_err(|e| e.to_string())?,
-        )
+        serde_json::to_value(peripheral_desk_protocol_razer_wireless::read_state(
+            "razer-basilisk-v3-pro-35k",
+            "Basilisk V3 Pro 35K",
+            0x00CD,
+        )?)
+        .map_err(|e| e.to_string())
     })();
     match result {
         Ok(value) => serde_json::json!({"ok": true, "value": value, "error": ""}),

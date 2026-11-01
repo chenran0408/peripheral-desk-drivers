@@ -26,3 +26,5 @@ AJ179 PRO and MagDock previews use the original neutral placeholder illustration
 
 The Vigil Watt migration preview images use original generic category illustrations prepared for Peripheral Desk (keyboard, mouse, headset, or accessory silhouettes with model labels). They are identification placeholders, not vendor product photos or claims about a model's exact appearance.
 ATK F1 battery parsing in `protocol-atk-f1-battery` is adapted from Vigil Watt v1.3.0 (`a78e973b4eb634bdce37c9078dd48d1c07e3eb73`); the MIT license and copyright notice ship with the plugin.
+
+The newly added Razer receiver variants use the project's original neutral mouse illustration for identification, not vendor product photographs.

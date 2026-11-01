@@ -89,3 +89,32 @@ Voltide v2.1.2 已报告 G304（`046D:C53F`，与 G305 共用接收器 PID）、
 | ROG Azoth Extreme | `0B05:1ACE` Omni 接收器、`FF00:0001`、64 字节输入/输出 | 不新增 Azoth 别名包；与 [`asus-rog-scope-ii-96-omni`](../drivers/asus-rog-scope-ii-96-omni) 共用接收器 PID | 现有 Scope II 包会先查配对设备，并仅接受 Scope II 产品 ID `0x1AAE..0x1AB0`；Azoth 的接收器 PID 本身不足以证明具体型号，因此不把通用 Omni 回复标成 Azoth。 |
 
 这三项属于明确记录的上游能力缺口：共享 PID 没有可靠型号分流时，目录不发布会误导用户的型号别名；如后续获得 Azoth 或 K99 的运行时身份应答，再单独增加精确匹配包。
+
+
+## Voltide v2.1.2 全清单补齐
+
+新增 preview 插件均为只读电量/已知充电信息，逐设备按 Voltide 上游标出的 PID、接收器和接口匹配；上游有实物验证报告，本项目没有逐台实测。罗技 G304 与 G305 共用 `046D:C53F`，插件还校验 WPID `4074` 与完整型号名。Razer 使用 `1532`、91 字节 Feature、`MI_00` 接收器路径，并按对应 PID 单独安装；原始电量字段保留为诊断值，百分比遵循 Voltide 的 0–100 原值或 0–255 归一化换算。
+
+| 新增型号 | 连接标识 | 插件 | 能力 |
+| --- | --- | --- | --- |
+| Logitech G304 | `046D:C53F`，HID++ 4.2，WPID `4074`，G304 设备名 | `logitech-g304` | 电量、充电状态 |
+| Razer Viper Ultimate 无线 | `1532:007B` | `razer-viper-ultimate-receiver` | 电量、充电状态 |
+| Razer Viper V3 Pro | `1532:00C1` | `razer-viper-v3-pro` | 电量、充电状态 |
+| Razer DeathAdder V3 Pro（备用接收器） | `1532:00C3` | `razer-deathadder-v3-pro-alt` | 电量、充电状态 |
+| Razer DeathAdder V4 Pro | `1532:00BF` | `razer-deathadder-v4-pro` | 电量、充电状态 |
+| Razer Basilisk V3 Pro | `1532:00AB` | `razer-basilisk-v3-pro` | 电量、充电状态 |
+| Razer Basilisk V3 Pro 35K | `1532:00CD` | `razer-basilisk-v3-pro-35k` | 电量、充电状态 |
+| Razer Basilisk V3 Pro 35K Phantom | `1532:00D7` | `razer-basilisk-v3-pro-35k-phantom` | 电量、充电状态 |
+| Razer DeathAdder V3 HyperSpeed | `1532:00C5` | `razer-deathadder-v3-hyperspeed` | 电量、充电状态 |
+| Razer Pro Click V2 | `1532:00D1` | `razer-pro-click-v2` | 电量、充电状态 |
+| Razer Pro Click V2 Vertical | `1532:00C8` | `razer-pro-click-v2-vertical` | 电量、充电状态 |
+| Razer Basilisk Mobile | `1532:00D4` | `razer-basilisk-mobile` | 电量、充电状态 |
+| Razer Cobra Pro / Cobra HyperSpeed | `1532:00B0` / `00DB` | 对应两个独立插件 | 电量、充电状态 |
+| Razer Naga V2 HyperSpeed | `1532:00B4` | `razer-naga-v2-hyperspeed` | 电量、充电状态 |
+| Razer Viper V3 HyperSpeed | `1532:00B8` | `razer-viper-v3-hyperspeed` | 电量、充电状态 |
+| Razer Basilisk V3 X HyperSpeed | `1532:00B9` | `razer-basilisk-v3-x-hyperspeed` | 电量、充电状态 |
+| Razer Pro Click Mini | `1532:009A` | `razer-pro-click-mini` | 电量、充电状态 |
+| Razer Lancehead | `1532:005A` | `razer-lancehead` | 电量、充电状态 |
+| Razer Mamba Chroma | `1532:0045` | `razer-mamba-chroma` | 电量、充电状态 |
+
+G304/G305 身份会在接收器应答后解歧；仅相似 VID/PID 不够。MCHOSE K99 v2 与 G75 Pro 共用 `3554:FA09`，Voltide 当前 provider 没有可靠型号签名；ROG Azoth Extreme 与 Scope II Omni 共用 `0B05:1ACE`，只有通用接收器应答，故这两个型号未发布别名插件。

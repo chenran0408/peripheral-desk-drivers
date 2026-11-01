@@ -11,14 +11,15 @@
 | MCHOSE K99 v2 | `3554:FA09`，MCHOSE 20 字节无线键盘协议 | 与 [`mchose-g75-pro`](COMPATIBILITY.md) 存在同号风险 | Voltide provider 仅按 VID/PID、FF02 集合和 20 字节报告发现，并把该 PID 显示为 K99 v2；README 同时说明该标识也可能属于 G75、狼蛛等键盘。不能只按 VID/PID 自动标成 K99 或 G75，必须先通过型号/协议应答区分；当前不新增 K99 别名包。 |
 | MCHOSE G75 Pro | `3554:FA09`，MCHOSE 20 字节无线键盘协议 | [`mchose-g75-pro`](COMPATIBILITY.md) | Peripheral Desk 保留独立设备适配。核心在读写前查询 `0x05`，只接受 G75 Pro 型号签名 `[03 00 00 00 01 15]`；其验证记录与 Voltide 上游贡献者样本分别记录。 |
 | ROG Azoth Extreme | `0B05:1ACE` Omni 接收器，FF00/0001、64 字节帧 | 与 [`asus-rog-scope-ii-96-omni`](COMPATIBILITY.md) 共用接收器标识 | Voltide 的状态帧能读取电量，但接收器 PID 不携带具体配对键盘身份。现有 Scope II 包还要求配对产品 ID 落在 Scope II 范围；无法安全确认 Azoth 时不额外创建重复识别插件。 |
-| Razer Viper Ultimate、Viper V3 Pro、DeathAdder V3/V4 Pro、Basilisk V3 Pro 等无线型号 | Voltide 的 Razer provider 使用 91 字节 Feature Report；分别维护接收器 PID 清单 | 对照各 Razer 独立条目，见[兼容表](COMPATIBILITY.md) | 仅对目录中精确标注的具体 PID/连接复用。一个产品系列或同一报文长度不意味着任意 Razer HID 都可读取。 |
+| Razer Viper Ultimate 无线 | 接收器 `1532:007B`；91 字节 Feature、`MI_00` | `razer-viper-ultimate-receiver` | 已接入单独只读电量插件；不与有线 `007A` 条目混用。 |
+| Voltide Razer 无线 PID 清单 | `00C1,00C3,00BF,00E6,00AB,00CD,00D7,00C5,00D1,00C8,00D4,00B0,00DB,00B4,00B8,00B9,009A,005A,0045`；91 字节 Feature、`MI_00` | 18 个按 PID 区分的插件，见[兼容表](COMPATIBILITY.md) | 只读电量/充电字段；精确按 PID 匹配，转发 Voltide 的事务校验与 `0..100`/`0..255` 百分比换算。不提供其他设置。 |
 | Razer BlackShark V2 Pro | `1532:0555`，64 字节音频接收器通道 | [`razer-blackshark-v2-pro-2023`](COMPATIBILITY.md) | 已有 2023 版专用插件；不推广至其他 BlackShark 代际。 |
 | ATK A9 Air 大师+ | 接收器 `373B:1278`，`FF02`，17 字节输入/输出；`HidD_SetOutputReport` 查询 | `atk-a9-air-master-plus` | 已新增独立只读电量插件；与 A9 Plus Nearlink (`1115`/`10C9`) 严格分开。Voltide/贡献者报告为真机验证；本项目未实测。 |
 | ATK N9 V2 Ultimate | 接收器 `373B:1262`，`FF90`，64 字节输入/输出；`WriteFile` 查询 | `atk-n9-v2-ultimate` | 本批新增独立只读电量/已知充电状态插件；不与同 VID/PID 的 ATK 鼠标接口混淆，限定 `FF90` 集合。本项目未实测。 |
 
 ## 许可和实现来源
 
-本批按 Voltide MIT 授权移植对应协议实现，保留上游版权与许可文本于 `THIRD_PARTY_LICENSES/voltide/`，并在两个插件包中附带该许可。来源事实和适配范围分别指向 Voltide `src/Providers/ATKA9AiraddProvider.cs` 与 `src/Providers/ATKN9V2UltimateProvider.cs`；插件仍以本仓库 ABI 1、Rust DLL、设备专属 key 和按需目录发布。Voltide 是电量监控程序，不能作为 DPI、回报率、改键、宏、灯效或音效的证据。
+Voltide 协议事实和设备验证范围固定在 v2.1.2（`73f16fd2be44570c0a861cef6b4804d743656893`）。ATK 适配保留 MIT 许可原文；Logitech/Razer Rust 适配按对应上游 provider 资料独立实现，未复制厂商二进制文件。全部插件仍以本仓库 ABI 1、Rust DLL、设备专属 key 和按需目录发布。Voltide 是电量监控程序，不能作为 DPI、回报率、改键、宏、灯效或音效的证据。
 
 来源：
 

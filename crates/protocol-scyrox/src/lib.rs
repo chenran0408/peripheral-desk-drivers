@@ -90,7 +90,10 @@ pub fn read_state(model: Model) -> Result<State, String> {
                         key: model.key.into(),
                         present: true,
                         fresh: true,
-                        identity: format!("{} · 3554:{:04X} · 鼠标休眠或离线", model.name, interface.pid),
+                        identity: format!(
+                            "{} · 3554:{:04X} · 鼠标休眠或离线",
+                            model.name, interface.pid
+                        ),
                         settings_error: "接收器在线；鼠标未响应，不提供过期电量。".into(),
                         updated: now(),
                         ..State::default()

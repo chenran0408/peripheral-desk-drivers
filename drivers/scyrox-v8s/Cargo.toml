@@ -1,0 +1,14 @@
+[package]
+name = "scyrox-v8s-driver"
+version = "0.4.13-preview.40"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-scyrox = { path = "../../crates/protocol-scyrox" }
+serde_json.workspace = true

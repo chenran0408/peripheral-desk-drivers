@@ -1,0 +1,9 @@
+[package]
+name = "peripheral-desk-protocol-ninjutso-sora-v2"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true

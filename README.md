@@ -235,6 +235,9 @@
 | `logitech-signature-m550`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-signature-m650-l`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-pop-keys`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `aula-f99-pro`（预览） | 仅读取已确认身份的 2.4 GHz 接收器电量；充电状态未知。 |
+| `ajazz-aj159-apex`（预览） | 2.4 GHz 8K 接收器电量读取；只读，不推断充电状态。 |
+| `attack-shark-x6`（预览） | 读取 2.4 GHz 接收器推送的电量；只读。 |
 | `logitech-k400-plus`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
 | `logitech-k360`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
 | `logitech-k230`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
@@ -252,6 +255,10 @@
 | `razer-cynosa-v2`（预览） | 有线键盘背光开关。 |
 | `razer-blackwidow-elite`（预览） | 有线键盘背光开关。 |
 | `razer-huntsman-elite`（预览） | 有线键盘背光开关。 |
+| `scyrox-v6`（预览） | 只读读取 Scyrox V6 有线或 8K 接收器的电量、充电状态和电压。 |
+| `scyrox-v8s`（预览） | 只读读取 Scyrox V8S 有线或接收器的电量、充电状态和电压。 |
+| `ninjutso-sora-v2`（预览） | 只读读取 Ninjutso Sora V2 USB 线缆或 2.4 GHz 接收器的电量与充电状态。 |
+| `pulsar-x2-v2-mini`（预览） | 手动确认型号后，读取 Pulsar X2 V2 Mini USB 或接收器的电量与充电状态。 |
 | `atk-a9-air-master-plus`（预览） | 仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。 |
 | `atk-n9-v2-ultimate`（预览） | 373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。 |
 | `razer-viper-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |

@@ -107,3 +107,11 @@ The wave-11c device previews (Razer BlackWidow V3/V4/Elite, Huntsman
 V2/TKL/Elite/Mini/Tournament Edition, Ornata V3 and Cynosa V2 wired keyboards)
 use the same original generated brand-color letter icons for identification;
 they are not vendor artwork or product photographs.
+
+The wave-13c device previews (Scyrox V6/V8S, Ninjutso Sora V2 and Pulsar X2 V2
+Mini) use the same original generated brand-color letter icons for
+identification; they are not vendor artwork or product photographs.
+
+The wave-13a device previews (AULA F99 Pro, Ajazz AJ-series wireless mouse and
+Attack Shark X6) use the same original generated brand-color letter icons for
+identification; they are not vendor artwork or product photographs.

@@ -13388,5 +13388,347 @@
       "lighting-switch"
     ],
     "changelog": "新增 Huntsman Elite 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "scyrox-v6",
+    "name": "Scyrox V6",
+    "version": "0.4.13-preview.40",
+    "description": "只读读取 Scyrox V6 有线或 8K 接收器的电量、充电状态和电压。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "scyrox-v6",
+      "name": "Scyrox V6",
+      "brand": "SCYROX",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62966,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 62967,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "有线 3554:F5F6、8K 接收器 3554:F5F7；report 08，17 字节；命令 03 在线 / 04 电量，电量字节 6、充电字节 7、电压字节 8-9，校验和整帧为 0x55。",
+        "firmware": "unknown",
+        "project_validation": "VoltWalt/scyrox-v6-kde-battery provides live hardware captures for both command 03 and command 04. Peripheral Desk has not independently tested it.",
+        "source_refs": [
+          "https://github.com/VoltWalt/scyrox-v6-kde-battery/blob/master/PROTOCOL.md",
+          "https://github.com/VoltWalt/scyrox-v6-kde-battery/blob/master/src/scyroxdevice.cpp"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Scyrox V6 有线与 8K 接收器只读电量读取；上游包含实机抓包，本项目尚未实测。"
+  },
+  {
+    "id": "scyrox-v8s",
+    "name": "Scyrox V8S",
+    "version": "0.4.13-preview.40",
+    "description": "只读读取 Scyrox V8S 有线或接收器的电量、充电状态和电压。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "scyrox-v8s",
+      "name": "Scyrox V8S",
+      "brand": "SCYROX",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62741,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 62743,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "有线 3554:F515、接收器 3554:F517；report 08，17 字节；命令 04，电量字节 6、充电字节 7、电压字节 8-9，校验和整帧为 0x55。",
+        "firmware": "unknown",
+        "project_validation": "The public mouse-profile-manager implements battery reads for Scyrox V8S using these IDs and report fields. No exact-model hardware verification statement was found; Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/pedroolmartins/mouse-profile-manager/blob/main/src/hid/constants.js",
+          "https://github.com/pedroolmartins/mouse-profile-manager/blob/main/src/hid/protocol.js",
+          "https://github.com/pedroolmartins/mouse-profile-manager/blob/main/src/stores/mouse.js"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Scyrox V8S 有线与接收器只读电量读取；依据公开实现，尚未实机验证。"
+  },
+  {
+    "id": "ninjutso-sora-v2",
+    "name": "Ninjutso Sora V2",
+    "version": "0.4.13-preview.40",
+    "description": "只读读取 Ninjutso Sora V2 USB 线缆或 2.4 GHz 接收器的电量与充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "ninjutso-sora-v2",
+      "name": "Ninjutso Sora V2",
+      "brand": "NINJUTSO",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 6421,
+          "pid": 44562,
+          "usage_page": 65440,
+          "feature_len": 32
+        },
+        {
+          "vid": 6421,
+          "pid": 44572,
+          "usage_page": 65440,
+          "feature_len": 32
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "线缆 1915:AE12、接收器 1915:AE1C；usage page FFA0，Feature 05，31 字节命令体；命令 15，回复偏移 9 电量、10 充电、11 满电、12 接收器连接状态。充电时百分比可能滞后。",
+        "firmware": "unknown",
+        "project_validation": "The public Sora V2 battery tray documents its implementation and example reply from the NinjaForce driver, but no independent hardware validation statement was found. Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/lllexalllepexa/ninjutso-sora-v2-battery-tray/blob/main/README.md",
+          "https://github.com/lllexalllepexa/ninjutso-sora-v2-battery-tray/blob/main/sora_battery.py",
+          "https://github.com/lllexalllepexa/ninjutso-sora-v2-battery-tray/blob/main/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Ninjutso Sora V2 线缆与 2.4 GHz 接收器只读电量；充电时上游百分比可能滞后。"
+  },
+  {
+    "id": "pulsar-x2-v2-mini",
+    "name": "Pulsar X2 V2 Mini",
+    "version": "0.4.13-preview.40",
+    "description": "手动确认型号后，读取 Pulsar X2 V2 Mini USB 或接收器的电量与充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "pulsar-x2-v2-mini",
+      "name": "Pulsar X2 V2 Mini",
+      "brand": "PULSAR",
+      "kind": "mouse",
+      "subtitle": "电量 · 手动认领 · 只读",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "与 Pulsar X2 V2 共用 USB 标识，报告不包含可区分型号的身份信息；请确认设备确为 X2 V2 Mini 后再手动认领。",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 62728,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        },
+        {
+          "vid": 13652,
+          "pid": 62727,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 17,
+          "output_len": 17
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "2.4 GHz 接收器 3554:F508、USB 线缆 3554:F507；report 08，17 字节；命令 04，电量字节 6、线缆/充电字节 7、电压字节 8-9、校验和字节 16。与 X2 V2 共用标识，须手动确认型号。",
+        "firmware": "unknown",
+        "project_validation": "HaloBattery lists the Mini in this report family, but the public implementation does not establish separate hardware validation for the Mini. Peripheral Desk has not tested it.",
+        "source_refs": [
+          "https://github.com/HeyOkay/HaloBattery/blob/main/docs/protocols.md",
+          "https://github.com/HeyOkay/HaloBattery/blob/main/providers/pulsar.py",
+          "https://github.com/andrewrabert/python-pulsar-mouse-tool"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Pulsar X2 V2 Mini 手动认领后的只读电量读取；此型号与 X2 V2 共用 USB 标识。"
+  },
+  {
+    "id": "aula-f99-pro",
+    "name": "AULA F99 Pro",
+    "version": "0.4.13-preview.38",
+    "description": "仅读取已确认身份的 2.4 GHz 接收器电量；充电状态未知。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "aula-f99-pro",
+      "name": "AULA F99 Pro",
+      "brand": "AULA",
+      "kind": "keyboard",
+      "subtitle": "接收器电量 · 手动认领 · 只读",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "与 MCHOSE K99 V2 等型号共用 3554:FA09 接收器标识；插件运行时会查询 PSD，仅在确认 F99 Pro 身份后读取电量。",
+      "matches": [
+        {
+          "vid": 13652,
+          "pid": 64009,
+          "usage_page": 65282,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "仅 2.4 GHz 接收器 3554:FA09 / FF02:0002 / Report ID 0x13、20 字节；先核对 PSD 03 00 00 00 01 58，再读版本应答中的电量字节与无线状态标志。",
+        "firmware": "unknown",
+        "project_validation": "上游 F99 Pro 协议文档记录 Linux 实机 USB 通信与电量字段；Peripheral Desk 未独立实机验证。插件会拒绝不匹配的 PSD、报文校验和及未知电量值。",
+        "source_refs": [
+          "https://github.com/dnviti/aula-x99-pro-driver-linux/blob/7ec12ad1f2bb642a46ae91b0c3bce327de96f4ce/PROTOCOL.md#L168-L216",
+          "https://github.com/dnviti/aula-x99-pro-driver-linux/blob/7ec12ad1f2bb642a46ae91b0c3bce327de96f4ce/aula_f99pro.py#L624-L644"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 AULA F99 Pro 2.4 GHz 接收器电量读取；通过 PSD 验证具体型号，充电状态未知，尚待本项目实机验证。"
+  },
+  {
+    "id": "ajazz-aj159-apex",
+    "name": "AJAZZ AJ159 APEX (2.4G 8K)",
+    "version": "0.4.13-preview.38",
+    "description": "2.4 GHz 8K 接收器电量读取；只读，不推断充电状态。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "ajazz-aj159-apex",
+      "name": "AJAZZ AJ159 APEX (2.4G 8K)",
+      "brand": "AJAZZ",
+      "kind": "mouse",
+      "subtitle": "接收器电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 20487,
+          "usage_page": 65535,
+          "usage": 2,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "仅 AJAZZ 2.4G 8K 接收器 3151:5007 / FFFF:0002 / 65 字节 Feature；先发 F7 状态轮询，再读 report 0x05 第 3 字节。",
+        "firmware": "unknown",
+        "project_validation": "AJAZZ Control Center 记录该型号接收器电量已在实机读取；Peripheral Desk 尚未独立实测。轮询后校验报告头部并拒绝全零和越界电量。",
+        "source_refs": [
+          "https://github.com/Aiacos/ajazz-control-center/blob/03a29f7a90dd32057ca7cd0d6e6fa8f13d5400f3/src/devices/mouse/src/register.cpp#L50-L66",
+          "https://github.com/Aiacos/ajazz-control-center/blob/03a29f7a90dd32057ca7cd0d6e6fa8f13d5400f3/CHANGELOG.md#L1-L12",
+          "https://github.com/Aiacos/ajazz-control-center/blob/03a29f7a90dd32057ca7cd0d6e6fa8f13d5400f3/docs/protocols/mouse/aj_series_opcode_table.md#L1-L30",
+          "https://github.com/Aiacos/ajazz-control-center/blob/03a29f7a90dd32057ca7cd0d6e6fa8f13d5400f3/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 AJAZZ AJ159 APEX (2.4G 8K) 接收器电量读取；电量只在状态轮询后读取，充电状态未知，尚待本项目实机验证。"
+  },
+  {
+    "id": "attack-shark-x6",
+    "name": "Attack Shark X6",
+    "version": "0.4.13-preview.38",
+    "description": "读取 2.4 GHz 接收器推送的电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "attack-shark-x6",
+      "name": "Attack Shark X6",
+      "brand": "ATTACK SHARK",
+      "kind": "mouse",
+      "subtitle": "接收器电量 · 手动认领 · 只读",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "X3、R1、X11 等型号共用 1D57:FA60 接收器标识，设备无法自报具体型号；请确认你的型号为 X6。",
+      "matches": [
+        {
+          "vid": 7511,
+          "pid": 64096,
+          "usage_page": 1,
+          "usage": 128,
+          "input_len": 5
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Attack Shark X6 2.4 GHz 接收器 1D57:FA60；Interface 2 / usage 0x80；5 字节中断输入 report 0x03，`03 10 40` 心跳的 byte[4] × 10 为电量。",
+        "firmware": "unknown",
+        "project_validation": "attack-shark-linux 上游记录 X6 接收器实机电量心跳；Peripheral Desk 尚未实机验证。接收器和协议标识与多个型号共享，因此插件须手动认领 X6。",
+        "source_refs": [
+          "https://github.com/blak0p/attack-shark-linux/blob/d8b5c4e00104ef773c5557dc4c9d0ea2100c23ae/docs/protocol-x6.md#L170-L203",
+          "https://github.com/blak0p/attack-shark-linux/blob/d8b5c4e00104ef773c5557dc4c9d0ea2100c23ae/docs/protocol-x6.md#L269-L285",
+          "https://github.com/blak0p/attack-shark-linux/blob/d8b5c4e00104ef773c5557dc4c9d0ea2100c23ae/README.md#L209-L236",
+          "https://github.com/blak0p/attack-shark-linux/blob/d8b5c4e00104ef773c5557dc4c9d0ea2100c23ae/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Attack Shark X6 接收器被动电量心跳读取；该接收器标识与其他型号共用，需手动确认 X6，尚待本项目实机验证。"
   }
 ]

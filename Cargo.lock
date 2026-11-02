@@ -3,6 +3,15 @@
 version = 4
 
 [[package]]
+name = "ajazz-aj159-apex-driver"
+version = "0.4.13-preview.38"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-ajazz-aj159-apex",
+ "serde_json",
+]
+
+[[package]]
 name = "ajazz-aj179-pro-driver"
 version = "0.4.8-preview.1"
 dependencies = [
@@ -223,6 +232,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "attack-shark-x6-driver"
+version = "0.4.13-preview.38"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-attack-shark-x6",
+ "serde_json",
+]
+
+[[package]]
 name = "audeze-maxwell-driver"
 version = "0.4.13-preview.22"
 dependencies = [
@@ -247,6 +265,15 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "aula-f99-pro-driver"
+version = "0.4.13-preview.38"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-aula-f99-pro",
  "serde_json",
 ]
 
@@ -1547,6 +1574,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
 
 [[package]]
+name = "ninjutso-sora-v2-driver"
+version = "0.4.13-preview.40"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-ninjutso-sora-v2",
+ "serde_json",
+]
+
+[[package]]
 name = "nintendo-switch-pro-driver"
 version = "0.4.13-preview.23"
 dependencies = [
@@ -1610,6 +1646,13 @@ version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-ajazz-aj159-apex"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
 ]
 
 [[package]]
@@ -1679,12 +1722,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-attack-shark-x6"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-audeze-maxwell"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
  "windows-sys",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-aula-f99-pro"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -1892,6 +1951,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-ninjutso-sora-v2"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-nzxt-lift-elite-wireless"
 version = "0.4.2"
 dependencies = [
@@ -2010,6 +2076,14 @@ version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "serde_json",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-scyrox"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
 ]
 
 [[package]]
@@ -2135,6 +2209,15 @@ dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "pulsar-x2-v2-mini-driver"
+version = "0.4.13-preview.40"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-pulsar-17",
  "serde_json",
 ]
 
@@ -2761,6 +2844,24 @@ version = "0.4.13-preview.29"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "scyrox-v6-driver"
+version = "0.4.13-preview.40"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-scyrox",
+ "serde_json",
+]
+
+[[package]]
+name = "scyrox-v8s-driver"
+version = "0.4.13-preview.40"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-scyrox",
  "serde_json",
 ]
 

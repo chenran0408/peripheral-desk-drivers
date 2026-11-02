@@ -381,6 +381,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "darmoshark-m3-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
 name = "delux-m900-pro-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -438,6 +447,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "fuhlen-n87-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
 name = "gamesir-g7-pro-ce-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -455,6 +473,42 @@ checksum = "85649ca51fd72272d7821adaf274ad91c288277713d9c18820d8499a7ff69e9a"
 dependencies = [
  "typenum",
  "version_check",
+]
+
+[[package]]
+name = "glorious-model-d-minus-wireless-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-glorious-mow",
+ "serde_json",
+]
+
+[[package]]
+name = "glorious-model-d-wireless-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-glorious-mow",
+ "serde_json",
+]
+
+[[package]]
+name = "glorious-model-o-minus-wireless-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-glorious-mow",
+ "serde_json",
+]
+
+[[package]]
+name = "glorious-model-o-wireless-driver"
+version = "0.4.13-preview.29"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-glorious-mow",
+ "serde_json",
 ]
 
 [[package]]
@@ -1226,6 +1280,13 @@ version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-glorious-mow"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
 ]
 
 [[package]]
@@ -2066,6 +2127,15 @@ dependencies = [
 [[package]]
 name = "razer-viper-v4-pro-driver"
 version = "0.1.0"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "serde_json",
+]
+
+[[package]]
+name = "royal-kludge-m3-driver"
+version = "0.4.13-preview.29"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",

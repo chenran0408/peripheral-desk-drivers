@@ -10187,5 +10187,334 @@
       "battery"
     ],
     "changelog": "新增罗技 HID++ 接收器电量读取；多设备界面展示仍需主程序支持。"
+  },
+  {
+    "id": "glorious-model-o-wireless",
+    "name": "Glorious Model O Wireless",
+    "version": "0.4.13-preview.29",
+    "description": "无线接收器和 USB 线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "glorious-model-o-wireless",
+      "name": "Glorious Model O Wireless",
+      "brand": "GLORIOUS",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9610,
+          "pid": 8226,
+          "feature_len": 65
+        },
+        {
+          "vid": 9610,
+          "pid": 8209,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "258A:2022 接收器、258A:2011 线缆；65 字节 Feature 0 读取电量",
+        "firmware": "unknown",
+        "project_validation": "mow 项目在实机上逆向并读取电量；本项目尚未实机验证，充电状态不推断。",
+        "source_refs": [
+          "https://github.com/korkje/mow/blob/main/src/util/devices.rs",
+          "https://github.com/korkje/mow/blob/main/src/report/battery.rs",
+          "https://github.com/korkje/mow/blob/main/LICENSE.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Glorious Model O Wireless 接收器和线缆电量读取；尚待本项目实机验证。"
+  },
+  {
+    "id": "glorious-model-o-minus-wireless",
+    "name": "Glorious Model O- Wireless",
+    "version": "0.4.13-preview.29",
+    "description": "无线接收器和 USB 线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "glorious-model-o-minus-wireless",
+      "name": "Glorious Model O- Wireless",
+      "brand": "GLORIOUS",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9610,
+          "pid": 8228,
+          "feature_len": 65
+        },
+        {
+          "vid": 9610,
+          "pid": 8211,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "258A:2024 接收器、258A:2013 线缆；65 字节 Feature 0 读取电量",
+        "firmware": "unknown",
+        "project_validation": "mow 项目记录此型号协议与电量能力，未找到单独的实机读数；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/korkje/mow/blob/main/src/util/devices.rs",
+          "https://github.com/korkje/mow/blob/main/src/report/battery.rs",
+          "https://github.com/korkje/mow/blob/main/LICENSE.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Glorious Model O- Wireless 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "glorious-model-d-wireless",
+    "name": "Glorious Model D Wireless",
+    "version": "0.4.13-preview.29",
+    "description": "无线接收器和 USB 线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "glorious-model-d-wireless",
+      "name": "Glorious Model D Wireless",
+      "brand": "GLORIOUS",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9610,
+          "pid": 8227,
+          "feature_len": 65
+        },
+        {
+          "vid": 9610,
+          "pid": 8210,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "258A:2023 接收器、258A:2012 线缆；65 字节 Feature 0 读取电量",
+        "firmware": "unknown",
+        "project_validation": "mow 项目记录此型号协议与电量能力，未找到单独的实机读数；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/korkje/mow/blob/main/src/util/devices.rs",
+          "https://github.com/korkje/mow/blob/main/src/report/battery.rs",
+          "https://github.com/korkje/mow/blob/main/LICENSE.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Glorious Model D Wireless 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "glorious-model-d-minus-wireless",
+    "name": "Glorious Model D- Wireless",
+    "version": "0.4.13-preview.29",
+    "description": "无线接收器和 USB 线缆电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "glorious-model-d-minus-wireless",
+      "name": "Glorious Model D- Wireless",
+      "brand": "GLORIOUS",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9610,
+          "pid": 8229,
+          "feature_len": 65
+        },
+        {
+          "vid": 9610,
+          "pid": 8212,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "258A:2025 接收器、258A:2014 线缆；65 字节 Feature 0 读取电量",
+        "firmware": "unknown",
+        "project_validation": "mow 项目记录此型号协议与电量能力，未找到单独的实机读数；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/korkje/mow/blob/main/src/util/devices.rs",
+          "https://github.com/korkje/mow/blob/main/src/report/battery.rs",
+          "https://github.com/korkje/mow/blob/main/LICENSE.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Glorious Model D- Wireless 接收器和线缆电量读取；尚待实机验证。"
+  },
+  {
+    "id": "royal-kludge-m3",
+    "name": "Royal Kludge M3",
+    "version": "0.4.13-preview.29",
+    "description": "无线接收器和 USB 线缆电量与充电状态读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "royal-kludge-m3",
+      "name": "Royal Kludge M3",
+      "brand": "ROYAL KLUDGE",
+      "kind": "mouse",
+      "subtitle": "电量与充电状态 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14126,
+          "pid": 4121,
+          "usage_page": 65280
+        },
+        {
+          "vid": 14126,
+          "pid": 4138,
+          "usage_page": 65280
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "372E:1019 接收器、372E:102A 线缆；Feature 3/FF00；0x81 状态字节",
+        "firmware": "unknown",
+        "project_validation": "nibble 的实机软件提供电量和充电状态；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/shanuflash/nibble/blob/main/src/Devices/RoyalKludge/M3Mouse.cs",
+          "https://github.com/shanuflash/nibble/blob/main/src/Devices/RoyalKludge/RkLink.cs",
+          "https://github.com/shanuflash/nibble/blob/main/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Royal Kludge M3 无线和有线电量与充电状态读取；尚待本项目实机验证。"
+  },
+  {
+    "id": "darmoshark-m3",
+    "name": "Darmoshark M3",
+    "version": "0.4.13-preview.29",
+    "description": "2.4 GHz 接收器电量读取；配对身份校验；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "darmoshark-m3",
+      "name": "Darmoshark M3",
+      "brand": "DARMOSHARK",
+      "kind": "mouse",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 9354,
+          "pid": 65328,
+          "usage_page": 140,
+          "feature_len": 21
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "248A:FF30 接收器；bond 回复需是 248A:FF12 鼠标；Feature 51/opcode 06",
+        "firmware": "unknown",
+        "project_validation": "两个上游在实机上读取过接收器与电量；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/Asuka-Liu/M3-N87-battery-viewer/blob/main/config.py",
+          "https://github.com/Asuka-Liu/M3-N87-battery-viewer/blob/main/devices.py",
+          "https://github.com/Barba2k2/darmoshark-m3-configurator/blob/main/crates/darmoshark/src/replies/bond_info.rs",
+          "https://github.com/Barba2k2/darmoshark-m3-configurator/blob/main/LICENSE"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 Darmoshark M3 接收器电量读取，先核对配对鼠标身份；尚待本项目实机验证。"
+  },
+  {
+    "id": "fuhlen-n87",
+    "name": "Fuhlen N87",
+    "version": "0.4.13-preview.29",
+    "description": "2.4 GHz 接收器电量读取；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "fuhlen-n87",
+      "name": "Fuhlen N87",
+      "brand": "FUHLEN",
+      "kind": "keyboard",
+      "subtitle": "电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 12625,
+          "pid": 16401,
+          "feature_len": 65
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "3151:4011 2.4 GHz 接收器；Feature 0/opcode F7",
+        "firmware": "unknown",
+        "project_validation": "上游在实机上逐字节验证并读取此型号电量；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/Asuka-Liu/M3-N87-battery-viewer/blob/main/config.py",
+          "https://github.com/Asuka-Liu/M3-N87-battery-viewer/blob/main/devices.py",
+          "https://github.com/Asuka-Liu/M3-N87-battery-viewer/blob/main/README.md"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增腹灵 N87 无线接收器电量读取；尚待本项目实机验证。"
   }
 ]

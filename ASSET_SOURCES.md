@@ -69,3 +69,7 @@ photographs.
 The logitech-hidpp-generic preview uses the same original generated brand-color
 letter icon for identification; it is not vendor artwork or a product
 photograph.
+
+The wave-9 device previews (Glorious Model O/O-/D/D- Wireless, Royal Kludge M3,
+Darmoshark M3 and Fuhlen N87) use the same original generated brand-color letter
+icons for identification; they are not vendor artwork or product photographs.

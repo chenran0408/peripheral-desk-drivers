@@ -955,6 +955,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-m585-m590-driver"
+version = "0.4.13-preview.32"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-m720-triathlon-driver"
+version = "0.4.13-preview.32"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-m750m-driver"
 version = "0.4.13-preview.14"
 dependencies = [
@@ -972,6 +992,26 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-hidpp",
  "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-anywhere-3-driver"
+version = "0.4.13-preview.32"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-3-driver"
+version = "0.4.13-preview.32"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
  "serde_json",
 ]
 

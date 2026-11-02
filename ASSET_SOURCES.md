@@ -73,3 +73,8 @@ photograph.
 The wave-9 device previews (Glorious Model O/O-/D/D- Wireless, Royal Kludge M3,
 Darmoshark M3 and Fuhlen N87) use the same original generated brand-color letter
 icons for identification; they are not vendor artwork or product photographs.
+
+The wave-12 device previews (Logitech MX Master 3, MX Anywhere 3, M720
+Triathlon and M585/M590 Bluetooth) use the same original generated brand-color
+letter icons for identification; they are not vendor artwork or product
+photographs.

@@ -192,6 +192,10 @@
 | `royal-kludge-m3`（预览） | 无线接收器和 USB 线缆电量与充电状态读取；只读。 |
 | `darmoshark-m3`（预览） | 2.4 GHz 接收器电量读取；配对身份校验；只读。 |
 | `fuhlen-n87`（预览） | 2.4 GHz 接收器电量读取；只读。 |
+| `logitech-mx-master-3`（预览） | MX Master 3 蓝牙直连电量与充电状态；只读。 |
+| `logitech-mx-anywhere-3`（预览） | MX Anywhere 3 蓝牙直连电量与充电状态；只读。 |
+| `logitech-m720-triathlon`（预览） | M720 Triathlon 蓝牙直连电量与充电状态；只读。 |
+| `logitech-m585-m590`（预览） | M585/M590 蓝牙直连电量与充电状态；只读。 |
 
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 

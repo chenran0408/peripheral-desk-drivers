@@ -10516,5 +10516,193 @@
       "battery"
     ],
     "changelog": "新增腹灵 N87 无线接收器电量读取；尚待本项目实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-3",
+    "name": "罗技 MX Master 3 蓝牙版",
+    "version": "0.4.13-preview.32",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-3",
+      "name": "罗技 MX Master 3 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45091,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B023 蓝牙、HID++ 4.5、WPID 4082、设备名 Wireless Mouse MX Master 3、BATTERY STATUS 1000 显示 100%；适配器另尝试公开的 1004 function 1。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了该型号的蓝牙身份与电量读数；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Master%203%20Wireless%20Mouse%20B023.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 MX Master 3 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-anywhere-3",
+    "name": "罗技 MX Anywhere 3 蓝牙版",
+    "version": "0.4.13-preview.32",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-anywhere-3",
+      "name": "罗技 MX Anywhere 3 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45093,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B025 蓝牙、HID++ 4.5、WPID 4090、名称 MX Anywhere 3、UNIFIED BATTERY 1004；读取 function 1。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了该型号的蓝牙身份与 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Anywhere%203%20B025.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 MX Anywhere 3 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-m720-triathlon",
+    "name": "罗技 M720 Triathlon 蓝牙版",
+    "version": "0.4.13-preview.32",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m720-triathlon",
+      "name": "罗技 M720 Triathlon 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45077,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B015 蓝牙、HID++ 4.5、WPID 405E、名称 M720 Triathlon Multi-Device Mouse、BATTERY STATUS 1000 显示 50%。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了该型号的蓝牙身份与电量读数；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/M720%20Triathlon%20Multi-Device%20Mouse%20B015.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 M720 Triathlon 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-m585-m590",
+    "name": "罗技 M585 / M590 蓝牙版",
+    "version": "0.4.13-preview.32",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m585-m590",
+      "name": "罗技 M585 / M590 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45083,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "code-adapter-only",
+        "connections": "Solaar 设备快照记录 M585/M590 的 WPID 406B、BTLEID B01B 及 1000 电量读数；该快照未明确标注电量读取所用的蓝牙连接。",
+        "firmware": "unknown",
+        "project_validation": "上游记录了型号身份与电量特性，但未能确认快照中的电量读数来自蓝牙直连；本项目尚未实机验证，蓝牙接入仅为代码适配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Multi%20Device%20Silent%20Mouse%20M585-M590%20406B.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 M585 / M590 蓝牙电量代码适配，连接方式的上游验证尚不完整。"
   }
 ]

@@ -37,6 +37,16 @@ A7 V3 Ultra+ 与 VGN F2 Master+ 包版本为 **0.4.4-preview.2**。A7 仅 `3837:
 
 详见 [AJ179 PRO](AJAZZ-AJ179-PRO.md)、[Viper V2 Pro](RAZER-VIPER-V2-PRO.md)、[MagDock](MCHOSE-MAGDOCK.md)。旧版 Viper 只读说明由本节新增能力取代；其余旧包本次不变。
 
+## 0.4.13-preview.30–32 夜间批量接入
+
+| 型号 | 连接 | 功能 | 验证范围 |
+| --- | --- | --- | --- |
+| 8BitDo Ultimate 2 Wireless | 接收器 2DC8:6012（被动监听） | 电量、充电状态 | SDL 实机实现为据；本项目未实测，仅识别 34 字节增强报告 |
+| Razer Naga X | 有线 1532:0096 | DPI、回报率读取与设置 | OpenRazer 设备声明与命令为据；本项目未实测 |
+| Razer Basilisk V3 | 有线 1532:0099 | DPI、回报率读取与设置 | 同上；本项目未实测 |
+| 罗技 MX Master 3 / MX Anywhere 3 / M720 蓝牙版 | 蓝牙直连 | 电量、充电状态 | Solaar 设备快照记录蓝牙身份与电量特性；本项目未实测 |
+| 罗技 M585/M590 | 蓝牙直连 | 电量、充电状态 | Solaar 快照未明示读数来自蓝牙，仅代码适配 |
+
 ## 通道
 
 - stable：可在普通驱动商店选择。兼容范围明确，说明仍保留已知限制。

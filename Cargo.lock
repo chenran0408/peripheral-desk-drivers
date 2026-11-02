@@ -428,6 +428,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "eightbitdo-ultimate-2-wireless-driver"
+version = "0.4.13-preview.30"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-eightbitdo-ultimate-2",
+ "serde_json",
+]
+
+[[package]]
 name = "eweadn-s9-series-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -1316,6 +1325,14 @@ dependencies = [
 
 [[package]]
 name = "peripheral-desk-protocol-dualshock4"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-eightbitdo-ultimate-2"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",

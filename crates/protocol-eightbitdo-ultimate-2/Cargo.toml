@@ -1,0 +1,10 @@
+[package]
+name = "peripheral-desk-protocol-eightbitdo-ultimate-2"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../hid-transport" }

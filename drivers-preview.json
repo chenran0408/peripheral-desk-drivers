@@ -10813,5 +10813,46 @@
       "settings"
     ],
     "changelog": "新增 Razer Basilisk V3 有线 DPI 与回报率读写；本项目尚未实机验证。"
+  },
+  {
+    "id": "eightbitdo-ultimate-2-wireless",
+    "name": "8BitDo Ultimate 2 Wireless",
+    "version": "0.4.13-preview.30",
+    "description": "仅被动读取输入报告中的电量和充电状态；不会主动切换手柄模式。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "eightbitdo-ultimate-2-wireless",
+      "name": "8BitDo Ultimate 2 Wireless",
+      "brand": "8BITDO",
+      "kind": "accessory",
+      "subtitle": "电量与充电 · 被动只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 11720,
+          "pid": 24594
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "USB/无线接收器输入报告，VID:PID 2DC8:6012；只接收 Report ID 01/04、长度至少 34 字节的增强报告",
+        "firmware": "SDL 上游区分 v1.02 的 12 字节与 v1.03 的 34 字节固件报告；仅后者启用电量状态",
+        "project_validation": "SDL 的公开实现从增强输入报告字节 14 读取电量/充电位，并仅在 34 字节固件报告下启用电量状态；本项目尚未实机验证。旧固件和休眠状态显示无读数。",
+        "source_refs": [
+          "https://github.com/libsdl-org/SDL/blob/66f946e99bc58b7916e8787c207f677050140e95/src/joystick/usb_ids.h",
+          "https://github.com/libsdl-org/SDL/blob/66f946e99bc58b7916e8787c207f677050140e95/src/joystick/hidapi/SDL_hidapi_8bitdo.c"
+        ]
+      }
+    },
+    "core_min": "0.4.8",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增 8BitDo Ultimate 2 Wireless 的被动电量和充电状态读取；仅支持上游记录的 34 字节增强报告。"
   }
 ]

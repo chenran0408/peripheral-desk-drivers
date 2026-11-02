@@ -82,3 +82,7 @@ photographs.
 The wave-11 device previews (Razer Naga X and Basilisk V3 wired) use the same
 original generated brand-color letter icons for identification; they are not
 vendor artwork or product photographs.
+
+The wave-10 device preview (8BitDo Ultimate 2 Wireless) uses the same original
+generated brand-color letter icon for identification; it is not vendor artwork
+or a product photograph.

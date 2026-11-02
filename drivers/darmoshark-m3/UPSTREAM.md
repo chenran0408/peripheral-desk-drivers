@@ -1,0 +1,4 @@
+# Darmoshark M3
+
+- Sources: [Asuka-Liu/M3-N87-battery-viewer](https://github.com/Asuka-Liu/M3-N87-battery-viewer), `config.py`, `devices.py`, `docs/darmoshark-m3-PROTOCOL.md` (no license file found), and [Barba2k2/darmoshark-m3-configurator](https://github.com/Barba2k2/darmoshark-m3-configurator), `crates/darmoshark/src/replies/bond_info.rs` (MIT). Protocol facts only, independently implemented. The former maintainer states each byte was checked on hardware: 248A:FF30 receiver, feature ID 51, opcode 06, percent at reply body byte 10. Bond opcode 03 identifies the linked 248A:FF12 mouse before battery is read, preventing another device with the same receiver ID from being labeled M3.
+- Peripheral Desk has not tested hardware. The separate 248A:FF12 is the cable identity and is not included in this plugin.

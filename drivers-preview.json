@@ -12958,5 +12958,435 @@
       "battery"
     ],
     "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "razer-blackwidow-v3",
+    "name": "Razer BlackWidow V3",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v3",
+      "name": "Razer BlackWidow V3",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 590,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:024E，有线 Feature 报文 91 字节，背光亮度 TID 0x3F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 BlackWidow V3 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1108",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4094",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 BlackWidow V3 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-blackwidow-v4",
+    "name": "Razer BlackWidow V4",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-v4",
+      "name": "Razer BlackWidow V4",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 647,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:0287，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 BlackWidow V4 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L2135",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 BlackWidow V4 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-huntsman-v2",
+    "name": "Razer Huntsman V2",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-huntsman-v2",
+      "name": "Razer Huntsman V2",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 620,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:026C，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Huntsman V2 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L556",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Huntsman V2 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-huntsman-v2-tkl",
+    "name": "Razer Huntsman V2 TKL",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-huntsman-v2-tkl",
+      "name": "Razer Huntsman V2 TKL",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 619,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:026B，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Huntsman V2 Tenkeyless 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L534",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Huntsman V2 TKL 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-huntsman-mini",
+    "name": "Razer Huntsman Mini",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-huntsman-mini",
+      "name": "Razer Huntsman Mini",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 599,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:0257，有线 Feature 报文 91 字节，背光亮度 TID 0x3F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Huntsman Mini 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1970",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4117",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Huntsman Mini 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-huntsman-tournament-edition",
+    "name": "Razer Huntsman Tournament Edition",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-huntsman-tournament-edition",
+      "name": "Razer Huntsman Tournament Edition",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 579,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:0243，有线 Feature 报文 91 字节，背光亮度 TID 0x3F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Huntsman Tournament Edition 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1045",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4117",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Huntsman Tournament Edition 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-ornata-v3",
+    "name": "Razer Ornata V3",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-ornata-v3",
+      "name": "Razer Ornata V3",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 673,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:02A1，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Ornata V3 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L909",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4135",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Ornata V3 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-cynosa-v2",
+    "name": "Razer Cynosa V2",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-cynosa-v2",
+      "name": "Razer Cynosa V2",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 606,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:025E，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Cynosa V2 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1247",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4135",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Cynosa V2 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-blackwidow-elite",
+    "name": "Razer BlackWidow Elite",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-blackwidow-elite",
+      "name": "Razer BlackWidow Elite",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 552,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:0228，有线 Feature 报文 91 字节，背光亮度 TID 0x1F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 BlackWidow Elite 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1066",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4124",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 BlackWidow Elite 有线键盘背光开关；本项目尚待实机验证。"
+  },
+  {
+    "id": "razer-huntsman-elite",
+    "name": "Razer Huntsman Elite",
+    "version": "0.4.13-preview.37",
+    "description": "有线键盘背光开关。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-huntsman-elite",
+      "name": "Razer Huntsman Elite",
+      "brand": "RAZER",
+      "kind": "keyboard",
+      "subtitle": "背光开关",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 550,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "1532:0226，有线 Feature 报文 91 字节，背光亮度 TID 0x3F",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 声明 Huntsman Elite 并实现扩展矩阵亮度读写；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/keyboards.py#L1024",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerkbd_driver.c#L4117",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razerchromacommon.c#L714"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "lighting-switch"
+    ],
+    "changelog": "新增 Huntsman Elite 有线键盘背光开关；本项目尚待实机验证。"
   }
 ]

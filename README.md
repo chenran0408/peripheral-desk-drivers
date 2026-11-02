@@ -242,6 +242,16 @@
 | `logitech-m325`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
 | `logitech-m185-m235-m310`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
 | `logitech-m215`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `razer-blackwidow-v3`（预览） | 有线键盘背光开关。 |
+| `razer-blackwidow-v4`（预览） | 有线键盘背光开关。 |
+| `razer-huntsman-v2`（预览） | 有线键盘背光开关。 |
+| `razer-huntsman-v2-tkl`（预览） | 有线键盘背光开关。 |
+| `razer-huntsman-mini`（预览） | 有线键盘背光开关。 |
+| `razer-huntsman-tournament-edition`（预览） | 有线键盘背光开关。 |
+| `razer-ornata-v3`（预览） | 有线键盘背光开关。 |
+| `razer-cynosa-v2`（预览） | 有线键盘背光开关。 |
+| `razer-blackwidow-elite`（预览） | 有线键盘背光开关。 |
+| `razer-huntsman-elite`（预览） | 有线键盘背光开关。 |
 | `atk-a9-air-master-plus`（预览） | 仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。 |
 | `atk-n9-v2-ultimate`（预览） | 373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。 |
 | `razer-viper-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |

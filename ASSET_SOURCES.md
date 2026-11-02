@@ -102,3 +102,8 @@ The wave-12c device previews (Logitech K400 Plus, K360, K230, MK270, M325,
 M185/M235/M310 and M215 receivers) use the same original generated brand-color
 letter icons for identification; they are not vendor artwork or product
 photographs.
+
+The wave-11c device previews (Razer BlackWidow V3/V4/Elite, Huntsman
+V2/TKL/Elite/Mini/Tournament Edition, Ornata V3 and Cynosa V2 wired keyboards)
+use the same original generated brand-color letter icons for identification;
+they are not vendor artwork or product photographs.

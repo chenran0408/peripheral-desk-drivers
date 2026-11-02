@@ -97,3 +97,8 @@ including MX Master/Anywhere/Keys families, MX Ergo/Vertical, Lift, K380/K780,
 G604/G613/G515, Craft, Signature M550/M650 and POP Keys) use the same original
 generated brand-color letter icons for identification; they are not vendor
 artwork or product photographs.
+
+The wave-12c device previews (Logitech K400 Plus, K360, K230, MK270, M325,
+M185/M235/M310 and M215 receivers) use the same original generated brand-color
+letter icons for identification; they are not vendor artwork or product
+photographs.

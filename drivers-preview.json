@@ -12573,5 +12573,390 @@
       "battery"
     ],
     "changelog": "新增罗技 POP Keys 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k400-plus",
+    "name": "罗技 K400 Plus 无线触控键盘",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k400-plus",
+      "name": "罗技 K400 Plus 无线触控键盘",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 404D、名称 Wireless Touch Keyboard K400 Plus 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Touch%20Keyboard%20K400%20Plus%20404D.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k360",
+    "name": "罗技 K360 无线键盘",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k360",
+      "name": "罗技 K360 无线键盘",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 4004、名称 Wireless Keyboard K360 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Keyboard%20K360%204004.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k230",
+    "name": "罗技 K230 无线键盘",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k230",
+      "name": "罗技 K230 无线键盘",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 400D、名称 Wireless Keyboard K230 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Keyboard%20K230%20400D.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mk270",
+    "name": "罗技 MK270 无线键盘",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mk270",
+      "name": "罗技 MK270 无线键盘",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 4023、名称 Wireless Keyboard 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Keyboard%20MK270%204023.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-m325",
+    "name": "罗技 M325 无线鼠标",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m325",
+      "name": "罗技 M325 无线鼠标",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 400A、名称 Wireless Mouse M325 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20M325%20400A.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-m185-m235-m310",
+    "name": "罗技 M185 / M235 / M310 无线鼠标",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m185-m235-m310",
+      "name": "罗技 M185 / M235 / M310 无线鼠标",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 4055、名称 Wireless Mouse 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20M185%2CM235%2CM310%204055.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-m215",
+    "name": "罗技 M215 第二代无线鼠标",
+    "version": "0.4.13-preview.36",
+    "description": "通过 HID++ 读取罗技设备电量；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-m215",
+      "name": "罗技 M215 第二代无线鼠标",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "HID++ 电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 50475,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        },
+        {
+          "vid": 1133,
+          "pid": 50482,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照记录 WPID 401B、名称 Wireless Mouse M215 2nd Gen 及 HID++ 0x1000 电量；适配器通过 Unifying 接收器首设备读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目设备快照记录了该型号身份和 HID++ 电量特性；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20M215%202nd%20Gen%20401B.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技型号 HID++ 电量读取；本项目尚未实机验证。"
   }
 ]

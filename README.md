@@ -235,6 +235,13 @@
 | `logitech-signature-m550`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-signature-m650-l`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-pop-keys`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-k400-plus`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-k360`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-k230`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-mk270`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-m325`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-m185-m235-m310`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
+| `logitech-m215`（预览） | 通过 HID++ 读取罗技设备电量；只读。 |
 | `atk-a9-air-master-plus`（预览） | 仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。 |
 | `atk-n9-v2-ultimate`（预览） | 373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。 |
 | `razer-viper-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |

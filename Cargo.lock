@@ -1014,8 +1014,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-k230-driver"
+version = "0.4.13-preview.36"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-k360-driver"
+version = "0.4.13-preview.36"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-k380-driver"
 version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-k400-plus-driver"
+version = "0.4.13-preview.36"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -1074,6 +1104,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-m185-m235-m310-driver"
+version = "0.4.13-preview.36"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-m215-driver"
+version = "0.4.13-preview.36"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-m325-driver"
+version = "0.4.13-preview.36"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-m585-m590-driver"
 version = "0.4.13-preview.32"
 dependencies = [
@@ -1096,6 +1156,16 @@ dependencies = [
 [[package]]
 name = "logitech-m750m-driver"
 version = "0.4.13-preview.14"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mk270-driver"
+version = "0.4.13-preview.36"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",

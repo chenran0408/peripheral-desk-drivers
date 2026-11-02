@@ -91,3 +91,9 @@ The wave-11b device previews (Razer DeathAdder Essential, DeathAdder V2, Mamba
 Elite, Viper 8KHz and Naga Trinity wired) use the same original generated
 brand-color letter icons for identification; they are not vendor artwork or
 product photographs.
+
+The wave-12b device previews (31 Logitech Bluetooth and receiver models
+including MX Master/Anywhere/Keys families, MX Ergo/Vertical, Lift, K380/K780,
+G604/G613/G515, Craft, Signature M550/M650 and POP Keys) use the same original
+generated brand-color letter icons for identification; they are not vendor
+artwork or product photographs.

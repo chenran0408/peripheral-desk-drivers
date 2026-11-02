@@ -44,8 +44,13 @@ jobs:
           DRIVER_PACKAGES: ${{ inputs.packages || '' }}
         shell: pwsh
         run: |
-          cargo fmt --all -- --check
-          if ($LASTEXITCODE -ne 0) { throw "Formatting check failed" }
+          # One rustfmt invocation for the whole workspace outgrows the Windows
+          # command-line limit now that the workspace has 200+ packages.
+          $packageNames = (cargo metadata --format-version 1 --no-deps | ConvertFrom-Json).packages.name
+          foreach ($name in $packageNames) {
+            cargo fmt -p $name -- --check
+            if ($LASTEXITCODE -ne 0) { throw "Formatting check failed: $name" }
+          }
           if (-not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)) {
             foreach ($package in $env:DRIVER_PACKAGES.Split(',')) {
               $package = $package.Trim()

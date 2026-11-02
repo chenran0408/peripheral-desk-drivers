@@ -11131,5 +11131,1447 @@
       "settings"
     ],
     "changelog": "新增 Razer Naga Trinity 有线 DPI 与回报率读写；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-craft-keyboard",
+    "name": "罗技 Craft Advanced Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-craft-keyboard",
+      "name": "罗技 Craft Advanced Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45904,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B350 蓝牙 HID++，公开 WPID 4066，设备名 Craft Advanced Keyboard，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Craft%20Advanced%20Keyboard%20B350.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 Craft Advanced Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-ergo-m575",
+    "name": "罗技 ERGO M575 Trackball 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-ergo-m575",
+      "name": "罗技 ERGO M575 Trackball 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45095,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B027 蓝牙 HID++，公开 WPID 4096，设备名 ERGO M575 Trackball，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/ERGO%20M575%20Trackball%204096.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 ERGO M575 Trackball 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-g604",
+    "name": "罗技 G604 LIGHTSPEED 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g604",
+      "name": "罗技 G604 LIGHTSPEED 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45092,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B024 蓝牙 HID++，公开 WPID 4085，设备名 G604 Wireless Gaming Mouse，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G604%20Wireless%20Gaming%20Mouse%204085.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G604 LIGHTSPEED 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-g613",
+    "name": "罗技 G613 Wireless Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g613",
+      "name": "罗技 G613 Wireless Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45903,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B34F 蓝牙 HID++，公开 WPID 4065，设备名 G613 Wireless Mechanical Gaming Keyboard，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G613%20Wireless%20Mechanical%20Gaming%20Keyboard%204065.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G613 Wireless Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k850",
+    "name": "罗技 K850 Performance Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k850",
+      "name": "罗技 K850 Performance Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45901,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B34D 蓝牙 HID++，公开 WPID 4062，设备名 K850 Performance Wireless Keyboard，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/K850%20Performance%20Wireless%20Keyboard%20B34D.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 K850 Performance Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k600-tv",
+    "name": "罗技 K600 TV Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k600-tv",
+      "name": "罗技 K600 TV Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45907,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B353 蓝牙 HID++，公开 WPID 4078，设备名 Keyboard K600 TV，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Keyboard%20K600%20TV%204078.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 K600 TV Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-ergo",
+    "name": "罗技 MX Ergo Trackball 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-ergo",
+      "name": "罗技 MX Ergo Trackball 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45085,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B01D 蓝牙 HID++，公开 WPID 406F，设备名 MX Ergo Multi-Device Trackball，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Ergo%20Multi-Device%20Trackball%20406F.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Ergo Trackball 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-keys",
+    "name": "罗技 MX Keys Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-keys",
+      "name": "罗技 MX Keys Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45915,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B35B 蓝牙 HID++，公开 WPID 408A，设备名 MX Keys Wireless Keyboard，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Keys%20Keyboard%20408A.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Keys Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-vertical",
+    "name": "罗技 MX Vertical 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-vertical",
+      "name": "罗技 MX Vertical 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45088,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B020 蓝牙 HID++，公开 WPID 407B，设备名 MX Vertical Advanced Ergonomic Mouse，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Vertical%20Wireless%20Mouse%20B020.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Vertical 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-anywhere-2s",
+    "name": "罗技 MX Anywhere 2S 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-anywhere-2s",
+      "name": "罗技 MX Anywhere 2S 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45082,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B01A 蓝牙 HID++，公开 WPID 406A，设备名 Wireless Mobile Mouse MX Anywhere 2S，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mobile%20Mouse%20MX%20Anywhere%202S%20B01A.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Anywhere 2S 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-2s",
+    "name": "罗技 MX Master 2S 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-2s",
+      "name": "罗技 MX Master 2S 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45081,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B019 蓝牙 HID++，公开 WPID 4069，设备名 Wireless Mouse MX Master 2S，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20MX%20Master%202S%20B019.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master 2S 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-b012",
+    "name": "罗技 MX Master (B012) 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-b012",
+      "name": "罗技 MX Master (B012) 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45074,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B012 蓝牙 HID++，公开 WPID 4041，设备名 Wireless Mouse MX Master，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20MX%20Master%20B012.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master (B012) 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-b01e",
+    "name": "罗技 MX Master (B01E) 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-b01e",
+      "name": "罗技 MX Master (B01E) 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45086,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B01E 蓝牙 HID++，公开 WPID 4071，设备名 Wireless Mouse MX Master，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20MX%20Master%204071.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master (B01E) 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-pebble-m350",
+    "name": "罗技 Pebble M350 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-pebble-m350",
+      "name": "罗技 Pebble M350 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45089,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B021 蓝牙 HID++，公开 WPID 4080，设备名 M350 Wireless Mouse，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Mouse%20Pebble%20M350%204080.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 Pebble M350 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k780",
+    "name": "罗技 K780 Multi-Device Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k780",
+      "name": "罗技 K780 Multi-Device Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45883,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B33B 蓝牙 HID++，公开 WPID 405B，设备名 K780 Multi-Device Wireless Keyboard，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Wireless%20Multi-Device%20Keyboard%20K780%20405B.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 K780 Multi-Device Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-g515-ls-tkl",
+    "name": "罗技 G515 LIGHTSPEED TKL 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-g515-ls-tkl",
+      "name": "罗技 G515 LIGHTSPEED TKL 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45961,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B389 蓝牙 HID++，公开 WPID 40B4，设备名 G515 LS TKL，电量特性 0x1000 或 0x1004。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，Windows HID 接口可用性仍待确认。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G515%20LS%20TKL%2040B4.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 G515 LIGHTSPEED TKL 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-k380",
+    "name": "罗技 K380 Multi-Device Keyboard 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-k380",
+      "name": "罗技 K380 Multi-Device Keyboard 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45890,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B342 蓝牙 HID++，设备名 Bluetooth Multi-Device Keyboard K380，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Bluetooth%20Multi-Device%20Keyboard%20K380%20B342.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 K380 Multi-Device Keyboard 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-lift",
+    "name": "罗技 LIFT Vertical Ergonomic Mouse 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-lift",
+      "name": "罗技 LIFT Vertical Ergonomic Mouse 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45105,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B031 蓝牙 HID++，设备名 LIFT VERTICAL ERGONOMIC MOUSE，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/LIFT%20VERTICAL%20ERGONOMIC%20MOUSE%20B031.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 LIFT Vertical Ergonomic Mouse 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-lift-for-business",
+    "name": "罗技 LIFT for Business 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-lift-for-business",
+      "name": "罗技 LIFT for Business 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45107,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B033 蓝牙 HID++，设备名 LIFT For Business，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/LIFT%20For%20Business%20B033.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 LIFT for Business 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-keys-mini",
+    "name": "罗技 MX Keys Mini 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-keys-mini",
+      "name": "罗技 MX Keys Mini 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45929,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B369 蓝牙 HID++，设备名 MX Keys Mini，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Keys%20Mini%20B369.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Keys Mini 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-keys-s",
+    "name": "罗技 MX Keys S 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-keys-s",
+      "name": "罗技 MX Keys S 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45944,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B378 蓝牙 HID++，设备名 MX Keys S，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Keys%20S%20B378.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Keys S 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-keys-business",
+    "name": "罗技 MX Keys for Business 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-keys-business",
+      "name": "罗技 MX Keys for Business 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45923,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B363 蓝牙 HID++，设备名 MX Keys for Business，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Keys%20for%20Business%20B363.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Keys for Business 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-3-business",
+    "name": "罗技 MX Master 3 for Business 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-3-business",
+      "name": "罗技 MX Master 3 for Business 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45096,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B028 蓝牙 HID++，设备名 MX Master 3 for Business，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Master%203%20for%20Business%20B028.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master 3 for Business 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-3s",
+    "name": "罗技 MX Master 3S 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-3s",
+      "name": "罗技 MX Master 3S 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45108,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B034 蓝牙 HID++，设备名 MX Master 3S，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Master%203S%20B034.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master 3S 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-mechanical",
+    "name": "罗技 MX Mechanical 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-mechanical",
+      "name": "罗技 MX Mechanical 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45926,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B366 蓝牙 HID++，设备名 MX Mechanical，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Mechanical%20B366.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Mechanical 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-mechanical-mini",
+    "name": "罗技 MX Mechanical Mini 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-mechanical-mini",
+      "name": "罗技 MX Mechanical Mini 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45927,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B367 蓝牙 HID++，设备名 MX Mechanical Mini，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Mechanical%20Mini%20B367.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Mechanical Mini 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-master-4",
+    "name": "罗技 MX Master 4 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-master-4",
+      "name": "罗技 MX Master 4 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45122,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B042 蓝牙 HID++，设备名 MX Master 4，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Master%204.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Master 4 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-mx-anywhere-3-business",
+    "name": "罗技 MX Anywhere 3 for Business 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-mx-anywhere-3-business",
+      "name": "罗技 MX Anywhere 3 for Business 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45101,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B02D 蓝牙 HID++，设备名 MX Anywhere 3 for Business，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/MX%20Anywhere%203%20for%20Business%20B02D.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 MX Anywhere 3 for Business 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-signature-m550",
+    "name": "罗技 Signature M550 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-signature-m550",
+      "name": "罗技 Signature M550 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45099,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B02B 蓝牙 HID++，设备名 Signature M550，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Signature%20M550.text",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 Signature M550 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-signature-m650-l",
+    "name": "罗技 Signature M650 L 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-signature-m650-l",
+      "name": "罗技 Signature M650 L 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "mouse",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45098,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B02A 蓝牙 HID++，设备名 Signature M650 L Mouse，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Signature%20M650%20L%20Mouse%20B02A.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 Signature M650 L 蓝牙电量读取；本项目尚未实机验证。"
+  },
+  {
+    "id": "logitech-pop-keys",
+    "name": "罗技 POP Keys 蓝牙版",
+    "version": "0.4.13-preview.35",
+    "description": "通过蓝牙 HID++ 读取电量与充电状态；只读。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "logitech-pop-keys",
+      "name": "罗技 POP Keys 蓝牙版",
+      "brand": "LOGITECH",
+      "kind": "keyboard",
+      "subtitle": "蓝牙电量 · 只读",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 1133,
+          "pid": 45925,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 20,
+          "output_len": 20
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": false,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": "Solaar 设备快照：046D:B365 蓝牙 HID++，设备名 Logi POP Keys，电量特性 0x1000 或 0x1004。此型号未报告独立 WPID，适配器按专用蓝牙 PID 读取。",
+        "firmware": "unknown",
+        "project_validation": "Solaar 项目记录了此型号的蓝牙身份及 HID++ 2.0 电量特性；本项目尚未实机验证，适配器按设备专用蓝牙 PID 匹配。",
+        "source_refs": [
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/Logi%20Pop%20Keys%20B365.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/base_usb.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py"
+        ]
+      }
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "新增罗技 POP Keys 蓝牙电量读取；本项目尚未实机验证。"
   }
 ]

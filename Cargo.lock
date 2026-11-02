@@ -832,6 +832,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-craft-keyboard-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-ergo-m575-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-g-pro-x-superlight-2-driver"
 version = "0.4.13-preview.19"
 dependencies = [
@@ -891,6 +911,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-g515-ls-tkl-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-g522-lightspeed-driver"
 version = "0.4.13-preview.27"
 dependencies = [
@@ -914,6 +944,26 @@ version = "0.4.13-preview.23"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-logitech-gseries-headset",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-g604-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-g613-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
  "serde_json",
 ]
 
@@ -964,6 +1014,66 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-k380-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-k600-tv-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-k780-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-k850-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-lift-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-lift-for-business-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-m585-m590-driver"
 version = "0.4.13-preview.32"
 dependencies = [
@@ -1005,8 +1115,98 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-mx-anywhere-2s-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-anywhere-3-business-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-mx-anywhere-3-driver"
 version = "0.4.13-preview.32"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-ergo-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-keys-business-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-keys-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-keys-mini-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-keys-s-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-2s-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-3-business-driver"
+version = "0.4.13-preview.35"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -1025,11 +1225,121 @@ dependencies = [
 ]
 
 [[package]]
+name = "logitech-mx-master-3s-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-4-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-b012-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-master-b01e-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-mechanical-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-mechanical-mini-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-mx-vertical-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-pebble-m350-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-pop-keys-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
 name = "logitech-pro-x2-lightspeed-driver"
 version = "0.4.11-preview.1"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-logitech-pro-x2",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-signature-m550-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
+ "serde_json",
+]
+
+[[package]]
+name = "logitech-signature-m650-l-driver"
+version = "0.4.13-preview.35"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-hidpp",
  "serde_json",
 ]
 

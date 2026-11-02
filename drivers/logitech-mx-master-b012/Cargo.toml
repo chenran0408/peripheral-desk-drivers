@@ -1,0 +1,15 @@
+[package]
+name = "logitech-mx-master-b012-driver"
+version = "0.4.13-preview.35"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-hidpp = { path = "../../crates/protocol-hidpp" }
+serde_json.workspace = true

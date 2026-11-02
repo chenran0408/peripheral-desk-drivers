@@ -204,6 +204,37 @@
 | `razer-mamba-elite`（预览） | Mamba Elite 有线，DPI 与回报率读取、设置；尚未实机验证。 |
 | `razer-viper-8khz`（预览） | Viper 8KHz 有线，DPI 与回报率读取、设置；尚未实机验证。 |
 | `razer-naga-trinity`（预览） | Naga Trinity 有线，DPI 与回报率读取、设置；尚未实机验证。 |
+| `logitech-craft-keyboard`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-ergo-m575`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-g604`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-g613`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-k850`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-k600-tv`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-ergo`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-keys`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-vertical`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-anywhere-2s`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-2s`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-b012`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-b01e`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-pebble-m350`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-k780`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-g515-ls-tkl`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-k380`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-lift`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-lift-for-business`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-keys-mini`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-keys-s`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-keys-business`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-3-business`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-3s`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-mechanical`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-mechanical-mini`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-master-4`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-mx-anywhere-3-business`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-signature-m550`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-signature-m650-l`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `logitech-pop-keys`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 

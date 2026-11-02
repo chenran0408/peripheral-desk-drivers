@@ -199,6 +199,11 @@
 | `razer-naga-x`（预览） | Naga X 有线，DPI 与回报率读取、设置；尚未实机验证。 |
 | `razer-basilisk-v3-wired`（预览） | Basilisk V3 有线，DPI 与回报率读取、设置；尚未实机验证。 |
 | `eightbitdo-ultimate-2-wireless`（预览） | 8BitDo Ultimate 2 无线接收器，被动监听电量；只读。 |
+| `razer-deathadder-essential`（预览） | DeathAdder Essential 有线，DPI 与回报率读取、设置；尚未实机验证。 |
+| `razer-deathadder-v2`（预览） | DeathAdder V2 有线，DPI 与回报率读取、设置；尚未实机验证。 |
+| `razer-mamba-elite`（预览） | Mamba Elite 有线，DPI 与回报率读取、设置；尚未实机验证。 |
+| `razer-viper-8khz`（预览） | Viper 8KHz 有线，DPI 与回报率读取、设置；尚未实机验证。 |
+| `razer-naga-trinity`（预览） | Naga Trinity 有线，DPI 与回报率读取、设置；尚未实机验证。 |
 
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 

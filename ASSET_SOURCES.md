@@ -86,3 +86,8 @@ vendor artwork or product photographs.
 The wave-10 device preview (8BitDo Ultimate 2 Wireless) uses the same original
 generated brand-color letter icon for identification; it is not vendor artwork
 or a product photograph.
+
+The wave-11b device previews (Razer DeathAdder Essential, DeathAdder V2, Mamba
+Elite, Viper 8KHz and Naga Trinity wired) use the same original generated
+brand-color letter icons for identification; they are not vendor artwork or
+product photographs.

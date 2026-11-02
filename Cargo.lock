@@ -1609,6 +1609,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-razer-wired-settings"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "serde_json",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-razer-wireless"
 version = "0.4.2"
 dependencies = [
@@ -1945,6 +1953,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-deathadder-essential-driver"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wired-settings",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-deathadder-v2-driver"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wired-settings",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-deathadder-v2-pro-receiver-driver"
 version = "0.4.13-preview.27"
 dependencies = [
@@ -2059,6 +2085,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "razer-mamba-elite-driver"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wired-settings",
+ "serde_json",
+]
+
+[[package]]
 name = "razer-mamba-wireless-receiver-driver"
 version = "0.4.13-preview.27"
 dependencies = [
@@ -2072,6 +2107,15 @@ version = "0.4.13-preview.26"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-naga-trinity-driver"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wired-settings",
  "serde_json",
 ]
 
@@ -2141,6 +2185,15 @@ version = "0.4.13-preview.19"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-viper-8khz-driver"
+version = "0.4.13-preview.33"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-wired-settings",
  "serde_json",
 ]
 

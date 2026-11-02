@@ -78,3 +78,7 @@ The wave-12 device previews (Logitech MX Master 3, MX Anywhere 3, M720
 Triathlon and M585/M590 Bluetooth) use the same original generated brand-color
 letter icons for identification; they are not vendor artwork or product
 photographs.
+
+The wave-11 device previews (Razer Naga X and Basilisk V3 wired) use the same
+original generated brand-color letter icons for identification; they are not
+vendor artwork or product photographs.

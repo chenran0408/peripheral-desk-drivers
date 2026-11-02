@@ -1519,6 +1519,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "peripheral-desk-protocol-razer-basilisk-v3-wired"
+version = "0.4.13-preview.31"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "serde_json",
+]
+
+[[package]]
 name = "peripheral-desk-protocol-razer-blackshark-2020"
 version = "0.4.2"
 dependencies = [
@@ -1549,6 +1557,14 @@ version = "0.1.0"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-razer-naga-x"
+version = "0.4.13-preview.31"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "serde_json",
 ]
 
 [[package]]
@@ -1795,6 +1811,15 @@ version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer",
+ "serde_json",
+]
+
+[[package]]
+name = "razer-basilisk-v3-wired-driver"
+version = "0.4.13-preview.31"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-basilisk-v3-wired",
  "serde_json",
 ]
 
@@ -2048,6 +2073,15 @@ version = "0.4.13-preview.27"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer-wireless",
+]
+
+[[package]]
+name = "razer-naga-x-driver"
+version = "0.4.13-preview.31"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer-naga-x",
+ "serde_json",
 ]
 
 [[package]]

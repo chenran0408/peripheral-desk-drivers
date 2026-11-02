@@ -10704,5 +10704,114 @@
       "battery"
     ],
     "changelog": "新增 M585 / M590 蓝牙电量代码适配，连接方式的上游验证尚不完整。"
+  },
+  {
+    "id": "razer-naga-x",
+    "name": "Razer Naga X",
+    "version": "0.4.13-preview.31",
+    "description": "有线 DPI 与回报率读取和设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-naga-x",
+      "name": "Razer Naga X",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "DPI 与回报率设置",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 150,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "USB 有线 / 1532:0096 / Razer Feature 91 字节接口；只匹配唯一 MI_00 接口",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 的 Naga X 实现列出 DPI、DPI 档位和回报率读写；适配器沿用现有项目 Razer 有线命令结构并加入应答匹配；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L1347-L1374",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L79",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L128-L136",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2660",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1940-L2217",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      },
+      "dpi_range": [
+        100,
+        18000
+      ],
+      "rates": [
+        125,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "settings"
+    ],
+    "changelog": "新增 Razer Naga X 有线 DPI 与回报率读写；本项目尚未实机验证。"
+  },
+  {
+    "id": "razer-basilisk-v3-wired",
+    "name": "Razer Basilisk V3",
+    "version": "0.4.13-preview.31",
+    "description": "有线 DPI 与回报率读取和设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "razer-basilisk-v3-wired",
+      "name": "Razer Basilisk V3",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "DPI 与回报率设置",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 153,
+          "usage_page": 65280,
+          "feature_len": 91
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "USB 有线 / 1532:0099 / Razer Feature 91 字节接口；只匹配唯一 MI_00 接口",
+        "firmware": "unknown",
+        "project_validation": "OpenRazer 的 Basilisk V3 实现列出 DPI、DPI 档位和回报率读写；适配器沿用现有项目 Razer 有线命令结构并加入应答匹配；本项目尚未实机验证。",
+        "source_refs": [
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/daemon/openrazer_daemon/hardware/mouse.py#L1192-L1225",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.h#L81",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L1940-L2217",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/driver/razermouse_driver.c#L2548-L2660",
+          "https://github.com/openrazer/openrazer/blob/477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d/LICENSES/GPL-2.0-or-later.txt"
+        ]
+      },
+      "dpi_range": [
+        100,
+        26000
+      ],
+      "rates": [
+        125,
+        500,
+        1000
+      ]
+    },
+    "core_min": "0.4.0",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "settings"
+    ],
+    "changelog": "新增 Razer Basilisk V3 有线 DPI 与回报率读写；本项目尚未实机验证。"
   }
 ]

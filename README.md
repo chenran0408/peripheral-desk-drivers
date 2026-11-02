@@ -235,6 +235,27 @@
 | `logitech-signature-m550`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-signature-m650-l`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
 | `logitech-pop-keys`（预览） | 通过蓝牙 HID++ 读取电量与充电状态；只读。 |
+| `atk-a9-air-master-plus`（预览） | 仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。 |
+| `atk-n9-v2-ultimate`（预览） | 373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。 |
+| `razer-viper-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-deathadder-v3-pro-alt`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-deathadder-v4-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-basilisk-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-basilisk-v3-pro-35k`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-basilisk-v3-pro-35k-phantom`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-deathadder-v3-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-pro-click-v2`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-pro-click-v2-vertical`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-basilisk-mobile`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-cobra-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-cobra-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-naga-v2-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-viper-v3-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-basilisk-v3-x-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-pro-click-mini`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-lancehead`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-mamba-chroma`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-viper-ultimate-receiver`（预览） | 91 字节 Feature 接收器电量与充电状态读取；只读。 |
 
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
 

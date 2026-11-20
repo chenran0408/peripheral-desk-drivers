@@ -14452,7 +14452,7 @@
   {
     "id": "mchose-k5-ultra",
     "name": "迈从 K5 Ultra",
-    "version": "0.4.13-preview.48",
+    "version": "0.4.13-preview.49",
     "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14619,7 +14619,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.1",
+    "core_min": "0.4.12-preview.2",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15108,7 +15108,7 @@
   {
     "id": "mchose-g75-pro",
     "name": "迈从 G75 Pro",
-    "version": "0.4.13-preview.48",
+    "version": "0.4.13-preview.49",
     "description": "键盘设置、普通层与 Fn 层改键及灯色。",
     "device": {
       "key": "mchose-g75-pro",
@@ -15339,7 +15339,7 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.12-preview.1",
+    "core_min": "0.4.12-preview.2",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15357,7 +15357,7 @@
   {
     "id": "mchose-a5-ultra",
     "name": "迈从 A5 Ultra 初代",
-    "version": "0.4.13-preview.48",
+    "version": "0.4.13-preview.49",
     "description": "电量、传感器设置与六键改键；实验性宏只在原宏页可完整备份时开放。",
     "device": {
       "key": "mchose-a5-ultra",
@@ -15600,7 +15600,7 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.12-preview.1",
+    "core_min": "0.4.12-preview.2",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [

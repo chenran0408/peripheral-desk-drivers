@@ -1451,7 +1451,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a5-ultra-driver"
-version = "0.4.13-preview.48"
+version = "0.4.13-preview.49"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]
@@ -1577,7 +1577,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-g75-pro-driver"
-version = "0.4.13-preview.48"
+version = "0.4.13-preview.49"
 dependencies = [
  "peripheral-desk-driver-ffi",
 ]
@@ -1622,7 +1622,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k5-ultra-driver"
-version = "0.4.13-preview.48"
+version = "0.4.13-preview.49"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",

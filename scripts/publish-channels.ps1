@@ -83,7 +83,7 @@ $temporaryBase = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
 $temporary = Join-Path $temporaryBase ("pd-channel-" + [Guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $temporary | Out-Null
 try {
-    $plans = @(); $merged = @{}
+    $plans = @()
     foreach ($channel in @("stable", "preview")) {
         $name = "catalog-$channel.json"
         $incoming = Get-Content -LiteralPath (Join-Path $CatalogDirectory $name) -Raw | ConvertFrom-Json
@@ -92,7 +92,6 @@ try {
         $releaseOutput = @(gh api "repos/$Repository/releases/tags/$tag" 2>&1)
         $exists = $LASTEXITCODE -eq 0
         if (-not $exists -and ($releaseOutput -join "`n") -notmatch '\bHTTP 404\b|"status"\s*:\s*"?404"?') { throw "Cannot determine whether the existing $channel directory exists; refusing to overwrite it." }
-        if ($exists -and @($incoming.drivers).Count -eq 0) { Write-Output "Preserving existing $channel directory (no packages in this release)."; continue }
         $previous = $null
         if ($exists) {
             $oldDirectory = Join-Path $temporary "old-$channel"
@@ -102,15 +101,18 @@ try {
             & (Join-Path $PSScriptRoot "verify-signatures.ps1") -CatalogDirectory $oldDirectory -CatalogName $name -PublicKeyPath $PublicKeyPath
             $previous = Get-Content -LiteralPath (Join-Path $oldDirectory $name) -Raw | ConvertFrom-Json
         }
-        $merged[$channel] = Merge-DriverCatalog $previous $incoming $channel
+        $merged = Merge-DriverCatalog $previous $incoming $channel
+        $staged = Join-Path $temporary $name
+        [IO.File]::WriteAllText($staged, ($merged | ConvertTo-Json -Depth 100 -Compress) + "`n", [Text.UTF8Encoding]::new($false))
+        $browseUpdates = python (Join-Path $PSScriptRoot 'catalog_browse.py') --write $staged
+        if ($LASTEXITCODE -ne 0) { throw "Failed to refresh store fields in $name." }
+        if ($exists -and @($incoming.drivers).Count -eq 0 -and [int]$browseUpdates -eq 0) {
+            Write-Output "Preserving current $channel directory (no package or store changes)."
+            continue
+        }
         $plans += [pscustomobject]@{ Channel = $channel; Name = $name; Tag = $tag; Exists = $exists }
     }
     if ($plans.Count -eq 0) { return }
-    # Signer handles all three names. Unplanned channels are never uploaded.
-    foreach ($channel in @('stable', 'preview')) {
-        $value = if ($merged.ContainsKey($channel)) { $merged[$channel] } else { [pscustomobject]@{schema=1;channel=$channel;drivers=@()} }
-        [IO.File]::WriteAllText((Join-Path $temporary "catalog-$channel.json"), ($value | ConvertTo-Json -Depth 100) + "`n", [Text.UTF8Encoding]::new($false))
-    }
     Copy-Item -LiteralPath (Join-Path $temporary 'catalog-stable.json') -Destination (Join-Path $temporary 'catalog.json')
     & (Join-Path $PSScriptRoot "sign-catalog.ps1") -CatalogDirectory $temporary
     & (Join-Path $PSScriptRoot "verify-signatures.ps1") -CatalogDirectory $temporary -PublicKeyPath $PublicKeyPath

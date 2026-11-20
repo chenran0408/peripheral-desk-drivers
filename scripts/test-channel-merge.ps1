@@ -21,6 +21,7 @@ function Catalog([string]$Channel, [object[]]$Entries) { return [pscustomobject]
 $a = New-Entry 'mchose-a5-ultra' '0.4.0' 'stable' '1'
 $b = New-Entry 'mchose-g75-pro' '0.4.0' 'stable' '2'
 $a2 = New-Entry 'mchose-a5-ultra' '0.4.1' 'stable' '3'
+foreach ($item in @($a,$b,$a2)) { $item.device | Add-Member -NotePropertyName brand -NotePropertyValue 'MCHOSE' }
 $c = New-Entry 'new-device' '0.4.1' 'stable' '4'
 $old = Catalog 'stable' @($a,$b)
 $before = $old | ConvertTo-Json -Depth 100 -Compress
@@ -72,6 +73,8 @@ try {
     $incoming = Join-Path $temporary 'incoming'
     $oldSigned = Join-Path $temporary 'old-signed'
     $previewEntry = New-Entry 'logitech-g305' '0.4.1-preview.1' 'preview' '5'
+    $previewEntry.device | Add-Member -NotePropertyName brand -NotePropertyValue 'Logitech'
+    $previewEntry | Add-Member -NotePropertyName browse -NotePropertyValue ([pscustomobject]@{vendor_aliases=@('old'); family='protocol-old-slug'; future='preserved'})
     Write-Fixtures $oldSigned @($a,$b) @($previewEntry)
     Write-Fixtures $incoming @($a2) @()
     $global:PdFixtureRemote = Join-Path $temporary 'remote'
@@ -106,38 +109,44 @@ try {
         } else { throw 'Offline fixture refuses any unknown gh operation.' }
     }
     $sourceHashes = @(Get-ChildItem -LiteralPath $incoming -File | ForEach-Object { (Get-FileHash -LiteralPath $_.FullName).Hash }) -join ','
-    $previewHash = (Get-FileHash -LiteralPath (Join-Path $global:PdFixtureRemote 'catalog-preview/catalog-preview.json')).Hash
     & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public | Out-Null
-    Assert-True ($global:PdFixtureUploads -eq 1) 'Empty preview should not be overwritten.'
+    Assert-True ($global:PdFixtureUploads -eq 2) 'The legacy preview needs its search fields refreshed.'
     $stableDirectory = Join-Path $global:PdFixtureRemote 'catalog-stable'
     & (Join-Path $PSScriptRoot 'verify-signatures.ps1') -CatalogDirectory $stableDirectory -PublicKeyPath $public -CatalogName 'catalog-stable.json','catalog.json' | Out-Null
     $published = Get-Content -LiteralPath (Join-Path $stableDirectory 'catalog-stable.json') -Raw | ConvertFrom-Json
     Assert-True ($published.drivers.Count -eq 2 -and $published.drivers[0].version -eq '0.4.1') 'Signed merged channel is incomplete.'
+    Assert-True ($published.drivers[0].browse.vendor_aliases -contains '迈从') 'Updated package is missing the vendor alias.'
+    Assert-True ($published.drivers[1].browse.family -like '*Compx*') 'An unchanged package is missing its documented family.'
+    $published.drivers[1].PSObject.Properties.Remove('browse')
     Assert-True (($published.drivers[1] | ConvertTo-Json -Depth 100 -Compress) -ceq ($b | ConvertTo-Json -Depth 100 -Compress)) 'Signed merge lost old metadata.'
-    Assert-True (((Get-FileHash -LiteralPath (Join-Path $global:PdFixtureRemote 'catalog-preview/catalog-preview.json')).Hash) -eq $previewHash) 'Stable subset changed preview.'
+    $previewPath = Join-Path $global:PdFixtureRemote 'catalog-preview/catalog-preview.json'
+    $oldPreview = (Get-Content -LiteralPath $previewPath -Raw | ConvertFrom-Json).drivers[0]
+    Assert-True ($oldPreview.browse.vendor_aliases -contains '罗技' -and $oldPreview.browse.family -ceq '' -and $oldPreview.browse.future -ceq 'preserved') 'Inferred family or stale aliases reached the signed directory.'
+    $oldPreview.browse = $previewEntry.browse
+    Assert-True (($oldPreview | ConvertTo-Json -Depth 100 -Compress) -ceq ($previewEntry | ConvertTo-Json -Depth 100 -Compress)) 'Metadata-only refresh changed the package record.'
     Assert-True ((@(Get-ChildItem -LiteralPath $incoming -File | ForEach-Object { (Get-FileHash -LiteralPath $_.FullName).Hash }) -join ',') -eq $sourceHashes) 'Version-release subset or signature was changed.'
     $stableHash = (Get-FileHash -LiteralPath (Join-Path $stableDirectory 'catalog-stable.json')).Hash
     $preview2 = New-Entry 'logitech-g305' '0.4.1-preview.2' 'preview' '6'
     Write-Fixtures $incoming @() @($preview2)
     & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public | Out-Null
-    Assert-True ($global:PdFixtureUploads -eq 2) 'Preview subset should update only preview.'
+    Assert-True ($global:PdFixtureUploads -eq 3) 'Preview subset should update only preview once stable search fields are current.'
     Assert-True (((Get-FileHash -LiteralPath (Join-Path $stableDirectory 'catalog-stable.json')).Hash) -eq $stableHash) 'Preview subset changed stable.'
     Write-Fixtures $incoming @((New-Entry $a.id '0.4.2' 'stable' '7')) @()
     Add-Content -LiteralPath (Join-Path $stableDirectory 'catalog-stable.json') -Value ' '
     Assert-Fails { & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public } 'Signature verification failed'
-    Assert-True ($global:PdFixtureUploads -eq 2) 'Invalid old signature reached upload.'
+    Assert-True ($global:PdFixtureUploads -eq 3) 'Invalid old signature reached upload.'
     Copy-Item -LiteralPath (Join-Path $oldSigned 'catalog-stable.json') -Destination (Join-Path $stableDirectory 'catalog-stable.json') -Force
     $oldSignature = Join-Path $stableDirectory 'catalog-stable.json.sig'
     Remove-Item -LiteralPath $oldSignature -Force
     Assert-Fails { & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public } '.'
-    Assert-True ($global:PdFixtureUploads -eq 2) 'Missing old signature reached upload.'
+    Assert-True ($global:PdFixtureUploads -eq 3) 'Missing old signature reached upload.'
     $global:PdFixtureMode = 'network-error'
     Assert-Fails { & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public } 'Cannot determine'
-    Assert-True ($global:PdFixtureUploads -eq 2) 'Network error was treated as an empty old directory.'
+    Assert-True ($global:PdFixtureUploads -eq 3) 'Network error was treated as an empty old directory.'
     $global:PdFixtureMode = 'normal'
     $global:PdFixtureRemote = Join-Path $temporary 'initial-remote'
     & $publisher -Repository 'chenran0408/peripheral-desk-drivers' -CatalogDirectory $incoming -PublicKeyPath $public | Out-Null
-    Assert-True ($global:PdFixtureUploads -eq 4) 'First publication should create both canonical channels.'
+    Assert-True ($global:PdFixtureUploads -eq 5) 'First publication should create both canonical channels.'
     $first = Get-Content -LiteralPath (Join-Path $global:PdFixtureRemote 'catalog-stable/catalog-stable.json') -Raw | ConvertFrom-Json
     Assert-True ($first.drivers.Count -eq 1 -and $first.drivers[0].version -eq '0.4.2') 'Initial subset publication failed.'
     Write-Output 'Passed offline channel fixtures: subset preservation, metadata, immutable versions, ordering, re-signing, channel isolation, input preservation, initial publication, tamper, missing signature and network failure.'

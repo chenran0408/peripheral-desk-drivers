@@ -1,0 +1,13 @@
+[package]
+name = "mchose-k7-v2-pro-driver"
+version = "0.4.13-preview.42"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
+peripheral-desk-protocol-mchose-0x4d = { path = "../../crates/protocol-mchose-0x4d" }

@@ -41,7 +41,16 @@
 
 `version` 是该设备包自己的版本，不是主程序最低版本。例如稳定包0.4.1与G305预览包0.4.1-preview.1都仍使用ABI 1和上述0.4.x核心范围。只改一款设备时只提高该包的版本并选择该包构建，无需重发其他设备。
 
-版本发布的 catalog 是本批ZIP的子集；固定通道目录才是累计完整目录。`publish-channels.ps1` 会验证旧目录签名、按id合并并重签，保留其余设备的原始元数据和下载地址，拒绝同版不同哈希或倒退。空stable/preview输入不会清空已有通道。不要手工把subset直接覆盖固定通道目录。
+版本发布的 catalog 列出本批 ZIP。固定通道目录列出该通道的全部包。`publish-channels.ps1` 会验证旧目录签名、按 ID 合并并重签。旧包保留原下载地址、版本、大小和哈希。同一版本的哈希有变化或版本倒退时，发布会停止。
+
+从 v0.4.13-preview.42 起，目录条目可带顶层 `browse` 字段。例如 `"browse":{"vendor_aliases":["迈从"],"family":"A5 初代 · 取反 Feature"}`。厂商别名取自 `catalog/vendor-aliases.json`。系列名仅取自 `catalog/vendors.json` 中与厂商、通道和包 ID 对应的人工研究分组。未登记的别名为 `[]`，未登记的系列为 `""`。旧版目录可以省略整个字段。这些字段只供商店搜索和展示，位于签名目录中。
+
+发布时会同步两个通道中旧包的搜索字段。即使本批只发布预览包，稳定通道也可获取新别名或系列名。没有新包且搜索字段已是最新的通道会保留原来的目录及签名。维护者可在对应版本的源码目录里核对已下载的签名目录，例如：
+
+```powershell
+./scripts/verify-signatures.ps1 -CatalogDirectory work/published -CatalogName catalog-preview.json
+python scripts/catalog_browse.py --check work/published/catalog-preview.json
+```
 
 ## 目录签名与离线安装
 

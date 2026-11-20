@@ -10,6 +10,8 @@ import subprocess
 import tomllib
 import zipfile
 
+from catalog_browse import browse_metadata, load_browse_data
+
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://github.com/chenran0408/peripheral-desk-drivers/releases/download"
 
@@ -71,6 +73,7 @@ def main():
         target = ROOT / target
     args.out.mkdir(parents=True, exist_ok=True)
     entries, checksums = [], []
+    aliases, families = load_browse_data()
     for item in items:
         driver_id, version = item["id"], item["version"]
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", driver_id):
@@ -82,8 +85,8 @@ def main():
         if dll[:2] != b"MZ":
             parser.error(str(dll_path) + " is not a Windows PE DLL")
         manifest = {"schema": 1, "abi": 1, "dll": "driver.dll", **item, "dll_sha256": sha256(dll)}
-        # This manifest intentionally excludes the ZIP hash, URL and size.
-        for field in ["sha256", "package_url", "download_bytes"]:
+        # Download details and store search fields belong to the signed catalog.
+        for field in ["sha256", "package_url", "download_bytes", "browse"]:
             manifest.pop(field, None)
         name = f"{driver_id}-{version}-windows-x64.zip"
         package = args.out / name
@@ -174,6 +177,7 @@ def main():
                 archive.writestr(info, data)
         blob = package.read_bytes()
         entry = {**item, "abi": 1, "dll": "driver.dll", "dll_sha256": sha256(dll), "download_bytes": len(blob), "package_url": f"{BASE_URL}/{release_tag}/{name}", "sha256": sha256(blob)}
+        entry["browse"] = browse_metadata(entry, aliases, families)
         entries.append(entry)
         checksums.append(f"{entry['sha256']}  {name}")
         print(f"{driver_id}: DLL {entry['dll_sha256']}, ZIP {entry['sha256']}, {len(blob)} bytes")

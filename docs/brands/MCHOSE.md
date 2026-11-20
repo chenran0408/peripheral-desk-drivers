@@ -16,3 +16,5 @@
 固定研究资料包含 Vigil Watt 的[厂商设备表](../../catalog/upstream/vigil-watt/mchose-catalog.json)和[协议规格](../../catalog/upstream/vigil-watt/mchose.protocols.json)。设备表里的 `transports` 描述接收器，`devices` 描述产品型号。某条通道已支持读电量，只说明该资料里列出的接口和观察范围。
 
 [A7 的身份冲突、设置范围和来源](../MCHOSE-A7-V3.md) · [G87 V2 CZ 上游真机记录](../../drivers/mchose-g87-v2-cz/UPSTREAM.md) · [V9 Pro 的验证范围](../MCHOSE-V9-PRO.md) · [设备协议调查](../PROTOCOL-RESEARCH.md)
+
+预览商店提供 [16 款通用 8K 接收器鼠标的分型号插件](../../crates/protocol-mchose-0x4d/UPSTREAM.md)。详情读取配置档 0 的 DPI 档位、设备报告的活动档位以及配置回报率；X/Y 轴独立时分开显示。

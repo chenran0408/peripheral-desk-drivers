@@ -550,9 +550,9 @@ mod tests {
 
     #[test]
     fn response_must_match_transaction_checksum_and_command() {
-        let request = request(BATTERY.0, BATTERY.1, BATTERY.2, &[]).unwrap();
-        let reply = success_reply(&request, &[0, 200]);
-        assert_eq!(reply_body(&reply, &request).unwrap(), &[0, 200]);
+        let request = request(RATE_READ.0, RATE_READ.1, RATE_READ.2, &[]).unwrap();
+        let reply = success_reply(&request, &[1]);
+        assert_eq!(reply_body(&reply, &request).unwrap(), &[1]);
         let mut stale = reply;
         stale[2] ^= 1;
         stale[89] = checksum(&stale);

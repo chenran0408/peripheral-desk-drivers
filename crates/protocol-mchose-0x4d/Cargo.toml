@@ -1,0 +1,11 @@
+[package]
+name = "peripheral-desk-protocol-mchose-0x4d"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../hid-transport" }
+serde_json.workspace = true

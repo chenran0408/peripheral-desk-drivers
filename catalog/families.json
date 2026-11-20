@@ -96,6 +96,29 @@
         "models": [
           "mchose-magdock"
         ]
+      },
+      {
+        "id": "mouse-0x4d-8k",
+        "name": "0x4D 鼠标 · 通用 8K 接收器",
+        "scope": "确认安装后，主动读取配对本体的型号和电量。设备概览可读配置索引 0 的 X/Y 轴 DPI 分档值，并按本体和接收器的官方表换算配置回报率。",
+        "models": [
+          "mchose-a5-v3-pro",
+          "mchose-a5-v3-ultra",
+          "mchose-a5-v3-ultra-plus-3955",
+          "mchose-a7-v3",
+          "mchose-a7-v3-magnetic",
+          "mchose-a7-v3-pro",
+          "mchose-a7-v3-pro-plus",
+          "mchose-a7-v3-ultra",
+          "mchose-a7-v3-x",
+          "mchose-k5-pro",
+          "mchose-k5-ultra",
+          "mchose-k7-v2-pro",
+          "mchose-k7-v2-pro-plus",
+          "mchose-k7-v2-ultra",
+          "mchose-k7-v2-ultra-plus",
+          "mchose-r7-ultra"
+        ]
       }
     ]
   },

@@ -1,6 +1,6 @@
 # 按厂商查找外设
 
-共 51 个品牌、267 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
+共 51 个品牌、283 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
 
 [8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
 
@@ -412,6 +412,22 @@
 | Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [MCHOSE K99 V2](../drivers/mchose-k99-v2) | 3554:FA09 | 电量 | 预览 | 手动认领 | 上游实机 |
 | MagDock · 底座灯效 | [MCHOSE MagDock](../drivers/mchose-magdock) | 3837:1012 | 灯效编辑、灯光开关 | 预览 | 接口匹配 | 上游实机 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Pro](../drivers/mchose-a5-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra](../drivers/mchose-a5-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra+(3955)](../drivers/mchose-a5-v3-ultra-plus-3955) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3](../drivers/mchose-a7-v3) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Magnetic](../drivers/mchose-a7-v3-magnetic) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro](../drivers/mchose-a7-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro+](../drivers/mchose-a7-v3-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Ultra](../drivers/mchose-a7-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3-X](../drivers/mchose-a7-v3-x) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Pro](../drivers/mchose-k5-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Ultra](../drivers/mchose-k5-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro](../drivers/mchose-k7-v2-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro+](../drivers/mchose-k7-v2-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra](../drivers/mchose-k7-v2-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra+](../drivers/mchose-k7-v2-ultra-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 R7 Ultra](../drivers/mchose-r7-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置 | 预览 | 手动认领 | 公开实现 |
 | 鼠标 · 取反 0x06 状态 | [MCHOSE A7 V2 Ultra](../drivers/mchose-a7-v2-ultra/UPSTREAM.md) | 3837:100B | 电量 | 预览 | 接口匹配 | 代码适配 |
 | 鼠标 · 取反 0x06 状态 | [MCHOSE M7 Ultra](../drivers/mchose-m7-ultra/UPSTREAM.md) | 5253:1020 5253:0031 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | 鼠标 V2 · E2 状态上报 | [MCHOSE A7 V2 Pro](../drivers/mchose-a7-v2-pro/UPSTREAM.md) | 3837:100A | 电量 | 预览 | 接口匹配 | 上游实机 |

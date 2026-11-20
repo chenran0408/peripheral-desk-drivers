@@ -1457,6 +1457,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-a5-v3-pro-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a5-v3-ultra-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a5-v3-ultra-plus-3955-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
 name = "mchose-a7-v2-pro-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -1476,6 +1500,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-a7-v3-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a7-v3-magnetic-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a7-v3-pro-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a7-v3-pro-plus-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-a7-v3-ultra-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
 name = "mchose-a7-v3-ultra-plus-driver"
 version = "0.4.9-preview.1"
 dependencies = [
@@ -1483,6 +1547,14 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-v3",
  "serde_json",
+]
+
+[[package]]
+name = "mchose-a7-v3-x-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
 ]
 
 [[package]]
@@ -1532,6 +1604,54 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-k5-pro-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-k5-ultra-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-k7-v2-pro-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-k7-v2-pro-plus-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-k7-v2-ultra-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-k7-v2-ultra-plus-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
 name = "mchose-k99-v2-driver"
 version = "0.4.13-preview.20"
 dependencies = [
@@ -1556,6 +1676,14 @@ dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-magdock",
  "serde_json",
+]
+
+[[package]]
+name = "mchose-r7-ultra-driver"
+version = "0.4.13-preview.42"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-0x4d",
 ]
 
 [[package]]
@@ -1926,6 +2054,15 @@ version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-mchose-0x4d"
+version = "0.4.2"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+ "serde_json",
 ]
 
 [[package]]

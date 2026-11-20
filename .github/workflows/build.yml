@@ -71,7 +71,8 @@ jobs:
               "peripheral-desk-protocol-hecate-g3m-pro-upgrade",
               "peripheral-desk-protocol-logitech-bolt-mx-master-3s",
               "peripheral-desk-protocol-atk-f1-battery",
-              "peripheral-desk-protocol-mchose-cz"
+              "peripheral-desk-protocol-mchose-cz",
+              "peripheral-desk-protocol-mchose-0x4d"
             )
             foreach ($protocol in $protocolPackages) {
               cargo test --locked -p $protocol --lib

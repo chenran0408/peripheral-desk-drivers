@@ -135,9 +135,16 @@ fn dpi_config(frame: &[u8], profile: u8, direction: u8) -> Option<DpiConfig> {
     })
 }
 
-fn matches(interface: &hid::Interface) -> bool {
+fn receiver_for(paired_pid: u16) -> u16 {
+    match paired_pid {
+        0x4040 => 0x101c, // K5 V2 has its own wireless transport in mouseDiffConfig.
+        _ => RECEIVER,
+    }
+}
+
+fn matches(interface: &hid::Interface, receiver: u16) -> bool {
     interface.vid == VID
-        && interface.pid == RECEIVER
+        && interface.pid == receiver
         && interface.usage_page == 0xff01
         && interface.usage == 1
         && interface.input_len == LEN as u16
@@ -194,7 +201,10 @@ fn state(key: &str, expected_pid: u16, report: Info) -> Result<State, String> {
             _ => None,
         },
         wired: report.connection == 1,
-        connection_path: Some(format!("3837:1018 · FF01:0001 · {link}")),
+        connection_path: Some(format!(
+            "3837:{:04X} · FF01:0001 · {link}",
+            receiver_for(expected_pid)
+        )),
         identity: format!("0x0900 配对身份 3837:{expected_pid:04X}"),
         updated: SystemTime::now()
             .duration_since(UNIX_EPOCH)
@@ -236,7 +246,7 @@ fn read_state(
         .and_then(|(pair, perf)| {
             performance = perf;
             indices = Some(pair);
-            configured_rate(expected_pid, RECEIVER, pair)
+            configured_rate(expected_pid, receiver_for(expected_pid), pair)
         });
         match rate {
             Ok(hz) => state.rate = Some(hz),
@@ -307,11 +317,12 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
             return Err("不支持的设备操作".into());
         }
         let read_pointer = op.get("read_pointer").and_then(Value::as_bool) == Some(true);
-        let mut error = "未找到 3837:1018 的 8K 接收器命令接口".to_string();
+        let receiver = receiver_for(expected_pid);
+        let mut error = format!("未找到 3837:{receiver:04X} 的 8K 接收器命令接口");
         let instance = hid::request_instance(&op)?;
         for interface in hid::enumerate()?
             .iter()
-            .filter(|i| matches(i) && instance.is_none_or(|id| i.instance_id() == id))
+            .filter(|i| matches(i, receiver) && instance.is_none_or(|id| i.instance_id() == id))
         {
             let connected = (|| {
                 let mut t = WinTransport::open(&interface.path)?;
@@ -361,6 +372,34 @@ mod tests {
         0x4d, 1, 1, 16, 0, 9, 0, 0, 0x37, 0x38, 0x26, 0x40, 4, 0, 0, 0, 0, 0x10, 2, 0, 0x64, 0, 8,
         0xe4, 0xef,
     ];
+
+    #[test]
+    fn k5_v2_requires_its_receiver_collection_and_paired_identity() {
+        let mut i = hid::Interface {
+            path: String::new(),
+            vid: VID,
+            pid: 0x101c,
+            usage_page: 0xff01,
+            usage: 1,
+            feature_len: 0,
+            input_len: 64,
+            output_len: 64,
+            product: String::new(),
+        };
+        let receiver = receiver_for(0x4040);
+        assert!(matches(&i, receiver));
+        i.pid = 0x1018;
+        assert!(!matches(&i, receiver));
+        i.pid = receiver;
+        i.usage_page = 0xff0b;
+        assert!(!matches(&i, receiver));
+        let mut frame = CAPTURE.to_vec();
+        frame[10..12].copy_from_slice(&0x4040u16.to_le_bytes());
+        let report = info(&frame).unwrap();
+        assert!(state("mchose-k5-pro", 0x4037, report).is_err());
+        let selected = state("mchose-k5-v2", 0x4040, report).unwrap();
+        assert!(selected.connection_path.unwrap().contains("3837:101C"));
+    }
 
     #[test]
     fn capture_and_paired_identity_are_independent_of_the_receiver() {

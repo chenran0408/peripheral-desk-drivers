@@ -10,20 +10,26 @@ const LOD_WRITE: u16 = 0x0109;
 struct Model {
     dpi_max: u16,
     lod: &'static [&'static str],
+    glass: bool,
 }
 
 impl Model {
     fn lookup(pid: u16) -> Result<Self, String> {
-        // The body PID and mouseDiffConfig, matched through the 0x1018 receiver.
+        // The body PID and mouseDiffConfig, associated with the selected receiver.
         let (dpi_max, lod): (u16, &[&str]) = match pid {
             0x4035 | 0x403b | 0x4030 | 0x4037 => (26000, &["1 mm", "2 mm"]),
-            0x4027 | 0x4031 | 0x4032 => (42000, &["0.7 mm", "1 mm", "2 mm"]),
+            0x4027 | 0x4031 | 0x4032 | 0x4040 => (42000, &["0.7 mm", "1 mm", "2 mm"]),
             0x4042 | 0x4034 | 0x403c | 0x4028 | 0x403d | 0x403a | 0x403f | 0x4038 | 0x4036 => {
                 (50000, &["0.7 mm", "0.9 mm", "1.2 mm", "1.4 mm", "1.7 mm"])
             }
             _ => return Err("没有该鼠标的性能设置表".into()),
         };
-        Ok(Self { dpi_max, lod })
+        // M HUB also lists the 42K K5 V2 among its 3395 models without glass mode.
+        Ok(Self {
+            dpi_max,
+            lod,
+            glass: dpi_max != 26000 && pid != 0x4040,
+        })
     }
 
     fn dedicated_lod(self) -> bool {
@@ -139,7 +145,7 @@ pub(super) fn describe(
     value["dpi_min"] = json!(200);
     value["dpi_max"] = json!(model.dpi_max);
     value["dpi_step"] = json!(1);
-    value["supported_rates"] = json!(rate_table(pid, RECEIVER)?);
+    value["supported_rates"] = json!(rate_table(pid, receiver_for(pid))?);
     let b = perf.bytes;
     let control = |field: &str, label: &str, v: i64, min: i64, max: i64, unit: &str| {
         json!({
@@ -220,7 +226,7 @@ pub(super) fn describe(
             "",
         ));
     }
-    if model.dpi_max != 26000 {
+    if model.glass {
         controls.push(control(
             "glass",
             "玻璃表面模式",
@@ -461,7 +467,7 @@ pub(super) fn apply(
                 slot(read_axis(t, profile, axis)?)
             })?;
         }
-        "glass" if model.dpi_max != 26000 && (0..=1).contains(&n) => {
+        "glass" if model.glass && (0..=1).contains(&n) => {
             let mut after = before;
             after.bytes[5] = (after.bytes[5] & 0x7f) | (n as u8) << 7;
             let old_lod = if n == 1 && model.dedicated_lod() {
@@ -505,7 +511,7 @@ pub(super) fn apply(
         }
         _ => {
             let mut after = before;
-            after.set(field, n, model, &rate_table(pid, RECEIVER)?)?;
+            after.set(field, n, model, &rate_table(pid, receiver_for(pid))?)?;
             verified(before.bytes, after.bytes, |bytes| {
                 send_check(t, PERFORMANCE_WRITE, bytes)?;
                 Ok(performance(t, &mut None)?.bytes)
@@ -537,6 +543,23 @@ mod tests {
         assert_eq!(perf.bytes[5], 0xa1);
         perf.set("sleep", 0, spec, &[]).unwrap();
         assert_eq!(&perf.bytes[3..5], &[0, 0xb1]);
+    }
+
+    #[test]
+    fn k5_v2_has_its_own_receiver_and_model_limits() {
+        let pid = 0x4040;
+        let model = Model::lookup(pid).unwrap();
+        assert_eq!(receiver_for(pid), 0x101c);
+        assert_eq!(receiver_for(0x4037), 0x1018);
+        assert_eq!(
+            rate_table(pid, receiver_for(pid)).unwrap(),
+            [125, 500, 1000, 2000, 4000, 8000]
+        );
+        assert!(rate_table(pid, 0x1018).is_err());
+        assert_eq!(model.dpi_max, 42000);
+        assert_eq!(model.lod, ["0.7 mm", "1 mm", "2 mm"]);
+        assert!(!model.dedicated_lod());
+        assert!(!model.glass);
     }
 
     #[test]

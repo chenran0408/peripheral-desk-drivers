@@ -8,6 +8,16 @@ const SET_KEY: u16 = 0x0101;
 pub(super) const MACRO_SLOTS: u8 = 18;
 type Map = Vec<Vec<u8>>;
 
+// M HUB supportDpiKeyDevice omits A7 Magnetic, R7 Ultra and K5 V2. A padded sixth
+// record is not a physical key, but may still reference shared macro storage.
+fn control_count(pid: u16, map: &[Vec<u8>]) -> usize {
+    map.len().min(if matches!(pid, 0x403f | 0x4036 | 0x4040) {
+        5
+    } else {
+        6
+    })
+}
+
 fn record_size(kind: u8) -> usize {
     match kind {
         0x01 | 0x22 => 4,
@@ -56,6 +66,8 @@ fn action(raw: &[u8]) -> BindingAction {
         }
         [0xfe, 0, 0] => BindingAction::Disabled,
         [1, 0, 0, 0] => BindingAction::DpiCycle,
+        [1, 2, 0, 0] => BindingAction::DpiUp,
+        [1, 3, 0, 0] => BindingAction::DpiDown,
         [0x11, key, 0] => BindingAction::Keyboard {
             usage: u16::from(*key),
             modifiers: 0,
@@ -79,6 +91,8 @@ fn encode(action: &BindingAction) -> Result<Vec<u8>, String> {
         BindingAction::Mouse(b) => vec![0, mouse_mask(b).ok_or("按键无效")?, 0],
         BindingAction::Disabled => vec![0xfe, 0, 0],
         BindingAction::DpiCycle => vec![1, 0, 0, 0],
+        BindingAction::DpiUp => vec![1, 2, 0, 0],
+        BindingAction::DpiDown => vec![1, 3, 0, 0],
         BindingAction::Keyboard {
             usage: 0,
             modifiers: m,
@@ -100,7 +114,7 @@ fn encode(action: &BindingAction) -> Result<Vec<u8>, String> {
     })
 }
 
-fn assert_left(keys: &Map, idx: usize, replacement: &[u8]) -> Result<(), String> {
+fn assert_left(keys: &[Vec<u8>], idx: usize, replacement: &[u8]) -> Result<(), String> {
     if !keys.iter().enumerate().any(|(i, k)| {
         if i == idx {
             replacement == [0, 1, 0]
@@ -117,7 +131,7 @@ fn assign(
     t: &mut WinTransport,
     profile: u8,
     idx: usize,
-    keys: &Map,
+    keys: &[Vec<u8>],
     next: Vec<u8>,
 ) -> Result<(), String> {
     let original = keys.get(idx).ok_or("该型号没有这个按键")?.clone();
@@ -131,7 +145,7 @@ fn assign(
     })
 }
 
-fn state(t: &mut WinTransport, keys: &Map, extended: bool, max_events: usize) -> Value {
+fn state(t: &mut WinTransport, keys: &[Vec<u8>], extended: bool, max_events: usize) -> Value {
     let mut macros = BTreeMap::<usize, Value>::new();
     let mut slots = BTreeMap::new();
     let mut issues = Vec::new();
@@ -163,7 +177,7 @@ fn state(t: &mut WinTransport, keys: &Map, extended: bool, max_events: usize) ->
             }
         }
     }
-    json!({"bindings":bindings,"binding_types":["mouse","keyboard","consumer","disabled","dpi-cycle"],"colors":[],
+    json!({"bindings":bindings,"binding_types":["mouse","keyboard","consumer","disabled","dpi-cycle","dpi-up","dpi-down"],"colors":[],
         "macros":macros,"macro_supported":max_events>0,"macro_max_events":max_events,"macro_name_max_bytes":54,
         "macro_modes":["Once","WhileHeld","Toggle","UntilOtherKey"],"macro_event_types":["key","delay","mouse","wheel"],
         "notice":issues.join("；")})
@@ -179,6 +193,7 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
         return Err("板载配置已切换，请重新读取按键后再应用".into());
     }
     let mut keys = read(t, profile)?;
+    let count = control_count(info.pid, &keys);
     let max = onboard_macro::capacity(info);
     if req["op"] == "controls-apply" {
         let payload = &req["action"];
@@ -188,7 +203,7 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
             }
             let idx = bind["control"]
                 .as_u64()
-                .filter(|&i| i < keys.len() as u64)
+                .filter(|&i| i < count as u64)
                 .ok_or("该型号没有这个按键")? as usize;
             let action: BindingAction =
                 serde_json::from_value(bind["action"].clone()).map_err(|e| e.to_string())?;
@@ -196,14 +211,14 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
             if let BindingAction::Macro(slot) = action {
                 onboard_macro::definition(t, slot as u8, max)?;
             }
-            assign(t, profile, idx, &keys, next.clone())?;
+            assign(t, profile, idx, &keys[..count], next.clone())?;
             keys[idx] = next;
         } else if let Some(m) = payload.get("Macro") {
             let idx = m["control"]
                 .as_u64()
-                .filter(|&i| i < keys.len() as u64)
+                .filter(|&i| i < count as u64)
                 .ok_or("该型号没有这个按键")? as usize;
-            assert_left(&keys, idx, &[0x21, 0, 0])?;
+            assert_left(&keys[..count], idx, &[0x21, 0, 0])?;
             let new = onboard_macro::encode(&m["definition"], max)?;
             let mut used = [0u8; MACRO_SLOTS as usize];
             for p in 0..info.profile_count {
@@ -241,7 +256,7 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
             let baseline = onboard_macro::snapshot(t, slot, new.len(), max)?;
             let next = vec![0x21, slot, 0];
             onboard_macro::replace(t, slot, &baseline, &new)?;
-            if let Err(e) = assign(t, profile, idx, &keys, next.clone()) {
+            if let Err(e) = assign(t, profile, idx, &keys[..count], next.clone()) {
                 return match onboard_macro::write_and_confirm(t, slot, &baseline) {
                     Ok(()) => Err(format!("{e}；宏存储内容已恢复并读回")),
                     Err(r) => Err(format!("{e}；宏存储内容恢复未确认：{r}")),
@@ -252,7 +267,12 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
             return Err("鼠标没有这个控制操作".into());
         }
     }
-    let mut result = state(t, &keys, req["extended_modes"].as_bool() == Some(true), max);
+    let mut result = state(
+        t,
+        &keys[..count],
+        req["extended_modes"].as_bool() == Some(true),
+        max,
+    );
     result["profile"] = json!(profile);
     Ok(result)
 }
@@ -260,6 +280,33 @@ pub(super) fn handle(t: &mut WinTransport, req: &Value, info: &Info) -> Result<V
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn dpi_steps_use_the_vendor_record_and_do_not_expose_a_hidden_sixth_key() {
+        for (bytes, binding) in [
+            ([1, 0, 0, 0], BindingAction::DpiCycle),
+            ([1, 2, 0, 0], BindingAction::DpiUp),
+            ([1, 3, 0, 0], BindingAction::DpiDown),
+        ] {
+            assert_eq!(action(&bytes), binding);
+            assert_eq!(encode(&binding).unwrap(), bytes);
+        }
+        let keys = vec![
+            vec![0, 2, 0],
+            vec![0, 2, 0],
+            vec![0, 4, 0],
+            vec![0, 8, 0],
+            vec![0, 16, 0],
+            vec![0, 1, 0],
+        ];
+        for pid in [0x403f, 0x4036, 0x4040] {
+            let count = control_count(pid, &keys);
+            assert_eq!(count, 5);
+            assert!(assert_left(&keys[..count], 0, &[1, 2, 0, 0]).is_err());
+        }
+        assert_eq!(control_count(0x4038, &keys), 6);
+        assert_eq!(control_count(0x4038, &keys[..5]), 5);
+    }
+
     #[test]
     fn variable_width_keys_keep_unrecognized_bindings_and_absent_dpi_key() {
         let raw = [

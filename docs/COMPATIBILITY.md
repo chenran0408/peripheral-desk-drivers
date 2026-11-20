@@ -2,7 +2,7 @@
 
 本版新增的板载与指针调节范围按型号记录在[罗技 LIGHTSPEED](LOGITECH-ONBOARD.md)和[雷蛇炼狱蝰蛇 V3](RAZER-OPENSYNAPSE.md)。
 
-[按厂商查找当前插件与验证范围](../catalog/README.md)。预览版新增 [G87 V2 CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md)的电量与充电状态，并修正[北通宙斯 2 / T9](../drivers/betop-t9/UPSTREAM.md)的电量档位。下表保留早期版本实机记录。
+[按厂商查找当前插件与验证范围](../catalog/README.md)。预览版新增 [G87 V2 CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md)的电量与充电状态，并修正[北通宙斯 2 / T9](../drivers/betop-t9/UPSTREAM.md)的电量档位。下表保留早期稳定版实机记录。G75 Pro 的预览 .50 已实机验证普通层板载宏上传、绑定、读回与还原。[G75 Pro 预览版验证范围](../drivers/mchose-g75-pro/UPSTREAM.md)
 
 以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**；本次雷蛇灯效编辑器需 **>=0.4.9**）。四款原有设备包为 **stable**；G304、G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
 

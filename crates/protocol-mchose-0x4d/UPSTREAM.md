@@ -1,6 +1,6 @@
 # 迈从通用 8K 接收器与板载设置
 
-在预览商店按完整型号安装插件，即确认允许外设盒查询该接收器。日常刷新通过 `0x0900` 读取配对鼠标的内部 VID/PID、电量、充电标志和连接状态。运行时同时核对接收器 `3837:1018`、HID `FF01:0001`、64 字节输入和输出，以及回复中该款鼠标的配对身份。休眠短应答、0% 占位或配对其他型号时，不提供电量。
+在预览商店按完整型号安装插件，即确认允许外设盒查询该接收器。日常刷新通过 `0x0900` 读取配对鼠标的内部 VID/PID、电量、充电标志和连接状态。运行时同时核对各型号声明的接收器（`3837:1018` 或 K5 V2 的 `3837:101C`）、HID `FF01:0001`、64 字节输入和输出，以及回复中该款鼠标的配对身份。休眠短应答、0% 占位或配对其他型号时，不提供电量。
 
 打开支持指针参数读取的设备概览或点击“读取指针参数”时，外设盒发送额外的只读查询。普通电量刷新只顺带接收等待窗口里的档位事件。进入详情后读取性能、DPI 和型号提供的抬升距离。后台电量刷新保持独立。
 
@@ -11,7 +11,7 @@
 | X/Y 轴 DPI 配置 | `0x0003` 读取性能回复给出的板载配置号。性能请求缺失时仍单独读取配置 0。回复须回显所请求的配置及方向，提供六个小端槽位，并声明 1 到 6 个有效档位。X 应答声明支持独立 Y 轴时再读 Y。各轴只显示已启用且数值有效的档位。界面区分该配置的存储档位和设备主动上报的档位。 |
 | 当次上报的活动档位 | 收到 `0x0600` 的档位事件且索引为 0 到 5 时，返回该索引。设备详情按第 1 到第 6 档显示。 |
 
-率或轴配置读取失败时，已经取得的电量、另一项配置和可解析的索引仍可用。此处的设备匹配范围为上述 8K 接收器。其他接收器与直连模式有各自的设备目录。
+率或轴配置读取失败时，已经取得的电量、另一项配置和可解析的索引仍可用。此处的设备匹配范围为各型号目录所列的 8K 接收器。其他接收器与直连模式有各自的设备目录。
 
 ## 原生设置（0.4.13-preview.43）
 
@@ -36,6 +36,22 @@
 板载配置名通过 `0x0905` 分块读取、`0x0910` 分块写入，最多 60 个 UTF-8 字节。官方或云端模板的关联后缀在改名时原样保留，界面可用名称长度随之调整。用户自建宏名最多 54 个 UTF-8 字节。
 
 命令来源为上文迈从官方网页中的 `readMouseKeyInfo`、`setMouseKeyInfo`、`getMacroPacketArr`、`setOnePackMacro`、`readMacroName` 与 `setBoardName`。模式编号与界面标注采用同版本[官方中文资源](https://www.mchose.com.cn/assets/index-BLfQ5SSo.js)。本项目用包含不同长度键位的样本，以及四类事件的编码/解码检查此实现。该批未进行实机写入验证。
+
+## 图形改键与 DPI 加减档（0.4.13-preview.50）
+
+在「设备调节 → 按键」选择图上的按键，可绑定「DPI 加一档」和「DPI 减一档」。两个动作直接存在当前板载配置，沿用原有的单键写入及读回。原厂 `dpiMap` 和 `mouseKeyToArr` 将两种动作分别编码为 `01 02 00 00`、`01 03 00 00`。按键槽依次为左键、右键、中键、前进和后退。只有原厂 `supportDpiKeyDevice` 包含该型号、且当前键表有有效第六条时，才可选择第六个 DPI 键。A7 Magnetic、R7 Ultra 和 K5 V2 各有五个可编辑键，仍然可以把其中任一键改成 DPI 加减档，并保留至少一个左键。
+
+| 8K 接收器配对型号 | 原生图与原厂对照 |
+| --- | --- |
+| A5 V3 Pro、Ultra、Ultra+(3955) | 共用 A5 V3 轮廓、滚轮及侧键位置。[Pro 说明书](https://cdn.mchose.com.cn/configCenter/static/documents/A5_V3_Pro_l1xmekjb0ua82pvg.pdf) · [Ultra 系列说明书](https://cdn.mchose.com.cn/configCenter/static/documents/A5_V3_Ultra_Plus_o7dm7pggxqwyewvm.pdf) |
+| A7 V3、Pro、Pro+、Ultra；A7 V3-X | A7 V3 常规外壳与 V3-X 的正视图分别绘制。[标准版说明书](https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_29s1a18ylqgt4p0b.pdf) · [Plus 系列说明书](https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_Plus_842di96d5avkxyg8.pdf) · [V3-X 说明书](https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_X_fcqd6lk7ecyzbz55.pdf) |
+| A7 V3 Magnetic | 原厂页面未提供此分支的单独外形图，原生示意图单独画出左右键、滚轮和前后侧键。 |
+| K5 Pro、Ultra | 按各自的正视图提供可点击的左右键、滚轮和侧键；第六键通过标签选择。[K5 系列说明书](https://cdn.mchose.com.cn/configCenter/static/documents/K5_9tso4iayd4sxc6dx.pdf) |
+| K5 V2（101C） | 单独核对 4040 配对身份，以协议五键图改键。[独立插件及型号参数](../../drivers/mchose-k5-v2/UPSTREAM.md) |
+| K7 V2 Pro、Pro+、Ultra、Ultra+ | 四款共用原厂 K7 V2 说明书，原生图保留平直的前缘及侧键位置。[K7 V2 说明书](https://cdn.mchose.com.cn/configCenter/static/documents/K7_V2_p6zlvnpdkd4jw8de.pdf) |
+| R7 Ultra | 使用右手工学外形，滚轮前的小开关未列入原厂可改键槽。[R7 Ultra 说明书](https://cdn.mchose.com.cn/configCenter/static/documents/R7_Ultra_ycuifz48i17ntgcs.pdf) |
+
+当前包可分别选择同型号的多个接收器。每次请求先定位选定接口，再核对 `0x0900` 配对身份。本项目已检查动作字节、有效键数及各图的命中区域；本批 17 款没有逐款实机写入报告。[项目原创示意图](diagrams) · [K5 Ultra 既有示意图](../../drivers/mchose-k5-ultra/button-diagram.svg)
 
 ## 依据与验证
 

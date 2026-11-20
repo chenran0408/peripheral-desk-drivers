@@ -13862,8 +13862,8 @@
   {
     "id": "mchose-a5-v3-pro",
     "name": "迈从 A5 V3 Pro",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -13888,7 +13888,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4035。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Pro 的配对本体为 3837:4035，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4035。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -13896,13 +13896,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A5_V3_Pro_l1xmekjb0ua82pvg.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4035。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4035。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              31,
+              22,
+              57
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              98,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              95,
+              9,
+              38
+            ],
+            "anchor": [
+              277,
+              114
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              144,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              143,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              160
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -13914,15 +14042,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a5-v3-ultra",
     "name": "迈从 A5 V3 Ultra",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -13947,7 +14076,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4042。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra 的配对本体为 3837:4042，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4042。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -13955,13 +14084,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A5_V3_Ultra_Plus_o7dm7pggxqwyewvm.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4042。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4042。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              31,
+              22,
+              57
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              98,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              95,
+              9,
+              38
+            ],
+            "anchor": [
+              277,
+              114
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              144,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              143,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              160
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -13973,15 +14230,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a5-v3-ultra-plus-3955",
     "name": "迈从 A5 V3 Ultra+(3955)",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14006,7 +14264,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4034。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra+(3955) 的配对本体为 3837:4034，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4034。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14014,13 +14272,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A5_V3_Ultra_Plus_o7dm7pggxqwyewvm.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra+(3955) 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4034。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra+(3955) 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4034。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              31,
+              22,
+              57
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              98,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              95,
+              9,
+              38
+            ],
+            "anchor": [
+              277,
+              114
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              144,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              143,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              160
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14032,15 +14418,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3",
     "name": "迈从 A7 V3",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14065,7 +14452,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4030。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 的配对本体为 3837:4030，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4030。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14073,13 +14460,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_29s1a18ylqgt4p0b.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4030。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4030。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              54
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              102,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              100,
+              9,
+              36
+            ],
+            "anchor": [
+              277,
+              118
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              146,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              145,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              162
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14091,15 +14606,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3-magnetic",
     "name": "迈从 A7 V3 Magnetic",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按五键示意图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14124,7 +14640,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403F。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Magnetic 的配对本体为 3837:403F，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:403F。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14136,9 +14652,126 @@
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Magnetic 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403F。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Magnetic 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403F。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              296,
+              22,
+              42,
+              99
+            ],
+            "anchor": [
+              317,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              369,
+              22,
+              42,
+              99
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              345,
+              38,
+              17,
+              47
+            ],
+            "anchor": [
+              353,
+              61
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              142,
+              116,
+              32
+            ],
+            "hit_rect": [
+              279,
+              142,
+              14,
+              33
+            ],
+            "anchor": [
+              286,
+              158
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              185,
+              116,
+              32
+            ],
+            "hit_rect": [
+              279,
+              184,
+              14,
+              34
+            ],
+            "anchor": [
+              286,
+              201
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14150,15 +14783,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3-pro",
     "name": "迈从 A7 V3 Pro",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14183,7 +14817,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4031。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro 的配对本体为 3837:4031，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4031。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14191,13 +14825,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_29s1a18ylqgt4p0b.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4031。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4031。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              54
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              102,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              100,
+              9,
+              36
+            ],
+            "anchor": [
+              277,
+              118
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              146,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              145,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              162
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14209,15 +14971,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3-pro-plus",
     "name": "迈从 A7 V3 Pro+",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14242,7 +15005,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4032。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro+ 的配对本体为 3837:4032，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4032。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14250,13 +15013,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_Plus_842di96d5avkxyg8.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4032。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4032。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              54
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              102,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              100,
+              9,
+              36
+            ],
+            "anchor": [
+              277,
+              118
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              146,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              145,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              162
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14268,15 +15159,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3-ultra",
     "name": "迈从 A7 V3 Ultra",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14301,7 +15193,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403D。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Ultra 的配对本体为 3837:403D，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:403D。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14309,13 +15201,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_Plus_842di96d5avkxyg8.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403D。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403D。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              54
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              102,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              100,
+              9,
+              36
+            ],
+            "anchor": [
+              277,
+              118
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              146,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              145,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              162
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14327,15 +15347,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-a7-v3-x",
     "name": "迈从 A7 V3-X",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14360,7 +15381,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403A。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3-X 的配对本体为 3837:403A，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:403A。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14368,13 +15389,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/A7_V3_X_fcqd6lk7ecyzbz55.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3-X 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403A。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3-X 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403A。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              54
+            ],
+            "anchor": [
+              350,
+              59
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              102,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              100,
+              9,
+              36
+            ],
+            "anchor": [
+              277,
+              118
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              146,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              145,
+              9,
+              34
+            ],
+            "anchor": [
+              278,
+              162
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14386,15 +15535,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-k5-pro",
     "name": "迈从 K5 Pro",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14419,7 +15569,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4037。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Pro 的配对本体为 3837:4037，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4037。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14427,13 +15577,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K5_9tso4iayd4sxc6dx.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4037。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4037。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              107
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              107
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              32,
+              22,
+              56
+            ],
+            "anchor": [
+              350,
+              60
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              96,
+              116,
+              32
+            ],
+            "hit_rect": [
+              273,
+              95,
+              9,
+              35
+            ],
+            "anchor": [
+              277,
+              112
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              138,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              138,
+              9,
+              32
+            ],
+            "anchor": [
+              278,
+              154
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14445,15 +15723,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-k5-ultra",
     "name": "迈从 K5 Ultra",
-    "version": "0.4.13-preview.49",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14478,7 +15757,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4038。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Ultra 的配对本体为 3837:4038，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4038。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14486,7 +15765,8 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K5_9tso4iayd4sxc6dx.pdf"
         ]
       },
       "manual": true,
@@ -14619,7 +15899,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.2",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14634,13 +15914,191 @@
       "board-name",
       "instance-target"
     ],
-    "changelog": "原生指针、板载改键与宏编辑支持单独选择接收器，每次读写继续核对配对鼠标型号。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+  },
+  {
+    "id": "mchose-k5-v2",
+    "name": "迈从 K5 V2",
+    "version": "0.4.13-preview.50",
+    "description": "通过 101C 接收器查看电量，设置 DPI、回报率、抬升距离、五键映射、板载宏和配置名。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-k5-v2",
+      "name": "迈从 K5 V2",
+      "brand": "MCHOSE",
+      "kind": "mouse",
+      "subtitle": "101C 接收器 · 板载指针和五键映射",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 4124,
+          "usage_page": 65281,
+          "usage": 1,
+          "input_len": 64,
+          "output_len": 64
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": "8K 接收器 3837:101C · FF01:0001 · 64 字节；0x0900 配对身份 3837:4040。",
+        "firmware": "unknown",
+        "project_validation": "官方资料记录 101C 接收器、4040 本体及对应的设置与按键表。本项目通过合成样本核对配对身份、回报率、42,000 DPI、三档抬升距离及五键边界；尚无 K5 V2 实机读写记录。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/mchose-catalog.json",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K5_9tso4iayd4sxc6dx.pdf"
+        ]
+      },
+      "manual": true,
+      "manual_hint": "确认是 K5 V2 后安装。接收器须为 3837:101C，每次读取或更改设置时还会核对鼠标自报的 3837:4040。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              296,
+              22,
+              42,
+              99
+            ],
+            "anchor": [
+              317,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              369,
+              22,
+              42,
+              99
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              345,
+              38,
+              17,
+              47
+            ],
+            "anchor": [
+              353,
+              61
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              142,
+              116,
+              32
+            ],
+            "hit_rect": [
+              279,
+              142,
+              14,
+              33
+            ],
+            "anchor": [
+              286,
+              158
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              185,
+              116,
+              32
+            ],
+            "hit_rect": [
+              279,
+              184,
+              14,
+              34
+            ],
+            "anchor": [
+              286,
+              201
+            ]
+          }
+        ]
+      }
+    },
+    "core_min": "0.4.12-preview.3",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "polling-rate-read",
+      "dpi-stages-read",
+      "dpi-stages-write",
+      "polling-rate-write",
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name",
+      "instance-target"
+    ],
+    "changelog": "新增 K5 V2 独立驱动，可在外设盒里调节指针参数，在五键示意图上改键。"
   },
   {
     "id": "mchose-k7-v2-pro",
     "name": "迈从 K7 V2 Pro",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14665,7 +16123,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403B。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro 的配对本体为 3837:403B，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:403B。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14673,13 +16131,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K7_V2_p6zlvnpdkd4jw8de.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403B。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403B。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              33,
+              22,
+              58
+            ],
+            "anchor": [
+              350,
+              62
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              108,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              106,
+              9,
+              37
+            ],
+            "anchor": [
+              278,
+              124
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              150,
+              116,
+              32
+            ],
+            "hit_rect": [
+              275,
+              149,
+              9,
+              35
+            ],
+            "anchor": [
+              279,
+              166
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14691,15 +16277,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-k7-v2-pro-plus",
     "name": "迈从 K7 V2 Pro+",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14724,7 +16311,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4027。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro+ 的配对本体为 3837:4027，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4027。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14732,13 +16319,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K7_V2_p6zlvnpdkd4jw8de.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4027。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4027。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              33,
+              22,
+              58
+            ],
+            "anchor": [
+              350,
+              62
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              108,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              106,
+              9,
+              37
+            ],
+            "anchor": [
+              278,
+              124
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              150,
+              116,
+              32
+            ],
+            "hit_rect": [
+              275,
+              149,
+              9,
+              35
+            ],
+            "anchor": [
+              279,
+              166
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14750,15 +16465,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-k7-v2-ultra",
     "name": "迈从 K7 V2 Ultra",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14783,7 +16499,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403C。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra 的配对本体为 3837:403C，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:403C。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14791,13 +16507,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K7_V2_p6zlvnpdkd4jw8de.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403C。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403C。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              33,
+              22,
+              58
+            ],
+            "anchor": [
+              350,
+              62
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              108,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              106,
+              9,
+              37
+            ],
+            "anchor": [
+              278,
+              124
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              150,
+              116,
+              32
+            ],
+            "hit_rect": [
+              275,
+              149,
+              9,
+              35
+            ],
+            "anchor": [
+              279,
+              166
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14809,15 +16653,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-k7-v2-ultra-plus",
     "name": "迈从 K7 V2 Ultra+",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14842,7 +16687,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4028。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra+ 的配对本体为 3837:4028，本项目尚未实机验证该型号。 上游曾标为 K7 V2 Ultra+ 的一次记录自报 4026，此插件只接受 4028。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4028。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14850,13 +16695,141 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/K7_V2_p6zlvnpdkd4jw8de.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4028。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4028。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              111
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              33,
+              22,
+              58
+            ],
+            "anchor": [
+              350,
+              62
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              108,
+              116,
+              32
+            ],
+            "hit_rect": [
+              274,
+              106,
+              9,
+              37
+            ],
+            "anchor": [
+              278,
+              124
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              150,
+              116,
+              32
+            ],
+            "hit_rect": [
+              275,
+              149,
+              9,
+              35
+            ],
+            "anchor": [
+              279,
+              166
+            ]
+          },
+          {
+            "id": 5,
+            "label": "DPI 键",
+            "rect": [
+              474,
+              209,
+              110,
+              32
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14868,15 +16841,16 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-r7-ultra",
     "name": "迈从 R7 Ultra",
-    "version": "0.4.13-preview.44",
-    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
+    "version": "0.4.13-preview.50",
+    "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14901,7 +16875,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4036。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 R7 Ultra 的配对本体为 3837:4036，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
+        "project_validation": "上游接收器实物记录覆盖电量、充电和连接字段；官方型号表指定本款自报 3837:4036。原生设置、按键编码、配置名和条件板载宏来自原厂 M HUB。协议样本覆盖 DPI 加减档、五键与六键边界；本项目尚未对该型号实机写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14909,13 +16883,131 @@
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/Mchose0x4DCodec.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchosePlugin.cs",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/MchoseRatePolicy.cs",
-          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
+          "https://cdn.mchose.com.cn/configCenter/static/documents/R7_Ultra_ycuifz48i17ntgcs.pdf"
         ]
       },
       "manual": true,
-      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 R7 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4036。"
+      "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 R7 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4036。",
+      "control_surface": {
+        "size": [
+          700,
+          305
+        ],
+        "art": [
+          270,
+          0,
+          160,
+          305
+        ],
+        "layers": [
+          "普通"
+        ],
+        "keys": [
+          {
+            "id": 0,
+            "label": "左键",
+            "rect": [
+              115,
+              27,
+              102,
+              32
+            ],
+            "hit_rect": [
+              287,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              311,
+              42
+            ]
+          },
+          {
+            "id": 1,
+            "label": "右键",
+            "rect": [
+              474,
+              25,
+              103,
+              32
+            ],
+            "hit_rect": [
+              366,
+              26,
+              49,
+              104
+            ],
+            "anchor": [
+              390,
+              42
+            ]
+          },
+          {
+            "id": 2,
+            "label": "滚轮中键",
+            "rect": [
+              474,
+              82,
+              116,
+              32
+            ],
+            "hit_rect": [
+              339,
+              33,
+              22,
+              58
+            ],
+            "anchor": [
+              350,
+              62
+            ]
+          },
+          {
+            "id": 3,
+            "label": "前进侧键",
+            "rect": [
+              101,
+              95,
+              116,
+              32
+            ],
+            "hit_rect": [
+              277,
+              91,
+              9,
+              40
+            ],
+            "anchor": [
+              281,
+              111
+            ]
+          },
+          {
+            "id": 4,
+            "label": "后退侧键",
+            "rect": [
+              101,
+              142,
+              116,
+              32
+            ],
+            "hit_rect": [
+              278,
+              140,
+              9,
+              36
+            ],
+            "anchor": [
+              282,
+              158
+            ]
+          }
+        ]
+      }
     },
-    "core_min": "0.4.11",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14927,9 +17019,10 @@
       "pointer-controls",
       "bindings",
       "experimental-onboard-macros",
-      "board-name"
+      "board-name",
+      "instance-target"
     ],
-    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
+    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
   },
   {
     "id": "mchose-g3-v2",
@@ -15108,8 +17201,8 @@
   {
     "id": "mchose-g75-pro",
     "name": "迈从 G75 Pro",
-    "version": "0.4.13-preview.49",
-    "description": "键盘设置、普通层与 Fn 层改键及灯色。",
+    "version": "0.4.13-preview.50",
+    "description": "读取电量、逐层改键、逐键调灯。可把键盘、鼠标和延时录入板载宏，也可使用外设盒常驻宏。",
     "device": {
       "key": "mchose-g75-pro",
       "name": "迈从 G75 Pro",
@@ -15309,10 +17402,17 @@
           "settings",
           "three-layer-bindings",
           "per-key-RGB",
-          "resident-macro-trigger"
+          "resident-macro-trigger",
+          "onboard-macro-upload",
+          "normal-layer-macro-binding",
+          "onboard-macro-readback-and-restore"
         ],
         "unverified_connections": [
           "USB wired 41E4:2001 (not hardware-verified)"
+        ],
+        "project_validation": "本项目在 3554:FA09 标准 2.4G 接收器验证单次宏上传、普通层按键绑定、宏名称/事件/模式读回，以及恢复两段宏数据与原按键。设备内原有两个未绑定宏保留。按住重复和按其他键停止经原厂映射、合成样本验证。实际按键播放及断电重插后的结果待验证；41E4:2001 有线连接仍为代码适配。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
         ]
       },
       "dpi_range": null,
@@ -15339,7 +17439,7 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.12-preview.2",
+    "core_min": "0.4.12-preview.3",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15350,9 +17450,11 @@
       "software-macro-trigger",
       "instance-target",
       "keymap-home",
-      "control-sections"
+      "control-sections",
+      "onboard-macros",
+      "macro-section"
     ],
-    "changelog": "改键页优先读取当前层，切换时再读取 Fn 层或逐键灯；每次读写都定位到选定的键盘。"
+    "changelog": "宏可保存到键盘并绑定到普通层按键。打开宏页时再读宏库，保留其他已存宏。"
   },
   {
     "id": "mchose-a5-ultra",

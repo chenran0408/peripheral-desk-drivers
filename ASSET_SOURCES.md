@@ -118,7 +118,7 @@ identification; they are not vendor artwork or product photographs.
 
 G87 V2 CZ 插件复用已有 `assets/mchose-g87-v2.png`。同一键盘的两种接收器沿用同一张设备图。
 
-迈从 A5 V3、A7 V3、K5、K7 V2 与 R7 Ultra 的 16 款 8K 接收器预览包复用已有 `assets/mchose-a5-pro-max.png`，即本项目绘制的鼠标分类图标。型号、接收器与设备状态字段见[协议来源](crates/protocol-mchose-0x4d/UPSTREAM.md)。
+迈从 A5 V3、A7 V3、K5、K7 V2 与 R7 Ultra 的首批 16 款 8K 接收器预览包复用已有 `assets/mchose-a5-pro-max.png`，即本项目绘制的鼠标分类图标。型号、接收器与设备状态字段见[协议来源](crates/protocol-mchose-0x4d/UPSTREAM.md)。
 
 商店的中文厂商搜索别名见 [vendor-aliases.json](catalog/vendor-aliases.json)。中文品牌称呼参考[凌豹](https://www.lingbaoes.com/)、[达摩鲨](https://www.darmoshark.cn/gongsijieshao.html)、[攻击鲨](https://cn.attackshark.cn/)、[兰族](https://lamzu.com.cn/)、[万灵竞记](https://chn.wlmouse.com/)、[渴创](https://keychron.jd.com/)及[惠普 Poly](https://www.hp.com/cn-zh/poly.html)。
 
@@ -129,3 +129,5 @@ G87 V2 CZ 插件复用已有 `assets/mchose-g87-v2.png`。同一键盘的两种�
 The three DeathAdder packages use the existing illustrations. Their protocol facts reference [OpenSynapse v1.7.2, 5b3e651](https://github.com/A1mAssist/OpenSynapse/tree/5b3e6516492c95eb363fbda407a5ee965367ff08). The four LIGHTSPEED packages use their existing assets. Device reports and authorship are listed in [Logitech onboard profiles](docs/LOGITECH-ONBOARD.md) and [Razer pointer controls](docs/RAZER-OPENSYNAPSE.md).
 
 K5 Ultra 的预览 .48 起使用本项目原创的[可编辑按键示意图](drivers/mchose-k5-ultra/button-diagram.svg)。可点击区域对应插件从鼠标实际读回的键位编号。
+
+从预览 .50 起，其他 15 款 0x4D 鼠标使用[本项目绘制的分族示意图](crates/protocol-mchose-0x4d/diagrams)。A5 V3、A7 V3、A7 V3-X、K7 V2、K5 Pro 和 R7 Ultra 的外壳比例、分键线、滚轮和侧键位置参考 M HUB 公开的型号正视图。A7 Magnetic 和新增 K5 V2 均使用按协议排列的五键示意。插件打包项目绘制的 PNG；原厂照片、商标与说明书留在厂商站点。[对应型号、正视图和说明书来源](crates/protocol-mchose-0x4d/UPSTREAM.md) · [原厂前端](https://www.mchose.com.cn/assets/main-DIt5vAcV.js)

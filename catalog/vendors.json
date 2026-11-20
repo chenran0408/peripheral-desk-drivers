@@ -3617,7 +3617,9 @@
                 "software-macro-trigger",
                 "instance-target",
                 "keymap-home",
-                "control-sections"
+                "control-sections",
+                "onboard-macros",
+                "macro-section"
               ],
               "identity": "interface",
               "validation": "hardware-verified",
@@ -3703,7 +3705,7 @@
         {
           "id": "mouse-0x4d-8k",
           "name": "0x4D 鼠标 · 通用 8K 接收器",
-          "scope": "确认安装后，主动读取配对本体的型号和电量。设备概览可读配置索引 0 的 X/Y 轴 DPI 分档值，并按本体和接收器的官方表换算配置回报率。",
+          "scope": "1018 接收器覆盖 16 款，101C 接收器覆盖 K5 V2。每次查询和写入前核对配对身份。图形改键的按键数量、指针参数及板载宏以型号表和设备回复为准。",
           "basis": "documented",
           "models": [
             {
@@ -3720,7 +3722,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3747,7 +3750,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3774,7 +3778,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3801,7 +3806,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3828,7 +3834,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3855,7 +3862,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3882,7 +3890,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3909,7 +3918,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3936,7 +3946,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3963,7 +3974,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4005,6 +4017,34 @@
               "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4038。"
             },
             {
+              "id": "mchose-k5-v2",
+              "name": "迈从 K5 V2",
+              "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "polling-rate-read",
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name",
+                "instance-target"
+              ],
+              "identity": "manual",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-0x4d"
+              ],
+              "connections": [
+                "8K 接收器 3837:101C · FF01:0001 · 64 字节；0x0900 配对身份 3837:4040。"
+              ],
+              "firmware": "unknown",
+              "manual_hint": "确认是 K5 V2 后安装。接收器须为 3837:101C，每次读取或更改设置时还会核对鼠标自报的 3837:4040。"
+            },
+            {
               "id": "mchose-k7-v2-pro",
               "name": "迈从 K7 V2 Pro",
               "kind": "mouse",
@@ -4018,7 +4058,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4045,7 +4086,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4072,7 +4114,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4099,7 +4142,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4126,7 +4170,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",

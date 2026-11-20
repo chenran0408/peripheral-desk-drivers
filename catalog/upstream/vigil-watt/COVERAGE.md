@@ -244,7 +244,7 @@
 | A7 V3 Ultra | 3837:403D | qhw | [mchose-a7-v3-ultra](../../../drivers/mchose-a7-v3-ultra) · 3837:1018 接收器上报的鼠标身份 |
 | V7 Pro | 3837:403E | qhw | 待对照 |
 | A7 V3 Magnetic | 3837:403F | qhw | [mchose-a7-v3-magnetic](../../../drivers/mchose-a7-v3-magnetic) · 3837:1018 接收器上报的鼠标身份 |
-| K5 V2 | 3837:4040 | qhw | 待对照 |
+| K5 V2 | 3837:4040 | qhw | [mchose-k5-v2](../../../drivers/mchose-k5-v2) · 3837:101C 接收器上报的鼠标身份 |
 | G3 S | 3837:4041 | qhw | 待对照 |
 | A5 V3 Ultra | 3837:4042 | qhw | [mchose-a5-v3-ultra](../../../drivers/mchose-a5-v3-ultra) · 3837:1018 接收器上报的鼠标身份 |
 | G3 V2 | 3837:4245 | gmouse | [mchose-g3-v2](../../../drivers/mchose-g3-v2) · G3 V2 的 2.4 GHz 接收器 |
@@ -266,7 +266,7 @@
 | 接收器 | 3837:1014 | mchose-0x4d · dongle-wireless | 待对照 |
 | 接收器 | 3837:1016 | mchose-0x4d · dongle-wireless | 待对照 |
 | 接收器 | 3837:1018 | mchose-0x4d · dongle-wireless | 同标识候选 17 款 |
-| 接收器 | 3837:101C | mchose-0x4d · dongle-wireless | 待对照 |
+| 接收器 | 3837:101C | mchose-0x4d · dongle-wireless | 同标识候选 1 款 |
 | 接收器 | 3837:101D | mchose-0x4d · dongle-wireless | 待对照 |
 | 接收器 | 3837:100C | mouse-a5 · dongle-wireless | 同标识候选 1 款 |
 | 接收器 | 3837:3033 | cz-block · dongle-cz | [mchose-g87-v2-cz](../../../drivers/mchose-g87-v2-cz) · G87 V2 的 CZ 接收器，手动认领 |

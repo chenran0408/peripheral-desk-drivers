@@ -101,7 +101,7 @@
       {
         "id": "mouse-0x4d-8k",
         "name": "0x4D 鼠标 · 通用 8K 接收器",
-        "scope": "确认安装后，主动读取配对本体的型号和电量。设备概览可读配置索引 0 的 X/Y 轴 DPI 分档值，并按本体和接收器的官方表换算配置回报率。",
+        "scope": "1018 接收器覆盖 16 款，101C 接收器覆盖 K5 V2。每次查询和写入前核对配对身份。图形改键的按键数量、指针参数及板载宏以型号表和设备回复为准。",
         "models": [
           "mchose-a5-v3-pro",
           "mchose-a5-v3-ultra",
@@ -114,6 +114,7 @@
           "mchose-a7-v3-x",
           "mchose-k5-pro",
           "mchose-k5-ultra",
+          "mchose-k5-v2",
           "mchose-k7-v2-pro",
           "mchose-k7-v2-pro-plus",
           "mchose-k7-v2-ultra",

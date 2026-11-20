@@ -13,7 +13,7 @@
 | MCHOSE G87 V2 键盘 | `3837:201B` | 贡献者真机；键盘走 V1 会话 | [`mchose-g87-v2`](https://github.com/chenran0408/peripheral-desk-drivers/releases/download/v0.4.13-preview.11/mchose-g87-v2-0.4.11-preview.1-windows-x64.zip) / 已发布 v0.4.13-preview.11 | 单独型号条目；仅电量/充电，不能把 G87 V1 V1.0 的其他协议推演过来 |
 | MCHOSE A7 V2 Pro 鼠标 | `3837:100A` | 贡献者真机 | [`mchose-a7-v2-pro`](https://github.com/chenran0408/peripheral-desk-drivers/releases/download/v0.4.13-preview.11/mchose-a7-v2-pro-0.4.11-preview.1-windows-x64.zip) / 已发布 v0.4.13-preview.11 | 使用鼠标 V2 被动状态帧，与 A7 V3 Ultra+ 有线接收器协议不同 |
 | MCHOSE K7 V2 Ultra+ 鼠标 | `3837:1018` | 贡献者真机 | 未接入 | DPI/回报率/按键/灯效需另有对应控制来源 |
-| MCHOSE G3 V2 鼠标 | `3837:4245` | 真机验证 | 未接入 | 独立鼠标代际，不能套用 K7/A5 V2 协议 |
+| MCHOSE G3 V2 鼠标 | `3837:4245` | 贡献者真机 89% 未充电 | [mchose-g3-v2](../drivers/mchose-g3-v2/UPSTREAM.md) | Gmouse 接收器电量和充电状态 |
 | MCHOSE V9 Pro 耳机 | `291D:385D` | 贡献者真机 | `mchose-v9-pro` / 已有预览插件 | 仅电量；充电状态及音频控制未知 |
 | MCHOSE X9 耳机 | `3837:6045` | 贡献者声明 | 未接入 | 电量能力待接入；音效/灯效不由 Vigil Watt 覆盖 |
 | MCHOSE A5 V2 Ultra 鼠标 | `3837:100C` | 贡献者声明 | 未接入（与初代 A5 插件分开） | 代际需精确识别；不复用初代 A5 插件身份 |

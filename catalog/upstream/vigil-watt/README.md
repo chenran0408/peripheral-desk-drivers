@@ -1,13 +1,31 @@
-# 厂商研究资料
+# 按厂商跟进 Vigil Watt
 
-这里保留 Vigil Watt 采用“厂商、协议、型号”分层后发布在开发分支的三套完整数据，固定到 [6315988](https://github.com/evren-oct/vigil-watt/tree/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins)。本目录只随源码提供。可安装的外设盒插件见[厂商目录](../../README.md)。
+在[型号、接收器和插件对照表](COVERAGE.md)中搜索鼠标、键盘或手柄的型号。点插件名可查看其支持范围。对照表也列出各厂商协议从上游稳定版到开发版的改动，以及目前只有厂商登记的身份。要安装插件，请在外设盒的驱动商店按型号搜索。[外设盒厂商目录](../../README.md)
 
-| 厂商 | 型号与连接记录 | 可查资料 |
-| --- | --- | --- |
-| 迈从 | 63 条设备记录，另列 8 条传输通道 | [设备、共用接收器、回报率表](mchose-catalog.json) · [协议与接口](mchose.protocols.json) |
-| 雷柏 | 195 条设备记录 | [设备、有线/接收器配对和验证能力](rapoo-catalog.json) · [协议与接口](rapoo.protocols.json) |
-| 北通 | 110 条运行目录记录，另有 66 条官方 PID 登记 | [运行与官方目录、验证状态](betop-catalog.json) · [协议与接口](betop.protocols.json) |
+| 厂商 | 查阅内容 |
+| --- | --- |
+| 迈从 | [设备身份、自报型号、共用接收器和回报率表](mchose-catalog.json) · [协议规格](mchose.protocols.json) |
+| 雷柏 | [型号、有线和接收器身份](rapoo-catalog.json) · [协议规格](rapoo.protocols.json) |
+| 北通 | [型号、官方 PID 和验证记录](betop-catalog.json) · [协议规格](betop.protocols.json) |
+| 罗技 | [Unifying、Bolt、LIGHTSPEED 等接收器系列、槽位和电压曲线](logitech-hidpp.json) |
 
-记录数包含同一型号的不同路径。对照时同时使用厂商、型号、VID/PID、连接方式和 HID 接口。北通资料将官方登记、仅识别到身份、收到电量报告和实物验证分别记录；迈从通用接收器的 USB 身份、设备通过协议自报的身份各有独立字段。厂商目录里出现的设置范围仅用于研究，进入插件前需与该型号的事务和证据相符。
+## 同步上游
 
-文件沿用上游原文和 MIT 许可证。部分 `.json` 使用上游允许的注释，直接阅读时请使用支持 JSONC 的工具。更新时先核对固定提交的 `src/VigilWatt.Core/Plugins`，按[来源清单](sources.json)同步相应文件和[许可证](LICENSE)，在 PR 里注明改动影响哪个外设盒插件，并保留缺少实测的连接方式。
+在仓库根目录运行以下命令，需要 Python 3.11 或更新版和 Git。首次联网对比会在 `work/upstreams/vigil-watt` 建立参考仓库。
+
+```shell
+python scripts/sync_vigil_watt.py --vendor Mchose
+python scripts/sync_vigil_watt.py --write
+```
+
+第一条只列出上次同步后迈从型号、接收器、协议和源码文件的变化。第二条将整批资料固定到同一个开发提交，根据 GitHub 最新稳定 Release 对照所有厂商，更新来源清单和可浏览的型号表。可以先省略所有参数预览完整变化。`--check` 在来源或对照表需要更新时返回 1。
+
+已有上游 Git 仓库时，可用本地的完整 Git 提交或分支回放某一批变动。以下命令在已有相应 Git 对象的情况下可离线使用。
+
+```shell
+python scripts/sync_vigil_watt.py --checkout ../vigil-watt --stable-tag v1.3.1 --dev-ref 6315988f54e47fc030ae4c535dc64ae27c08f471 --check
+```
+
+确认某条上游身份与已实现插件的型号、接口和连接方式对应后，在 [plugin-links.json](plugin-links.json) 填入现有插件 ID 和适用连接方式，再重新生成对照表。可以直接添加共享协议的已实现功能，在插件记录中注明实物或公开实现的依据。同步命令只更新本仓库的研究资料，插件按原有流程签名发布。
+
+[来源与固定提交](sources.json) · [上游 MIT 许可证](LICENSE) · [贡献指南](../../../CONTRIBUTING.md#vendor-research)

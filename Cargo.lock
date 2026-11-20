@@ -1458,7 +1458,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a5-v3-pro-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1466,7 +1466,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a5-v3-ultra-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1474,7 +1474,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a5-v3-ultra-plus-3955-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1501,7 +1501,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1509,7 +1509,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-magnetic-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1517,7 +1517,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-pro-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1525,7 +1525,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-pro-plus-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1533,7 +1533,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-ultra-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1551,10 +1551,19 @@ dependencies = [
 
 [[package]]
 name = "mchose-a7-v3-x-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
+]
+
+[[package]]
+name = "mchose-g3-v2-driver"
+version = "0.4.13-preview.43"
+dependencies = [
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-mice",
+ "serde_json",
 ]
 
 [[package]]
@@ -1605,7 +1614,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k5-pro-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1613,7 +1622,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k5-ultra-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1621,7 +1630,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k7-v2-pro-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1629,7 +1638,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k7-v2-pro-plus-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1637,7 +1646,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k7-v2-ultra-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1645,7 +1654,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-k7-v2-ultra-plus-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",
@@ -1680,7 +1689,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-r7-ultra-driver"
-version = "0.4.13-preview.42"
+version = "0.4.13-preview.43"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-0x4d",

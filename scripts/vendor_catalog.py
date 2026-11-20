@@ -23,6 +23,8 @@ CAPABILITIES = {
     "battery": "电量", "settings": "设置", "bindings": "改键", "resident-macros": "常驻宏",
     "lighting-switch": "灯光开关", "lighting-editor": "灯效编辑", "audio": "音效",
     "polling-rate-read": "读配置回报率", "dpi-stages-read": "读 DPI 档位配置",
+    "polling-rate-write": "设置回报率", "dpi-stages-write": "编辑 DPI 档位",
+    "pointer-controls": "指针设置",
 }
 POLICIES = {"manual": "手动认领", "runtime-identity": "运行时核对", "interface": "接口匹配"}
 

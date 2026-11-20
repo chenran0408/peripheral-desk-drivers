@@ -1,13 +1,41 @@
 {
   "repository": "https://github.com/evren-oct/vigil-watt",
   "revision": "6315988f54e47fc030ae4c535dc64ae27c08f471",
+  "stable_tag": "v1.3.1",
+  "stable_revision": "4df830043296760f5d5c273f4cdc0ea9456c4bc7",
   "files": {
     "LICENSE": "LICENSE",
-    "mchose-catalog.json": "src/VigilWatt.Core/Plugins/Mchose/mchose-catalog.json",
-    "mchose.protocols.json": "src/VigilWatt.Core/Plugins/Mchose/specs/mchose.protocols.json",
     "betop-catalog.json": "src/VigilWatt.Core/Plugins/Betop/betop-catalog.json",
     "betop.protocols.json": "src/VigilWatt.Core/Plugins/Betop/specs/betop.protocols.json",
+    "logitech-hidpp.json": "src/VigilWatt.Core/Plugins/Logitech/logitech-hidpp.json",
+    "mchose-catalog.json": "src/VigilWatt.Core/Plugins/Mchose/mchose-catalog.json",
+    "mchose.protocols.json": "src/VigilWatt.Core/Plugins/Mchose/specs/mchose.protocols.json",
     "rapoo-catalog.json": "src/VigilWatt.Core/Plugins/Rapoo/rapoo-catalog.json",
     "rapoo.protocols.json": "src/VigilWatt.Core/Plugins/Rapoo/specs/rapoo.protocols.json"
-  }
+  },
+  "brand_docs": [
+    "docs/hardware/brands/asus-rog.md",
+    "docs/hardware/brands/atk.md",
+    "docs/hardware/brands/aula.md",
+    "docs/hardware/brands/betop.md",
+    "docs/hardware/brands/cherry.md",
+    "docs/hardware/brands/darkrim.md",
+    "docs/hardware/brands/delux.md",
+    "docs/hardware/brands/eweadn.md",
+    "docs/hardware/brands/flydigi.md",
+    "docs/hardware/brands/gamesir.md",
+    "docs/hardware/brands/ganss.md",
+    "docs/hardware/brands/hecate.md",
+    "docs/hardware/brands/hyperx-cf2.md",
+    "docs/hardware/brands/inphic.md",
+    "docs/hardware/brands/lingbao.md",
+    "docs/hardware/brands/logitech.md",
+    "docs/hardware/brands/mchose.md",
+    "docs/hardware/brands/mojhon.md",
+    "docs/hardware/brands/pulsar.md",
+    "docs/hardware/brands/rapoo.md",
+    "docs/hardware/brands/razer.md",
+    "docs/hardware/brands/rose.md",
+    "docs/hardware/brands/vgn.md"
+  ]
 }

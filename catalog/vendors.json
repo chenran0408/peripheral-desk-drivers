@@ -3442,10 +3442,28 @@
         },
         {
           "id": "g7-aa30",
-          "name": "G7 · AA 30 状态",
-          "scope": "G7 在 A8A5:2255 发送 55 30，读取 AA 30 应答。",
+          "name": "Gmouse · AA 30 状态",
+          "scope": "G7 使用 A8A5:2255；G3 V2 使用 3837:4245、FF01:0010 命令通道读取整数电量与充电标志。",
           "basis": "documented",
           "models": [
+            {
+              "id": "mchose-g3-v2",
+              "name": "迈从 G3 V2",
+              "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "upstream-hardware-verified-project-untested",
+              "implementation": [
+                "crates/protocol-mchose-mice"
+              ],
+              "connections": [
+                "2.4 GHz 接收器 3837:4245 · FF01:0010 · 65 字节"
+              ],
+              "firmware": "unknown"
+            },
             {
               "id": "mchose-g7",
               "name": "MCHOSE G7",
@@ -3644,7 +3662,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3655,7 +3676,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4035。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Pro后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4035。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4035。"
             },
             {
               "id": "mchose-a5-v3-ultra",
@@ -3665,7 +3686,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3676,7 +3700,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4042。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4042。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4042。"
             },
             {
               "id": "mchose-a5-v3-ultra-plus-3955",
@@ -3686,7 +3710,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3697,7 +3724,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4034。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra+(3955)后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4034。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A5 V3 Ultra+(3955) 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4034。"
             },
             {
               "id": "mchose-a7-v3",
@@ -3707,7 +3734,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3718,7 +3748,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4030。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4030。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4030。"
             },
             {
               "id": "mchose-a7-v3-magnetic",
@@ -3728,7 +3758,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3739,7 +3772,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403F。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Magnetic后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:403F。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Magnetic 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403F。"
             },
             {
               "id": "mchose-a7-v3-pro",
@@ -3749,7 +3782,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3760,7 +3796,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4031。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4031。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4031。"
             },
             {
               "id": "mchose-a7-v3-pro-plus",
@@ -3770,7 +3806,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3781,7 +3820,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4032。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro+后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4032。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4032。"
             },
             {
               "id": "mchose-a7-v3-ultra",
@@ -3791,7 +3830,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3802,7 +3844,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403D。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Ultra后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:403D。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403D。"
             },
             {
               "id": "mchose-a7-v3-x",
@@ -3812,7 +3854,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3823,7 +3868,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403A。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3-X后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:403A。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 A7 V3-X 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403A。"
             },
             {
               "id": "mchose-k5-pro",
@@ -3833,7 +3878,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3844,7 +3892,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4037。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Pro后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4037。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4037。"
             },
             {
               "id": "mchose-k5-ultra",
@@ -3854,7 +3902,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3865,7 +3916,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4038。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Ultra后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4038。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K5 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4038。"
             },
             {
               "id": "mchose-k7-v2-pro",
@@ -3875,7 +3926,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3886,7 +3940,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403B。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:403B。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403B。"
             },
             {
               "id": "mchose-k7-v2-pro-plus",
@@ -3896,7 +3950,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3907,7 +3964,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4027。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro+后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4027。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Pro+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4027。"
             },
             {
               "id": "mchose-k7-v2-ultra",
@@ -3917,7 +3974,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3928,7 +3988,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403C。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:403C。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:403C。"
             },
             {
               "id": "mchose-k7-v2-ultra-plus",
@@ -3938,7 +3998,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3949,7 +4012,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4028。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra+后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4028。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 K7 V2 Ultra+ 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4028。"
             },
             {
               "id": "mchose-r7-ultra",
@@ -3959,7 +4022,10 @@
               "capabilities": [
                 "battery",
                 "polling-rate-read",
-                "dpi-stages-read"
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-write",
+                "pointer-controls"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3970,7 +4036,7 @@
                 "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4036。"
               ],
               "firmware": "unknown",
-              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 R7 Ultra后安装，即允许主动查询电量。插件每次核对鼠标自报的 3837:4036。"
+              "manual_hint": "多款鼠标共用 3837:1018 接收器。确认鼠标为迈从 R7 Ultra 后安装，即允许查询状态；设置在你点击应用后写入。插件每次核对鼠标自报的 3837:4036。"
             }
           ]
         },

@@ -1,4 +1,6 @@
 //! MCHOSE universal 8K receiver: a model is identified by the paired device's 0x0900 response.
+mod settings;
+
 use peripheral_desk::{hid, model::State};
 use peripheral_hid_transport::WinTransport;
 use serde_json::{json, Value};
@@ -27,6 +29,7 @@ struct Info {
     vid: u16,
     pid: u16,
     percent: u8,
+    profile_count: u8,
     charge: u8,
     connection: u8,
 }
@@ -55,6 +58,7 @@ fn info(frame: &[u8]) -> Option<Info> {
         vid: u16::from_le_bytes([payload[0], payload[1]]),
         pid: u16::from_le_bytes([payload[2], payload[3]]),
         percent: payload[12],
+        profile_count: payload[4].min(3),
         charge: payload[11],
         connection: payload[10],
     })
@@ -84,32 +88,25 @@ fn configured_rate(model: u16, receiver: u16, indices: [u8; 2]) -> Result<u16, S
     if indices[0] != indices[1] {
         return Err("两个回报率配置索引不一致，无法确定当前配置".into());
     }
-    let catalog: Value = serde_json::from_str(include_str!(
-        "../../../catalog/upstream/vigil-watt/mchose-catalog.json"
-    ))
-    .expect("checked-in MCHOSE catalog");
-    let table = catalog["rateProfiles"][format!("0x{model:04x}")][format!("0x{receiver:04x}")]
-        .as_str()
-        .ok_or("官方目录没有这组鼠标与接收器的回报率表")?;
-    catalog["rateTables"][table]
+    settings::rate_table(model, receiver)?
         .get(usize::from(indices[0]))
-        .and_then(Value::as_u64)
-        .and_then(|hz| u16::try_from(hz).ok())
+        .copied()
         .ok_or_else(|| "回报率索引超出该型号的配置表".into())
 }
 
+#[derive(Clone, PartialEq, Eq)]
 struct DpiConfig {
     stages: Vec<u16>,
+    slots: [u16; 6],
+    selected: u8,
     separate_axes: bool,
 }
 
-fn dpi_config(frame: &[u8], direction: u8) -> Option<DpiConfig> {
+fn dpi_config(frame: &[u8], profile: u8, direction: u8) -> Option<DpiConfig> {
     let data = payload(frame, DPI)?;
-    // The upstream probe requests profile zero. This profile has no proven
-    // relationship to the active profile, so its entries are settings only.
     let slots = data.get(5..17)?;
     let count = usize::from(data[2]);
-    if data[0] != 0
+    if data[0] != profile
         || data[1] != direction
         || !(1..=6).contains(&count)
         || usize::from(data[3]) >= count
@@ -117,18 +114,16 @@ fn dpi_config(frame: &[u8], direction: u8) -> Option<DpiConfig> {
     {
         return None;
     }
-    let stages: Vec<_> = slots
-        .as_chunks::<2>()
-        .0
-        .iter()
-        .take(count)
-        .map(|&slot| u16::from_le_bytes(slot))
-        .collect();
+    let slots: [u16; 6] =
+        std::array::from_fn(|n| u16::from_le_bytes([slots[2 * n], slots[2 * n + 1]]));
+    let stages = slots[..count].to_vec();
     if stages.contains(&0) {
         return None;
     }
     Some(DpiConfig {
         stages,
+        slots,
+        selected: data[3],
         separate_axes: data[4] == 1,
     })
 }
@@ -202,40 +197,57 @@ fn state(key: &str, expected_pid: u16, report: Info) -> Result<State, String> {
     })
 }
 
+fn read_axis(t: &mut WinTransport, profile: u8, axis: u8) -> Result<DpiConfig, String> {
+    read_reply(t, DPI, &[profile, axis], &mut None, |frame| {
+        dpi_config(frame, profile, axis)
+    })
+}
+
 fn read_state(
-    path: &str,
-    key: &str,
+    mut transport: WinTransport,
+    mut state: State,
     expected_pid: u16,
     read_pointer: bool,
+    mut stage: Option<u8>,
+    profile_count: u8,
 ) -> Result<Value, String> {
-    let mut transport = WinTransport::open(path)?;
-    transport.flush()?;
-    let mut stage = None;
-    let report = read_reply(&mut transport, DEVICE_INFO, &[], &mut stage, info)?;
-    let mut state = state(key, expected_pid, report)?;
+    let mut performance = None;
+    let mut dpi_layout = None;
     let mut indices = None;
     let mut dpi_y = None;
     if read_pointer {
         // Device details request these explicitly; background battery polls
         // never read performance settings. Independent failures preserve power.
         let mut errors = Vec::new();
-        let rate = read_reply(&mut transport, PERFORMANCE, &[], &mut stage, rate_indices).and_then(
-            |pair| {
-                indices = Some(pair);
-                configured_rate(expected_pid, RECEIVER, pair)
-            },
-        );
+        let rate = read_reply(&mut transport, PERFORMANCE, &[], &mut stage, |frame| {
+            let indices = rate_indices(frame)?;
+            Some((
+                indices,
+                settings::Performance::from_payload(payload(frame, PERFORMANCE)?),
+            ))
+        })
+        .and_then(|(pair, perf)| {
+            performance = perf;
+            indices = Some(pair);
+            configured_rate(expected_pid, RECEIVER, pair)
+        });
         match rate {
             Ok(hz) => state.rate = Some(hz),
             Err(reason) => errors.push(format!("配置回报率：{reason}")),
         }
+        let profile = performance.map(|p| p.profile()).unwrap_or(0);
         let mut axis = |direction| {
-            read_reply(&mut transport, DPI, &[0, direction], &mut stage, |frame| {
-                dpi_config(frame, direction)
-            })
+            read_reply(
+                &mut transport,
+                DPI,
+                &[profile, direction],
+                &mut stage,
+                |frame| dpi_config(frame, profile, direction),
+            )
         };
         match axis(0) {
             Ok(x) => {
+                dpi_layout = Some((x.stages.len(), x.selected, x.separate_axes));
                 state.dpi_stages = x.stages;
                 if x.separate_axes {
                     match axis(1) {
@@ -256,21 +268,50 @@ fn read_state(
     if let Some(values) = dpi_y {
         value["dpi_stages_y"] = json!(values);
     }
+    if let Some(perf) = performance {
+        if let Err(e) = settings::describe(
+            &mut value,
+            &mut transport,
+            expected_pid,
+            perf,
+            profile_count,
+            dpi_layout,
+        ) {
+            let previous = value["settings_error"].as_str().unwrap_or_default();
+            value["settings_error"] = json!(format!("{previous} 抬升距离：{e}").trim());
+        }
+    }
     Ok(value)
 }
 
 pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
     let result = (|| {
         let op: Value = serde_json::from_str(input).map_err(|e| e.to_string())?;
-        if op.get("op").and_then(Value::as_str) != Some("read-state") {
-            return Err("此插件支持读取设备状态".into());
+        let command = op["op"].as_str().unwrap_or_default();
+        if !matches!(command, "read-state" | "set-pointer") {
+            return Err("不支持的设备操作".into());
         }
         let read_pointer = op.get("read_pointer").and_then(Value::as_bool) == Some(true);
         let mut error = "未找到 3837:1018 的 8K 接收器命令接口".to_string();
         for interface in hid::enumerate()?.iter().filter(|i| matches(i)) {
-            match read_state(&interface.path, key, expected_pid, read_pointer) {
-                Ok(result) => return Ok(result),
-                Err(message) => error = message,
+            let connected = (|| {
+                let mut t = WinTransport::open(&interface.path)?;
+                t.flush()?;
+                let mut stage = None;
+                let report = read_reply(&mut t, DEVICE_INFO, &[], &mut stage, info)?;
+                let profile_count = report.profile_count;
+                let state = state(key, expected_pid, report)?;
+                Ok((t, state, stage, profile_count))
+            })();
+            match connected {
+                Ok((mut t, state, stage, profile_count)) => {
+                    return if command == "set-pointer" {
+                        settings::apply(&mut t, expected_pid, &op, profile_count)
+                    } else {
+                        read_state(t, state, expected_pid, read_pointer, stage, profile_count)
+                    }
+                }
+                Err(e) => error = e,
             }
         }
         Err(error)
@@ -388,19 +429,19 @@ mod tests {
         let mut frame = [
             0x4d, 1, 1, 17, 3, 0, 0, 0, 0, 0, 2, 1, 1, 0x90, 1, 0x20, 3, 0, 0, 0, 0, 0, 0, 0, 0,
         ];
-        let x = dpi_config(&frame, 0).unwrap();
+        let x = dpi_config(&frame, 0, 0).unwrap();
         assert!(x.separate_axes);
         assert_eq!(x.stages, [400, 800]);
-        assert!(dpi_config(&frame, 1).is_none());
+        assert!(dpi_config(&frame, 0, 1).is_none());
         frame[9] = 1;
-        assert_eq!(dpi_config(&frame, 1).unwrap().stages, [400, 800]);
+        assert_eq!(dpi_config(&frame, 0, 1).unwrap().stages, [400, 800]);
         frame[8] = 1;
-        assert!(dpi_config(&frame, 1).is_none());
+        assert!(dpi_config(&frame, 0, 1).is_none());
         frame[8] = 0;
         for (offset, value) in [(3, 16), (10, 0), (10, 7), (11, 2), (12, 2)] {
             let mut invalid = frame;
             invalid[offset] = value;
-            assert!(dpi_config(&invalid, 1).is_none());
+            assert!(dpi_config(&invalid, 0, 1).is_none());
         }
     }
 }

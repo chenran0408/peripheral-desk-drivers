@@ -121,3 +121,5 @@ G87 V2 CZ 插件复用已有 `assets/mchose-g87-v2.png`。同一键盘的两种�
 迈从 A5 V3、A7 V3、K5、K7 V2 与 R7 Ultra 的 16 款 8K 接收器预览包复用已有 `assets/mchose-a5-pro-max.png`，即本项目绘制的鼠标分类图标。型号、接收器与设备状态字段见[协议来源](crates/protocol-mchose-0x4d/UPSTREAM.md)。
 
 商店的中文厂商搜索别名见 [vendor-aliases.json](catalog/vendor-aliases.json)。中文品牌称呼参考[凌豹](https://www.lingbaoes.com/)、[达摩鲨](https://www.darmoshark.cn/gongsijieshao.html)、[攻击鲨](https://cn.attackshark.cn/)、[兰族](https://lamzu.com.cn/)、[万灵竞记](https://chn.wlmouse.com/)、[渴创](https://keychron.jd.com/)及[惠普 Poly](https://www.hp.com/cn-zh/poly.html)。
+
+迈从 G3 V2 复用本项目原创鼠标示意图 `assets/logitech-g305.png`。[上游协议与归属](drivers/mchose-g3-v2/UPSTREAM.md)

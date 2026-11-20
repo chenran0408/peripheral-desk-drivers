@@ -1,13 +1,14 @@
 //! Read-only MCHOSE mouse protocols from HaloBattery/providers/mchose.py (MIT).
 use peripheral_desk::{hid, model::State};
 use peripheral_hid_transport::WinTransport;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
+use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 #[derive(Clone, Copy)]
 pub enum Model {
     A5,
     A7,
     G7,
+    G3V2,
     M7,
 }
 
@@ -27,6 +28,7 @@ impl Model {
                 &[0x100b],
             ),
             Self::G7 => ("mchose-g7", "MCHOSE G7", 0xa8a5, &[0x2255]),
+            Self::G3V2 => ("mchose-g3-v2", "迈从 G3 V2", 0x3837, &[0x4245]),
             Self::M7 => (
                 "mchose-m7-ultra",
                 "MCHOSE M7 Ultra",
@@ -43,6 +45,12 @@ impl Model {
         match self {
             Self::A5 => i.usage_page == 0xffff && i.feature_len >= 64,
             Self::G7 => i.usage_page == 0xff01 && i.output_len >= 65 && i.input_len >= 12,
+            Self::G3V2 => {
+                i.usage_page == 0xff01
+                    && i.usage == 0x0010
+                    && i.input_len >= 65
+                    && i.output_len >= 65
+            }
             Self::A7 | Self::M7 => i.usage_page == 0xff01 && i.usage == 1 && i.feature_len >= 21,
         }
     }
@@ -83,7 +91,12 @@ pub fn parse_status(r: &[u8], vid: u16) -> Option<(u8, bool)> {
         .then_some((level, !r[12] != 0))
 }
 pub fn parse_g7(r: &[u8]) -> Option<(u8, bool)> {
-    (r.len() >= 10 && r[..2] == [0xaa, 0x30] && r[8] <= 100).then_some((r[8], r[9] != 0))
+    (r.len() >= 10 && r[..2] == [0xaa, 0x30] && r[8] <= 100).then(|| (r[8], r[9] != 0))
+}
+fn parse_g3(r: &[u8]) -> Option<(u8, bool)> {
+    [r, r.get(1..).unwrap_or_default()]
+        .into_iter()
+        .find_map(|data| parse_g7(data).filter(|(percent, _)| *percent > 0))
 }
 fn query(model: Model, i: &hid::Interface) -> Result<Option<(u8, bool)>, String> {
     match model {
@@ -105,16 +118,29 @@ fn query(model: Model, i: &hid::Interface) -> Result<Option<(u8, bool)>, String>
                 std::thread::sleep(Duration::from_millis(30));
             }
         }
-        Model::G7 => {
+        Model::G7 | Model::G3V2 => {
             let mut transport = WinTransport::open(&i.path)?;
             transport.flush()?;
             let mut req = [0; 65];
             req[..9].copy_from_slice(&[0, 0x55, 0x30, 0xa5, 0x0b, 0x2e, 1, 1, 1]);
-            transport.write(&req, Duration::from_millis(400))?;
-            for _ in 0..25 {
-                let reply = transport.read(i.input_len as usize, Duration::from_millis(20))?;
-                if let Some(result) = parse_g7(&reply) {
-                    return Ok(Some(result));
+            let g3 = matches!(model, Model::G3V2);
+            let (attempts, timeout_ms) = if g3 { (2, 1200) } else { (1, 500) };
+            for _ in 0..attempts {
+                transport.write(&req, Duration::from_millis(400))?;
+                let deadline = Instant::now() + Duration::from_millis(timeout_ms);
+                while let Some(remaining) = deadline.checked_duration_since(Instant::now()) {
+                    let reply = transport.read(i.input_len as usize, remaining)?;
+                    if reply.is_empty() {
+                        break;
+                    }
+                    let result = if g3 {
+                        parse_g3(&reply)
+                    } else {
+                        parse_g7(&reply)
+                    };
+                    if let Some(result) = result {
+                        return Ok(Some(result));
+                    }
                 }
             }
         }
@@ -165,7 +191,7 @@ pub fn read_state(model: Model) -> Result<State, String> {
                         .as_secs(),
                     settings_error: "仅支持只读电量与充电状态。".into(),
                     ..State::default()
-                })
+                });
             }
             Ok(None) => {}
             Err(e) => {
@@ -186,6 +212,14 @@ pub fn read_state(model: Model) -> Result<State, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn g3_v2_reported_battery() {
+        let reply = [0, 0xaa, 0x30, 0, 0, 0, 0, 0, 0, 89, 0];
+        assert_eq!(parse_g3(&reply), Some((89, false)));
+        assert_eq!(parse_g3(&reply[1..]), Some((89, false)));
+        assert_eq!(parse_g3(&[0xaa, 0x30, 0, 0, 0, 0, 0, 0, 0, 0]), None);
+        assert_eq!(parse_g3(&[]), None);
+    }
     #[test]
     fn frames() {
         assert_eq!(&a5_request()[..7], &[0, 0, 0, 2, 2, 0, 0x83]);

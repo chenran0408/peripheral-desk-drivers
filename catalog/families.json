@@ -74,10 +74,11 @@
       },
       {
         "id": "g7-aa30",
-        "name": "G7 · AA 30 状态",
-        "scope": "G7 在 A8A5:2255 发送 55 30，读取 AA 30 应答。",
+        "name": "Gmouse · AA 30 状态",
+        "scope": "G7 使用 A8A5:2255；G3 V2 使用 3837:4245、FF01:0010 命令通道读取整数电量与充电标志。",
         "models": [
-          "mchose-g7"
+          "mchose-g7",
+          "mchose-g3-v2"
         ]
       },
       {

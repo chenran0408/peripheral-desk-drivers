@@ -133,7 +133,7 @@ python scripts/build.py --metadata drivers-preview.json --package <device-id> --
 - 我实际验证过的设备、连接和功能：[填写；未实测就写未实测]
 
 开始前：
-1. 阅读仓库 AGENTS.md（如果存在）、CONTRIBUTING.md、docs/COMMUNITY-ADAPTATION-WIKI.md、docs/UPSTREAM-REUSE.md、docs/ABI.md、docs/COMPATIBILITY.md 和设备模板。用容易理解的话告诉我你是否找到已有支持。
+1. 阅读仓库 AGENTS.md（如果存在）、CONTRIBUTING.md、docs/COMMUNITY-ADAPTATION-WIKI.md、docs/UPSTREAM-REUSE.md、docs/ABI.md、docs/COMPATIBILITY.md 和设备模板。在 catalog/README.md 按品牌查找，查看该型号的接收器与协议族；用容易理解的话告诉我你是否找到已有支持。
 2. 检查 git status、现有设备目录、兼容记录、catalog 和相关协议实现，先找是否已有同型号或共用协议工作。保留所有无关改动，不要清理、暂存或改写我的其他文件。
 3. 搜索并核对精确型号、固件和连接方式对应的官方或开源实现。优先采用可固定到提交 SHA 的成熟上游代码和明确的用户实物验证记录。核实实际拟复用文件的许可证；保留版权/许可证，记录来源版本、文件和改动。不要因品牌相同、VID/PID 相同或外观相似推断兼容。不得把未授权的厂商 DLL、SDK、固件或用户私密数据放入公开包。
 
@@ -141,7 +141,7 @@ python scripts/build.py --metadata drivers-preview.json --package <device-id> --
 1. 用现有 ABI 1 设备插件模板创建独立插件；按现有 workspace、catalog、签名、按需下载和离线包规则集成，不要把所有设备实现加入主程序。
 2. 只有证据覆盖的型号、连接路径和功能才可启用。把设备身份匹配写准确；主动查询和被动监听要区分。未知值、过期缓存、未匹配回复或解析错误不得伪装为成功、100% 电量或默认设置。
 3. 若实现写入功能，沿用上游事务语义；保存可恢复的原值，按已知协议读回验证，失败时尝试恢复并报告结果。保留未知配置字段。不要凭空添加空按钮、能力声明或不工作的控制项。
-4. 更新预览 catalog、设备兼容记录、上游来源/许可证说明、插件说明和普通用户可读的 changelog。验证状态分别写清“上游硬件验证”“本项目实机验证”“仅公开实现未实测”或“仅能识别”。不得把上游实测说成本项目实测。
+4. 按 CONTRIBUTING.md 的厂商目录说明维护协议族，并执行 python scripts/vendor_catalog.py --write。更新预览 catalog、设备兼容记录、上游来源/许可证说明、插件说明和普通用户可读的 changelog。验证状态分别写清“上游硬件验证”“本项目实机验证”“仅公开实现未实测”或“仅能识别”。不得把上游实测说成本项目实测。
 5. 尽可能少做重复测试。运行本次改动所需的 source/metadata、格式、目标插件构建、接口和解析检查；不跑无关整套设备测试，不要求我拥有未提供的实物。不要向硬件发送未经授权或无资料依据的命令。
 6. 自行安装/配置必要开发依赖，在独立分支完成适配和针对性检查，提交改动并在当前 GitHub 权限允许时创建 PR，附上普通用户看得懂的说明。不要直接改主分支或触碰签名私钥；不要发布正式版本，除非我另行明确要求。若 GitHub 要求我登录或授权，只告诉我具体网页操作，授权后继续完成 PR。
 

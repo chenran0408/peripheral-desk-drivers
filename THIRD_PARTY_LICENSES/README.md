@@ -94,3 +94,7 @@ Additional current lockfile entries:
 - simd-adler32-0.3.10: MIT
 - zip-2.6.1: MIT
 - zopfli-0.8.4: Apache-2.0
+
+G87 V2 CZ 适配依据 Vigil Watt 开发提交 `6315988f54e47fc030ae4c535dc64ae27c08f471`（MIT）和贡献者 Archer-Wen 的原厂 M HUB 实物观察，Rust 实现独立编写。见[协议与归属](../drivers/mchose-g87-v2-cz/UPSTREAM.md)。
+
+厂商研究资料包含 Vigil Watt (© 2026 evren) 的三套设备表与协议规格，原始文件及 MIT 许可证见[固定来源和许可证](../catalog/upstream/vigil-watt/README.md)。T9 的位域修正采用公开协议事实，Rust 实现独立编写。

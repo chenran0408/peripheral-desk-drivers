@@ -39,6 +39,16 @@ peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev 
 
 只发布一款稳定驱动，例如：`python scripts/build.py --release --metadata drivers.json --package mchose-a5-ultra --release-tag v0.4.1 --out dist`。只发布 G305 预览版则用 `--metadata drivers-preview.json --package logitech-g305 --release-tag v0.4.1-preview.1`。重复 `--package` 可选多款；打包分别构建设备，避免依赖功能合并把无关协议带入每个 DLL。不要为改内容复用同一设备版本；同版不同哈希和版本倒退会被频道发布器拒绝。
 
+<a id="vendor-research"></a>
+
+## 按厂商维护型号与协议
+
+从[厂商目录](catalog/README.md)找到相近的型号。完整型号资料可用 `python scripts/vendor_catalog.py --model mchose-g87-v2-cz` 查询，包含主程序版本范围、精确接口、固件、已验证功能和原始来源。签名安装目录继续由原有发布流程生成。
+
+1. 在对应通道的包元数据填写 `device.brand`、`matches`、`capabilities`、`validation` 与准确的接口。共用接收器能在设备端确认身份时用 `runtime_identity`，只能由使用者确认时用 `manual` 与 `manual_hint`。
+2. 相同事务放到 `crates/protocol-*`，型号插件选择接口、身份和可开放的功能。目录会从该包实际依赖推导实现。一个 crate 有多个线协议或一个系列有不同的型号实现时，可在 `catalog/families.json` 分组，写明家族边界和证据。尚无共享证据的插件会保留自己的分组。
+3. 运行 `python scripts/vendor_catalog.py --write`，连同生成的 `catalog/vendors.json` 和 `catalog/README.md` 提交。CI 的 `python scripts/check-source.py` 会检查索引与两个通道的源码是否一致。研究库新增识别资料时见[Vigil Watt 厂商资料与版本](catalog/upstream/vigil-watt/README.md)。
+
 ## 新设备步骤
 
 1. 从 `templates/device` 复制一个包，替换 id、crate 名和 metadata。四款已有包从0.4.1起使用各自的专用协议入口；新协议使用模板的自定义 handler，保持同样的 JSON 响应格式，避免通过全设备 dispatcher 牵入无关功能。

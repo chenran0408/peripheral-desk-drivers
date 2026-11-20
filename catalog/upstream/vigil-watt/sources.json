@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/evren-oct/vigil-watt",
+  "revision": "6315988f54e47fc030ae4c535dc64ae27c08f471",
+  "files": {
+    "LICENSE": "LICENSE",
+    "mchose-catalog.json": "src/VigilWatt.Core/Plugins/Mchose/mchose-catalog.json",
+    "mchose.protocols.json": "src/VigilWatt.Core/Plugins/Mchose/specs/mchose.protocols.json",
+    "betop-catalog.json": "src/VigilWatt.Core/Plugins/Betop/betop-catalog.json",
+    "betop.protocols.json": "src/VigilWatt.Core/Plugins/Betop/specs/betop.protocols.json",
+    "rapoo-catalog.json": "src/VigilWatt.Core/Plugins/Rapoo/rapoo-catalog.json",
+    "rapoo.protocols.json": "src/VigilWatt.Core/Plugins/Rapoo/specs/rapoo.protocols.json"
+  }
+}

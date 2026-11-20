@@ -10,25 +10,23 @@ const REPORT_LEN: usize = 24;
 fn supported(i: &hid::Interface) -> bool {
     i.vid == VID
         && i.pid == PID
-        && i.usage_page == 0x00ff
-        && i.usage == 0x0003
+        && matches!((i.usage_page, i.usage), (0xff00, 1..=3) | (1..=3, 0xff00))
         && i.input_len as usize == REPORT_LEN
         && i.path.to_ascii_lowercase().contains("&col04#")
 }
 
-fn parse(frame: &[u8]) -> Option<Option<u8>> {
+fn parse(frame: &[u8]) -> Option<(bool, Option<u8>)> {
     if frame.len() != REPORT_LEN || frame[0] != 0x04 {
         return None;
     }
-    let raw = frame[23];
-    if raw == 0x50 {
-        return Some(None);
-    }
-    if !(0x08..=0x78).contains(&raw) || !raw.is_multiple_of(8) {
-        return None;
-    }
-    let percent = ((u16::from(raw) * 100 + 60) / 120).min(100) as u8;
-    Some(Some(percent))
+    let connected = !matches!(frame[23], 0x50 | 0x10);
+    let level = usize::from(frame[1] & 7);
+    let percent = if connected {
+        [0, 50, 80, 100, 100].get(level).copied()
+    } else {
+        None
+    };
+    Some((connected, percent))
 }
 
 fn read_state() -> Result<State, String> {
@@ -47,14 +45,14 @@ fn read_state() -> Result<State, String> {
     }
     let mut io = WinTransport::open(&interface.path)?;
     let frame = io.read(REPORT_LEN, Duration::from_millis(300))?;
-    let Some(percent) = parse(&frame) else {
+    let Some((connected, percent)) = parse(&frame) else {
         return Err("BETOP T9 暂无新的有效状态帧".into());
     };
     let now = SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .unwrap_or_default()
         .as_secs();
-    if percent.is_none() {
+    if !connected {
         return Ok(State {
             key: KEY.into(),
             present: false,
@@ -70,10 +68,11 @@ fn read_state() -> Result<State, String> {
         present: true,
         fresh: true,
         percent,
-        charging: Some(false),
+        battery_raw: Some(frame[1]),
+        connection_path: Some("2.4 GHz · 20BC:5073 · Col04 被动上报".into()),
         updated: now,
         identity: "BETOP T9 · 20BC:5073 · 被动状态流".into(),
-        settings_error: "只读电量；该上游状态流没有充电字段，不提供按键、宏或灯效设置。".into(),
+        settings_error: "电量按手柄上报的档位显示，充电状态未知。".into(),
         ..State::default()
     })
 }
@@ -104,16 +103,27 @@ mod tests {
     use super::*;
 
     #[test]
-    fn excludes_offline_placeholder_and_invalid_levels() {
+    fn reports_the_documented_levels_and_link_flags_independently() {
         let mut frame = [0; REPORT_LEN];
         frame[0] = 4;
         frame[23] = 0x58;
-        assert_eq!(parse(&frame), Some(Some(73)));
+        for (flags, percent) in [
+            (0, Some(0)),
+            (1, Some(50)),
+            (2, Some(80)),
+            (3, Some(100)),
+            (0x0c, Some(100)),
+            (5, None),
+        ] {
+            frame[1] = flags;
+            assert_eq!(parse(&frame), Some((true, percent)));
+        }
         frame[23] = 0x50;
-        assert_eq!(parse(&frame), Some(None));
-        frame[23] = 0x59;
-        assert_eq!(parse(&frame), None);
-        frame[23] = 0x80;
+        assert_eq!(parse(&frame), Some((false, None)));
+        frame[23] = 0x10;
+        frame[1] = 0;
+        assert_eq!(parse(&frame), Some((false, None)));
+        frame[0] = 5;
         assert_eq!(parse(&frame), None);
     }
 }

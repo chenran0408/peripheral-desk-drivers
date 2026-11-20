@@ -319,7 +319,7 @@ dependencies = [
 
 [[package]]
 name = "betop-t9-driver"
-version = "0.4.11-preview.1"
+version = "0.4.13-preview.41"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -1512,6 +1512,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "mchose-g87-v2-cz-driver"
+version = "0.4.13-preview.41"
+dependencies = [
+ "peripheral-desk 0.4.11-preview.1",
+ "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-mchose-cz",
+ "serde_json",
+]
+
+[[package]]
 name = "mchose-g87-v2-driver"
 version = "0.4.11-preview.1"
 dependencies = [
@@ -1915,6 +1925,13 @@ name = "peripheral-desk-protocol-logitech-pro-x2"
 version = "0.4.2"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
+ "peripheral-hid-transport",
+]
+
+[[package]]
+name = "peripheral-desk-protocol-mchose-cz"
+version = "0.4.2"
+dependencies = [
  "peripheral-hid-transport",
 ]
 

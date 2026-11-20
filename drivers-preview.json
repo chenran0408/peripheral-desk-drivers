@@ -1191,24 +1191,64 @@
   },
   {
     "id": "betop-t9",
-    "name": "BETOP T9",
-    "version": "0.4.11-preview.1",
-    "description": "被动读取 T9 状态；上游离线占位值不显示为电量。",
+    "name": "BETOP T9 / 北通宙斯 2",
+    "version": "0.4.13-preview.41",
+    "description": "被动读取 T9 / 宙斯 2 的电量档位。休眠或关机时隐藏电量，充电状态未知。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
       "key": "betop-t9",
-      "name": "BETOP T9",
+      "name": "BETOP T9 / 北通宙斯 2",
       "brand": "BETOP",
       "kind": "accessory",
-      "subtitle": "被动接收器电量",
+      "subtitle": "接收器电量档位 · 被动上报",
       "image": "device.png",
       "matches": [
         {
           "vid": 8380,
           "pid": 20595,
-          "usage_page": 255,
+          "usage_page": 65280,
+          "usage": 1,
+          "input_len": 24,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 1,
+          "usage": 65280,
+          "input_len": 24,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 65280,
+          "usage": 2,
+          "input_len": 24,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 2,
+          "usage": 65280,
+          "input_len": 24,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 65280,
           "usage": 3,
+          "input_len": 24,
+          "path_contains": "col04"
+        },
+        {
+          "vid": 8380,
+          "pid": 20595,
+          "usage_page": 3,
+          "usage": 65280,
           "input_len": 24,
           "path_contains": "col04"
         }
@@ -1217,14 +1257,14 @@
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
         "connections": [
-          "2.4 GHz/USB status channel 20BC:5073, FF00:0003, Col04"
+          "20BC:5073 接收器 Col04，FF00 页、usage 1–3，24 字节，报告 ID 04。"
         ],
         "firmware": "unknown",
-        "project_validation": "Upstream Vigil Watt v1.3.0 hardware evidence applies only to the listed product and transport. Peripheral Desk has not tested this hardware.",
+        "project_validation": "上游 T9 接收器实物样本与官方位域说明支持电量分档；未与官方界面逐值比对。外设盒已检查解析，尚未实机复测。",
         "source_refs": [
-          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/betop.md",
-          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/protocols.md",
-          "https://github.com/evren-oct/vigil-watt/blob/a78e973/docs/hardware/sources.md"
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/betop.md",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Betop/specs/betop.protocols.json",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Betop/betop-catalog.json"
         ]
       }
     },
@@ -1234,7 +1274,7 @@
     "capabilities": [
       "battery"
     ],
-    "changelog": "新增型号专属电量读取；精确型号与连接边界见设备详情，Peripheral Desk 未实机验证。"
+    "changelog": "修正 T9 / 宙斯 2 电量。按手柄上报显示 0%、50%、80% 或 100%，关机、休眠和未知档位时隐藏读数。"
   },
   {
     "id": "cherry-pixiu75",
@@ -13730,5 +13770,56 @@
       "battery"
     ],
     "changelog": "新增 Attack Shark X6 接收器被动电量心跳读取；该接收器标识与其他型号共用，需手动确认 X6，尚待本项目实机验证。"
+  },
+  {
+    "id": "mchose-g87-v2-cz",
+    "name": "MCHOSE G87 V2 · CZ 接收器",
+    "version": "0.4.13-preview.41",
+    "description": "读取 G87 V2 在 3837:3033 接收器上的电量与充电状态。与其他键盘共用接收器，安装后请先确认型号。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-g87-v2-cz",
+      "name": "MCHOSE G87 V2 · CZ 接收器",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "subtitle": "CZ 接收器电量与充电",
+      "image": "device.png",
+      "manual": true,
+      "manual_hint": "请确认键盘是 G87 V2。G75 V2、K87S 和 K99 V3 也使用 3837:3033，接收器无法区分这几个型号。",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12339,
+          "usage_page": 65329,
+          "usage": 116,
+          "input_len": 65,
+          "output_len": 65,
+          "path_contains": "&mi_02"
+        }
+      ],
+      "advanced": [],
+      "receiver-shared": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "G87 V2 2.4 GHz 接收器 3837:3033 / MI_02 / FF31:0074 / 65 字节输入输出"
+        ],
+        "firmware": "unknown",
+        "project_validation": "Archer-Wen 在 G87 V2 上对照 M HUB 验证电池供电、充电和充满状态。外设盒以这些样本检查解析，尚未实机复测。",
+        "source_refs": [
+          "https://github.com/evren-oct/vigil-watt/pull/104",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/specs/mchose.protocols.json",
+          "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/tests/VigilWatt.Core.Tests/MchoseCzSpecTests.cs"
+        ]
+      }
+    },
+    "core_min": "0.4.11",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery"
+    ],
+    "changelog": "迈从 G87 V2 的 CZ 接收器可查看电量与充电状态。选择此插件后，请按提示确认键盘型号。"
   }
 ]

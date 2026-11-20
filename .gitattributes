@@ -6,3 +6,5 @@
 *.blob binary
 THIRD_PARTY_LICENSES/** -text
 third_party/** -text
+
+catalog/upstream/vigil-watt/*.json text eol=lf

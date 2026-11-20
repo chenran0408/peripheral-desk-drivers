@@ -1,5 +1,7 @@
 # 兼容与验证记录
 
+[按厂商查找当前插件与验证范围](../catalog/README.md)。预览版新增 [G87 V2 CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md)的电量与充电状态，并修正[北通宙斯 2 / T9](../drivers/betop-t9/UPSTREAM.md)的电量档位。下表保留早期版本实机记录。
+
 以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**；本次雷蛇灯效编辑器需 **>=0.4.9**）。四款原有设备包为 **stable**；G304、G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
 
 设备包独立版本：四款稳定包为0.4.2；G304为0.4.13-preview.14；G305为0.4.1-preview.1；Basilisk V3 Pro有线为0.4.3-preview.1。它们继续使用ABI 1及上述0.4.x主程序范围，包版本变化不等于新增实机验证。

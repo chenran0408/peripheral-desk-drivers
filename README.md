@@ -2,9 +2,12 @@
 
 外设盒（原 Peripheral Desk）的公开设备驱动包仓库。每款设备使用独立 DLL，可在主程序的驱动商店单独安装和更新。
 
+按厂商查找型号、协议与验证范围，见[厂商目录](catalog/README.md)。
+
 | 驱动包 | 设备 |
 | --- | --- |
 | `razer-deathadder-v3-pro` | 雷蛇炼狱蝰蛇 V3 专业版 |
+| `mchose-g87-v2-cz`（预览） | G87 V2 的 3837:3033 CZ 接收器；确认型号后读取电量和充电状态 |
 | `mchose-a5-ultra` | 迈从 A5 Ultra 初代 |
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `mchose-k99-v2`（预览） | MCHOSE K99 V2，共用接收器，需确认型号后手动认领；只读电量 |

@@ -115,3 +115,5 @@ identification; they are not vendor artwork or product photographs.
 The wave-13a device previews (AULA F99 Pro, Ajazz AJ-series wireless mouse and
 Attack Shark X6) use the same original generated brand-color letter icons for
 identification; they are not vendor artwork or product photographs.
+
+G87 V2 CZ 插件复用已有 `assets/mchose-g87-v2.png`。同一键盘的两种接收器沿用同一张设备图。

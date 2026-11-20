@@ -1,0 +1,142 @@
+{
+  "mchose": {
+    "evidence": [
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/mchose-catalog.json",
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Mchose/specs/mchose.protocols.json"
+    ],
+    "families": [
+      {
+        "id": "a5-gen1",
+        "name": "A5 初代 · 取反 Feature",
+        "scope": "初代 A5 Ultra 使用 FF01 和产品名核对。共用的 3837:100C 也出现在上游 A5 V2 Ultra 条目中。",
+        "models": [
+          "mchose-a5-ultra"
+        ]
+      },
+      {
+        "id": "keyboard-compx-13",
+        "name": "Compx 键盘 · 0x13 会话",
+        "scope": "两款键盘使用 3554:FA09；K99 V2 需要用户认领，G75 Pro 的改键与灯效只适用于 G75 Pro。",
+        "models": [
+          "mchose-g75-pro",
+          "mchose-k99-v2"
+        ]
+      },
+      {
+        "id": "g87-keyboard-v1",
+        "name": "G87 键盘 · 20 字节 V1 会话",
+        "scope": "41E4:2001 与 3837:201B 使用 0x13、0x05/0x4A 会话，各自核对该款接收器的 ACK。",
+        "models": [
+          "mchose-g87-v1",
+          "mchose-g87-v2"
+        ]
+      },
+      {
+        "id": "cz-block",
+        "name": "CZ 键盘 · 状态分块读取",
+        "scope": "3837:3033 共用接收器仅在用户确认 G87 V2 后查询 MI_02 上的 0x55/0x05 状态块。",
+        "models": [
+          "mchose-g87-v2-cz"
+        ]
+      },
+      {
+        "id": "mouse-v2-e2",
+        "name": "鼠标 V2 · E2 状态上报",
+        "scope": "A7 V2 Pro 优先监听取反的 E2，必要时再发送状态查询。",
+        "models": [
+          "mchose-a7-v2-pro"
+        ]
+      },
+      {
+        "id": "a7-v3-4d",
+        "name": "A7 V3 · 0x4D 事务",
+        "scope": "3837:1018 接收器确认产品名后开放该型号的 DPI、无线回报率和六键映射。",
+        "models": [
+          "mchose-a7-v3-ultra-plus"
+        ]
+      },
+      {
+        "id": "a5-pro-max-83",
+        "name": "A5 Pro Max · 0x83 状态",
+        "scope": "A5 Pro Max 使用 2023 系列接口及 0x83 命令。",
+        "models": [
+          "mchose-a5-pro-max"
+        ]
+      },
+      {
+        "id": "mouse-inverted-06",
+        "name": "鼠标 · 取反 0x06 状态",
+        "scope": "A7 V2 Ultra 和 M7 Ultra 共享解析器；两者分别核对各自的硬件标识。",
+        "models": [
+          "mchose-a7-v2-ultra",
+          "mchose-m7-ultra"
+        ]
+      },
+      {
+        "id": "g7-aa30",
+        "name": "G7 · AA 30 状态",
+        "scope": "G7 在 A8A5:2255 发送 55 30，读取 AA 30 应答。",
+        "models": [
+          "mchose-g7"
+        ]
+      },
+      {
+        "id": "headset-5565",
+        "name": "无线耳机 · 55 65 状态",
+        "scope": "X9 与 V9 Pro 使用同一类查询。其接收器、应答判据和已验证范围分别记录。",
+        "models": [
+          "mchose-x9",
+          "mchose-v9-pro"
+        ]
+      },
+      {
+        "id": "magdock",
+        "name": "MagDock · 底座灯效",
+        "scope": "3837:1012 的 FF00:0001 接口可读写底座灯效。",
+        "models": [
+          "mchose-magdock"
+        ]
+      }
+    ]
+  },
+  "rapoo": {
+    "evidence": [
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Rapoo/rapoo-catalog.json",
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Rapoo/specs/rapoo.protocols.json"
+    ],
+    "families": [
+      {
+        "id": "status-report7",
+        "name": "VT · 报告 0x07",
+        "scope": "VT3 II 在指定接收器被动读取 0x07 状态。",
+        "models": [
+          "rapoo-vt3-ii"
+        ]
+      }
+    ]
+  },
+  "betop": {
+    "evidence": [
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Betop/betop-catalog.json",
+      "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/src/VigilWatt.Core/Plugins/Betop/specs/betop.protocols.json"
+    ],
+    "families": [
+      {
+        "id": "betop-zeus-keyevent",
+        "name": "宙斯 · 0x04 按键状态",
+        "scope": "T9（宙斯 2）的 Col04 状态流按低三位分档；充电未知。",
+        "models": [
+          "betop-t9"
+        ]
+      },
+      {
+        "id": "betop-status15",
+        "name": "鲲鹏 · 0x15 状态",
+        "scope": "5158 有线会查询状态。5159 无线会先监听状态广播，现有插件在监听超时后会查询。",
+        "models": [
+          "betop-kunpeng20"
+        ]
+      }
+    ]
+  }
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import struct
 import tomllib
+import vendor_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 HECATE_COMPONENTS = {
@@ -106,6 +107,7 @@ def metadata(item):
             raise ValueError("Duplicate advanced choice")
 
 def main():
+    vendor_catalog.check_current()
     workspace = tomllib.loads((ROOT / "Cargo.toml").read_text(encoding="utf-8"))["workspace"]
     for filename, channel in (("drivers.json", "stable"), ("drivers-preview.json", "preview")):
         items = json.loads((ROOT / filename).read_text(encoding="utf-8"))

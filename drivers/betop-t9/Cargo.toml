@@ -1,6 +1,6 @@
 [package]
 name = "betop-t9-driver"
-version = "0.4.11-preview.1"
+version = "0.4.13-preview.41"
 edition.workspace = true
 license.workspace = true
 publish = false

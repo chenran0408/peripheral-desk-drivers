@@ -1,5 +1,7 @@
 # Vigil Watt 设备迁移清单
 
+新增记录见[当前厂商目录](../catalog/README.md)及[开发分支固定资料](../catalog/upstream/vigil-watt/README.md)。G87 V2 的 3837:3033 接收器现在采用 CZ 分块读取。北通 T9 的旧包将模式字节当作电量，新包按设备档位读取。以下是旧基线当时的迁移记录。
+
 参考基线：Vigil Watt v1.3.0（commit `a78e973b4eb634bdce37c9078dd48d1c07e3eb73`），核对日期 2026-10-26。清单合并该版本完整协议索引、Release 新增型号和 README 历史支持矩阵中的设备；本批新增 41 个插件已在 [v0.4.13-preview.11](https://github.com/chenran0408/peripheral-desk-drivers/releases/tag/v0.4.13-preview.11) 发布，同一插件按独立型号条目记录，不把相同品牌、VID/PID 或相近代际当成兼容证据。电量插件只移植 Vigil Watt 已实现的读取/识别/充电状态能力；控制项要有对应品牌开源实现及独立来源才开放。
 
 状态：`已发布` 表示已有可下载插件；`未接入` 表示目前没有精确型号插件。上游验证与 Peripheral Desk 本项目实机验证分别标记。上游“贡献者声明”按原文保留，不等同于维护者实测，也不代表本项目实机验证。

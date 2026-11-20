@@ -1,0 +1,9 @@
+[package]
+name = "peripheral-desk-protocol-mchose-cz"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+peripheral-hid-transport = { path = "../hid-transport" }

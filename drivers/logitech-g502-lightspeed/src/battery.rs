@@ -104,7 +104,7 @@ pub fn read_state(key: &str, expected: &str) -> Result<State, String> {
                 percent: Some(percent),
                 charging,
                 identity: format!("Logitech {actual} · 046D:{:04X}", i.pid),
-                settings_error: "仅支持只读电量。".into(),
+
                 updated: SystemTime::now()
                     .duration_since(UNIX_EPOCH)
                     .unwrap_or_default()

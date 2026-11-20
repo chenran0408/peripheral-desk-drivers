@@ -123,3 +123,7 @@ G87 V2 CZ 插件复用已有 `assets/mchose-g87-v2.png`。同一键盘的两种�
 商店的中文厂商搜索别名见 [vendor-aliases.json](catalog/vendor-aliases.json)。中文品牌称呼参考[凌豹](https://www.lingbaoes.com/)、[达摩鲨](https://www.darmoshark.cn/gongsijieshao.html)、[攻击鲨](https://cn.attackshark.cn/)、[兰族](https://lamzu.com.cn/)、[万灵竞记](https://chn.wlmouse.com/)、[渴创](https://keychron.jd.com/)及[惠普 Poly](https://www.hp.com/cn-zh/poly.html)。
 
 迈从 G3 V2 复用本项目原创鼠标示意图 `assets/logitech-g305.png`。[上游协议与归属](drivers/mchose-g3-v2/UPSTREAM.md)
+
+## Onboard mouse controls in preview.46
+
+The three DeathAdder packages use the existing illustrations. Their protocol facts reference [OpenSynapse v1.7.2, 5b3e651](https://github.com/A1mAssist/OpenSynapse/tree/5b3e6516492c95eb363fbda407a5ee965367ff08). The four LIGHTSPEED packages use their existing assets. Device reports and authorship are listed in [Logitech onboard profiles](docs/LOGITECH-ONBOARD.md) and [Razer pointer controls](docs/RAZER-OPENSYNAPSE.md).

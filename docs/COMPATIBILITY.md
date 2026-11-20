@@ -1,5 +1,7 @@
 # 兼容与验证记录
 
+本版新增的板载与指针调节范围按型号记录在[罗技 LIGHTSPEED](LOGITECH-ONBOARD.md)和[雷蛇炼狱蝰蛇 V3](RAZER-OPENSYNAPSE.md)。
+
 [按厂商查找当前插件与验证范围](../catalog/README.md)。预览版新增 [G87 V2 CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md)的电量与充电状态，并修正[北通宙斯 2 / T9](../drivers/betop-t9/UPSTREAM.md)的电量档位。下表保留早期版本实机记录。
 
 以下包均为 ABI **1**、Windows **x64**，主程序 **>=0.4.0、<0.5.0**（MagDock 灯效编辑器需 **>=0.4.8**；本次雷蛇灯效编辑器需 **>=0.4.9**）。四款原有设备包为 **stable**；G304、G305、Basilisk V3 Pro 有线、A7 V3 Ultra+ 和 VGN F2 Master+ 仅在 **preview**，公开实现适配未实测。
@@ -112,12 +114,12 @@ K99 V2 和 Azoth Extreme 的手动认领只依赖用户确认型号，不能视�
 | Logitech G304 | `046D:C53F`，HID++ 4.2，WPID `4074`，G304 设备名 | `logitech-g304` | 电量、充电状态 |
 | Razer Viper Ultimate 无线 | `1532:007B` | `razer-viper-ultimate-receiver` | 电量、充电状态 |
 | Razer Viper V3 Pro | `1532:00C1` | `razer-viper-v3-pro` | 电量、充电状态 |
-| Razer DeathAdder V3 Pro（备用接收器） | `1532:00C3` | `razer-deathadder-v3-pro-alt` | 电量、充电状态 |
+| Razer DeathAdder V3 Pro（备用接收器） | `1532:00C3` | `razer-deathadder-v3-pro-alt` | 电量、充电、逐档 X/Y DPI、活动档位与回报率 |
 | Razer DeathAdder V4 Pro | `1532:00BF` | `razer-deathadder-v4-pro` | 电量、充电状态 |
 | Razer Basilisk V3 Pro | `1532:00AB` | `razer-basilisk-v3-pro` | 电量、充电状态 |
 | Razer Basilisk V3 Pro 35K | `1532:00CD` | `razer-basilisk-v3-pro-35k` | 电量、充电状态 |
 | Razer Basilisk V3 Pro 35K Phantom | `1532:00D7` | `razer-basilisk-v3-pro-35k-phantom` | 电量、充电状态 |
-| Razer DeathAdder V3 HyperSpeed | `1532:00C5` | `razer-deathadder-v3-hyperspeed` | 电量、充电状态 |
+| Razer DeathAdder V3 HyperSpeed | `1532:00C5` | `razer-deathadder-v3-hyperspeed` | 电量、充电、逐档 X/Y DPI、活动档位与回报率 |
 | Razer Pro Click V2 | `1532:00D1` | `razer-pro-click-v2` | 电量、充电状态 |
 | Razer Pro Click V2 Vertical | `1532:00C8` | `razer-pro-click-v2-vertical` | 电量、充电状态 |
 | Razer Basilisk Mobile | `1532:00D4` | `razer-basilisk-mobile` | 电量、充电状态 |

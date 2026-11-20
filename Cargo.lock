@@ -900,7 +900,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g304-driver"
-version = "0.4.13-preview.19"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -910,7 +910,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g305-driver"
-version = "0.4.13-preview.19"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-hidpp",
@@ -919,7 +919,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g502-lightspeed-driver"
-version = "0.4.13-preview.22"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -929,7 +929,7 @@ dependencies = [
 
 [[package]]
 name = "logitech-g502-x-plus-driver"
-version = "0.4.13-preview.22"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
  "peripheral-desk-driver-ffi",
@@ -1967,6 +1967,7 @@ name = "peripheral-desk-protocol-hidpp"
 version = "0.4.9-preview.3"
 dependencies = [
  "peripheral-desk 0.4.11-preview.1",
+ "serde_json",
  "windows-sys",
 ]
 
@@ -2667,27 +2668,30 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v3-hyperspeed-driver"
-version = "0.4.13-preview.19"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
 ]
 
 [[package]]
 name = "razer-deathadder-v3-pro-alt-driver"
-version = "0.4.13-preview.19"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
  "peripheral-desk-protocol-razer-wireless",
  "serde_json",
 ]
 
 [[package]]
 name = "razer-deathadder-v3-pro-driver"
-version = "0.4.2"
+version = "0.4.13-preview.46"
 dependencies = [
  "peripheral-desk-driver-ffi",
+ "peripheral-desk-protocol-razer",
 ]
 
 [[package]]

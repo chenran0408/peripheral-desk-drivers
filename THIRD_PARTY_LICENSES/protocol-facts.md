@@ -45,3 +45,7 @@ a separate license file in this directory states otherwise.
   layouts. Facts only.
 - [Vigil Watt](https://github.com/evren-oct/vigil-watt/tree/6315988f54e47fc030ae4c535dc64ae27c08f471), MIT, supplies the 0x4D receiver capture, device catalog, and configuration rate tables. The 16 MCHOSE receiver packages include the upstream MIT notice. See the [protocol evidence](../crates/protocol-mchose-0x4d/UPSTREAM.md).
 - MagDock flow direction and the editable colors in Shining and Music are independent Rust implementations of protocol facts from the [manufacturer's M HUB frontend build](https://www.mchose.com.cn/assets/main-DIt5vAcV.js). The [device notes](../docs/MCHOSE-MAGDOCK.md) document the exact command fields; no vendor JavaScript is packaged with the plugin.
+
+## Onboard and per-axis settings
+
+OpenSynapse v1.7.2 (© 2026 A1mAssist, AGPL-3.0-only) documents the DeathAdder PID variants and onboard pointer reports. Logitech OMM serves as a feature reference. Solaar at e7304c4 and libratbag at 8235b5b document the HID++ protocol and exact model records. This implementation uses protocol and device facts. The linked model notes identify the original sources and licenses. [OpenSynapse](../docs/RAZER-OPENSYNAPSE.md) · [Logitech OMM and the HID++ implementations](../docs/LOGITECH-ONBOARD.md)

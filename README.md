@@ -28,8 +28,8 @@
 | `mchose-g75-pro` | 迈从 G75 Pro |
 | `mchose-k99-v2`（预览） | MCHOSE K99 V2，共用接收器，需确认型号后手动认领；只读电量 |
 | `hecate-g2-pro` | 漫步者 G2 Pro |
-| `logitech-g305`（预览） | G305 LIGHTSPEED，电量、条件允许时的 DPI 设置；需关闭板载配置，尚未实机验证 |
-| `logitech-g304`（预览） | G304 LIGHTSPEED，精确身份校验后的电量与充电状态，只读，尚未实机验证 |
+| `logitech-g305`（预览） | 通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。主机模式保留传感器 DPI 设置。 |
+| `logitech-g304`（预览） | 通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。 |
 | `logitech-g-pro-x-superlight-2`（预览） | G Pro X Superlight 2（GPW3）LIGHTSPEED 接收器/有线，电量与充电状态，只读 |
 | `logitech-m750m`（预览） | M750M Logi Bolt 接收器，电量与充电状态，只读 |
 | `logitech-g102`（预览） | G102 指定 HID++ 接口，电量与充电状态，只读 |
@@ -128,8 +128,8 @@
 | `wlmouse-beast-x-mini-pro`（预览） | 电量与充电状态读取；只读。 |
 | `gwolves-hsk-pro-ace`（预览） | 接收器和线缆电量读取；只读。 |
 | `hitscan-hyperlight`（预览） | 接收器和线缆电量读取；只读。 |
-| `logitech-g502-lightspeed`（预览） | 运行期按设备名校验，型号不符时不显示；只读电量。 |
-| `logitech-g502-x-plus`（预览） | 运行期按设备名校验，型号不符时不显示；只读电量。 |
+| `logitech-g502-lightspeed`（预览） | 通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。 |
+| `logitech-g502-x-plus`（预览） | 通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。 |
 | `logitech-mk710`（预览） | 运行期按设备名校验，型号不符时不显示；旧 HID++ 电量为粗略档位。 |
 | `keychron-ultralink-8k`（预览） | 指定接口电量读取；尚未实机验证。 |
 | `keychron-m5`（预览） | 指定接口电量读取；尚未实机验证。 |
@@ -282,12 +282,12 @@
 | `atk-a9-air-master-plus`（预览） | 仅读取指定 2.4 GHz 接收器的电量、充电标志和电压；不支持 NearLink、有线或其他 ATK 型号。 |
 | `atk-n9-v2-ultimate`（预览） | 373B:1262 的 2.4 GHz 接收器电量与充电状态读取；只读，未集成 EQ、7.1 或灯光控制。 |
 | `razer-viper-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
-| `razer-deathadder-v3-pro-alt`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-deathadder-v3-pro-alt`（预览） | 可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 8000 Hz。 |
 | `razer-deathadder-v4-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
 | `razer-basilisk-v3-pro`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
 | `razer-basilisk-v3-pro-35k`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
 | `razer-basilisk-v3-pro-35k-phantom`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
-| `razer-deathadder-v3-hyperspeed`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
+| `razer-deathadder-v3-hyperspeed`（预览） | 可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 1000 Hz。 |
 | `razer-pro-click-v2`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
 | `razer-pro-click-v2-vertical`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
 | `razer-basilisk-mobile`（预览） | Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。 |
@@ -302,6 +302,8 @@
 | `razer-viper-ultimate-receiver`（预览） | 91 字节 Feature 接收器电量与充电状态读取；只读。 |
 
 Vigil Watt 的经典蓝牙 EDIFIER W820NB 电量读取来自 Windows HFP 设备节点属性，不经过 HID。现有插件发现接口无法枚举此类系统设备，因此这款暂未提供插件；兼容清单记录了所需的主程序侧系统电池接入。
+
+迈从通过外设盒内置 M HUB 调节。罗技 G304、G305、G502 LIGHTSPEED 和 G502 X PLUS 可用预览插件切换板载配置及已有的 DPI 档位；炼狱蝰蛇 V3 系列可在「指针与性能」中分别编辑每档 X/Y DPI。[罗技型号与连接方式](docs/LOGITECH-ONBOARD.md) · [雷蛇型号与连接方式](docs/RAZER-OPENSYNAPSE.md)
 
 ## 下载
 

@@ -1,6 +1,6 @@
 # 按厂商查找外设
 
-共 51 个品牌、284 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
+共 51 个品牌、285 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
 
 [8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
 
@@ -335,10 +335,10 @@
 | protocol-hidpp | [罗技 ERGO M575 Trackball 蓝牙版](../drivers/logitech-ergo-m575) | 046D:B027 | 电量 | 预览 | 运行时核对 | 上游实机 |
 | protocol-hidpp | [罗技 G Pro X Superlight 2](../drivers/logitech-g-pro-x-superlight-2/UPSTREAM.md) | 046D:C547 046D:C54D 046D:C09B | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-hidpp | [罗技 G102](../drivers/logitech-g102/UPSTREAM.md) | 046D:C539 | 电量 | 预览 | 接口匹配 | 上游实机 |
-| protocol-hidpp | [罗技 G304 LIGHTSPEED](../drivers/logitech-g304/UPSTREAM.md) | 046D:C53F | 电量 | 预览 | 运行时核对 | 上游实机 |
-| protocol-hidpp | [罗技 G305 LIGHTSPEED](../drivers/logitech-g305) | 046D:C53F | 电量、设置 | 预览 | 运行时核对 | 公开实现 |
-| protocol-hidpp | [罗技 G502 LIGHTSPEED](../drivers/logitech-g502-lightspeed) | 046D:C539 046D:C547 | 电量 | 预览 | 运行时核对 | 上游实机 |
-| protocol-hidpp | [罗技 G502 X PLUS](../drivers/logitech-g502-x-plus) | 046D:C539 046D:C547 | 电量 | 预览 | 运行时核对 | 上游实机 |
+| protocol-hidpp | [罗技 G304 LIGHTSPEED](../drivers/logitech-g304/UPSTREAM.md) | 046D:C53F | 电量、板载模式、配置与 DPI 档位切换 | 预览 | 运行时核对 | 上游实机 |
+| protocol-hidpp | [罗技 G305 LIGHTSPEED](../drivers/logitech-g305) | 046D:C53F | 电量、设置、板载模式、配置与 DPI 档位切换 | 预览 | 运行时核对 | 公开实现 |
+| protocol-hidpp | [罗技 G502 LIGHTSPEED](../drivers/logitech-g502-lightspeed) | 046D:C539 046D:C547 | 电量、板载模式、配置与 DPI 档位切换 | 预览 | 运行时核对 | 上游实机 |
+| protocol-hidpp | [罗技 G502 X PLUS](../drivers/logitech-g502-x-plus) | 046D:C539 046D:C547 | 电量、板载模式、配置与 DPI 档位切换 | 预览 | 运行时核对 | 上游实机 |
 | protocol-hidpp | [罗技 G515 LIGHTSPEED TKL 蓝牙版](../drivers/logitech-g515-ls-tkl) | 046D:B389 | 电量 | 预览 | 运行时核对 | 上游实机 |
 | protocol-hidpp | [罗技 G604 LIGHTSPEED 蓝牙版](../drivers/logitech-g604) | 046D:B024 | 电量 | 预览 | 运行时核对 | 上游实机 |
 | protocol-hidpp | [罗技 G613 Wireless Keyboard 蓝牙版](../drivers/logitech-g613) | 046D:B34F | 电量 | 预览 | 运行时核对 | 上游实机 |
@@ -489,12 +489,13 @@
 
 | 协议 / 实现 | 型号 | VID:PID | 功能 | 通道 | 识别方式 | 验证 |
 | --- | --- | --- | --- | --- | --- | --- |
-| core-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量、设置、改键、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | protocol-razer | [Razer Basilisk V3 Pro](../drivers/razer-basilisk-v3-pro-wired) | 1532:00AA | 电量、设置、灯效编辑、灯光开关 | 预览 | 接口匹配 | 公开实现 |
 | protocol-razer | [Razer BlackWidow V3 Mini HyperSpeed](../drivers/razer-blackwidow-v3-mini) | 1532:0271 1532:0258 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer BlackWidow V3 Pro](../drivers/razer-blackwidow-v3-pro) | 1532:025C 1532:025A | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer BlackWidow V4 Mini HyperSpeed](../drivers/razer-blackwidow-v4-mini) | 1532:02BA 1532:02B9 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer BlackWidow V4 TKL HyperSpeed](../drivers/razer-blackwidow-v4-tkl-hyperspeed) | 1532:02D5 1532:02D7 | 电量 | 预览 | 接口匹配 | 代码适配 |
+| protocol-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量、设置、改键、software-macro-trigger、读 DPI 档位配置、编辑 DPI 档位、读配置回报率 | 预览 | 接口匹配 | 本项目实机 |
+| protocol-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量、设置、改键、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | protocol-razer | [Razer DeathStalker V2 Pro](../drivers/razer-deathstalker-v2-pro) | 1532:0290 1532:0292 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer DeathStalker V2 Pro TKL](../drivers/razer-deathstalker-v2-pro-tkl) | 1532:0296 1532:0298 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-basilisk-v3-wired | [Razer Basilisk V3](../drivers/razer-basilisk-v3-wired) | 1532:0099 | 设置 | 预览 | 接口匹配 | 公开实现 |
@@ -533,8 +534,6 @@
 | protocol-razer-wireless | [Razer Cobra Pro](../drivers/razer-cobra-pro/PROVENANCE.md) | 1532:00B0 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-wireless | [Razer DeathAdder V2 Pro 无线接收器](../drivers/razer-deathadder-v2-pro-receiver) | 1532:007D | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer-wireless | [Razer DeathAdder V2 X HyperSpeed](../drivers/razer-deathadder-v2-x-hyperspeed) | 1532:009C | 电量 | 预览 | 接口匹配 | 代码适配 |
-| protocol-razer-wireless | [Razer DeathAdder V3 HyperSpeed](../drivers/razer-deathadder-v3-hyperspeed/PROVENANCE.md) | 1532:00C5 | 电量 | 预览 | 接口匹配 | 上游实机 |
-| protocol-razer-wireless | [Razer DeathAdder V3 Pro (alternate receiver)](../drivers/razer-deathadder-v3-pro-alt/PROVENANCE.md) | 1532:00C3 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-wireless | [Razer DeathAdder V4 Pro](../drivers/razer-deathadder-v4-pro/PROVENANCE.md) | 1532:00BF | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-wireless | [Razer Lancehead](../drivers/razer-lancehead/PROVENANCE.md) | 1532:005A | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-wireless | [Razer Lancehead Wireless 无线接收器](../drivers/razer-lancehead-wireless-receiver) | 1532:006F | 电量 | 预览 | 接口匹配 | 代码适配 |
@@ -553,6 +552,8 @@
 | protocol-razer-wireless | [Razer Viper V2 Pro 无线接收器](../drivers/razer-viper-v2-pro-receiver) | 1532:00A6 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer-wireless | [Razer Viper V3 HyperSpeed](../drivers/razer-viper-v3-hyperspeed/PROVENANCE.md) | 1532:00B8 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | protocol-razer-wireless | [Razer Viper V3 Pro](../drivers/razer-viper-v3-pro/PROVENANCE.md) | 1532:00C1 | 电量 | 预览 | 接口匹配 | 上游实机 |
+| razer-deathadder-v3-hyperspeed | [Razer DeathAdder V3 HyperSpeed](../drivers/razer-deathadder-v3-hyperspeed/PROVENANCE.md) | 1532:00C5 | 电量、读 DPI 档位配置、编辑 DPI 档位、读配置回报率、设置回报率、指针设置 | 预览 | 接口匹配 | 上游实机 |
+| razer-deathadder-v3-pro-alt | [Razer DeathAdder V3 Pro (alternate receiver)](../drivers/razer-deathadder-v3-pro-alt/PROVENANCE.md) | 1532:00C3 | 电量、读 DPI 档位配置、编辑 DPI 档位、读配置回报率、设置回报率、指针设置 | 预览 | 接口匹配 | 上游实机 |
 | razer-viper-v3-pro-se | [Razer Viper V3 Pro SE](../drivers/razer-viper-v3-pro-se/PROVENANCE.md) | 1532:00DF | 电量、设置 | 预览 | 接口匹配 | 上游实机 |
 | razer-viper-v4-pro | [Razer Viper V4 Pro](../drivers/razer-viper-v4-pro/PROVENANCE.md) | 1532:00E6 1532:00E5 | 电量、设置 | 预览 | 接口匹配 | 上游实机 |
 

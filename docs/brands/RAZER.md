@@ -9,3 +9,6 @@ OpenRazer有明确DeathAdder V3 Pro设备类及电量、充电、DPI档位、回
 后续可选Viper V2/V3 Pro精确ID的只读电量，但先核对型号、report结构/长度、充电查询和固件差异。板载宏未获型号级依据时不开放。
 
 完整来源与许可证见 [调查矩阵](../PROTOCOL-RESEARCH.md)。
+
+
+00C3 对应 DeathAdder V3 Pro HyperPolling，无线通用 HyperPolling 接收器使用 00B3。分轴 DPI 与回报率插件只匹配所列型号的 USB 接口。[型号及上游依据](../RAZER-OPENSYNAPSE.md)

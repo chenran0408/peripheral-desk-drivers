@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build four Windows x64 ABI 1 DLL packages and their trusted catalog."""
+"""Build Windows x64 ABI 1 device packages and their catalogs."""
 import argparse
 import hashlib
 import json
@@ -21,6 +21,32 @@ def sha256(data):
 def write_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+def source_version(driver_id, workspace_version):
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", driver_id):
+        raise ValueError(f"Invalid driver id: {driver_id}")
+    crate = ROOT / "drivers" / driver_id / "Cargo.toml"
+    package = tomllib.loads(crate.read_text(encoding="utf-8"))["package"]
+    if package["name"] != driver_id + "-driver":
+        raise ValueError(f"Crate name disagrees with catalog: {driver_id}")
+    version = package["version"]
+    return workspace_version if version == {"workspace": True} else version
+
+
+def select_source_versions(items, versions, other_channel=()):
+    alternate = {item["id"]: item for item in other_channel}
+    selected = []
+    for item in items:
+        driver_id = item["id"]
+        version = versions[driver_id]
+        if item["version"] == version:
+            selected.append(item)
+        elif driver_id in alternate and alternate[driver_id]["version"] == version:
+            selected.append(alternate[driver_id])
+        else:
+            raise ValueError(f"{driver_id}: catalog version {item['version']} does not match crate {version}")
+    return selected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target", default="x86_64-pc-windows-gnu")
@@ -31,13 +57,14 @@ def main():
     parser.add_argument("--skip-build", action="store_true", help="Package already-built release DLLs")
     parser.add_argument("--out", type=Path, default=ROOT / "dist")
     parser.add_argument("--release", action="store_true", help="Require a pinned Git core dependency; reject development path dependencies")
+    parser.add_argument("--workspace-check", action="store_true", help="Check current sources, using the other channel for a selected model if its version matches")
     parser.add_argument("--release-tag", help="Release that will receive every generated ZIP (default: v<workspace version>)")
     args = parser.parse_args()
     if not args.target.startswith("x86_64-pc-windows-"):
         parser.error("ABI 1 downloads currently target Windows x64 only")
     manifest = (ROOT / "Cargo.toml").read_text(encoding="utf-8")
-    workspace_version = re.search(r'^version\s*=\s*"([^"]+)"', manifest, re.M)
-    release_tag = args.release_tag or ("v" + workspace_version.group(1) if workspace_version else "")
+    workspace_version = tomllib.loads(manifest)["workspace"]["package"]["version"]
+    release_tag = args.release_tag or "v" + workspace_version
     if not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+(?:[-.][a-zA-Z0-9.-]+)?", release_tag):
         parser.error("Release tag must be v<semver> with an optional preview suffix")
     core = re.search(r'^peripheral-desk\s*=\s*\{([^\n]+)\}', manifest, re.M)
@@ -56,6 +83,19 @@ def main():
         parser.error("No drivers selected")
     if len({item["id"] for item in items}) != len(items):
         parser.error("Duplicate driver ids")
+    other_channel = []
+    if args.workspace_check:
+        if args.release_tag:
+            parser.error("--workspace-check is only available for untagged checks")
+        other = {"drivers.json": "drivers-preview.json", "drivers-preview.json": "drivers.json"}.get(args.metadata.name)
+        if other is None:
+            parser.error("--workspace-check requires stable or preview channel metadata")
+        other_channel = json.loads(args.metadata.with_name(other).read_text(encoding="utf-8"))
+    try:
+        versions = {item["id"]: source_version(item["id"], workspace_version) for item in items}
+        items = select_source_versions(items, versions, other_channel)
+    except ValueError as error:
+        parser.error(str(error))
     if not args.skip_build:
         # Separate invocations keep per-device FFI features from unifying in
         # a multi-package build and retaining unrelated protocol handlers.
@@ -76,8 +116,6 @@ def main():
     aliases, families = load_browse_data()
     for item in items:
         driver_id, version = item["id"], item["version"]
-        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", driver_id):
-            parser.error("Driver id must be a safe lowercase package identifier")
         if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:[-.a-zA-Z0-9]*)", version):
             parser.error("Invalid version")
         dll_path = target / args.target / "release" / (driver_id.replace("-", "_") + "_driver.dll")

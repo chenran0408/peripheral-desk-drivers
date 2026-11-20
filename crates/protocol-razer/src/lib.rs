@@ -3,6 +3,7 @@
 //! Protocol facts are derived from OpenRazer at commit
 //! `477f4d6d3ab7e9deb6310d5bd3742560c5cbe80d`; see docs/RAZER-BASILISK-V3-PRO.md.
 pub mod lighting;
+pub mod pointing;
 
 use peripheral_desk::{
     hid::{self, Device, Interface},

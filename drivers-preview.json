@@ -2,8 +2,8 @@
   {
     "id": "logitech-g304",
     "name": "罗技 G304 LIGHTSPEED",
-    "version": "0.4.13-preview.19",
-    "description": "精确 G304 身份校验后的电量与充电状态读取；只读，不提供其他控制功能。",
+    "version": "0.4.13-preview.46",
+    "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -11,7 +11,7 @@
       "name": "罗技 G304 LIGHTSPEED",
       "brand": "LOGITECH",
       "kind": "mouse",
-      "subtitle": "电量与充电状态 · 只读",
+      "subtitle": "电量 · 板载配置 · DPI 档位",
       "image": "device.png",
       "matches": [
         {
@@ -26,25 +26,30 @@
       "advanced": [],
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
-        "connections": "2.4 GHz LIGHTSPEED 接收器 / 046D:C53F / HID++ 4.2；WPID 4074；G304 完整名称",
+        "connections": "原有 2.4 GHz LIGHTSPEED 接收器（046D:C53F），HID++ slot 1，板载操作核对设备 WPID 4074 和自报全名 G304 Lightspeed Wireless Gaming Mouse。",
         "firmware": "unknown",
-        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 G304; Peripheral Desk has not independently tested it.",
+        "project_validation": "Voltide v2.1.2 reports hardware support for exact 罗技 G304; Peripheral Desk has not independently tested it. Solaar 真机记录包含 0x8100 v0 及板载模式。外设盒已用协议样本检查配置/DPI 选择和失败恢复，本项目未在此鼠标上执行新写入。",
         "source_refs": [
           "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
           "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/LogitechProvider.cs",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G304%20Lightspeed%20Wireless%20Gaming%20Mouse%204074.txt",
-          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/settings_templates.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/libratbag/libratbag/blob/8235b5bb6032dea15901ab58a8218956f4494d08/src/hidpp20.c",
+          "https://support.logi.com/hc/en-us/articles/38103470390935-Onboard-Memory-Manager"
         ]
       },
       "runtime_identity": true
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "onboard-profiles"
     ],
-    "changelog": "新增罗技 G304 指定接收器和完整身份校验后的电量与充电状态读取；与共用 C53F/WPID 4074 的 G305 严格区分，尚未实机验证。"
+    "changelog": "在新版外设盒的设备调节页打开板载配置，可切换主机/板载模式、已启用的配置和已有 DPI 档位。编辑器需要主程序 0.4.11-preview.17 或更新版本。"
   },
   {
     "id": "logitech-g102",
@@ -1856,14 +1861,14 @@
   {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
-    "version": "0.4.13-preview.19",
-    "description": "公开实现适配未实测；精确 G305 身份校验后的电量与 DPI 设置。板载配置开启时拒绝 DPI 写入。",
+    "version": "0.4.13-preview.46",
+    "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。主机模式保留传感器 DPI 设置。",
     "device": {
       "key": "logitech-g305",
       "name": "罗技 G305 LIGHTSPEED",
       "brand": "LOGITECH",
       "kind": "mouse",
-      "subtitle": "DPI 设置 · 电量 · 未实测",
+      "subtitle": "电量 · 板载配置 · DPI 档位",
       "image": "device.png",
       "matches": [
         {
@@ -1878,19 +1883,18 @@
       "advanced": [],
       "validation": {
         "status": "public-implementation-untested",
-        "connections": [
-          "2.4GHz / original 046D:C53F receiver, paired slot 1; runtime requires HID++ 4.2, WPID 4074 and exact G305 name",
-          "DPI writes require live Onboard Profiles mode=0x02 (host/Disabled); the active profile is never changed by this driver"
-        ],
+        "connections": "原有 2.4 GHz LIGHTSPEED 接收器（046D:C53F），HID++ slot 1，板载操作核对设备 WPID 4074 和自报全名 G305 Lightspeed Wireless Gaming Mouse。",
         "firmware": "unknown",
-        "project_validation": "No physical G305 tested in this project; DPI operations are based on the public Solaar G305 record and are marked untested.",
+        "project_validation": "No physical G305 tested in this project; DPI operations are based on the public Solaar G305 record and are marked untested. Solaar 真机记录包含 0x8100 v0 及板载模式。外设盒已用协议样本检查配置/DPI 选择和失败恢复，本项目未在此鼠标上执行新写入。",
         "source_refs": [
           "https://github.com/pwr-Solaar/Solaar/tree/e7304c4c451cc9bb4f206a914844525e67856a28",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G305%20Lightspeed%20Wireless%20Gaming%20Mouse%204074.text",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/settings_templates.py",
           "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
           "https://github.com/pwr-Solaar/Solaar/issues/850",
-          "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse.910-006020"
+          "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse.910-006020",
+          "https://github.com/libratbag/libratbag/blob/8235b5bb6032dea15901ab58a8218956f4494d08/src/hidpp20.c",
+          "https://support.logi.com/hc/en-us/articles/38103470390935-Onboard-Memory-Manager"
         ]
       },
       "dpi_range": [
@@ -1902,14 +1906,15 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.9",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
       "battery",
-      "settings"
+      "settings",
+      "onboard-profiles"
     ],
-    "changelog": "修复 G305 的 DPI 调节控件没有显示；板载配置开启时会明确说明暂不可调节，不改动板载模式。尚未实机验证。"
+    "changelog": "在新版外设盒的设备调节页打开板载配置，可切换主机/板载模式、已启用的配置和已有 DPI 档位。编辑器需要主程序 0.4.11-preview.17 或更新版本。"
   },
   {
     "id": "logitech-pro-x2-lightspeed",
@@ -3577,8 +3582,8 @@
   {
     "id": "razer-deathadder-v3-pro-alt",
     "name": "Razer DeathAdder V3 Pro (alternate receiver)",
-    "version": "0.4.13-preview.19",
-    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "version": "0.4.13-preview.46",
+    "description": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 8000 Hz。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -3586,13 +3591,14 @@
       "name": "Razer DeathAdder V3 Pro (alternate receiver)",
       "brand": "RAZER",
       "kind": "mouse",
-      "subtitle": "电量与连接状态 · 只读",
+      "subtitle": "电量 · 分轴 DPI 档位 · 回报率",
       "image": "device.png",
       "matches": [
         {
           "vid": 5426,
           "pid": 195,
-          "feature_len": 91
+          "feature_len": 91,
+          "path_contains": "mi_00"
         }
       ],
       "advanced": [],
@@ -3600,21 +3606,29 @@
         "status": "upstream-hardware-verified-project-untested",
         "connections": "2.4 GHz 接收器 / 1532:00C3 / 91 字节 Feature Report",
         "firmware": "unknown",
-        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it. OpenSynapse v1.7.2 lists the exact interfaces and implements per-stage X/Y and polling. New setting edits checked with synthetic frames; prior hardware reports apply only to the features explicitly recorded.",
         "source_refs": [
           "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
           "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
-          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Devices/RazerHid/mice.json",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.cs",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.Parsing.cs"
         ]
       }
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "dpi-stages-read",
+      "dpi-stages-write",
+      "polling-rate-read",
+      "polling-rate-write",
+      "pointer-controls"
     ],
-    "changelog": "新增 Razer DeathAdder V3 Pro (alternate receiver) 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+    "changelog": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 8000 Hz。"
   },
   {
     "id": "razer-deathadder-v4-pro",
@@ -3787,8 +3801,8 @@
   {
     "id": "razer-deathadder-v3-hyperspeed",
     "name": "Razer DeathAdder V3 HyperSpeed",
-    "version": "0.4.13-preview.19",
-    "description": "Voltide 91 字节 Feature 接收器电量与连接状态读取；只读。",
+    "version": "0.4.13-preview.46",
+    "description": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 1000 Hz。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -3796,13 +3810,14 @@
       "name": "Razer DeathAdder V3 HyperSpeed",
       "brand": "RAZER",
       "kind": "mouse",
-      "subtitle": "电量与连接状态 · 只读",
+      "subtitle": "电量 · 分轴 DPI 档位 · 回报率",
       "image": "device.png",
       "matches": [
         {
           "vid": 5426,
           "pid": 197,
-          "feature_len": 91
+          "feature_len": 91,
+          "path_contains": "mi_00"
         }
       ],
       "advanced": [],
@@ -3810,21 +3825,29 @@
         "status": "upstream-hardware-verified-project-untested",
         "connections": "2.4 GHz 接收器 / 1532:00C5 / 91 字节 Feature Report",
         "firmware": "unknown",
-        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it.",
+        "project_validation": "Voltide v2.1.2 reports hardware support for this exact Razer PID; Peripheral Desk has not independently tested it. OpenSynapse v1.7.2 lists the exact interfaces and implements per-stage X/Y and polling. New setting edits checked with synthetic frames; prior hardware reports apply only to the features explicitly recorded.",
         "source_refs": [
           "https://github.com/sdparklab/Voltide/tree/73f16fd2be44570c0a861cef6b4804d743656893",
           "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/src/Providers/RazerProvider.cs",
-          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE"
+          "https://github.com/sdparklab/Voltide/blob/73f16fd2be44570c0a861cef6b4804d743656893/LICENSE",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Devices/RazerHid/mice.json",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.cs",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.Parsing.cs"
         ]
       }
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "dpi-stages-read",
+      "dpi-stages-write",
+      "polling-rate-read",
+      "polling-rate-write",
+      "pointer-controls"
     ],
-    "changelog": "新增 Razer DeathAdder V3 HyperSpeed 指定接收器电量读取；采用 Voltide v2.1.2 上游实物验证范围，Peripheral Desk 尚未独立实测。"
+    "changelog": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 1000 Hz。"
   },
   {
     "id": "razer-pro-click-v2",
@@ -5141,8 +5164,8 @@
   {
     "id": "logitech-g502-lightspeed",
     "name": "罗技 G502 LIGHTSPEED",
-    "version": "0.4.13-preview.22",
-    "description": "运行期按设备名校验，型号不符时不显示；只读电量。",
+    "version": "0.4.13-preview.46",
+    "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -5150,7 +5173,7 @@
       "name": "罗技 G502 LIGHTSPEED",
       "brand": "LOGITECH",
       "kind": "mouse",
-      "subtitle": "LIGHTSPEED 电量 · 只读",
+      "subtitle": "电量 · 板载配置 · DPI 档位",
       "image": "device.png",
       "matches": [
         {
@@ -5174,28 +5197,34 @@
       "runtime_identity": true,
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
-        "connections": "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 LIGHTSPEED 名称",
+        "connections": "原有 2.4 GHz LIGHTSPEED 接收器（046D:C539/C547），HID++ slot 1，板载操作核对设备 WPID 407F 和自报全名 G502 LIGHTSPEED Wireless Gaming Mouse。",
         "firmware": "unknown",
-        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。",
+        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。 Solaar 真机记录包含 0x8100 v0 及板载模式。外设盒已用协议样本检查配置/DPI 选择和失败恢复，本项目未在此鼠标上执行新写入。",
         "source_refs": [
           "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
-          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py"
+          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G502%20Lightspeed%20Wireless%20Gaming%20Mouse%20407F.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/settings_templates.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/libratbag/libratbag/blob/8235b5bb6032dea15901ab58a8218956f4494d08/src/hidpp20.c",
+          "https://support.logi.com/hc/en-us/articles/38103470390935-Onboard-Memory-Manager"
         ]
       }
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "onboard-profiles"
     ],
-    "changelog": "新增 G502 LIGHTSPEED 型号校验后电量读取。"
+    "changelog": "在新版外设盒的设备调节页打开板载配置，可切换主机/板载模式、已启用的配置和已有 DPI 档位。编辑器需要主程序 0.4.11-preview.17 或更新版本。"
   },
   {
     "id": "logitech-g502-x-plus",
     "name": "罗技 G502 X PLUS",
-    "version": "0.4.13-preview.22",
-    "description": "运行期按设备名校验，型号不符时不显示；只读电量。",
+    "version": "0.4.13-preview.46",
+    "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -5203,7 +5232,7 @@
       "name": "罗技 G502 X PLUS",
       "brand": "LOGITECH",
       "kind": "mouse",
-      "subtitle": "LIGHTSPEED 电量 · 只读",
+      "subtitle": "电量 · 板载配置 · DPI 档位",
       "image": "device.png",
       "matches": [
         {
@@ -5227,22 +5256,28 @@
       "runtime_identity": true,
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
-        "connections": "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 X PLUS 名称",
+        "connections": "原有 2.4 GHz LIGHTSPEED 接收器（046D:C539/C547），HID++ slot 1，板载操作核对设备 WPID 4099 和自报全名 G502 X PLUS。",
         "firmware": "unknown",
-        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。",
+        "project_validation": "Solaar/HaloBattery 上游实机支持；本项目尚未实测，共用接收器须验证型号。 Solaar 真机记录包含 0x8100 v0 及板载模式。外设盒已用协议样本检查配置/DPI 选择和失败恢复，本项目未在此鼠标上执行新写入。",
         "source_refs": [
           "https://github.com/HeyOkay/HaloBattery/blob/main/providers/logitech.py",
-          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py"
+          "https://github.com/pwr-Solaar/Solaar/blob/master/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/docs/devices/G502%20X%20PLUS%204099.txt",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/settings_templates.py",
+          "https://github.com/pwr-Solaar/Solaar/blob/e7304c4c451cc9bb4f206a914844525e67856a28/lib/logitech_receiver/hidpp20.py",
+          "https://github.com/libratbag/libratbag/blob/8235b5bb6032dea15901ab58a8218956f4494d08/src/hidpp20.c",
+          "https://support.logi.com/hc/en-us/articles/38103470390935-Onboard-Memory-Manager"
         ]
       }
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.11",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery"
+      "battery",
+      "onboard-profiles"
     ],
-    "changelog": "新增 G502 X PLUS 型号校验后电量读取。"
+    "changelog": "在新版外设盒的设备调节页打开板载配置，可切换主机/板载模式、已启用的配置和已有 DPI 档位。编辑器需要主程序 0.4.11-preview.17 或更新版本。"
   },
   {
     "id": "logitech-mk710",
@@ -14812,5 +14847,134 @@
       "battery"
     ],
     "changelog": "新增迈从 G3 V2 的接收器电量和充电状态。"
+  },
+  {
+    "id": "razer-deathadder-v3-pro",
+    "name": "炼狱蝰蛇 V3 专业版",
+    "version": "0.4.13-preview.46",
+    "description": "可分别设置每档横向与纵向 DPI，保留其他档位。旧版已有的改键、软件宏和回报率设置可以继续使用。",
+    "device": {
+      "key": "razer-deathadder-v3-pro",
+      "name": "炼狱蝰蛇 V3 专业版",
+      "brand": "RAZER",
+      "kind": "mouse",
+      "subtitle": "",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 5426,
+          "pid": 182,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        },
+        {
+          "vid": 5426,
+          "pid": 183,
+          "feature_len": 91,
+          "path_contains": "mi_00"
+        }
+      ],
+      "advanced": [
+        {
+          "key": "LowPower",
+          "title": "低电量省电阈值",
+          "hint": "电量低于此值时启用设备自身的省电行为",
+          "choices": [
+            [
+              5,
+              "5%"
+            ],
+            [
+              10,
+              "10%"
+            ],
+            [
+              15,
+              "15%"
+            ],
+            [
+              20,
+              "20%"
+            ],
+            [
+              25,
+              "25%"
+            ],
+            [
+              30,
+              "30%"
+            ],
+            [
+              40,
+              "40%"
+            ],
+            [
+              50,
+              "50%"
+            ]
+          ]
+        }
+      ],
+      "validation": {
+        "status": "hardware-verified",
+        "connections": [
+          "2.4 GHz standard receiver"
+        ],
+        "firmware": "unknown",
+        "verified_features": [
+          "battery",
+          "DPI/rate/sleep",
+          "native-zero-flag-slot-bindings",
+          "resident-macro-trigger-slot5"
+        ],
+        "unverified_connections": [
+          "USB wired 1532:00B6 (not hardware-verified)"
+        ],
+        "source_refs": [
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Devices/RazerHid/mice.json",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.cs",
+          "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.Parsing.cs"
+        ],
+        "project_validation": "OpenSynapse v1.7.2 lists the exact interfaces and implements per-stage X/Y and polling. New setting edits checked with synthetic frames; prior hardware reports apply only to the features explicitly recorded."
+      },
+      "dpi_range": [
+        100,
+        30000
+      ],
+      "dpi_step": 50,
+      "rates": [
+        125,
+        500,
+        1000
+      ],
+      "wired_rates": [
+        125,
+        500,
+        1000
+      ],
+      "sleeps": [
+        60,
+        120,
+        180,
+        300,
+        600,
+        900
+      ]
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.11",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "settings",
+      "bindings",
+      "software-macro-trigger",
+      "dpi-stages-read",
+      "dpi-stages-write",
+      "polling-rate-read"
+    ],
+    "changelog": "可分别设置每档横向与纵向 DPI，保留其他档位。旧版已有的改键、软件宏和回报率设置可以继续使用。"
   }
 ]

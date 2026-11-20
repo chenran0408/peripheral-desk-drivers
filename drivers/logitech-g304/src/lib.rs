@@ -13,8 +13,14 @@ fn handler(key: &str, input: &str) -> String {
             return Err("驱动型号标识不匹配".into());
         }
         let req: Value = serde_json::from_str(input).map_err(|e| format!("请求 JSON 无效：{e}"))?;
+        if req["op"]
+            .as_str()
+            .is_some_and(peripheral_desk_protocol_hidpp::onboard::handles)
+        {
+            return peripheral_desk_protocol_hidpp::onboard::handle(key, &req);
+        }
         if req.get("op").and_then(Value::as_str) != Some("read-state") {
-            return Err("该插件仅提供电量读取；DPI、回报率、改键、宏和灯光未适配".into());
+            return Err("G304 支持电量读取和板载配置选择".into());
         }
         let interfaces = peripheral_desk::hid::enumerate()?;
         let mut last = format!("未找到 Logitech G304 的 046D:{PID:04X} HID++ 长报文接口");
@@ -29,7 +35,10 @@ fn handler(key: &str, input: &str) -> String {
             match WinTransport::open(&i.path).and_then(|t| {
                 peripheral_desk_protocol_hidpp::read_logitech_battery(t, WPID, MODEL_NAME, KEY)
             }) {
-                Ok(state) => return serde_json::to_value(state).map_err(|e| e.to_string()),
+                Ok(mut state) => {
+                    state.settings_error.clear();
+                    return serde_json::to_value(state).map_err(|e| e.to_string());
+                }
                 Err(e) => last = e,
             }
         }

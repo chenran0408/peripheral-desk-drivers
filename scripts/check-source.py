@@ -7,6 +7,7 @@ import re
 import struct
 import tomllib
 import vendor_catalog
+from build import source_version
 
 ROOT = Path(__file__).resolve().parents[1]
 HECATE_COMPONENTS = {
@@ -109,6 +110,7 @@ def metadata(item):
 def main():
     vendor_catalog.check_current()
     workspace = tomllib.loads((ROOT / "Cargo.toml").read_text(encoding="utf-8"))["workspace"]
+    declared_versions = {}
     for filename, channel in (("drivers.json", "stable"), ("drivers-preview.json", "preview")):
         items = json.loads((ROOT / filename).read_text(encoding="utf-8"))
         if len({item["id"] for item in items}) != len(items):
@@ -128,12 +130,7 @@ def main():
             if item["channel"] != channel:
                 raise ValueError("Package is in the wrong channel metadata")
             package = ROOT / "drivers" / item["id"]
-            crate = tomllib.loads((package / "Cargo.toml").read_text(encoding="utf-8"))["package"]
-            version = crate.get("version")
-            if version == {"workspace": True}:
-                version = workspace["package"]["version"]
-            if crate.get("name") != item["id"] + "-driver" or version != item["version"]:
-                raise ValueError("Crate name/version disagrees with catalog: " + item["id"])
+            declared_versions.setdefault(item["id"], set()).add(item["version"])
             if "drivers/" + item["id"] not in workspace["members"]:
                 raise ValueError("Driver is missing from workspace members: " + item["id"])
             source = (package / "src/lib.rs").read_text(encoding="utf-8")
@@ -141,6 +138,10 @@ def main():
                 raise ValueError("Wrapper key does not match its metadata")
             if not (ROOT / "assets" / (item["id"] + ".png")).read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
                 raise ValueError("Device image is not a PNG")
+    for driver_id, catalog_versions in declared_versions.items():
+        version = source_version(driver_id, workspace["package"]["version"])
+        if version not in catalog_versions:
+            raise ValueError(f"{driver_id}: neither channel declares source version {version}")
     template = ROOT / "templates/device"
     metadata(json.loads((template / "metadata.json").read_text(encoding="utf-8")))
     if 'export_driver!("example-device", crate::adapter::request)' not in (template / "lib.rs.template").read_text(encoding="utf-8"):

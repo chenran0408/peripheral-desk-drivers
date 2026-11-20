@@ -1,5 +1,10 @@
 //! Razer DeathAdder V3 HyperSpeed battery adapter based on Voltide v2.1.2.
+use peripheral_desk_protocol_razer::pointing::{request, Model};
+
 fn handler(key: &str, input: &str) -> String {
+    request(Model::HyperSpeed, key, input, read_battery)
+}
+fn read_battery(key: &str, input: &str) -> String {
     let result = (|| -> Result<serde_json::Value, String> {
         if key != "razer-deathadder-v3-hyperspeed" {
             return Err("driver key mismatch".into());
@@ -7,14 +12,16 @@ fn handler(key: &str, input: &str) -> String {
         let request: serde_json::Value =
             serde_json::from_str(input).map_err(|e| format!("invalid request JSON: {e}"))?;
         if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
-            return Err("This plugin provides battery and connection state only; DPI, polling, key mapping, macros and lighting are unavailable.".into());
+            return Err("此插件支持电量读取和板载指针编辑，此项操作未实现。".into());
         }
-        serde_json::to_value(peripheral_desk_protocol_razer_wireless::read_state(
+        let mut state = peripheral_desk_protocol_razer_wireless::read_state(
             "razer-deathadder-v3-hyperspeed",
             "DeathAdder V3 HyperSpeed",
             0x00C5,
-        )?)
-        .map_err(|e| e.to_string())
+        )?;
+        // The shared battery-only provider sets a static capability notice.
+        state.settings_error.clear();
+        serde_json::to_value(state).map_err(|e| e.to_string())
     })();
     match result {
         Ok(value) => serde_json::json!({"ok": true, "value": value, "error": ""}),

@@ -5,6 +5,7 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 pub type Result<T> = std::result::Result<T, String>;
 pub use peripheral_desk::model::Action;
+pub mod onboard;
 pub mod transport;
 
 pub const G305_KEY: &str = "logitech-g305";
@@ -554,7 +555,7 @@ pub fn read_with<T: Transport>(transport: T) -> Result<peripheral_desk::model::S
             let current = read_dpi(&mut reader, index, &stages)?;
             let (current, stages, note) = match onboard_mode(&mut reader)? {
                 2 => (Some(current), stages, "板载配置已关闭；支持写入当前 DPI。".to_string()),
-                1 => (None, Vec::new(), "DPI 设置不可用：板载配置正在控制 DPI。为避免改写板载配置或写入无效，请先在罗技软件中关闭板载配置。".to_string()),
+                1 => (None, Vec::new(), "板载模式已启用。请在「板载配置」选择已保存的 DPI 档位；切回主机模式可设置传感器 DPI。".to_string()),
                 v => return Err(format!("未知板载配置模式 0x{v:02X}，拒绝开放 DPI 写入")),
             };
             Ok((current, stages, note))
@@ -570,7 +571,7 @@ pub fn read_with<T: Transport>(transport: T) -> Result<peripheral_desk::model::S
         updated: SystemTime::now().duration_since(UNIX_EPOCH).unwrap_or_default().as_secs(),
         identity: format!("046D:C53F / WPID 4074 / HID++ 4.2 / {}", if firmware.is_empty() {"firmware unknown".into()} else {firmware.join("; ")}),
         dpi, dpi_stages: Vec::new(), active_stage: None,
-        settings_error: format!("公开实现适配未实测；电量可能按固件档位跳变。{mode_note}仅 DPI 可写；回报率、按键、宏、灯光和固件命令未开放。"),
+        settings_error: format!("公开实现适配未实测；电量可能按固件档位跳变。{mode_note}可在板载配置页切换模式、配置和已有 DPI 档位。"),
         ..Default::default()
     })
 }
@@ -589,7 +590,7 @@ pub fn apply_action_with<T: Transport>(
     let mode = onboard_mode(&mut reader)?;
     if mode != 2 {
         return Err(format!(
-            "板载配置模式为 {mode}；未修改设备。请先在罗技软件中关闭板载配置，再重试。"
+            "板载配置模式为 {mode}；未修改设备。请先在「板载配置」切换为主机模式，再设置传感器 DPI。"
         ));
     }
     let (feature, version) = reader.feature_info(DPI_FEATURE)?;

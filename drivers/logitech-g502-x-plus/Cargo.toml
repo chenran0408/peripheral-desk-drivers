@@ -1,6 +1,6 @@
 [package]
 name = "logitech-g502-x-plus-driver"
-version = "0.4.13-preview.22"
+version = "0.4.13-preview.46"
 edition.workspace = true
 license.workspace = true
 publish = false

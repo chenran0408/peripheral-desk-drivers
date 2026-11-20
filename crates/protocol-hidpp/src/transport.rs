@@ -122,7 +122,7 @@ impl Transport for WinTransport {
                 }
             }
         }
-        Err("G305 未响应本次只读查询，可能休眠或被其他驱动占用；未猜测电量".into())
+        Err("HID++ 设备未响应本次请求，可能休眠或被其他驱动占用".into())
     }
 }
 

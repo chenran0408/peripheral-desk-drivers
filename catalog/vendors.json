@@ -2287,7 +2287,8 @@
               "kind": "mouse",
               "channel": "preview",
               "capabilities": [
-                "battery"
+                "battery",
+                "onboard-profiles"
               ],
               "identity": "runtime-identity",
               "validation": "upstream-hardware-verified-project-untested",
@@ -2295,7 +2296,7 @@
                 "crates/protocol-hidpp"
               ],
               "connections": [
-                "2.4 GHz LIGHTSPEED 接收器 / 046D:C53F / HID++ 4.2；WPID 4074；G304 完整名称"
+                "原有 2.4 GHz LIGHTSPEED 接收器（046D:C53F），HID++ slot 1，板载操作核对设备 WPID 4074 和自报全名 G304 Lightspeed Wireless Gaming Mouse。"
               ],
               "firmware": "unknown"
             },
@@ -2306,7 +2307,8 @@
               "channel": "preview",
               "capabilities": [
                 "battery",
-                "settings"
+                "settings",
+                "onboard-profiles"
               ],
               "identity": "runtime-identity",
               "validation": "public-implementation-untested",
@@ -2314,8 +2316,7 @@
                 "crates/protocol-hidpp"
               ],
               "connections": [
-                "2.4GHz / original 046D:C53F receiver, paired slot 1; runtime requires HID++ 4.2, WPID 4074 and exact G305 name",
-                "DPI writes require live Onboard Profiles mode=0x02 (host/Disabled); the active profile is never changed by this driver"
+                "原有 2.4 GHz LIGHTSPEED 接收器（046D:C53F），HID++ slot 1，板载操作核对设备 WPID 4074 和自报全名 G305 Lightspeed Wireless Gaming Mouse。"
               ],
               "firmware": "unknown"
             },
@@ -2325,7 +2326,8 @@
               "kind": "mouse",
               "channel": "preview",
               "capabilities": [
-                "battery"
+                "battery",
+                "onboard-profiles"
               ],
               "identity": "runtime-identity",
               "validation": "upstream-hardware-verified-project-untested",
@@ -2333,7 +2335,7 @@
                 "crates/protocol-hidpp"
               ],
               "connections": [
-                "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 LIGHTSPEED 名称"
+                "原有 2.4 GHz LIGHTSPEED 接收器（046D:C539/C547），HID++ slot 1，板载操作核对设备 WPID 407F 和自报全名 G502 LIGHTSPEED Wireless Gaming Mouse。"
               ],
               "firmware": "unknown"
             },
@@ -2343,7 +2345,8 @@
               "kind": "mouse",
               "channel": "preview",
               "capabilities": [
-                "battery"
+                "battery",
+                "onboard-profiles"
               ],
               "identity": "runtime-identity",
               "validation": "upstream-hardware-verified-project-untested",
@@ -2351,7 +2354,7 @@
                 "crates/protocol-hidpp"
               ],
               "connections": [
-                "046D:C539/C547 LIGHTSPEED 接收器，运行期 G502 X PLUS 名称"
+                "原有 2.4 GHz LIGHTSPEED 接收器（046D:C539/C547），HID++ slot 1，板载操作核对设备 WPID 4099 和自报全名 G502 X PLUS。"
               ],
               "firmware": "unknown"
             },
@@ -4410,34 +4413,6 @@
       "id": "razer",
       "families": [
         {
-          "id": "core-razer",
-          "name": "core-razer",
-          "basis": "implementation",
-          "models": [
-            {
-              "id": "razer-deathadder-v3-pro",
-              "name": "炼狱蝰蛇 V3 专业版",
-              "kind": "mouse",
-              "channel": "stable",
-              "capabilities": [
-                "battery",
-                "settings",
-                "bindings",
-                "software-macro-trigger"
-              ],
-              "identity": "interface",
-              "validation": "hardware-verified",
-              "implementation": [
-                "crates/driver-ffi#core-razer"
-              ],
-              "connections": [
-                "2.4 GHz standard receiver"
-              ],
-              "firmware": "unknown"
-            }
-          ]
-        },
-        {
           "id": "protocol-razer",
           "name": "protocol-razer",
           "basis": "implementation",
@@ -4532,6 +4507,51 @@
               ],
               "connections": [
                 "1532:02D5 接收器 / 02D7 线缆"
+              ],
+              "firmware": "unknown"
+            },
+            {
+              "id": "razer-deathadder-v3-pro",
+              "name": "炼狱蝰蛇 V3 专业版",
+              "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "settings",
+                "bindings",
+                "software-macro-trigger",
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-read"
+              ],
+              "identity": "interface",
+              "validation": "hardware-verified",
+              "implementation": [
+                "crates/protocol-razer"
+              ],
+              "connections": [
+                "2.4 GHz standard receiver"
+              ],
+              "firmware": "unknown"
+            },
+            {
+              "id": "razer-deathadder-v3-pro",
+              "name": "炼狱蝰蛇 V3 专业版",
+              "kind": "mouse",
+              "channel": "stable",
+              "capabilities": [
+                "battery",
+                "settings",
+                "bindings",
+                "software-macro-trigger"
+              ],
+              "identity": "interface",
+              "validation": "hardware-verified",
+              "implementation": [
+                "crates/protocol-razer"
+              ],
+              "connections": [
+                "2.4 GHz standard receiver"
               ],
               "firmware": "unknown"
             },
@@ -5311,42 +5331,6 @@
               "firmware": "unknown"
             },
             {
-              "id": "razer-deathadder-v3-hyperspeed",
-              "name": "Razer DeathAdder V3 HyperSpeed",
-              "kind": "mouse",
-              "channel": "preview",
-              "capabilities": [
-                "battery"
-              ],
-              "identity": "interface",
-              "validation": "upstream-hardware-verified-project-untested",
-              "implementation": [
-                "crates/protocol-razer-wireless"
-              ],
-              "connections": [
-                "2.4 GHz 接收器 / 1532:00C5 / 91 字节 Feature Report"
-              ],
-              "firmware": "unknown"
-            },
-            {
-              "id": "razer-deathadder-v3-pro-alt",
-              "name": "Razer DeathAdder V3 Pro (alternate receiver)",
-              "kind": "mouse",
-              "channel": "preview",
-              "capabilities": [
-                "battery"
-              ],
-              "identity": "interface",
-              "validation": "upstream-hardware-verified-project-untested",
-              "implementation": [
-                "crates/protocol-razer-wireless"
-              ],
-              "connections": [
-                "2.4 GHz 接收器 / 1532:00C3 / 91 字节 Feature Report"
-              ],
-              "firmware": "unknown"
-            },
-            {
               "id": "razer-deathadder-v4-pro",
               "name": "Razer DeathAdder V4 Pro",
               "kind": "mouse",
@@ -5667,6 +5651,68 @@
               ],
               "connections": [
                 "2.4 GHz 接收器 / 1532:00C1 / 91 字节 Feature Report"
+              ],
+              "firmware": "unknown"
+            }
+          ]
+        },
+        {
+          "id": "razer-deathadder-v3-hyperspeed",
+          "name": "razer-deathadder-v3-hyperspeed",
+          "basis": "model",
+          "models": [
+            {
+              "id": "razer-deathadder-v3-hyperspeed",
+              "name": "Razer DeathAdder V3 HyperSpeed",
+              "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-read",
+                "polling-rate-write",
+                "pointer-controls"
+              ],
+              "identity": "interface",
+              "validation": "upstream-hardware-verified-project-untested",
+              "implementation": [
+                "crates/protocol-razer",
+                "crates/protocol-razer-wireless"
+              ],
+              "connections": [
+                "2.4 GHz 接收器 / 1532:00C5 / 91 字节 Feature Report"
+              ],
+              "firmware": "unknown"
+            }
+          ]
+        },
+        {
+          "id": "razer-deathadder-v3-pro-alt",
+          "name": "razer-deathadder-v3-pro-alt",
+          "basis": "model",
+          "models": [
+            {
+              "id": "razer-deathadder-v3-pro-alt",
+              "name": "Razer DeathAdder V3 Pro (alternate receiver)",
+              "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "dpi-stages-read",
+                "dpi-stages-write",
+                "polling-rate-read",
+                "polling-rate-write",
+                "pointer-controls"
+              ],
+              "identity": "interface",
+              "validation": "upstream-hardware-verified-project-untested",
+              "implementation": [
+                "crates/protocol-razer",
+                "crates/protocol-razer-wireless"
+              ],
+              "connections": [
+                "2.4 GHz 接收器 / 1532:00C3 / 91 字节 Feature Report"
               ],
               "firmware": "unknown"
             }

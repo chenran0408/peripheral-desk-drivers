@@ -35,7 +35,10 @@ jobs:
           python-version: "3.12"
       - name: Check metadata, new-device starter and documentation
         shell: pwsh
-        run: python scripts/check-source.py
+        run: |
+          python scripts/check-source.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/test-channel-build.py
       - name: Verify signed subset channel merging without network or hardware
         shell: pwsh
         run: ./scripts/test-channel-merge.ps1
@@ -101,7 +104,7 @@ jobs:
           if ($metadata -eq 'auto') { $metadata = if ($tag.Contains('-')) { 'drivers-preview.json' } else { 'drivers.json' } }
           if ($metadata -cnotin @('drivers.json', 'drivers-preview.json')) { throw "Invalid metadata selection" }
           $extra = @('--metadata', $metadata)
-          if ($env:RELEASE_TAG) { $extra += @('--release-tag', $env:RELEASE_TAG) }
+          if ($tag) { $extra += @('--release-tag', $tag) } else { $extra += '--workspace-check' }
           if (-not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)) {
             foreach ($package in $env:DRIVER_PACKAGES.Split(',')) {
               $package = $package.Trim()

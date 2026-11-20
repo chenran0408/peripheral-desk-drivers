@@ -25,7 +25,7 @@ CAPABILITIES = {
     "lighting-direction": "流动方向",
     "polling-rate-read": "读配置回报率", "dpi-stages-read": "读 DPI 档位配置",
     "polling-rate-write": "设置回报率", "dpi-stages-write": "编辑 DPI 档位",
-    "pointer-controls": "指针设置",
+    "pointer-controls": "指针设置", "onboard-profiles": "板载模式、配置与 DPI 档位切换",
     "experimental-onboard-macros": "板载宏（实验）", "board-name": "配置改名",
 }
 POLICIES = {"manual": "手动认领", "runtime-identity": "运行时核对", "interface": "接口匹配"}

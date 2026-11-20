@@ -7,6 +7,12 @@ fn handler(key: &str, input: &str) -> String {
         }
         let request: serde_json::Value =
             serde_json::from_str(input).map_err(|e| format!("请求 JSON 无效：{e}"))?;
+        if request["op"]
+            .as_str()
+            .is_some_and(peripheral_desk_protocol_hidpp::onboard::handles)
+        {
+            return peripheral_desk_protocol_hidpp::onboard::handle(key, &request);
+        }
         match request.get("op").and_then(serde_json::Value::as_str) {
             Some("read-state") => serde_json::to_value(read_g305()?).map_err(|e| e.to_string()),
             Some("apply-setting") => {
@@ -17,7 +23,7 @@ fn handler(key: &str, input: &str) -> String {
                 apply_g305_setting(action)?;
                 Ok(serde_json::Value::Null)
             }
-            _ => Err("G305 支持只读状态和精确型号 DPI 设置；改键、宏、回报率和灯光未开放".into()),
+            _ => Err("G305 支持电量、主机模式 DPI 和板载配置选择".into()),
         }
     })();
     match result {

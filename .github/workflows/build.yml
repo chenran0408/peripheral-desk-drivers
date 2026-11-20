@@ -44,45 +44,50 @@ jobs:
           DRIVER_PACKAGES: ${{ inputs.packages || '' }}
         shell: pwsh
         run: |
-          # One rustfmt invocation for the whole workspace outgrows the Windows
-          # command-line limit now that the workspace has 200+ packages.
-          $packageNames = (cargo metadata --format-version 1 --no-deps | ConvertFrom-Json).packages.name
-          foreach ($name in $packageNames) {
-            cargo fmt -p $name -- --check
-            if ($LASTEXITCODE -ne 0) { throw "Formatting check failed: $name" }
-          }
-          if (-not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)) {
-            foreach ($package in $env:DRIVER_PACKAGES.Split(',')) {
-              $package = $package.Trim()
-              cargo clippy --locked -p "$package-driver" --all-targets -- -D warnings -A clippy::field-reassign-with-default
-              if ($LASTEXITCODE -ne 0) { throw "Static check failed for $package" }
-              cargo test --locked -p "$package-driver" --lib
-              if ($LASTEXITCODE -ne 0) { throw "Parser checks failed for $package" }
+          $workspace = cargo metadata --format-version 1 --no-deps --locked | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw "Cannot read workspace packages" }
+          $targeted = -not [string]::IsNullOrWhiteSpace($env:DRIVER_PACKAGES)
+          if ($targeted) {
+            $members = @{}
+            foreach ($member in $workspace.packages) { $members[$member.name] = $member }
+            $pending = [Collections.Generic.Stack[string]]::new()
+            foreach ($id in $env:DRIVER_PACKAGES.Split(',')) {
+              $name = $id.Trim() + '-driver'
+              if (-not $members.ContainsKey($name)) { throw "Unknown driver package: $name" }
+              $pending.Push($name)
             }
-            $protocolPackages = @(
-              "peripheral-desk-protocol-akg-n9-hybrid",
-              "peripheral-desk-protocol-haute42-4ds",
-              "peripheral-desk-protocol-hyperx-cloud-flight-2",
-              "peripheral-desk-protocol-logitech-pro-x2",
-              "peripheral-desk-protocol-razer-blackshark-2023",
-              "peripheral-desk-protocol-razer-kraken-v4",
-              "peripheral-desk-protocol-sony-inzone-h9-ii",
-              "peripheral-desk-protocol-hecate-g5m-pro",
-              "peripheral-desk-protocol-hecate-g3m-pro-upgrade",
-              "peripheral-desk-protocol-logitech-bolt-mx-master-3s",
-              "peripheral-desk-protocol-atk-f1-battery",
-              "peripheral-desk-protocol-mchose-cz",
-              "peripheral-desk-protocol-mchose-0x4d"
-            )
-            foreach ($protocol in $protocolPackages) {
-              cargo test --locked -p $protocol --lib
-              if ($LASTEXITCODE -ne 0) { throw "Protocol parser checks failed for $protocol" }
+            $visited = [Collections.Generic.HashSet[string]]::new()
+            while ($pending.Count) {
+              $name = $pending.Pop()
+              if (-not $visited.Add($name)) { continue }
+              foreach ($dep in $members[$name].dependencies) {
+                # Cargo records the package name in 'name' and the local alias in 'rename'.
+                if ($dep.path -and $members.ContainsKey($dep.name)) { $pending.Push($dep.name) }
+              }
             }
+            $packageNames = @($visited | Where-Object { $_ -like '*-driver' -or $_ -like 'peripheral-desk-protocol-*' } | Sort-Object)
+            Write-Host "Checking selected packages: $($packageNames -join ', ')"
           } else {
-          cargo clippy --locked --workspace --all-targets -- -D warnings -A clippy::field-reassign-with-default
-          if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
-          cargo test --locked --workspace --lib
-          if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }
+            $packageNames = @($workspace.packages.name)
+          }
+          # rustfmt passes source paths to a child process with a Windows command-line limit.
+          for ($start = 0; $start -lt $packageNames.Count; $start += 32) {
+            $end = [Math]::Min($start + 31, $packageNames.Count - 1)
+            $selection = foreach ($name in $packageNames[$start..$end]) { '-p'; $name }
+            cargo fmt @selection --check
+            if ($LASTEXITCODE -ne 0) { throw "Formatting check failed" }
+            if ($targeted) {
+              cargo clippy --locked @selection --all-targets -- -D warnings -A clippy::field-reassign-with-default
+              if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
+              cargo test --locked @selection --lib
+              if ($LASTEXITCODE -ne 0) { throw "Parser tests failed" }
+            }
+          }
+          if (-not $targeted) {
+            cargo clippy --locked --workspace --all-targets -- -D warnings -A clippy::field-reassign-with-default
+            if ($LASTEXITCODE -ne 0) { throw "Static checks failed" }
+            cargo test --locked --workspace --lib
+            if ($LASTEXITCODE -ne 0) { throw "Protocol tests failed" }
           }
       - name: Build pinned core and selected device packages
         env:

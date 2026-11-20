@@ -555,7 +555,7 @@ pub fn read_with<T: Transport>(transport: T) -> Result<peripheral_desk::model::S
             let current = read_dpi(&mut reader, index, &stages)?;
             let (current, stages, note) = match onboard_mode(&mut reader)? {
                 2 => (Some(current), stages, "板载配置已关闭；支持写入当前 DPI。".to_string()),
-                1 => (None, Vec::new(), "板载模式已启用。请在「板载配置」选择已保存的 DPI 档位；切回主机模式可设置传感器 DPI。".to_string()),
+                1 => (None, Vec::new(), "板载配置正在控制 DPI。请在「板载配置」选择已保存的 DPI 档位；切回主机模式可设置传感器 DPI。".to_string()),
                 v => return Err(format!("未知板载配置模式 0x{v:02X}，拒绝开放 DPI 写入")),
             };
             Ok((current, stages, note))

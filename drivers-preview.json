@@ -2,7 +2,7 @@
   {
     "id": "logitech-g304",
     "name": "罗技 G304 LIGHTSPEED",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
@@ -1861,7 +1861,7 @@
   {
     "id": "logitech-g305",
     "name": "罗技 G305 LIGHTSPEED",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。主机模式保留传感器 DPI 设置。",
     "device": {
       "key": "logitech-g305",
@@ -3582,7 +3582,7 @@
   {
     "id": "razer-deathadder-v3-pro-alt",
     "name": "Razer DeathAdder V3 Pro (alternate receiver)",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 8000 Hz。",
     "abi": 1,
     "dll": "driver.dll",
@@ -3801,7 +3801,7 @@
   {
     "id": "razer-deathadder-v3-hyperspeed",
     "name": "Razer DeathAdder V3 HyperSpeed",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "可分别设置每档横向与纵向 DPI，保留其他档位。新增活动档位选择和回报率编辑，最高 1000 Hz。",
     "abi": 1,
     "dll": "driver.dll",
@@ -5164,7 +5164,7 @@
   {
     "id": "logitech-g502-lightspeed",
     "name": "罗技 G502 LIGHTSPEED",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
@@ -5223,7 +5223,7 @@
   {
     "id": "logitech-g502-x-plus",
     "name": "罗技 G502 X PLUS",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "通过 LIGHTSPEED 接收器读电量、切换板载模式、已启用的配置和已有 DPI 档位。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14851,7 +14851,7 @@
   {
     "id": "razer-deathadder-v3-pro",
     "name": "炼狱蝰蛇 V3 专业版",
-    "version": "0.4.13-preview.46",
+    "version": "0.4.13-preview.47",
     "description": "可分别设置每档横向与纵向 DPI，保留其他档位。旧版已有的改键、软件宏和回报率设置可以继续使用。",
     "device": {
       "key": "razer-deathadder-v3-pro",

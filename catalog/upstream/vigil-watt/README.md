@@ -11,6 +11,8 @@
 
 ## 同步上游
 
+在 GitHub 打开[厂商协议对比](https://github.com/chenran0408/peripheral-desk-drivers/actions/workflows/upstream-vendors.yml)，点 **Run workflow** 即可生成报告。每周一也会自动对照一次。运行结束后下载 `vendor-protocol-comparison`，其中有具体差异、设备表和来源版本。该工作流只有读取权限。
+
 在仓库根目录运行以下命令，需要 Python 3.11 或更新版和 Git。首次联网对比会在 `work/upstreams/vigil-watt` 建立参考仓库。
 
 ```shell

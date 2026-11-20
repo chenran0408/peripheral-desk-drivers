@@ -1,0 +1,34 @@
+name: Compare upstream vendor protocols
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 1 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare vendor research with the pinned revision
+        run: |
+          mkdir -p work/vendor-report
+          python scripts/sync_vigil_watt.py --write >work/vendor-report/changes.txt
+          cp catalog/upstream/vigil-watt/{COVERAGE.md,sources.json} work/vendor-report/
+          if git diff --quiet -- catalog/upstream/vigil-watt; then
+            echo '上游厂商资料与仓库记录一致。' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '发现上游变动。下载本次报告可查看具体型号、协议文件与来源提交。' >> "$GITHUB_STEP_SUMMARY"
+            git diff --stat -- catalog/upstream/vigil-watt >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vendor-protocol-comparison
+          path: work/vendor-report/
+

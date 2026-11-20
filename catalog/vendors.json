@@ -3665,7 +3665,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3689,7 +3692,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3713,7 +3719,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3737,7 +3746,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3761,7 +3773,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3785,7 +3800,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3809,7 +3827,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3833,7 +3854,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3857,7 +3881,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3881,7 +3908,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3905,7 +3935,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3929,7 +3962,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3953,7 +3989,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3977,7 +4016,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4001,7 +4043,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4025,7 +4070,10 @@
                 "dpi-stages-read",
                 "dpi-stages-write",
                 "polling-rate-write",
-                "pointer-controls"
+                "pointer-controls",
+                "bindings",
+                "experimental-onboard-macros",
+                "board-name"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",

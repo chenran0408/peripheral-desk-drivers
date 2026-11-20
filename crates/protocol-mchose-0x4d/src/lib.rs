@@ -1,4 +1,7 @@
 //! MCHOSE universal 8K receiver: a model is identified by the paired device's 0x0900 response.
+mod board_name;
+mod buttons;
+mod onboard_macro;
 mod settings;
 
 use peripheral_desk::{hid, model::State};
@@ -24,12 +27,14 @@ fn query(command: u16, args: &[u8]) -> [u8; LEN] {
     frame
 }
 
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 struct Info {
     vid: u16,
     pid: u16,
     percent: u8,
     profile_count: u8,
+    macro_shared: u16,
+    macro_unit: u16,
     charge: u8,
     connection: u8,
 }
@@ -58,7 +63,9 @@ fn info(frame: &[u8]) -> Option<Info> {
         vid: u16::from_le_bytes([payload[0], payload[1]]),
         pid: u16::from_le_bytes([payload[2], payload[3]]),
         percent: payload[12],
-        profile_count: payload[4].min(3),
+        profile_count: payload[4],
+        macro_shared: u16::from_le_bytes([payload[6], payload[7]]),
+        macro_unit: u16::from_le_bytes([payload[8], payload[9]]),
         charge: payload[11],
         connection: payload[10],
     })
@@ -288,7 +295,15 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
     let result = (|| {
         let op: Value = serde_json::from_str(input).map_err(|e| e.to_string())?;
         let command = op["op"].as_str().unwrap_or_default();
-        if !matches!(command, "read-state" | "set-pointer") {
+        if !matches!(
+            command,
+            "read-state"
+                | "set-pointer"
+                | "controls-read"
+                | "controls-apply"
+                | "read-board-name"
+                | "set-board-name"
+        ) {
             return Err("不支持的设备操作".into());
         }
         let read_pointer = op.get("read_pointer").and_then(Value::as_bool) == Some(true);
@@ -299,16 +314,27 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
                 t.flush()?;
                 let mut stage = None;
                 let report = read_reply(&mut t, DEVICE_INFO, &[], &mut stage, info)?;
-                let profile_count = report.profile_count;
                 let state = state(key, expected_pid, report)?;
-                Ok((t, state, stage, profile_count))
+                Ok((t, state, stage, report))
             })();
             match connected {
-                Ok((mut t, state, stage, profile_count)) => {
-                    return if command == "set-pointer" {
-                        settings::apply(&mut t, expected_pid, &op, profile_count)
-                    } else {
-                        read_state(t, state, expected_pid, read_pointer, stage, profile_count)
+                Ok((mut t, state, stage, report)) => {
+                    return match command {
+                        "set-pointer" => {
+                            settings::apply(&mut t, expected_pid, &op, report.profile_count.min(3))
+                        }
+                        "controls-read" | "controls-apply" => buttons::handle(&mut t, &op, &report),
+                        "read-board-name" | "set-board-name" => {
+                            board_name::handle(&mut t, &op, report.profile_count.min(3))
+                        }
+                        _ => read_state(
+                            t,
+                            state,
+                            expected_pid,
+                            read_pointer,
+                            stage,
+                            report.profile_count.min(3),
+                        ),
                     }
                 }
                 Err(e) => error = e,
@@ -335,6 +361,7 @@ mod tests {
     #[test]
     fn capture_and_paired_identity_are_independent_of_the_receiver() {
         let captured = info(CAPTURE).unwrap();
+        assert_eq!(captured.profile_count, 4); // Include every hardware slot when checking macro ownership.
         assert_eq!(
             (
                 captured.pid,

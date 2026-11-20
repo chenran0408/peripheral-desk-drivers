@@ -178,7 +178,7 @@ pub(super) fn describe(
         control("sensor_mode", "性能模式", (b[5] & 3).into(), 0, 2, ""),
     ];
     if let Some(mode) = controls.last_mut() {
-        mode["choices"] = choices(&["模式 1", "模式 2", "模式 3"]);
+        mode["choices"] = choices(&["性能模式", "电竞模式", "超竞模式"]);
     }
     if profile_count > 1 && perf.profile() < profile_count {
         let mut c = control(
@@ -277,7 +277,7 @@ fn choices(labels: &[&str]) -> Value {
     )
 }
 
-fn send_check(t: &mut WinTransport, command: u16, data: &[u8]) -> Result<(), String> {
+pub(super) fn send_check(t: &mut WinTransport, command: u16, data: &[u8]) -> Result<(), String> {
     read_reply(t, command, data, &mut None, |f| {
         payload(f, command).map(|_| ())
     })
@@ -363,7 +363,7 @@ impl DpiLayout {
 }
 
 // Every branch uses the same connected handle for capture, write, readback and rollback.
-fn verified<T: Eq>(
+pub(super) fn verified<T: Eq>(
     before: T,
     desired: T,
     mut send_read: impl FnMut(&T) -> Result<T, String>,

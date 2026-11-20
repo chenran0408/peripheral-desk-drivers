@@ -13825,8 +13825,8 @@
   {
     "id": "mchose-a5-v3-pro",
     "name": "迈从 A5 V3 Pro",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -13851,7 +13851,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4035。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Pro 的配对本体为 3837:4035，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Pro 的配对本体为 3837:4035，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -13874,15 +13874,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a5-v3-ultra",
     "name": "迈从 A5 V3 Ultra",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -13907,7 +13910,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4042。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra 的配对本体为 3837:4042，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra 的配对本体为 3837:4042，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -13930,15 +13933,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a5-v3-ultra-plus-3955",
     "name": "迈从 A5 V3 Ultra+(3955)",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -13963,7 +13969,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4034。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra+(3955) 的配对本体为 3837:4034，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A5 V3 Ultra+(3955) 的配对本体为 3837:4034，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -13986,15 +13992,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3",
     "name": "迈从 A7 V3",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14019,7 +14028,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4030。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 的配对本体为 3837:4030，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 的配对本体为 3837:4030，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14042,15 +14051,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3-magnetic",
     "name": "迈从 A7 V3 Magnetic",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14075,7 +14087,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403F。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Magnetic 的配对本体为 3837:403F，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Magnetic 的配对本体为 3837:403F，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14098,15 +14110,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3-pro",
     "name": "迈从 A7 V3 Pro",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14131,7 +14146,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4031。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro 的配对本体为 3837:4031，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro 的配对本体为 3837:4031，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14154,15 +14169,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3-pro-plus",
     "name": "迈从 A7 V3 Pro+",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14187,7 +14205,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4032。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro+ 的配对本体为 3837:4032，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Pro+ 的配对本体为 3837:4032，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14210,15 +14228,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3-ultra",
     "name": "迈从 A7 V3 Ultra",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14243,7 +14264,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403D。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Ultra 的配对本体为 3837:403D，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3 Ultra 的配对本体为 3837:403D，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14266,15 +14287,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-a7-v3-x",
     "name": "迈从 A7 V3-X",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14299,7 +14323,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403A。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3-X 的配对本体为 3837:403A，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 A7 V3-X 的配对本体为 3837:403A，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14322,15 +14346,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k5-pro",
     "name": "迈从 K5 Pro",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14355,7 +14382,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4037。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Pro 的配对本体为 3837:4037，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Pro 的配对本体为 3837:4037，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14378,15 +14405,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k5-ultra",
     "name": "迈从 K5 Ultra",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14411,7 +14441,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4038。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Ultra 的配对本体为 3837:4038，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K5 Ultra 的配对本体为 3837:4038，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14434,15 +14464,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k7-v2-pro",
     "name": "迈从 K7 V2 Pro",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14467,7 +14500,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403B。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro 的配对本体为 3837:403B，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro 的配对本体为 3837:403B，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14490,15 +14523,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k7-v2-pro-plus",
     "name": "迈从 K7 V2 Pro+",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14523,7 +14559,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4027。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro+ 的配对本体为 3837:4027，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Pro+ 的配对本体为 3837:4027，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14546,15 +14582,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k7-v2-ultra",
     "name": "迈从 K7 V2 Ultra",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14579,7 +14618,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:403C。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra 的配对本体为 3837:403C，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra 的配对本体为 3837:403C，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14602,15 +14641,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-k7-v2-ultra-plus",
     "name": "迈从 K7 V2 Ultra+",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14635,7 +14677,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4028。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra+ 的配对本体为 3837:4028，本项目尚未实机验证该型号。 上游曾标为 K7 V2 Ultra+ 的一次记录自报 4026，此插件只接受 4028。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 K7 V2 Ultra+ 的配对本体为 3837:4028，本项目尚未实机验证该型号。 上游曾标为 K7 V2 Ultra+ 的一次记录自报 4026，此插件只接受 4028。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14658,15 +14700,18 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-r7-ultra",
     "name": "迈从 R7 Ultra",
-    "version": "0.4.13-preview.43",
-    "description": "通过 8K 接收器读取状态并编辑板载指针设置。可调整 DPI 档位、回报率、休眠、消抖、抬升距离和传感器选项。",
+    "version": "0.4.13-preview.44",
+    "description": "通过 8K 接收器读取状态，编辑板载指针设置、映射按键、录入快捷宏与命名配置。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -14691,7 +14736,7 @@
         "status": "public-implementation-untested",
         "connections": "8K 接收器 3837:1018 · FF01:0001 · 64 字节；0x0900 配对身份 3837:4036。",
         "firmware": "unknown",
-        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 R7 Ultra 的配对本体为 3837:4036，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。",
+        "project_validation": "上游实测 3837:1018 接收器的电量、充电和连接字段。官方型号表指定 R7 Ultra 的配对本体为 3837:4036，本项目尚未实机验证该型号。 配置回报率、X/Y 轴 DPI 分档配置与偶发上报的活动档位为只读实验功能，上游及本项目均无实机验证。 本地编辑依据 M HUB 的设备写入和读回实现，已检查协议样本，尚未逐款实机。 按键、板载宏和配置改名根据官方协议实现，尚未在本项目实物写入。",
         "source_refs": [
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/brands/mchose.md",
           "https://github.com/evren-oct/vigil-watt/blob/6315988f54e47fc030ae4c535dc64ae27c08f471/docs/hardware/reference/mchose-dpi-report-rate-audit.md",
@@ -14714,9 +14759,12 @@
       "dpi-stages-read",
       "dpi-stages-write",
       "polling-rate-write",
-      "pointer-controls"
+      "pointer-controls",
+      "bindings",
+      "experimental-onboard-macros",
+      "board-name"
     ],
-    "changelog": "可在本地编辑板载 DPI 档位、回报率和传感器设置，修改后从鼠标读回确认。"
+    "changelog": "新增板载按键映射、宏的读取与编辑、板载配置改名。支持在预览版主程序中按型号使用。"
   },
   {
     "id": "mchose-g3-v2",

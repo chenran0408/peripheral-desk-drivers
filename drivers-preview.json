@@ -2310,17 +2310,22 @@
   },
   {
     "id": "mchose-v9-pro",
-    "name": "迈从 V9 Pro 耳机",
-    "version": "0.4.10-preview.1",
-    "description": "Vigil Watt 贡献者单点抓包适配，Peripheral Desk 未实测；需主动查询，安装此预览包即允许其轮询电量。仅支持 291D:385D 精确耳机集合。",
+    "name": "迈从 V9 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
     "device": {
       "key": "mchose-v9-pro",
       "name": "迈从 V9 Pro",
       "brand": "MCHOSE",
       "kind": "headset",
-      "subtitle": "只读电量 · 主动查询 · 上游单点验证",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
       "image": "device.png",
       "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "product_equals": "MCHOSE V9 PRO"
+        },
         {
           "vid": 10525,
           "pid": 14429,
@@ -2336,10 +2341,11 @@
       "validation": {
         "status": "public-implementation-untested",
         "connections": [
-          "USB 2.4 GHz receiver; exact MI_00 COL05 FF90:0001 64-byte input/output collection only"
+          "2.4 GHz USB 接收器"
         ],
-        "firmware": "unknown",
+        "firmware": "板载音效模式需要接收器固件 0008 或更新。",
         "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
           "https://github.com/evren-oct/vigil-watt/tree/a78e973b4eb634bdce37c9078dd48d1c07e3eb73",
           "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/docs/hardware/mchose-v9-pro.md",
           "https://github.com/evren-oct/vigil-watt/blob/a78e973b4eb634bdce37c9078dd48d1c07e3eb73/LICENSE"
@@ -2348,13 +2354,15 @@
     },
     "abi": 1,
     "dll": "driver.dll",
-    "core_min": "0.4.0",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
       "battery"
     ],
-    "changelog": "新增 V9 Pro 接收器电量预览。安装后会主动查询；充电状态未知，非满电映射未验证，本项目未实测。"
+    "changelog": "依接收器固件开放的板载音效模式。在「设备调节」选择本机端点，直接调整并读取结果。"
   },
   {
     "id": "pulsar-x2-v2",
@@ -8547,19 +8555,24 @@
   },
   {
     "id": "mchose-x9",
-    "name": "MCHOSE X9 Wireless Headset",
-    "version": "0.4.13-preview.25",
-    "description": "X9 无线耳机接收器的电量百分比，只读；无充电状态。",
+    "name": "迈从 X9",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
       "key": "mchose-x9",
-      "name": "MCHOSE X9 Wireless Headset",
+      "name": "迈从 X9",
       "brand": "MCHOSE",
       "kind": "headset",
-      "subtitle": "电量 · 只读",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
       "image": "device.png",
       "matches": [
+        {
+          "vid": 14391,
+          "pid": 24645,
+          "product_equals": "MCHOSE X9"
+        },
         {
           "vid": 14391,
           "pid": 24645,
@@ -8571,26 +8584,27 @@
       ],
       "advanced": [],
       "validation": {
-        "status": "upstream-verified",
-        "connections": "3837:6045 接收器；FF90:0001 HID 集合，报告 55 65，电量回复字段 02",
-        "receiver-shared": false,
-        "firmware": "unknown",
-        "project_validation": "HeadsetControl 上游通过 M HUB 抓包核对过电量百分比；本项目未实机验证。",
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
         "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js",
           "https://github.com/Sapd/HeadsetControl/blob/7b760ddb29e4618f4229ab2936a4b009ab2e1fa0/lib/devices/mchose_x9.hpp"
         ],
-        "source_licenses": {
-          "HeadsetControl": "GPL-3.0（仅参考协议事实）"
-        }
+        "upstream_validation": "旧版 X9 接收器的电量有上游实物报告。新增音频功能按原厂实现移植。"
       }
     },
-    "core_min": "0.4.0",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
       "battery"
     ],
-    "changelog": "新增 MCHOSE X9 无线耳机电量读取。"
+    "changelog": "依接收器固件开放的板载音效模式。在「设备调节」选择本机端点，直接调整并读取结果。"
   },
   {
     "id": "lenovo-wireless-voip",
@@ -13862,7 +13876,7 @@
   {
     "id": "mchose-a5-v3-pro",
     "name": "迈从 A5 V3 Pro",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14030,7 +14044,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14043,14 +14057,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a5-v3-ultra",
     "name": "迈从 A5 V3 Ultra",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14218,7 +14233,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14231,14 +14246,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a5-v3-ultra-plus-3955",
     "name": "迈从 A5 V3 Ultra+(3955)",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14406,7 +14422,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14419,14 +14435,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3",
     "name": "迈从 A7 V3",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14594,7 +14611,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14607,14 +14624,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3-magnetic",
     "name": "迈从 A7 V3 Magnetic",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按五键示意图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14771,7 +14789,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14784,14 +14802,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3-pro",
     "name": "迈从 A7 V3 Pro",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14959,7 +14978,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -14972,14 +14991,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3-pro-plus",
     "name": "迈从 A7 V3 Pro+",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15147,7 +15167,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15160,14 +15180,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3-ultra",
     "name": "迈从 A7 V3 Ultra",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15335,7 +15356,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15348,14 +15369,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-a7-v3-x",
     "name": "迈从 A7 V3-X",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15523,7 +15545,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15536,14 +15558,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k5-pro",
     "name": "迈从 K5 Pro",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15711,7 +15734,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15724,14 +15747,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k5-ultra",
     "name": "迈从 K5 Ultra",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15899,7 +15923,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -15912,14 +15936,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k5-v2",
     "name": "迈从 K5 V2",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "通过 101C 接收器查看电量，设置 DPI、回报率、抬升距离、五键映射、板载宏和配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16077,7 +16102,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -16090,14 +16115,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "新增 K5 V2 独立驱动，可在外设盒里调节指针参数，在五键示意图上改键。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k7-v2-pro",
     "name": "迈从 K7 V2 Pro",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16265,7 +16291,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -16278,14 +16304,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k7-v2-pro-plus",
     "name": "迈从 K7 V2 Pro+",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16453,7 +16480,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -16466,14 +16493,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k7-v2-ultra",
     "name": "迈从 K7 V2 Ultra",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16641,7 +16669,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -16654,14 +16682,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-k7-v2-ultra-plus",
     "name": "迈从 K7 V2 Ultra+",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16829,7 +16858,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -16842,14 +16871,15 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-r7-ultra",
     "name": "迈从 R7 Ultra",
-    "version": "0.4.13-preview.50",
+    "version": "0.4.13-preview.51",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17007,7 +17037,7 @@
         ]
       }
     },
-    "core_min": "0.4.12-preview.3",
+    "core_min": "0.4.12-preview.4",
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
@@ -17020,9 +17050,10 @@
       "bindings",
       "experimental-onboard-macros",
       "board-name",
-      "instance-target"
+      "instance-target",
+      "mchose-mouse-templates"
     ],
-    "changelog": "在键位图上改键，可给任意可编辑键绑定 DPI 加一档或减一档。两只同款接收器可分别选择。"
+    "changelog": "新增原生本地模板，可保存当前板载配置、导入原版 M HUB 文件或应用已有模板。"
   },
   {
     "id": "mchose-g3-v2",
@@ -17714,5 +17745,1822 @@
       "instance-target"
     ],
     "changelog": "新增原生鼠标调节与实物定向，同型号接收器可分别选择和调整。"
+  },
+  {
+    "id": "mchose-ace-60",
+    "name": "迈从 Ace 60",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60",
+      "name": "迈从 Ace 60",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8449,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2101 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 101
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-60-pro",
+    "name": "迈从 Ace 60 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60-pro",
+      "name": "迈从 Ace 60 Pro",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8451,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2103 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 102
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-60-pro-iso-fr",
+    "name": "迈从 Ace 60 Pro ISO FR",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60-pro-iso-fr",
+      "name": "迈从 Ace 60 Pro ISO FR",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12352,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3040 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 150
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-60-pro-nordic",
+    "name": "迈从 Ace 60 Pro Nordic",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60-pro-nordic",
+      "name": "迈从 Ace 60 Pro Nordic",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12290,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3002 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 109
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-60x-i",
+    "name": "迈从 Ace 60X I",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60x-i",
+      "name": "迈从 Ace 60X I",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8486,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2126 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 103
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-60x-ii",
+    "name": "迈从 Ace 60X II",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-60x-ii",
+      "name": "迈从 Ace 60X II",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8466,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2112 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 104
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-air-2",
+    "name": "迈从 Ace 68 Air 2",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-air-2",
+      "name": "迈从 Ace 68 Air 2",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12298,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:300A · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 214
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-air-ii",
+    "name": "迈从 Ace 68 Air II",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-air-ii",
+      "name": "迈从 Ace 68 Air II",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8480,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2120 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 106
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-air-iii",
+    "name": "迈从 Ace 68 Air III",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-air-iii",
+      "name": "迈从 Ace 68 Air III",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8498,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2132 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 202
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-gt",
+    "name": "迈从 Ace 68 GT",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-gt",
+      "name": "迈从 Ace 68 GT",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12295,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3007 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 213
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-i",
+    "name": "迈从 Ace 68 I",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-i",
+      "name": "迈从 Ace 68 I",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8468,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2114 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 111
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-iii",
+    "name": "迈从 Ace 68 III",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-iii",
+      "name": "迈从 Ace 68 III",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12291,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3003 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 203
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-pro",
+    "name": "迈从 Ace 68 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-pro",
+      "name": "迈从 Ace 68 Pro",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8470,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2116 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 112
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-turbo-16k",
+    "name": "迈从 Ace 68 Turbo 16K",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-turbo-16k",
+      "name": "迈从 Ace 68 Turbo 16K",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12326,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3026 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 211
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-turbo-8k",
+    "name": "迈从 Ace 68 Turbo 8K",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-turbo-8k",
+      "name": "迈从 Ace 68 Turbo 8K",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12328,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3028 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 212
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-68-v2-iii",
+    "name": "迈从 Ace 68 V2 III",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-68-v2-iii",
+      "name": "迈从 Ace 68 V2 III",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12324,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3024 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 210
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-75-16k",
+    "name": "迈从 Ace 75 16K",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-75-16k",
+      "name": "迈从 Ace 75 16K",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12317,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:301D · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 135
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-ace-75-8k",
+    "name": "迈从 Ace 75 8K",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-ace-75-8k",
+      "name": "迈从 Ace 75 8K",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12348,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:303C · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 134
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-god-60",
+    "name": "迈从 God 60",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-god-60",
+      "name": "迈从 God 60",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12320,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3020 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 136
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-gt-75",
+    "name": "迈从 GT 75",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-gt-75",
+      "name": "迈从 GT 75",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12333,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:302D · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 138
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-jet-75-i",
+    "name": "迈从 Jet 75 I",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-jet-75-i",
+      "name": "迈从 Jet 75 I",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8472,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2118 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 121
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-jet-75-ii",
+    "name": "迈从 Jet 75 II",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-jet-75-ii",
+      "name": "迈从 Jet 75 II",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8474,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:211A · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 122
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-jet-75-iii",
+    "name": "迈从 Jet 75 III",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-jet-75-iii",
+      "name": "迈从 Jet 75 III",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12296,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:3008 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 200
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-mix-87-i",
+    "name": "迈从 Mix 87 I",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-mix-87-i",
+      "name": "迈从 Mix 87 I",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8482,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:2122 · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 108
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-mix-87-iii",
+    "name": "迈从 Mix 87 III",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-mix-87-iii",
+      "name": "迈从 Mix 87 III",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 12301,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 3837:300D · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 201
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-zero-75x",
+    "name": "迈从 Zero75X",
+    "version": "0.4.13-preview.51",
+    "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "mchose-zero-75x",
+      "name": "迈从 Zero75X",
+      "brand": "MCHOSE",
+      "kind": "keyboard",
+      "image": "device.png",
+      "subtitle": "USB 磁轴键盘",
+      "matches": [
+        {
+          "vid": 16868,
+          "pid": 8476,
+          "usage_page": 1,
+          "usage": 0,
+          "input_len": 65,
+          "output_len": 65
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 41E4:211C · 0001:0000, 64-byte output/input payload, report ID 0"
+        ],
+        "firmware": "依实际键盘回复",
+        "project_validation": "按原厂磁轴编辑器固定型号与接口移植，协议样本检查。无本项目该型号实机写入记录。",
+        "source_refs": [
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/1266-83f12db42198b859.js",
+          "https://www.mchose.com.cn/cizhou/_next/static/chunks/3050-4fde3581e71b2bbc.js"
+        ],
+        "mhub_storage_type": 123
+      }
+    },
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "magnetic-settings",
+      "instance-target"
+    ],
+    "changelog": "在外设盒原生磁轴页点选实体键，读取并修改触发和高级键设置。"
+  },
+  {
+    "id": "mchose-s9-pro",
+    "name": "迈从 S9 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
+    "device": {
+      "key": "mchose-s9-pro",
+      "name": "迈从 S9 Pro",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "product_equals": "MCHOSE S9 PRO"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery"
+    ],
+    "changelog": "Windows 播放和麦克风控制。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-g9-pro",
+    "name": "迈从 G9 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
+    "device": {
+      "key": "mchose-g9-pro",
+      "name": "迈从 G9 Pro",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "product_equals": "MCHOSE G9 PRO"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "板载音效模式需要接收器固件 0006 或更新。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery"
+    ],
+    "changelog": "依接收器固件开放的板载音效模式。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-v9",
+    "name": "迈从 V9",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
+    "device": {
+      "key": "mchose-v9",
+      "name": "迈从 V9",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 10525,
+          "pid": 14429,
+          "product_equals": "MCHOSE V9"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery"
+    ],
+    "changelog": "Windows 播放和麦克风控制。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-v9-pro-2",
+    "name": "迈从 V9 Pro 2",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。三套十段板载 EQ、提示音量与自动关机。",
+    "device": {
+      "key": "mchose-v9-pro-2",
+      "name": "迈从 V9 Pro 2",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24593,
+          "product_equals": "MCHOSE V9 PRO 2"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery",
+      "mchose-audio-templates"
+    ],
+    "changelog": "三套十段板载 EQ、提示音量与自动关机。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-r9",
+    "name": "迈从 R9",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。三套十段板载 EQ、提示音量与自动关机。",
+    "device": {
+      "key": "mchose-r9",
+      "name": "迈从 R9",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24595,
+          "product_equals": "MCHOSE R9"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery",
+      "mchose-audio-templates"
+    ],
+    "changelog": "三套十段板载 EQ、提示音量与自动关机。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-v9-turbo",
+    "name": "迈从 V9 Turbo",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。声音模式、提示音量及定时关机。",
+    "device": {
+      "key": "mchose-v9-turbo",
+      "name": "迈从 V9 Turbo",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24589,
+          "product_equals": "MCHOSE V9 TURBO"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery"
+    ],
+    "changelog": "声音模式、提示音量及定时关机。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-v9-turbo-plus",
+    "name": "迈从 V9 Turbo+",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。声音模式、提示音量及定时关机。",
+    "device": {
+      "key": "mchose-v9-turbo-plus",
+      "name": "迈从 V9 Turbo+",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "无线耳机 · 2.4 GHz 接收器",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24586,
+          "product_equals": "MCHOSE V9 TURBO+"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "2.4 GHz USB 接收器"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target",
+      "battery"
+    ],
+    "changelog": "声音模式、提示音量及定时关机。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-g9",
+    "name": "迈从 G9",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
+    "device": {
+      "key": "mchose-g9",
+      "name": "迈从 G9",
+      "brand": "MCHOSE",
+      "kind": "headset",
+      "subtitle": "USB 有线耳机",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 32896,
+          "product_equals": "MCHOSE G9 WIRED HEADSET"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "Windows 播放和麦克风控制。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-g20",
+    "name": "迈从 G20",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。板载音效模式和语音提示。",
+    "device": {
+      "key": "mchose-g20",
+      "name": "迈从 G20",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "USB 有线音箱",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 3690,
+          "pid": 273,
+          "product_equals": "MCHOSE G20"
+        },
+        {
+          "vid": 3690,
+          "pid": 273,
+          "product_equals": "USB Composite Device"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线",
+          "当 USB 名称为 USB Composite Device 时，需产品字符串 5 确认型号。"
+        ],
+        "firmware": "板载音效模式需要 USB 固件 0160 或更新。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "板载音效模式和语音提示。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-g20-pro",
+    "name": "迈从 G20 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "原生播放与麦克风端点调节。板载音效模式和语音提示。",
+    "device": {
+      "key": "mchose-g20-pro",
+      "name": "迈从 G20 Pro",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "USB 有线音箱",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 3690,
+          "pid": 273,
+          "product_equals": "MCHOSE G20 PRO"
+        },
+        {
+          "vid": 3690,
+          "pid": 273,
+          "product_equals": "USB Composite Device"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线",
+          "当 USB 名称为 USB Composite Device 时，需产品字符串 5 确认型号。"
+        ],
+        "firmware": "板载音效模式需要 USB 固件 0160 或更新。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      },
+      "runtime_identity": true
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "板载音效模式和语音提示。在「设备调节」选择本机端点，直接调整并读取结果。"
+  },
+  {
+    "id": "mchose-k20",
+    "name": "迈从 K20",
+    "version": "0.4.13-preview.51",
+    "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。",
+    "device": {
+      "key": "mchose-k20",
+      "name": "迈从 K20",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "USB 有线音箱",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24772,
+          "product_equals": "MCHOSE K20"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。"
+  },
+  {
+    "id": "mchose-k20-pro",
+    "name": "迈从 K20 Pro",
+    "version": "0.4.13-preview.51",
+    "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。",
+    "device": {
+      "key": "mchose-k20-pro",
+      "name": "迈从 K20 Pro",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "USB 有线音箱",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24579,
+          "product_equals": "MCHOSE K20 PRO"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。"
+  },
+  {
+    "id": "mchose-k20-gt",
+    "name": "迈从 K20 GT",
+    "version": "0.4.13-preview.51",
+    "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。还可调屏幕开关、主题与颜色。",
+    "device": {
+      "key": "mchose-k20-gt",
+      "name": "迈从 K20 GT",
+      "brand": "MCHOSE",
+      "kind": "accessory",
+      "subtitle": "USB 有线音箱",
+      "image": "device.png",
+      "matches": [
+        {
+          "vid": 14391,
+          "pid": 24774,
+          "product_equals": "MCHOSE K20 GT"
+        }
+      ],
+      "advanced": [],
+      "validation": {
+        "status": "public-implementation-untested",
+        "connections": [
+          "USB 有线"
+        ],
+        "firmware": "依据固定原版型号资料，功能以设备回复为准。",
+        "source_refs": [
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
+        ]
+      }
+    },
+    "abi": 1,
+    "dll": "driver.dll",
+    "core_min": "0.4.12-preview.4",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "mchose-audio-settings",
+      "instance-target"
+    ],
+    "changelog": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。还可调屏幕开关、主题与颜色。"
   }
 ]

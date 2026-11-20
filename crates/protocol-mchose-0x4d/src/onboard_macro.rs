@@ -97,6 +97,11 @@ pub(super) fn replace(
     }
 }
 
+pub(super) fn device_ref(t: &mut WinTransport, slot: u8) -> Result<String, String> {
+    let bytes = read_range(t, slot, 8, HEADER - 8)?;
+    let len = bytes.iter().position(|v| *v == 0).unwrap_or(bytes.len());
+    String::from_utf8(bytes[..len].to_vec()).map_err(|_| "宏名称编码未知".into())
+}
 pub(super) fn definition(t: &mut WinTransport, slot: u8, max: usize) -> Result<Value, String> {
     let mut head = read_range(t, slot, 0, 22)?;
     let len = bytes_required(&head, max)

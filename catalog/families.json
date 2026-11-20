@@ -121,6 +121,80 @@
           "mchose-k7-v2-ultra-plus",
           "mchose-r7-ultra"
         ]
+      },
+      {
+        "id": "cz-wired-hall",
+        "name": "CZ 有线磁轴键盘",
+        "scope": "按 USB 接口及原版布局分别适配触发、RT 和高级键；ISO 与 Nordic 布局独立。",
+        "models": [
+          "mchose-ace-60",
+          "mchose-ace-60-pro",
+          "mchose-ace-60-pro-iso-fr",
+          "mchose-ace-60-pro-nordic",
+          "mchose-ace-60x-i",
+          "mchose-ace-60x-ii",
+          "mchose-ace-68-air-2",
+          "mchose-ace-68-air-ii",
+          "mchose-ace-68-air-iii",
+          "mchose-ace-68-gt",
+          "mchose-ace-68-i",
+          "mchose-ace-68-iii",
+          "mchose-ace-68-pro",
+          "mchose-ace-68-turbo-16k",
+          "mchose-ace-68-turbo-8k",
+          "mchose-ace-68-v2-iii",
+          "mchose-ace-75-16k",
+          "mchose-ace-75-8k",
+          "mchose-god-60",
+          "mchose-gt-75",
+          "mchose-jet-75-i",
+          "mchose-jet-75-ii",
+          "mchose-jet-75-iii",
+          "mchose-mix-87-i",
+          "mchose-mix-87-iii",
+          "mchose-zero-75x"
+        ]
+      },
+      {
+        "id": "mhub-blk",
+        "name": "BLK 音频",
+        "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+        "models": [
+          "mchose-s9-pro",
+          "mchose-g9-pro",
+          "mchose-v9"
+        ]
+      },
+      {
+        "id": "mhub-peq",
+        "name": "MC 板载 PEQ",
+        "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+        "models": [
+          "mchose-v9-pro-2",
+          "mchose-r9"
+        ]
+      },
+      {
+        "id": "mhub-turbo",
+        "name": "V9 Turbo 耳机",
+        "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+        "models": [
+          "mchose-v9-turbo",
+          "mchose-v9-turbo-plus"
+        ]
+      },
+      {
+        "id": "mhub-usb-audio",
+        "name": "USB 有线音频",
+        "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+        "models": [
+          "mchose-g9",
+          "mchose-g20",
+          "mchose-g20-pro",
+          "mchose-k20",
+          "mchose-k20-pro",
+          "mchose-k20-gt"
+        ]
       }
     ]
   },

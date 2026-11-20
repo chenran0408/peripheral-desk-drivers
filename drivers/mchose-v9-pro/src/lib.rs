@@ -1,4 +1,7 @@
 fn handler(key: &str, input: &str) -> String {
+    if !serde_json::from_str::<serde_json::Value>(input).is_ok_and(|r| r["op"] == "read-state") {
+        return peripheral_desk_protocol_mchose_audio::handle(key, input);
+    }
     let result = (|| {
         if key != peripheral_desk_protocol_mchose_v9_pro::DEVICE_KEY {
             return Err("驱动型号标识不匹配".to_string());
@@ -8,7 +11,10 @@ fn handler(key: &str, input: &str) -> String {
         if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
             return Err("MCHOSE V9 Pro 插件只提供只读电量查询；不含设置写入操作".into());
         }
-        let mut state = serde_json::to_value(peripheral_desk_protocol_mchose_v9_pro::read_state()?)
+        let mut state =
+            serde_json::to_value(peripheral_desk_protocol_mchose_v9_pro::read_state_for(
+                peripheral_desk::hid::request_instance(&request)?,
+            )?)
             .map_err(|e| e.to_string())?;
         if let Some(object) = state.as_object_mut() {
             let raw = object

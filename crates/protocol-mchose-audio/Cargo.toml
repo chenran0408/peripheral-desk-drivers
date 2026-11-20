@@ -1,0 +1,13 @@
+[package]
+name = "peripheral-desk-protocol-mchose-audio"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+peripheral-desk.workspace = true
+peripheral-hid-transport = { path = "../hid-transport" }
+serde_json.workspace = true
+sha2 = "0.10"
+windows-sys = { version = "0.61", features = ["Win32_Devices_HumanInterfaceDevice", "Win32_Foundation", "Win32_Storage_FileSystem"] }
+windows = { version = "0.61", features = ["Win32_Devices_FunctionDiscovery","Win32_Media_Audio","Win32_Media_Audio_Endpoints","Win32_System_Com","Win32_System_Com_StructuredStorage","Win32_System_Variant","Win32_UI_Shell_PropertiesSystem"] }

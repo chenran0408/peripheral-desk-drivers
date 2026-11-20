@@ -6,4 +6,6 @@ license.workspace = true
 publish = false
 
 [dependencies]
+peripheral-desk.workspace = true
 peripheral-hid-transport = { path = "../hid-transport" }
+serde_json.workspace = true

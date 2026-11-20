@@ -1,6 +1,6 @@
 # 按厂商查找外设
 
-共 51 个品牌、288 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
+共 51 个品牌、327 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
 
 [8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
 
@@ -405,33 +405,72 @@
 | A5 Pro Max · 0x83 状态 | [MCHOSE A5 Pro Max](../drivers/mchose-a5-pro-max/UPSTREAM.md) | 2023:F013 2023:F015 2023:F019 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | A7 V3 · 0x4D 事务 | [MCHOSE A7 V3 Ultra+ 接收器](../drivers/mchose-a7-v3-ultra-plus) | 3837:1018 | 电量、设置、改键 | 预览 | 接口匹配 | 公开实现 |
 | CZ 键盘 · 状态分块读取 | [MCHOSE G87 V2 · CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md) | 3837:3033 | 电量 | 预览 | 手动认领 | 上游实机 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60](../drivers/mchose-ace-60) | 41E4:2101 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60 Pro](../drivers/mchose-ace-60-pro) | 41E4:2103 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60 Pro ISO FR](../drivers/mchose-ace-60-pro-iso-fr) | 3837:3040 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60 Pro Nordic](../drivers/mchose-ace-60-pro-nordic) | 3837:3002 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60X I](../drivers/mchose-ace-60x-i) | 41E4:2126 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 60X II](../drivers/mchose-ace-60x-ii) | 41E4:2112 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Air 2](../drivers/mchose-ace-68-air-2) | 3837:300A | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Air II](../drivers/mchose-ace-68-air-ii) | 41E4:2120 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Air III](../drivers/mchose-ace-68-air-iii) | 41E4:2132 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 GT](../drivers/mchose-ace-68-gt) | 3837:3007 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 I](../drivers/mchose-ace-68-i) | 41E4:2114 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 III](../drivers/mchose-ace-68-iii) | 3837:3003 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Pro](../drivers/mchose-ace-68-pro) | 41E4:2116 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Turbo 16K](../drivers/mchose-ace-68-turbo-16k) | 3837:3026 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 Turbo 8K](../drivers/mchose-ace-68-turbo-8k) | 3837:3028 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 68 V2 III](../drivers/mchose-ace-68-v2-iii) | 3837:3024 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 75 16K](../drivers/mchose-ace-75-16k) | 3837:301D | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Ace 75 8K](../drivers/mchose-ace-75-8k) | 3837:303C | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 God 60](../drivers/mchose-god-60) | 3837:3020 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 GT 75](../drivers/mchose-gt-75) | 3837:302D | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Jet 75 I](../drivers/mchose-jet-75-i) | 41E4:2118 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Jet 75 II](../drivers/mchose-jet-75-ii) | 41E4:211A | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Jet 75 III](../drivers/mchose-jet-75-iii) | 3837:3008 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Mix 87 I](../drivers/mchose-mix-87-i) | 41E4:2122 | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Mix 87 III](../drivers/mchose-mix-87-iii) | 3837:300D | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| CZ 有线磁轴键盘 | [迈从 Zero75X](../drivers/mchose-zero-75x) | 41E4:211C | 逐键磁轴设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
 | Gmouse · AA 30 状态 | [迈从 G3 V2](../drivers/mchose-g3-v2/UPSTREAM.md) | 3837:4245 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | Gmouse · AA 30 状态 | [MCHOSE G7](../drivers/mchose-g7/UPSTREAM.md) | A8A5:2255 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | G87 键盘 · 20 字节 V1 会话 | [MCHOSE G87 V1](../drivers/mchose-g87-v1/UPSTREAM.md) | 41E4:2001 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | G87 键盘 · 20 字节 V1 会话 | [MCHOSE G87 V2](../drivers/mchose-g87-v2/UPSTREAM.md) | 3837:201B | 电量 | 预览 | 接口匹配 | 上游实机 |
-| 无线耳机 · 55 65 状态 | [迈从 V9 Pro](../drivers/mchose-v9-pro) | 291D:385D | 电量 | 预览 | 接口匹配 | 公开实现 |
-| 无线耳机 · 55 65 状态 | [MCHOSE X9 Wireless Headset](../drivers/mchose-x9) | 3837:6045 | 电量 | 预览 | 接口匹配 | 上游验证 |
+| 无线耳机 · 55 65 状态 | [迈从 V9 Pro](../drivers/mchose-v9-pro) | 291D:385D | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| 无线耳机 · 55 65 状态 | [迈从 X9](../drivers/mchose-x9) | 3837:6045 | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
 | Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro/UPSTREAM.md) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger、按实物定向、可视改键首页、按页读取键位与灯光、板载宏、按需读取宏库 | 预览 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro/UPSTREAM.md) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [MCHOSE K99 V2](../drivers/mchose-k99-v2) | 3554:FA09 | 电量 | 预览 | 手动认领 | 上游实机 |
 | MagDock · 底座灯效 | [MCHOSE MagDock](../drivers/mchose-magdock) | 3837:1012 | 灯效编辑、灯光开关、流动方向 | 预览 | 接口匹配 | 上游实机 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Pro](../drivers/mchose-a5-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra](../drivers/mchose-a5-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra+(3955)](../drivers/mchose-a5-v3-ultra-plus-3955) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3](../drivers/mchose-a7-v3) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Magnetic](../drivers/mchose-a7-v3-magnetic) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro](../drivers/mchose-a7-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro+](../drivers/mchose-a7-v3-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Ultra](../drivers/mchose-a7-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3-X](../drivers/mchose-a7-v3-x) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Pro](../drivers/mchose-k5-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Ultra](../drivers/mchose-k5-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 V2](../drivers/mchose-k5-v2/UPSTREAM.md) | 3837:101C | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro](../drivers/mchose-k7-v2-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro+](../drivers/mchose-k7-v2-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra](../drivers/mchose-k7-v2-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra+](../drivers/mchose-k7-v2-ultra-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 R7 Ultra](../drivers/mchose-r7-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
+| BLK 音频 | [迈从 G9 Pro](../drivers/mchose-g9-pro) | 291D:385D | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| BLK 音频 | [迈从 S9 Pro](../drivers/mchose-s9-pro) | 291D:385D | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| BLK 音频 | [迈从 V9](../drivers/mchose-v9) | 291D:385D | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| MC 板载 PEQ | [迈从 R9](../drivers/mchose-r9) | 3837:6013 | 音频设置、按实物定向、电量、音频本地模板 | 预览 | 接口匹配 | 公开实现 |
+| MC 板载 PEQ | [迈从 V9 Pro 2](../drivers/mchose-v9-pro-2) | 3837:6011 | 音频设置、按实物定向、电量、音频本地模板 | 预览 | 接口匹配 | 公开实现 |
+| V9 Turbo 耳机 | [迈从 V9 Turbo](../drivers/mchose-v9-turbo) | 3837:600D | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| V9 Turbo 耳机 | [迈从 V9 Turbo+](../drivers/mchose-v9-turbo-plus) | 3837:600A | 音频设置、按实物定向、电量 | 预览 | 接口匹配 | 公开实现 |
+| USB 有线音频 | [迈从 G20](../drivers/mchose-g20) | 0E6A:0111 | 音频设置、按实物定向 | 预览 | 运行时核对 | 公开实现 |
+| USB 有线音频 | [迈从 G20 Pro](../drivers/mchose-g20-pro) | 0E6A:0111 | 音频设置、按实物定向 | 预览 | 运行时核对 | 公开实现 |
+| USB 有线音频 | [迈从 G9](../drivers/mchose-g9) | 3837:8080 | 音频设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| USB 有线音频 | [迈从 K20](../drivers/mchose-k20) | 3837:60C4 | 音频设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| USB 有线音频 | [迈从 K20 GT](../drivers/mchose-k20-gt) | 3837:60C6 | 音频设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| USB 有线音频 | [迈从 K20 Pro](../drivers/mchose-k20-pro) | 3837:6003 | 音频设置、按实物定向 | 预览 | 接口匹配 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Pro](../drivers/mchose-a5-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra](../drivers/mchose-a5-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra+(3955)](../drivers/mchose-a5-v3-ultra-plus-3955) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3](../drivers/mchose-a7-v3) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Magnetic](../drivers/mchose-a7-v3-magnetic) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro](../drivers/mchose-a7-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Pro+](../drivers/mchose-a7-v3-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Ultra](../drivers/mchose-a7-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3-X](../drivers/mchose-a7-v3-x) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Pro](../drivers/mchose-k5-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Ultra](../drivers/mchose-k5-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 V2](../drivers/mchose-k5-v2/UPSTREAM.md) | 3837:101C | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro](../drivers/mchose-k7-v2-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro+](../drivers/mchose-k7-v2-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra](../drivers/mchose-k7-v2-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra+](../drivers/mchose-k7-v2-ultra-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 R7 Ultra](../drivers/mchose-r7-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向、鼠标本地模板 | 预览 | 手动认领 | 公开实现 |
 | 鼠标 · 取反 0x06 状态 | [MCHOSE A7 V2 Ultra](../drivers/mchose-a7-v2-ultra/UPSTREAM.md) | 3837:100B | 电量 | 预览 | 接口匹配 | 代码适配 |
 | 鼠标 · 取反 0x06 状态 | [MCHOSE M7 Ultra](../drivers/mchose-m7-ultra/UPSTREAM.md) | 5253:1020 5253:0031 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | 鼠标 V2 · E2 状态上报 | [MCHOSE A7 V2 Pro](../drivers/mchose-a7-v2-pro/UPSTREAM.md) | 3837:100A | 电量 | 预览 | 接口匹配 | 上游实机 |

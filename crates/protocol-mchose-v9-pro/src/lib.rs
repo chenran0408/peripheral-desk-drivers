@@ -44,7 +44,12 @@ pub fn parse_battery(report: &[u8]) -> Result<u8, &'static str> {
 }
 
 fn supported(interface: &Interface) -> bool {
-    interface.vid == VID
+    // These three official headsets use the same receiver and HID collection.
+    // Keep the legacy read path for the anonymous receiver captured upstream.
+    !["MCHOSE S9 PRO", "MCHOSE G9 PRO", "MCHOSE V9"]
+        .iter()
+        .any(|name| interface.product.trim().eq_ignore_ascii_case(name))
+        && interface.vid == VID
         && interface.pid == PID
         && interface
             .path
@@ -58,8 +63,14 @@ fn supported(interface: &Interface) -> bool {
 }
 
 pub fn read_state() -> Result<State, String> {
+    read_state_for(None)
+}
+
+pub fn read_state_for(target: Option<&str>) -> Result<State, String> {
     let interfaces = hid::enumerate()?;
-    let mut matches = interfaces.iter().filter(|interface| supported(interface));
+    let mut matches = interfaces.iter().filter(|interface| {
+        supported(interface) && target.is_none_or(|id| interface.instance_id() == id)
+    });
     let Some(interface) = matches.next() else {
         return Ok(State {
             key: DEVICE_KEY.into(),
@@ -100,7 +111,8 @@ pub fn read_state() -> Result<State, String> {
                     updated: now(),
                     identity: "MCHOSE V9 Pro · 2.4 GHz 接收器 · 291D:385D · report 55".into(),
                     settings_error:
-                        "仅提供只读电量；充电状态未知，非满电电量映射未由上游样本确认。".into(),
+                        "电量接口仅报告百分比；充电状态未知，非满电电量映射未由上游样本确认。"
+                            .into(),
                     ..State::default()
                 });
             }

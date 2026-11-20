@@ -131,3 +131,7 @@ The three DeathAdder packages use the existing illustrations. Their protocol fac
 K5 Ultra 的预览 .48 起使用本项目原创的[可编辑按键示意图](drivers/mchose-k5-ultra/button-diagram.svg)。可点击区域对应插件从鼠标实际读回的键位编号。
 
 从预览 .50 起，其他 15 款 0x4D 鼠标使用[本项目绘制的分族示意图](crates/protocol-mchose-0x4d/diagrams)。A5 V3、A7 V3、A7 V3-X、K7 V2、K5 Pro 和 R7 Ultra 的外壳比例、分键线、滚轮和侧键位置参考 M HUB 公开的型号正视图。A7 Magnetic 和新增 K5 V2 均使用按协议排列的五键示意。插件打包项目绘制的 PNG；原厂照片、商标与说明书留在厂商站点。[对应型号、正视图和说明书来源](crates/protocol-mchose-0x4d/UPSTREAM.md) · [原厂前端](https://www.mchose.com.cn/assets/main-DIt5vAcV.js)
+
+## 迈从原生磁轴与音频设置（预览 .51）
+
+26 张磁轴设备图为项目绘制的键位示意图，按各型号内 `src/keys.json` 所列的原厂实体键布局排布。13 个新增音频型号使用项目绘制的通用耳机或音箱示意图。V9 Pro 和 X9 沿用此前设备图。[设备目录](docs/MCHOSE-NATIVE-FAMILIES.md)

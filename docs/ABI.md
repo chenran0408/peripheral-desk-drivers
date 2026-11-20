@@ -11,7 +11,7 @@ PdBuffer pd_driver_request(const uint8_t *utf8_json, size_t len);
 void pd_driver_free(uint8_t *ptr, size_t len);
 ```
 
-输入只在调用期间借用，不带末尾 NUL。宿主负责提供可读内存，长度至多 1 MiB。返回是 UTF-8 JSON 的 Box<[u8]>，宿主读取后必须使用**同一个 DLL**的 pd_driver_free(ptr,len) 释放，且只释放一次。禁止跨 DLL 释放，禁止更改长度，禁止卸载仍有活动请求或未释放 Buffer 的 DLL。宿主与 DLL 指针宽度均为 x64。
+输入只在调用期间借用，不带末尾 NUL。宿主负责提供可读内存，普通消息最多 1 MiB。支持 .51 原生模板的插件可接收最多 8 MiB 的模板文件，封装字段另有 64 KiB 空间。返回是 UTF-8 JSON 的 Box<[u8]>，宿主读取后必须使用**同一个 DLL**的 pd_driver_free(ptr,len) 释放，且只释放一次。禁止跨 DLL 释放，禁止更改长度，禁止卸载仍有活动请求或未释放 Buffer 的 DLL。宿主与 DLL 指针宽度均为 x64。
 
 FFI 层检查空指针和 UTF-8，并用 catch_unwind 捕获 Rust panic；有效内存指针仍是宿主的责任。异常返回 `{"ok":false,"value":null,"error":"..."}`。构建必须保留 `panic="unwind"`；无法捕获 abort、进程终止或无效内存访问。ABI 调用是同步的，宿主应在后台串行执行同一设备请求。
 

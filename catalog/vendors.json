@@ -3467,6 +3467,508 @@
           ]
         },
         {
+          "id": "cz-wired-hall",
+          "name": "CZ 有线磁轴键盘",
+          "scope": "按 USB 接口及原版布局分别适配触发、RT 和高级键；ISO 与 Nordic 布局独立。",
+          "basis": "documented",
+          "models": [
+            {
+              "id": "mchose-ace-60",
+              "name": "迈从 Ace 60",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2101 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-60-pro",
+              "name": "迈从 Ace 60 Pro",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2103 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-60-pro-iso-fr",
+              "name": "迈从 Ace 60 Pro ISO FR",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3040 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-60-pro-nordic",
+              "name": "迈从 Ace 60 Pro Nordic",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3002 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-60x-i",
+              "name": "迈从 Ace 60X I",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2126 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-60x-ii",
+              "name": "迈从 Ace 60X II",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2112 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-air-2",
+              "name": "迈从 Ace 68 Air 2",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:300A · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-air-ii",
+              "name": "迈从 Ace 68 Air II",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2120 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-air-iii",
+              "name": "迈从 Ace 68 Air III",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2132 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-gt",
+              "name": "迈从 Ace 68 GT",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3007 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-i",
+              "name": "迈从 Ace 68 I",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2114 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-iii",
+              "name": "迈从 Ace 68 III",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3003 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-pro",
+              "name": "迈从 Ace 68 Pro",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2116 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-turbo-16k",
+              "name": "迈从 Ace 68 Turbo 16K",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3026 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-turbo-8k",
+              "name": "迈从 Ace 68 Turbo 8K",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3028 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-68-v2-iii",
+              "name": "迈从 Ace 68 V2 III",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3024 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-75-16k",
+              "name": "迈从 Ace 75 16K",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:301D · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-ace-75-8k",
+              "name": "迈从 Ace 75 8K",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:303C · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-god-60",
+              "name": "迈从 God 60",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3020 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-gt-75",
+              "name": "迈从 GT 75",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:302D · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-jet-75-i",
+              "name": "迈从 Jet 75 I",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2118 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-jet-75-ii",
+              "name": "迈从 Jet 75 II",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:211A · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-jet-75-iii",
+              "name": "迈从 Jet 75 III",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:3008 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-mix-87-i",
+              "name": "迈从 Mix 87 I",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:2122 · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-mix-87-iii",
+              "name": "迈从 Mix 87 III",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 3837:300D · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            },
+            {
+              "id": "mchose-zero-75x",
+              "name": "迈从 Zero75X",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "magnetic-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-cz"
+              ],
+              "connections": [
+                "USB 41E4:211C · 0001:0000, 64-byte output/input payload, report ID 0"
+              ],
+              "firmware": "依实际键盘回复"
+            }
+          ]
+        },
+        {
           "id": "g7-aa30",
           "name": "Gmouse · AA 30 状态",
           "scope": "G7 使用 A8A5:2255；G3 V2 使用 3837:4245、FF01:0010 命令通道读取整数电量与充电标志。",
@@ -3566,35 +4068,40 @@
               "kind": "headset",
               "channel": "preview",
               "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
                 "battery"
               ],
               "identity": "interface",
               "validation": "public-implementation-untested",
               "implementation": [
+                "crates/protocol-mchose-audio",
                 "crates/protocol-mchose-v9-pro"
               ],
               "connections": [
-                "USB 2.4 GHz receiver; exact MI_00 COL05 FF90:0001 64-byte input/output collection only"
+                "2.4 GHz USB 接收器"
               ],
-              "firmware": "unknown"
+              "firmware": "板载音效模式需要接收器固件 0008 或更新。"
             },
             {
               "id": "mchose-x9",
-              "name": "MCHOSE X9 Wireless Headset",
+              "name": "迈从 X9",
               "kind": "headset",
               "channel": "preview",
               "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
                 "battery"
               ],
               "identity": "interface",
-              "validation": "upstream-verified",
+              "validation": "public-implementation-untested",
               "implementation": [
-                "drivers/mchose-x9"
+                "crates/protocol-mchose-audio"
               ],
               "connections": [
-                "3837:6045 接收器；FF90:0001 HID 集合，报告 55 65，电量回复字段 02"
+                "2.4 GHz USB 接收器"
               ],
-              "firmware": "unknown"
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
             }
           ]
         },
@@ -3703,6 +4210,296 @@
           ]
         },
         {
+          "id": "mhub-blk",
+          "name": "BLK 音频",
+          "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+          "basis": "documented",
+          "models": [
+            {
+              "id": "mchose-g9-pro",
+              "name": "迈从 G9 Pro",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "板载音效模式需要接收器固件 0006 或更新。"
+            },
+            {
+              "id": "mchose-s9-pro",
+              "name": "迈从 S9 Pro",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-v9",
+              "name": "迈从 V9",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            }
+          ]
+        },
+        {
+          "id": "mhub-peq",
+          "name": "MC 板载 PEQ",
+          "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+          "basis": "documented",
+          "models": [
+            {
+              "id": "mchose-r9",
+              "name": "迈从 R9",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery",
+                "mchose-audio-templates"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-v9-pro-2",
+              "name": "迈从 V9 Pro 2",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery",
+                "mchose-audio-templates"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            }
+          ]
+        },
+        {
+          "id": "mhub-turbo",
+          "name": "V9 Turbo 耳机",
+          "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+          "basis": "documented",
+          "models": [
+            {
+              "id": "mchose-v9-turbo",
+              "name": "迈从 V9 Turbo",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-v9-turbo-plus",
+              "name": "迈从 V9 Turbo+",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target",
+                "battery"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "2.4 GHz USB 接收器"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            }
+          ]
+        },
+        {
+          "id": "mhub-usb-audio",
+          "name": "USB 有线音频",
+          "scope": "使用型号、USB 接口与产品身份识别；控制项按端点、设备回复与固件开放。",
+          "basis": "documented",
+          "models": [
+            {
+              "id": "mchose-g20",
+              "name": "迈从 G20",
+              "kind": "accessory",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "runtime-identity",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线",
+                "当 USB 名称为 USB Composite Device 时，需产品字符串 5 确认型号。"
+              ],
+              "firmware": "板载音效模式需要 USB 固件 0160 或更新。"
+            },
+            {
+              "id": "mchose-g20-pro",
+              "name": "迈从 G20 Pro",
+              "kind": "accessory",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "runtime-identity",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线",
+                "当 USB 名称为 USB Composite Device 时，需产品字符串 5 确认型号。"
+              ],
+              "firmware": "板载音效模式需要 USB 固件 0160 或更新。"
+            },
+            {
+              "id": "mchose-g9",
+              "name": "迈从 G9",
+              "kind": "headset",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-k20",
+              "name": "迈从 K20",
+              "kind": "accessory",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-k20-gt",
+              "name": "迈从 K20 GT",
+              "kind": "accessory",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            },
+            {
+              "id": "mchose-k20-pro",
+              "name": "迈从 K20 Pro",
+              "kind": "accessory",
+              "channel": "preview",
+              "capabilities": [
+                "mchose-audio-settings",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "public-implementation-untested",
+              "implementation": [
+                "crates/protocol-mchose-audio"
+              ],
+              "connections": [
+                "USB 有线"
+              ],
+              "firmware": "依据固定原版型号资料，功能以设备回复为准。"
+            }
+          ]
+        },
+        {
           "id": "mouse-0x4d-8k",
           "name": "0x4D 鼠标 · 通用 8K 接收器",
           "scope": "1018 接收器覆盖 16 款，101C 接收器覆盖 K5 V2。每次查询和写入前核对配对身份。图形改键的按键数量、指针参数及板载宏以型号表和设备回复为准。",
@@ -3723,7 +4520,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3751,7 +4549,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3779,7 +4578,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3807,7 +4607,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3835,7 +4636,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3863,7 +4665,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3891,7 +4694,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3919,7 +4723,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3947,7 +4752,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -3975,7 +4781,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4003,7 +4810,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4031,7 +4839,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4059,7 +4868,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4087,7 +4897,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4115,7 +4926,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4143,7 +4955,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",
@@ -4171,7 +4984,8 @@
                 "bindings",
                 "experimental-onboard-macros",
                 "board-name",
-                "instance-target"
+                "instance-target",
+                "mchose-mouse-templates"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",

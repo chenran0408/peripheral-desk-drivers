@@ -61,8 +61,8 @@ pub unsafe fn request_with(
     handler: fn(&str, &str) -> String,
 ) -> Buffer {
     let result = catch_unwind(AssertUnwindSafe(|| {
-        if len > 1024 * 1024 {
-            return failure(device_key, "驱动请求超过 1 MiB");
+        if len > 8 * 1024 * 1024 + 64 * 1024 {
+            return failure(device_key, "驱动请求超过模板文件与消息头的大小上限");
         }
         if input.is_null() && len != 0 {
             return failure(device_key, "驱动请求指针为空");
@@ -76,6 +76,24 @@ pub unsafe fn request_with(
             Ok(text) => text,
             Err(_) => return failure(device_key, "驱动请求不是有效的 UTF-8"),
         };
+        if len > 1024 * 1024 {
+            let template = serde_json::from_str::<serde_json::Value>(text)
+                .ok()
+                .is_some_and(|packet| {
+                    matches!(
+                        packet.get("op").and_then(serde_json::Value::as_str),
+                        Some(
+                            "template-prepare"
+                                | "template-settings"
+                                | "mhub-magnetic-template-apply"
+                                | "mhub-audio-template-apply"
+                        )
+                    )
+                });
+            if !template {
+                return failure(device_key, "普通驱动请求超过 1 MiB");
+            }
+        }
         handler(device_key, text)
     }));
     Buffer::from_text(

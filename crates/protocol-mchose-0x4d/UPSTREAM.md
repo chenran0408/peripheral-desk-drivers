@@ -53,6 +53,10 @@
 
 当前包可分别选择同型号的多个接收器。每次请求先定位选定接口，再核对 `0x0900` 配对身份。本项目已检查动作字节、有效键数及各图的命中区域；本批 17 款没有逐款实机写入报告。[项目原创示意图](diagrams) · [K5 Ultra 既有示意图](../../drivers/mchose-k5-ultra/button-diagram.svg)
 
+## 本地模板
+
+原厂同版本的 `mouseContLeftNew` 单型号模板导出、`readMouseAllInfo`、`mouseKeyToObj` 与 `dpiToObj` 提供文件字段与按键字节顺序。插件采用 Rust 实现并逐一核对 `mouseDiffConfig` 中 17 个配对 PID 与其导出名称。读取模板可保留未启用的 DPI 档，写入始终针对当前板载槽。可读的板载宏动作随外设盒扩展字段保存；原厂文件仅含宏引用时，需与当前设备的原始槽名完全相符。见[本地模板使用说明](https://github.com/chenran0408/peripheral-desk/blob/main/docs/MHUB-NATIVE-TEMPLATES.md)。
+
 ## 依据与验证
 
 Vigil Watt 的物理样本在该接收器上自报 `3837:4026`、100% 电量、充电标志 0 和连接方式 2。上游现场记作 K7 V2 Ultra+，官方表将此配对编号分配给 A5 V3 Ultra+，与另一个本仓库既有 A7 V3 Ultra+ 样本也有冲突。本批绕开 `4026`。K7 V2 Ultra+ 插件只接受其官方编号 `4028`。逐款对照 16 个鼠标内部 PID 以及官方配置里的 `1018` 接收器槽位后，范围包括 A5 V3 三款、A7 V3 六款、K5 两款、K7 V2 四款及 R7 Ultra。原有 A7 V3 Ultra+ 插件继续按其独立取证条件工作。

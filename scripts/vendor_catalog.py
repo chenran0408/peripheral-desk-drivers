@@ -20,6 +20,8 @@ STATUS = {
     "code-adapter-only": "代码适配",
 }
 CAPABILITIES = {
+    "magnetic-settings": "逐键磁轴设置", "mchose-audio-settings": "音频设置",
+    "mchose-mouse-templates": "鼠标本地模板", "mchose-audio-templates": "音频本地模板",
     "instance-target": "按实物定向", "keymap-home": "可视改键首页", "control-sections": "按页读取键位与灯光",
     "battery": "电量", "settings": "设置", "bindings": "改键", "resident-macros": "常驻宏",
     "lighting-switch": "灯光开关", "lighting-editor": "灯效编辑", "audio": "音效",

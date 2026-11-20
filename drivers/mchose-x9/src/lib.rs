@@ -2,12 +2,13 @@ use peripheral_desk::{hid, model::State};
 use peripheral_hid_transport::WinTransport;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
-fn read_state() -> Result<State, String> {
+fn read_state(target: Option<&str>) -> Result<State, String> {
     let Some(i) = hid::enumerate()?.into_iter().find(|i| {
         i.vid == 0x3837
             && i.pid == 0x6045
             && i.usage_page == 0xff90
             && i.usage == 1
+            && target.is_none_or(|id| id == i.instance_id())
             && i.input_len >= 64
             && i.output_len >= 64
     }) else {
@@ -36,7 +37,7 @@ fn read_state() -> Result<State, String> {
                     .duration_since(UNIX_EPOCH)
                     .unwrap_or_default()
                     .as_secs(),
-                settings_error: "仅提供只读电量；接收器不报告充电状态。".into(),
+                settings_error: "此接收器的电量报告未提供充电状态。".into(),
                 ..State::default()
             });
         }
@@ -45,6 +46,9 @@ fn read_state() -> Result<State, String> {
 }
 
 fn handler(key: &str, input: &str) -> String {
+    if serde_json::from_str::<serde_json::Value>(input).is_ok_and(|r| r["op"] != "read-state") {
+        return peripheral_desk_protocol_mchose_audio::handle(key, input);
+    }
     let result = (|| {
         if key != "mchose-x9" {
             return Err("驱动型号标识不匹配".to_string());
@@ -53,7 +57,8 @@ fn handler(key: &str, input: &str) -> String {
         if request.get("op").and_then(serde_json::Value::as_str) != Some("read-state") {
             return Err("仅支持只读电量".into());
         }
-        serde_json::to_value(read_state()?).map_err(|e| e.to_string())
+        serde_json::to_value(read_state(hid::request_instance(&request)?)?)
+            .map_err(|e| e.to_string())
     })();
     match result {
         Ok(v) => serde_json::json!({"ok":true,"value":v,"error":""}),

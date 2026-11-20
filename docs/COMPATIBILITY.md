@@ -1,5 +1,8 @@
 # 兼容与验证记录
 
+预览版 .51 增加 26 款磁轴键盘、15 款音频设备的原生控制，并将 17 款鼠标的本地模板接入外设盒。[查看型号、支持范围与安装方法](MCHOSE-NATIVE-FAMILIES.md)
+
+
 本版新增的板载与指针调节范围按型号记录在[罗技 LIGHTSPEED](LOGITECH-ONBOARD.md)和[雷蛇炼狱蝰蛇 V3](RAZER-OPENSYNAPSE.md)。
 
 [按厂商查找当前插件与验证范围](../catalog/README.md)。预览版新增 [G87 V2 CZ 接收器](../drivers/mchose-g87-v2-cz/UPSTREAM.md)的电量与充电状态，并修正[北通宙斯 2 / T9](../drivers/betop-t9/UPSTREAM.md)的电量档位。下表保留早期稳定版实机记录。G75 Pro 的预览 .50 已实机验证普通层板载宏上传、绑定、读回与还原。[G75 Pro 预览版验证范围](../drivers/mchose-g75-pro/UPSTREAM.md)

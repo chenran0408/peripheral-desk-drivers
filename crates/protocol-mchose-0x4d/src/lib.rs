@@ -3,6 +3,7 @@ mod board_name;
 mod buttons;
 mod onboard_macro;
 mod settings;
+mod templates;
 
 use peripheral_desk::{hid, model::State};
 use peripheral_hid_transport::WinTransport;
@@ -313,6 +314,9 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
                 | "controls-apply"
                 | "read-board-name"
                 | "set-board-name"
+                | "template-read"
+                | "template-prepare"
+                | "template-settings"
         ) {
             return Err("不支持的设备操作".into());
         }
@@ -338,6 +342,9 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
                         "set-pointer" => {
                             settings::apply(&mut t, expected_pid, &op, report.profile_count.min(3))
                         }
+                        "template-read" | "template-prepare" | "template-settings" => {
+                            templates::handle(&mut t, &op, &report)
+                        }
                         "controls-read" | "controls-apply" => buttons::handle(&mut t, &op, &report),
                         "read-board-name" | "set-board-name" => {
                             board_name::handle(&mut t, &op, report.profile_count.min(3))
@@ -350,7 +357,7 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
                             stage,
                             report.profile_count.min(3),
                         ),
-                    }
+                    };
                 }
                 Err(e) => error = e,
             }

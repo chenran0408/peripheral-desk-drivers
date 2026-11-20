@@ -7,14 +7,14 @@ const LOD: u16 = 0x0009;
 const LOD_WRITE: u16 = 0x0109;
 
 #[derive(Clone, Copy)]
-struct Model {
-    dpi_max: u16,
-    lod: &'static [&'static str],
-    glass: bool,
+pub(super) struct Model {
+    pub(super) dpi_max: u16,
+    pub(super) lod: &'static [&'static str],
+    pub(super) glass: bool,
 }
 
 impl Model {
-    fn lookup(pid: u16) -> Result<Self, String> {
+    pub(super) fn lookup(pid: u16) -> Result<Self, String> {
         // The body PID and mouseDiffConfig, associated with the selected receiver.
         let (dpi_max, lod): (u16, &[&str]) = match pid {
             0x4035 | 0x403b | 0x4030 | 0x4037 => (26000, &["1 mm", "2 mm"]),
@@ -32,7 +32,7 @@ impl Model {
         })
     }
 
-    fn dedicated_lod(self) -> bool {
+    pub(super) fn dedicated_lod(self) -> bool {
         self.lod.len() == 5
     }
 
@@ -56,7 +56,7 @@ pub(super) fn rate_table(model: u16, receiver: u16) -> Result<Vec<u16>, String> 
 
 #[derive(Clone, Copy)]
 pub(super) struct Performance {
-    bytes: [u8; 19],
+    pub(super) bytes: [u8; 19],
 }
 
 impl Performance {
@@ -125,7 +125,7 @@ pub(super) fn performance(
     })
 }
 
-fn lod_value(t: &mut WinTransport, profile: u8, model: Model) -> Result<u8, String> {
+pub(super) fn lod_value(t: &mut WinTransport, profile: u8, model: Model) -> Result<u8, String> {
     read_reply(t, LOD, &[profile], &mut None, |f| {
         let n = *payload(f, LOD)?.first()?;
         (usize::from(n) < model.lod.len()).then_some(n)
@@ -295,7 +295,7 @@ struct DpiLayout {
     y: Option<DpiConfig>,
 }
 
-fn axis_payload(profile: u8, axis: u8, cfg: &DpiConfig) -> [u8; 17] {
+pub(super) fn axis_payload(profile: u8, axis: u8, cfg: &DpiConfig) -> [u8; 17] {
     let mut data = [0; 17];
     data[..5].copy_from_slice(&[
         profile,

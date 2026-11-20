@@ -1,6 +1,6 @@
 [package]
 name = "mchose-x9-driver"
-version = "0.4.13-preview.25"
+version = "0.4.13-preview.51"
 edition.workspace = true
 license.workspace = true
 publish = false
@@ -11,3 +11,4 @@ peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
 peripheral-desk = { workspace = true }
 peripheral-hid-transport = { path = "../../crates/hid-transport" }
 serde_json.workspace = true
+peripheral-desk-protocol-mchose-audio = { path = "../../crates/protocol-mchose-audio" }

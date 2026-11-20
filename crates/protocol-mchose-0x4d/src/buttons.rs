@@ -10,7 +10,7 @@ type Map = Vec<Vec<u8>>;
 
 // M HUB supportDpiKeyDevice omits A7 Magnetic, R7 Ultra and K5 V2. A padded sixth
 // record is not a physical key, but may still reference shared macro storage.
-fn control_count(pid: u16, map: &[Vec<u8>]) -> usize {
+pub(super) fn control_count(pid: u16, map: &[Vec<u8>]) -> usize {
     map.len().min(if matches!(pid, 0x403f | 0x4036 | 0x4040) {
         5
     } else {
@@ -18,7 +18,7 @@ fn control_count(pid: u16, map: &[Vec<u8>]) -> usize {
     })
 }
 
-fn record_size(kind: u8) -> usize {
+pub(super) fn record_size(kind: u8) -> usize {
     match kind {
         0x01 | 0x22 => 4,
         0x23 | 0x24 => 8,
@@ -41,7 +41,7 @@ fn parse(data: &[u8]) -> Option<Map> {
     (keys.len() >= 5).then_some(keys)
 }
 
-fn read(t: &mut WinTransport, profile: u8) -> Result<Map, String> {
+pub(super) fn read(t: &mut WinTransport, profile: u8) -> Result<Map, String> {
     read_reply(t, KEYS, &[profile, 0, 6], &mut None, |f| {
         parse(payload(f, KEYS)?)
     })
@@ -59,7 +59,7 @@ pub(super) fn mouse_mask(button: u8) -> Option<u8> {
         .and_then(|n| [1, 2, 4, 8, 16].get(n as usize).copied())
 }
 
-fn action(raw: &[u8]) -> BindingAction {
+pub(super) fn action(raw: &[u8]) -> BindingAction {
     match raw {
         [0, mask, 0] if mouse_button(*mask).is_some() => {
             BindingAction::Mouse(mouse_button(*mask).unwrap())
@@ -145,7 +145,12 @@ fn assign(
     })
 }
 
-fn state(t: &mut WinTransport, keys: &[Vec<u8>], extended: bool, max_events: usize) -> Value {
+pub(super) fn state(
+    t: &mut WinTransport,
+    keys: &[Vec<u8>],
+    extended: bool,
+    max_events: usize,
+) -> Value {
     let mut macros = BTreeMap::<usize, Value>::new();
     let mut slots = BTreeMap::new();
     let mut issues = Vec::new();

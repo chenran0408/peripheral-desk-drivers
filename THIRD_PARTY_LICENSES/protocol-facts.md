@@ -50,3 +50,7 @@ a separate license file in this directory states otherwise.
 
 OpenSynapse v1.7.2 (© 2026 A1mAssist, AGPL-3.0-only) documents the DeathAdder PID variants and onboard pointer reports. Logitech OMM serves as a feature reference. Solaar at e7304c4 and libratbag at 8235b5b document the HID++ protocol and exact model records. This implementation uses protocol and device facts. The linked model notes identify the original sources and licenses. [OpenSynapse](../docs/RAZER-OPENSYNAPSE.md) · [Logitech OMM and the HID++ implementations](../docs/LOGITECH-ONBOARD.md)
 - MCHOSE M HUB's public frontend, official mouse front views and manuals supplied protocol and physical-layout facts for the 0x4D mouse binding diagrams, the K5 V2 receiver and the G75 Pro macro pages. The Rust implementations and diagrams were independently authored for this project. [Mouse sources](../crates/protocol-mchose-0x4d/UPSTREAM.md) · [G75 Pro source and verification](../drivers/mchose-g75-pro/UPSTREAM.md)
+
+## MCHOSE 原生磁轴与音频设置
+
+型号、接口、原版布局及参数依据迈从 M HUB 固定前端 `main-DIt5vAcV.js` 及磁轴编辑器构建 `bdf4d2c3`。布局和模板格式保留原作者迈从（MCHOSE）的来源。Rust 协议和 Win32 编辑界面由本项目实现。厂商资源按项目既有的开源、非商业使用条件处理。[音频实现范围](../crates/protocol-mchose-audio/UPSTREAM.md) · [型号名单](../docs/MCHOSE-NATIVE-FAMILIES.md)

@@ -178,7 +178,7 @@ jobs:
       - name: Install reviewed ZIPs and roll back with the released desktop host
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/test-host-install.py dist --host-tag v0.4.12-preview.3
+        run: python scripts/test-host-install.py dist --host-tag v0.4.12-preview.4
       - uses: actions/upload-artifact@v4
         with:
           name: peripheral-desk-signed-release-windows-x64

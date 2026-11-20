@@ -2213,8 +2213,8 @@
   {
     "id": "mchose-magdock",
     "name": "MCHOSE MagDock",
-    "version": "0.4.8-preview.2",
-    "description": "灯效读写预览；依据固定上游提交中真实 MagDock 的写入、读回与恢复记录移植，尚未在本项目实机验证。",
+    "version": "0.4.13-preview.45",
+    "description": "调节 MagDock 充电底座的灯效、亮度、速度、颜色与流动方向。",
     "device": {
       "key": "mchose-magdock",
       "name": "MCHOSE MagDock",
@@ -2249,7 +2249,7 @@
         {
           "id": 2,
           "label": "闪耀",
-          "color": false,
+          "color": true,
           "music_sync": false
         },
         {
@@ -2267,7 +2267,7 @@
         {
           "id": 5,
           "label": "音乐",
-          "color": false,
+          "color": true,
           "music_sync": true
         }
       ],
@@ -2279,13 +2279,14 @@
           "MCHOSE MagDock 3837:1012，usage page FF00 / usage 0001；上游真实设备完成灯效读取、完整写入、读回核对和原值恢复"
         ],
         "firmware": "unknown",
-        "project_validation": "本项目尚未连接设备实测；Windows HID/ABI 映射与安装升级数据保留尚待本项目环境验证",
+        "project_validation": "OpenMouse 在实际底座完成读取、设置、读回和恢复；本次流动方向、闪耀和音乐基色依据当前 M HUB 官方实现，本项目已验证编码和响应兼容。",
         "source_refs": [
           "https://github.com/OpenMouse-Project/mouse-protocol/tree/bac031567b28f2a55c616fc525b03f2d5fa452cc",
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/mchose/dock.ts",
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.ts",
           "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/src/drivers/mchose/dock-hid.test.ts",
-          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md"
+          "https://github.com/OpenMouse-Project/mouse-protocol/blob/bac031567b28f2a55c616fc525b03f2d5fa452cc/docs/mchose-protocol.md",
+          "https://www.mchose.com.cn/assets/main-DIt5vAcV.js"
         ],
         "upstream_license": "AGPL-3.0-or-later"
       }
@@ -2297,9 +2298,10 @@
     "channel": "preview",
     "capabilities": [
       "lighting-editor",
-      "lighting-switch"
+      "lighting-switch",
+      "lighting-direction"
     ],
-    "changelog": "新增底座灯光开关、六种模式、颜色、速度与亮度设置；需先更新主程序至 0.4.8，修正旧版目录无法识别底座的问题。"
+    "changelog": "流动灯效可选择顺时针或逆时针，闪耀和音乐模式可更改基色。流动方向需外设盒 0.4.11-preview.12 或更新版。"
   },
   {
     "id": "mchose-v9-pro",

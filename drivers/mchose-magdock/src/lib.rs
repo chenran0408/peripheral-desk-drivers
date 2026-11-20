@@ -48,8 +48,8 @@ fn config(value: &Value) -> Result<Lighting, String> {
     })
 }
 
-fn state(lighting: &Lighting, notice: String) -> Value {
-    json!({
+fn state(lighting: &Lighting, notice: String, extended_direction: bool) -> Value {
+    let mut value = json!({
         "enabled": lighting.enabled,
         "saved": {
             "enabled": lighting.enabled,
@@ -61,7 +61,13 @@ fn state(lighting: &Lighting, notice: String) -> Value {
         },
         "notice": notice,
         "readback": true
-    })
+    });
+    if extended_direction {
+        value["lighting_direction_modes"] = json!([magdock::GO_FLOW]);
+        value["saved"]["direction"] =
+            json!((lighting.direction <= 1).then_some(lighting.direction));
+    }
+    value
 }
 
 fn handler(device_key: &str, input: &str) -> String {
@@ -71,18 +77,41 @@ fn handler(device_key: &str, input: &str) -> String {
         }
         let request: Value =
             serde_json::from_str(input).map_err(|error| format!("请求 JSON 无效：{error}"))?;
+        let extended = request["extended_direction"].as_bool() == Some(true);
         match request.get("op").and_then(Value::as_str) {
             Some("read-state") => {
                 serde_json::to_value(magdock::read_state()?).map_err(|e| e.to_string())
             }
             Some("lighting-read") => {
                 let block = magdock::read_lighting()?;
-                Ok(state(&block.lighting, "灯效状态来自设备实际读回；上游 OpenMouse 已在 MagDock 上完成写入、核对和恢复记录，本项目尚未实机验证。".into()))
+                Ok(state(
+                    &block.lighting,
+                    "灯效状态已从底座读回。".into(),
+                    extended,
+                ))
             }
             Some("lighting-apply") => {
-                let wanted = config(request.get("config").ok_or("缺少驱动参数：config")?)?;
-                let readback = magdock::apply_lighting(&wanted)?;
-                Ok(state(&readback.lighting, "灯效已写入并从设备读回核对；未匹配时驱动会尝试恢复原始灯效。本项目尚未在本机实机验证。".into()))
+                let fields = request.get("config").ok_or("缺少驱动参数：config")?;
+                let wanted = config(fields)?;
+                let direction = if extended
+                    && wanted.effect == magdock::GO_FLOW
+                    && !fields["direction"].is_null()
+                {
+                    Some(
+                        fields["direction"]
+                            .as_u64()
+                            .filter(|&n| n <= 1)
+                            .ok_or("请选择顺时针或逆时针")? as u8,
+                    )
+                } else {
+                    None
+                };
+                let readback = magdock::apply_lighting(&wanted, direction)?;
+                Ok(state(
+                    &readback.lighting,
+                    "灯效已写入并从底座读回核对。".into(),
+                    extended,
+                ))
             }
             Some("lighting-switch") => {
                 let enabled = request
@@ -93,6 +122,7 @@ fn handler(device_key: &str, input: &str) -> String {
                 Ok(state(
                     &readback.lighting,
                     "开关状态来自设备实际读回；底座其他灯效值保留。本项目尚未实机验证。".into(),
+                    extended,
                 ))
             }
             _ => {
@@ -107,3 +137,27 @@ fn handler(device_key: &str, input: &str) -> String {
 }
 
 peripheral_desk_driver_ffi::export_driver!("mchose-magdock", handler);
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn direction_only_appears_when_editor_requests_it() {
+        let lighting = Lighting {
+            enabled: true,
+            effect: magdock::GO_FLOW,
+            effect_count: 6,
+            speed: 1,
+            brightness: 3,
+            music_sync: false,
+            rgb: [255, 0, 0],
+            direction: 0,
+        };
+        let old = state(&lighting, String::new(), false);
+        assert!(old["saved"].get("direction").is_none());
+        let new = state(&lighting, String::new(), true);
+        assert_eq!(new["saved"]["direction"], 0);
+        assert_eq!(new["lighting_direction_modes"], json!([4]));
+    }
+}

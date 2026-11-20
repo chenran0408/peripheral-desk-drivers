@@ -3634,7 +3634,8 @@
               "channel": "preview",
               "capabilities": [
                 "lighting-editor",
-                "lighting-switch"
+                "lighting-switch",
+                "lighting-direction"
               ],
               "identity": "interface",
               "validation": "upstream-hardware-verified-project-untested",

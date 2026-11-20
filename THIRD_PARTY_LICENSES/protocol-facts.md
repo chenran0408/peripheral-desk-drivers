@@ -44,3 +44,4 @@ a separate license file in this directory states otherwise.
   Pugio II, Strix Impact II Wireless and Gladius III Wireless battery frame
   layouts. Facts only.
 - [Vigil Watt](https://github.com/evren-oct/vigil-watt/tree/6315988f54e47fc030ae4c535dc64ae27c08f471), MIT, supplies the 0x4D receiver capture, device catalog, and configuration rate tables. The 16 MCHOSE receiver packages include the upstream MIT notice. See the [protocol evidence](../crates/protocol-mchose-0x4d/UPSTREAM.md).
+- MagDock flow direction and the editable colors in Shining and Music are independent Rust implementations of protocol facts from the [manufacturer's M HUB frontend build](https://www.mchose.com.cn/assets/main-DIt5vAcV.js). The [device notes](../docs/MCHOSE-MAGDOCK.md) document the exact command fields; no vendor JavaScript is packaged with the plugin.

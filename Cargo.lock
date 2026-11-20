@@ -1680,7 +1680,7 @@ dependencies = [
 
 [[package]]
 name = "mchose-magdock-driver"
-version = "0.4.8-preview.2"
+version = "0.4.13-preview.45"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-mchose-magdock",

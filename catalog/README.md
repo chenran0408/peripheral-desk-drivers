@@ -412,7 +412,7 @@
 | 无线耳机 · 55 65 状态 | [MCHOSE X9 Wireless Headset](../drivers/mchose-x9) | 3837:6045 | 电量 | 预览 | 接口匹配 | 上游验证 |
 | Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [MCHOSE K99 V2](../drivers/mchose-k99-v2) | 3554:FA09 | 电量 | 预览 | 手动认领 | 上游实机 |
-| MagDock · 底座灯效 | [MCHOSE MagDock](../drivers/mchose-magdock) | 3837:1012 | 灯效编辑、灯光开关 | 预览 | 接口匹配 | 上游实机 |
+| MagDock · 底座灯效 | [MCHOSE MagDock](../drivers/mchose-magdock) | 3837:1012 | 灯效编辑、灯光开关、流动方向 | 预览 | 接口匹配 | 上游实机 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Pro](../drivers/mchose-a5-v3-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra](../drivers/mchose-a5-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A5 V3 Ultra+(3955)](../drivers/mchose-a5-v3-ultra-plus-3955) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |

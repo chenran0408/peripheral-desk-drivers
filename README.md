@@ -52,7 +52,7 @@
 | `razer-deathadder-v2-pro-wired`（预览） | DeathAdder V2 Pro 有线，电量、DPI、回报率、Logo 灯效；尚未实机验证 |
 
 | `ajazz-aj179-pro`（预览） | AJ179 PRO USB / 接收器，DPI、回报率、休眠、鼠标键映射；上游已实测，本项目未复测 |
-| `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度；主程序需 0.4.8 |
+| `mchose-magdock`（预览） | MagDock 独立底座，灯光开关、模式、颜色、亮度、速度。使用外设盒 0.4.11-preview.12 或更新版可设置流动方向。 |
 | `mchose-v9-pro`（预览） | MCHOSE V9 Pro 2.4 GHz 接收器，只读电量；主动查询，充电状态未知，非满电映射尚无证据 |
 | `mchose-g87-v1`（预览） | MCHOSE G87 V1，接收器电量与充电状态；不支持 G87 V2/QHW |
 | `mchose-g87-v2`（预览） | MCHOSE G87 V2 精确接收器，只读电量/充电（独立代际插件） |

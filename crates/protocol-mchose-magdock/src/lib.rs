@@ -26,6 +26,7 @@ const REPLY_TIMEOUT: Duration = Duration::from_millis(700);
 const WRITE_SETTLE: Duration = Duration::from_millis(400);
 
 pub const DEVICE_KEY: &str = "mchose-magdock";
+pub const GO_FLOW: u8 = 4;
 pub type Result<T> = std::result::Result<T, String>;
 
 /// Fields exposed by the confirmed command-39 write. `effect_count` and
@@ -229,17 +230,20 @@ pub fn read_state() -> Result<peripheral_desk::model::State> {
         ..Default::default()
     })
 }
-pub fn apply_lighting(desired: &Lighting) -> Result<ReadBlock> {
-    update_lighting(|original| {
-        let mut next = desired.clone();
-        next.effect_count = original.effect_count;
-        next.direction = original.direction;
-        next.music_sync = next.effect == 5;
-        if next.effect > 1 {
-            next.rgb = original.rgb;
-        }
-        next
-    })
+fn merge_lighting(original: &Lighting, desired: &Lighting, direction: Option<u8>) -> Lighting {
+    let mut next = desired.clone();
+    next.effect_count = original.effect_count;
+    next.direction = direction
+        .filter(|&n| next.effect == GO_FLOW && n <= 1)
+        .unwrap_or(original.direction);
+    next.music_sync = next.effect == 5;
+    if matches!(next.effect, 3 | GO_FLOW) {
+        next.rgb = original.rgb;
+    }
+    next
+}
+pub fn apply_lighting(desired: &Lighting, direction: Option<u8>) -> Result<ReadBlock> {
+    update_lighting(|original| merge_lighting(original, desired, direction))
 }
 fn update_lighting(change: impl FnOnce(&Lighting) -> Lighting) -> Result<ReadBlock> {
     let mut transport = open_unique()?;
@@ -336,6 +340,25 @@ mod tests {
             original.payload[12], 0xa5,
             "reserved readback remains captured"
         );
+    }
+
+    #[test]
+    fn preserves_unrequested_direction_and_sets_it_only_for_go_flow() {
+        let mut original = decode_lighting(&CAPTURED).unwrap().lighting;
+        original.direction = 9;
+        let mut desired = original.clone();
+        desired.effect = GO_FLOW;
+        desired.rgb = [4, 5, 6];
+        assert_eq!(merge_lighting(&original, &desired, None).direction, 9);
+        let flow = merge_lighting(&original, &desired, Some(1));
+        assert_eq!(encode_lighting(&flow).unwrap()[15], 1);
+        assert_eq!(flow.rgb, original.rgb);
+        for mode in [2, 5] {
+            desired.effect = mode;
+            let color = merge_lighting(&original, &desired, Some(0));
+            assert_eq!(color.rgb, [4, 5, 6]);
+            assert_eq!(color.direction, 9);
+        }
     }
 
     #[test]

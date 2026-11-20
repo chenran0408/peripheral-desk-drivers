@@ -49,6 +49,8 @@ peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev 
 2. 相同事务放到 `crates/protocol-*`，型号插件选择接口、身份和可开放的功能。目录会从该包实际依赖推导实现。一个 crate 有多个线协议或一个系列有不同的型号实现时，可在 `catalog/families.json` 分组，写明家族边界和证据。尚无共享证据的插件会保留自己的分组。
 3. 运行 `python scripts/vendor_catalog.py --write`，连同生成的 `catalog/vendors.json` 和 `catalog/README.md` 提交。CI 的 `python scripts/check-source.py` 会检查索引与两个通道的源码是否一致。研究库新增识别资料时见[Vigil Watt 厂商资料与版本](catalog/upstream/vigil-watt/README.md)。
 
+迈从适配请同步更新[按型号的编辑器对照表](docs/MCHOSE-EDITORS.md)，填明哪些功能走原生、哪些走内置网页，带上真实的接口和配对身份。新增原生设备热区可沿用[可点选的设备图规范](https://github.com/chenran0408/peripheral-desk/blob/main/docs/NATIVE-CONTROL-SURFACES.md)。
+
 ## 新设备步骤
 
 1. 从 `templates/device` 复制一个包，替换 id、crate 名和 metadata。四款已有包从0.4.1起使用各自的专用协议入口；新协议使用模板的自定义 handler，保持同样的 JSON 响应格式，避免通过全设备 dispatcher 牵入无关功能。

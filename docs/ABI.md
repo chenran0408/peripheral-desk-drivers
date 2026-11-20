@@ -61,3 +61,11 @@ SDK 调用在宿主启动的单层 plugin-worker 中执行，由宿主控制超�
 如硬件只提供亮度查询、灯效模式/RGB 只能发送，metadata 声明 `lighting_write_only:true`，并将 `core_min` 设为 `0.4.9`。状态始终使用 `readback:false`、`brightness_readback:true`；`enabled` 必须根据实际亮度读取，`saved` 仅为本工具上次发送记录（不存在则 null），可另用 `draft` 提供明确标注的建议草稿。不能将默认草稿写成设备原值。宿主仍按相同 config 格式发送，所有模式与范围由 metadata 指定；这类设备的关闭通过开关操作，亮度草稿最小为 1。
 
 宿主向请求注入本机 `config_dir`，插件可在该目录以 `lighting-sent.json` 保存发送记录（保留未知字段），不得覆盖宿主维护的 `lighting.json` 响应快照。失败优先恢复可读的亮度；仅在已有可靠记录时恢复模式。无法读取原模式、无法确认恢复时必须如实报告，不声明整套灯效已验证。升级和配置备份包含该设备目录。
+
+## 指定实物（0.4.12-preview.1）
+
+声明 `instance-target` 的插件接收可选的 `target_instance`，值为 64 个十六进制字符。宿主依据 Windows 设备容器把同一实物的 HID 控制集合归组。驱动必须先用自己的接口规则匹配，再通过 SDK 的 `hid::request_instance` 和 `Interface::instance_id` 限定目标；共用接收器仍须按既有协议验证配对本体。指定设备不在时返回错误。宿主将这台实物的缓存保存在该型号下的 `instances/<id>` 目录。已有 ABI 1 驱动可处理唯一匹配的设备；同时连接多只匹配旧驱动的实物时须更新插件后才可分别读取或写入。
+
+带 `keymap-home` 的键盘以可视改键页作为设备调节首页，同时声明 `bindings`。原生指针及板载操作使用原有的 `pointer-controls` 等能力。驱动仓库的迈从 G75 Pro、初代 A5 Ultra 和 K5 Ultra 三个 0.4.13-preview.48 插件分别演示可视键盘、鼠标和共用 8K 接收器的定向。
+
+具有 `control-sections` 的 G75 Pro 驱动可按当前层读取键位或逐键颜色。宿主通过可选 `control_section` 指定需要的内容，省略时读取完整状态。

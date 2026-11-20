@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import zipfile
+from core_range import check_range
 
 REQUIRED = ["id", "name", "version", "description", "abi", "dll", "dll_sha256", "device", "core_min", "core_max_exclusive", "channel", "capabilities", "changelog"]
 HECATE_COMPONENTS = {
@@ -105,8 +106,7 @@ def verify_catalog(path, abi, temporary, release_tag=None):
                 raise ValueError("Duplicate or missing G2 Pro component declaration")
         elif declared:
             raise ValueError("Only the G2 Pro package may include vendor components")
-        if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", entry["core_min"]) or entry["core_max_exclusive"] != "0.5.0":
-            raise ValueError("Update verifier's supported core range before changing the ABI contract")
+        check_range(entry)
         if entry["dll"] != "driver.dll" or not entry["device"]["matches"]:
             raise ValueError("Missing DLL or hardware matcher")
         filename = entry["package_url"].rsplit("/", 1)[-1]

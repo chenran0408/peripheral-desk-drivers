@@ -1,6 +1,6 @@
 # 按厂商查找外设
 
-共 51 个品牌、285 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
+共 51 个品牌、287 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
 
 [8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
 
@@ -400,6 +400,7 @@
 
 | 协议 / 实现 | 型号 | VID:PID | 功能 | 通道 | 识别方式 | 验证 |
 | --- | --- | --- | --- | --- | --- | --- |
+| A5 初代 · 取反 Feature | [迈从 A5 Ultra 初代](../drivers/mchose-a5-ultra) | 3837:100C | 电量、设置、改键、板载宏（实验）、software-macro-trigger、按实物定向 | 预览 | 接口匹配 | 本项目实机 |
 | A5 初代 · 取反 Feature | [迈从 A5 Ultra 初代](../drivers/mchose-a5-ultra) | 3837:100C | 电量、设置、改键、板载宏（实验）、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | A5 Pro Max · 0x83 状态 | [MCHOSE A5 Pro Max](../drivers/mchose-a5-pro-max/UPSTREAM.md) | 2023:F013 2023:F015 2023:F019 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | A7 V3 · 0x4D 事务 | [MCHOSE A7 V3 Ultra+ 接收器](../drivers/mchose-a7-v3-ultra-plus) | 3837:1018 | 电量、设置、改键 | 预览 | 接口匹配 | 公开实现 |
@@ -410,6 +411,7 @@
 | G87 键盘 · 20 字节 V1 会话 | [MCHOSE G87 V2](../drivers/mchose-g87-v2/UPSTREAM.md) | 3837:201B | 电量 | 预览 | 接口匹配 | 上游实机 |
 | 无线耳机 · 55 65 状态 | [迈从 V9 Pro](../drivers/mchose-v9-pro) | 291D:385D | 电量 | 预览 | 接口匹配 | 公开实现 |
 | 无线耳机 · 55 65 状态 | [MCHOSE X9 Wireless Headset](../drivers/mchose-x9) | 3837:6045 | 电量 | 预览 | 接口匹配 | 上游验证 |
+| Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger、按实物定向、可视改键首页、按页读取键位与灯光 | 预览 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [迈从 G75 Pro](../drivers/mchose-g75-pro) | 3554:FA09 41E4:2001 | 电量、设置、改键、key-colors、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | Compx 键盘 · 0x13 会话 | [MCHOSE K99 V2](../drivers/mchose-k99-v2) | 3554:FA09 | 电量 | 预览 | 手动认领 | 上游实机 |
 | MagDock · 底座灯效 | [MCHOSE MagDock](../drivers/mchose-magdock) | 3837:1012 | 灯效编辑、灯光开关、流动方向 | 预览 | 接口匹配 | 上游实机 |
@@ -423,7 +425,7 @@
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3 Ultra](../drivers/mchose-a7-v3-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 A7 V3-X](../drivers/mchose-a7-v3-x) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Pro](../drivers/mchose-k5-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
-| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Ultra](../drivers/mchose-k5-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
+| 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K5 Ultra](../drivers/mchose-k5-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名、按实物定向 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro](../drivers/mchose-k7-v2-pro) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Pro+](../drivers/mchose-k7-v2-pro-plus) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |
 | 0x4D 鼠标 · 通用 8K 接收器 | [迈从 K7 V2 Ultra](../drivers/mchose-k7-v2-ultra) | 3837:1018 | 电量、读配置回报率、读 DPI 档位配置、编辑 DPI 档位、设置回报率、指针设置、改键、板载宏（实验）、配置改名 | 预览 | 手动认领 | 公开实现 |

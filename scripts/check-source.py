@@ -7,6 +7,7 @@ import re
 import struct
 import tomllib
 import vendor_catalog
+from core_range import check_range
 from build import source_version
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,8 +31,8 @@ def metadata(item):
         raise ValueError("Unsafe package id")
     if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?", item["version"]):
         raise ValueError("Invalid independently versioned package")
-    if not re.fullmatch(r"0\.4\.(0|[1-9][0-9]*)", item["core_min"]) or item["core_max_exclusive"] != "0.5.0":
-        raise ValueError("ABI 1 packages must retain the reviewed 0.4.x core range")
+    minimum = check_range(item)
+    minimum_patch = minimum[0]
     if item["channel"] not in ("stable", "preview") or not item["changelog"]:
         raise ValueError("Missing channel or user-facing changelog")
     device = item["device"]
@@ -40,7 +41,7 @@ def metadata(item):
     if "manual" in device or "manual_hint" in device:
         if device.get("manual") is not True or not isinstance(device.get("manual_hint"), str) or not device["manual_hint"].strip():
             raise ValueError("Manual device requires manual: true and a nonempty manual_hint: " + item["id"])
-    if device["kind"] == "accessory" and tuple(map(int, item["core_min"].split("."))) < (0, 4, 8):
+    if device["kind"] == "accessory" and minimum_patch < 8:
         raise ValueError("Accessory device entries require the core's accessory-kind support (0.4.8+)")
     if not device["matches"]:
         raise ValueError("Hardware matching rules are required")
@@ -68,13 +69,17 @@ def metadata(item):
     elif components:
         raise ValueError("Only G2 Pro may declare vendor components")
     capabilities = item["capabilities"]
+    if "keymap-home" in capabilities and (device["kind"] != "keyboard" or "bindings" not in capabilities):
+        raise ValueError("Visual keymap entry requires a keyboard with editable bindings: " + item["id"])
+    if "instance-target" in capabilities and minimum < (12, 1):
+        raise ValueError("A targeted instance requires host 0.4.12-preview.1 or newer: " + item["id"])
     if device["kind"] == "mouse" and "settings" in capabilities:
         if not device.get("dpi_range") and not device.get("rates") and not device.get("advanced"):
             raise ValueError("Mouse settings have no visible main-UI controls: " + item["id"])
     if device.get("lighting_modes"):
         if "lighting-editor" not in capabilities:
             raise ValueError("Lighting modes require an accessible editor: " + item["id"])
-        if device.get("lighting_write_only") and int(item["core_min"].split(".")[2]) < 9:
+        if device.get("lighting_write_only") and minimum_patch < 9:
             raise ValueError("Partial lighting readback requires core 0.4.9")
     manual = device.get("manual", False)
     if type(manual) is not bool:

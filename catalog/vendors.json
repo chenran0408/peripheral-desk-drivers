@@ -3342,6 +3342,29 @@
               "id": "mchose-a5-ultra",
               "name": "迈从 A5 Ultra 初代",
               "kind": "mouse",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "settings",
+                "bindings",
+                "experimental-onboard-macros",
+                "software-macro-trigger",
+                "instance-target"
+              ],
+              "identity": "interface",
+              "validation": "hardware-verified",
+              "implementation": [
+                "crates/driver-ffi#core-mchose"
+              ],
+              "connections": [
+                "2.4 GHz standard receiver"
+              ],
+              "firmware": "unknown"
+            },
+            {
+              "id": "mchose-a5-ultra",
+              "name": "迈从 A5 Ultra 初代",
+              "kind": "mouse",
               "channel": "stable",
               "capabilities": [
                 "battery",
@@ -3581,6 +3604,31 @@
           "scope": "两款键盘使用 3554:FA09；K99 V2 需要用户认领，G75 Pro 的改键与灯效只适用于 G75 Pro。",
           "basis": "documented",
           "models": [
+            {
+              "id": "mchose-g75-pro",
+              "name": "迈从 G75 Pro",
+              "kind": "keyboard",
+              "channel": "preview",
+              "capabilities": [
+                "battery",
+                "settings",
+                "bindings",
+                "key-colors",
+                "software-macro-trigger",
+                "instance-target",
+                "keymap-home",
+                "control-sections"
+              ],
+              "identity": "interface",
+              "validation": "hardware-verified",
+              "implementation": [
+                "crates/driver-ffi#core-g75"
+              ],
+              "connections": [
+                "2.4 GHz standard receiver"
+              ],
+              "firmware": "unknown"
+            },
             {
               "id": "mchose-g75-pro",
               "name": "迈从 G75 Pro",
@@ -3942,7 +3990,8 @@
                 "pointer-controls",
                 "bindings",
                 "experimental-onboard-macros",
-                "board-name"
+                "board-name",
+                "instance-target"
               ],
               "identity": "manual",
               "validation": "public-implementation-untested",

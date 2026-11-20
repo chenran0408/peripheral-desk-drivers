@@ -20,6 +20,7 @@ STATUS = {
     "code-adapter-only": "代码适配",
 }
 CAPABILITIES = {
+    "instance-target": "按实物定向", "keymap-home": "可视改键首页", "control-sections": "按页读取键位与灯光",
     "battery": "电量", "settings": "设置", "bindings": "改键", "resident-macros": "常驻宏",
     "lighting-switch": "灯光开关", "lighting-editor": "灯效编辑", "audio": "音效",
     "lighting-direction": "流动方向",

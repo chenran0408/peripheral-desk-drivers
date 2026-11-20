@@ -9,7 +9,7 @@ repository = "https://github.com/chenran0408/peripheral-desk-drivers"
 
 [workspace.dependencies]
 # SDK is pinned to an immutable reviewed core commit; see docs/ABI.md.
-peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "3bcaa79d7369265555b8f654fbc10b767cd948ad", default-features = false, features = ["driver-runtime"] }
+peripheral-desk = { git = "https://github.com/chenran0408/peripheral-desk", rev = "2f0c8b9f838941367bf8f2be44cb850c6aa76490", default-features = false, features = ["driver-runtime"] }
 serde_json = "1"
 
 [profile.release]

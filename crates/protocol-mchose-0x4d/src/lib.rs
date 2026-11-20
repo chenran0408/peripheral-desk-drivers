@@ -308,7 +308,11 @@ pub fn request(key: &str, input: &str, expected_pid: u16) -> String {
         }
         let read_pointer = op.get("read_pointer").and_then(Value::as_bool) == Some(true);
         let mut error = "未找到 3837:1018 的 8K 接收器命令接口".to_string();
-        for interface in hid::enumerate()?.iter().filter(|i| matches(i)) {
+        let instance = hid::request_instance(&op)?;
+        for interface in hid::enumerate()?
+            .iter()
+            .filter(|i| matches(i) && instance.is_none_or(|id| i.instance_id() == id))
+        {
             let connected = (|| {
                 let mut t = WinTransport::open(&interface.path)?;
                 t.flush()?;

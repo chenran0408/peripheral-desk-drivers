@@ -2311,7 +2311,7 @@
   {
     "id": "mchose-v9-pro",
     "name": "迈从 V9 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
     "device": {
       "key": "mchose-v9-pro",
@@ -8556,7 +8556,7 @@
   {
     "id": "mchose-x9",
     "name": "迈从 X9",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
     "abi": 1,
     "dll": "driver.dll",
@@ -13876,7 +13876,7 @@
   {
     "id": "mchose-a5-v3-pro",
     "name": "迈从 A5 V3 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14065,7 +14065,7 @@
   {
     "id": "mchose-a5-v3-ultra",
     "name": "迈从 A5 V3 Ultra",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14254,7 +14254,7 @@
   {
     "id": "mchose-a5-v3-ultra-plus-3955",
     "name": "迈从 A5 V3 Ultra+(3955)",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14443,7 +14443,7 @@
   {
     "id": "mchose-a7-v3",
     "name": "迈从 A7 V3",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14632,7 +14632,7 @@
   {
     "id": "mchose-a7-v3-magnetic",
     "name": "迈从 A7 V3 Magnetic",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按五键示意图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14810,7 +14810,7 @@
   {
     "id": "mchose-a7-v3-pro",
     "name": "迈从 A7 V3 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -14999,7 +14999,7 @@
   {
     "id": "mchose-a7-v3-pro-plus",
     "name": "迈从 A7 V3 Pro+",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15188,7 +15188,7 @@
   {
     "id": "mchose-a7-v3-ultra",
     "name": "迈从 A7 V3 Ultra",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15377,7 +15377,7 @@
   {
     "id": "mchose-a7-v3-x",
     "name": "迈从 A7 V3-X",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15566,7 +15566,7 @@
   {
     "id": "mchose-k5-pro",
     "name": "迈从 K5 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15755,7 +15755,7 @@
   {
     "id": "mchose-k5-ultra",
     "name": "迈从 K5 Ultra",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -15944,7 +15944,7 @@
   {
     "id": "mchose-k5-v2",
     "name": "迈从 K5 V2",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "通过 101C 接收器查看电量，设置 DPI、回报率、抬升距离、五键映射、板载宏和配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16123,7 +16123,7 @@
   {
     "id": "mchose-k7-v2-pro",
     "name": "迈从 K7 V2 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16312,7 +16312,7 @@
   {
     "id": "mchose-k7-v2-pro-plus",
     "name": "迈从 K7 V2 Pro+",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16501,7 +16501,7 @@
   {
     "id": "mchose-k7-v2-ultra",
     "name": "迈从 K7 V2 Ultra",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16690,7 +16690,7 @@
   {
     "id": "mchose-k7-v2-ultra-plus",
     "name": "迈从 K7 V2 Ultra+",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -16879,7 +16879,7 @@
   {
     "id": "mchose-r7-ultra",
     "name": "迈从 R7 Ultra",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "按设备图设置按键和 DPI 加减档，编辑板载指针参数、宏与配置名。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17749,7 +17749,7 @@
   {
     "id": "mchose-ace-60",
     "name": "迈从 Ace 60",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17797,7 +17797,7 @@
   {
     "id": "mchose-ace-60-pro",
     "name": "迈从 Ace 60 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17845,7 +17845,7 @@
   {
     "id": "mchose-ace-60-pro-iso-fr",
     "name": "迈从 Ace 60 Pro ISO FR",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17893,7 +17893,7 @@
   {
     "id": "mchose-ace-60-pro-nordic",
     "name": "迈从 Ace 60 Pro Nordic",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17941,7 +17941,7 @@
   {
     "id": "mchose-ace-60x-i",
     "name": "迈从 Ace 60X I",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -17989,7 +17989,7 @@
   {
     "id": "mchose-ace-60x-ii",
     "name": "迈从 Ace 60X II",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18037,7 +18037,7 @@
   {
     "id": "mchose-ace-68-air-2",
     "name": "迈从 Ace 68 Air 2",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18085,7 +18085,7 @@
   {
     "id": "mchose-ace-68-air-ii",
     "name": "迈从 Ace 68 Air II",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18133,7 +18133,7 @@
   {
     "id": "mchose-ace-68-air-iii",
     "name": "迈从 Ace 68 Air III",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18181,7 +18181,7 @@
   {
     "id": "mchose-ace-68-gt",
     "name": "迈从 Ace 68 GT",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18229,7 +18229,7 @@
   {
     "id": "mchose-ace-68-i",
     "name": "迈从 Ace 68 I",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18277,7 +18277,7 @@
   {
     "id": "mchose-ace-68-iii",
     "name": "迈从 Ace 68 III",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18325,7 +18325,7 @@
   {
     "id": "mchose-ace-68-pro",
     "name": "迈从 Ace 68 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18373,7 +18373,7 @@
   {
     "id": "mchose-ace-68-turbo-16k",
     "name": "迈从 Ace 68 Turbo 16K",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18421,7 +18421,7 @@
   {
     "id": "mchose-ace-68-turbo-8k",
     "name": "迈从 Ace 68 Turbo 8K",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18469,7 +18469,7 @@
   {
     "id": "mchose-ace-68-v2-iii",
     "name": "迈从 Ace 68 V2 III",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18517,7 +18517,7 @@
   {
     "id": "mchose-ace-75-16k",
     "name": "迈从 Ace 75 16K",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18565,7 +18565,7 @@
   {
     "id": "mchose-ace-75-8k",
     "name": "迈从 Ace 75 8K",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18613,7 +18613,7 @@
   {
     "id": "mchose-god-60",
     "name": "迈从 God 60",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18661,7 +18661,7 @@
   {
     "id": "mchose-gt-75",
     "name": "迈从 GT 75",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18709,7 +18709,7 @@
   {
     "id": "mchose-jet-75-i",
     "name": "迈从 Jet 75 I",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18757,7 +18757,7 @@
   {
     "id": "mchose-jet-75-ii",
     "name": "迈从 Jet 75 II",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18805,7 +18805,7 @@
   {
     "id": "mchose-jet-75-iii",
     "name": "迈从 Jet 75 III",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18853,7 +18853,7 @@
   {
     "id": "mchose-mix-87-i",
     "name": "迈从 Mix 87 I",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18901,7 +18901,7 @@
   {
     "id": "mchose-mix-87-iii",
     "name": "迈从 Mix 87 III",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18949,7 +18949,7 @@
   {
     "id": "mchose-zero-75x",
     "name": "迈从 Zero75X",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "有线 USB 磁轴键盘。选择实体键可修改触发行程、快速触发及高级键设置。",
     "abi": 1,
     "dll": "driver.dll",
@@ -18997,7 +18997,7 @@
   {
     "id": "mchose-s9-pro",
     "name": "迈从 S9 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
     "device": {
       "key": "mchose-s9-pro",
@@ -19040,7 +19040,7 @@
   {
     "id": "mchose-g9-pro",
     "name": "迈从 G9 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。依接收器固件开放的板载音效模式。",
     "device": {
       "key": "mchose-g9-pro",
@@ -19083,7 +19083,7 @@
   {
     "id": "mchose-v9",
     "name": "迈从 V9",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
     "device": {
       "key": "mchose-v9",
@@ -19126,7 +19126,7 @@
   {
     "id": "mchose-v9-pro-2",
     "name": "迈从 V9 Pro 2",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。三套十段板载 EQ、提示音量与自动关机。",
     "device": {
       "key": "mchose-v9-pro-2",
@@ -19170,7 +19170,7 @@
   {
     "id": "mchose-r9",
     "name": "迈从 R9",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。三套十段板载 EQ、提示音量与自动关机。",
     "device": {
       "key": "mchose-r9",
@@ -19214,7 +19214,7 @@
   {
     "id": "mchose-v9-turbo",
     "name": "迈从 V9 Turbo",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。声音模式、提示音量及定时关机。",
     "device": {
       "key": "mchose-v9-turbo",
@@ -19257,7 +19257,7 @@
   {
     "id": "mchose-v9-turbo-plus",
     "name": "迈从 V9 Turbo+",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。声音模式、提示音量及定时关机。",
     "device": {
       "key": "mchose-v9-turbo-plus",
@@ -19300,7 +19300,7 @@
   {
     "id": "mchose-g9",
     "name": "迈从 G9",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。Windows 播放和麦克风控制。",
     "device": {
       "key": "mchose-g9",
@@ -19342,7 +19342,7 @@
   {
     "id": "mchose-g20",
     "name": "迈从 G20",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。板载音效模式和语音提示。",
     "device": {
       "key": "mchose-g20",
@@ -19391,7 +19391,7 @@
   {
     "id": "mchose-g20-pro",
     "name": "迈从 G20 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "原生播放与麦克风端点调节。板载音效模式和语音提示。",
     "device": {
       "key": "mchose-g20-pro",
@@ -19440,7 +19440,7 @@
   {
     "id": "mchose-k20",
     "name": "迈从 K20",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。",
     "device": {
       "key": "mchose-k20",
@@ -19482,7 +19482,7 @@
   {
     "id": "mchose-k20-pro",
     "name": "迈从 K20 Pro",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。",
     "device": {
       "key": "mchose-k20-pro",
@@ -19524,7 +19524,7 @@
   {
     "id": "mchose-k20-gt",
     "name": "迈从 K20 GT",
-    "version": "0.4.13-preview.51",
+    "version": "0.4.13-preview.52",
     "description": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。还可调屏幕开关、主题与颜色。",
     "device": {
       "key": "mchose-k20-gt",

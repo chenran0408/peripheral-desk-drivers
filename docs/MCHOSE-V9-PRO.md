@@ -1,6 +1,6 @@
 # 迈从 V9 Pro 耳机电量预览
 
-预览插件 0.4.13-preview.51 可通过原生页面控制匹配 Windows 端点的播放、麦克风音量和静音，并按接收器固件开放板载音效模式。下文记录原有电量适配的独立验证范围。见[音频型号与原生设置](../crates/protocol-mchose-audio/UPSTREAM.md)。
+预览插件 0.4.13-preview.52 可通过原生页面控制匹配 Windows 端点的播放、麦克风音量和静音，并按接收器固件开放板载音效模式。下文记录原有电量适配的独立验证范围。见[音频型号与原生设置](../crates/protocol-mchose-audio/UPSTREAM.md)。
 
 ## 精确连接范围
 

@@ -158,10 +158,6 @@ def main():
             payloads[component_path] = data
         if driver_id == "hecate-g2-pro":
             payloads["THIRD_PARTY_LICENSES/HECATE-COMPONENTS-NOTICE.txt"] = (ROOT / "third_party/hecate-g2-pro/NOTICE.txt").read_bytes()
-        if driver_id == "mchose-v9-pro":
-            payloads["THIRD_PARTY_LICENSES/Vigil-Watt-MIT.txt"] = (
-                ROOT / "crates/protocol-mchose-v9-pro/VIGIL-WATT-MIT.txt"
-            ).read_bytes()
         driver_source = ROOT / "drivers" / driver_id
         for documentation in ("UPSTREAM.md", "PROVENANCE.md", "README.md"):
             source = driver_source / documentation

@@ -237,5 +237,27 @@
         ]
       }
     ]
+  },
+  "flydigi": {
+    "evidence": [
+      "https://github.com/libsdl-org/SDL/blob/c8da179691f909734cd1b124c930e49311428996/src/joystick/hidapi/SDL_hidapi_flydigi.c",
+      "https://github.com/ShadowBlip/InputPlumber/blob/v0.83.0/rootfs/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
+      "https://github.com/z23/omarchy-flydigi/blob/dd4f4f67a2d9e90bad748d86195677d4129eea7d/helper/internal/vader/proto.go",
+      "https://github.com/uiltonlopes/flydigi-space-station-mac/blob/649b9f36cbba80deb7e7ac11309615d44f382a8e/FlydigiKit/Sources/FlydigiKit/Replies.swift",
+      "https://github.com/JKWTCN/BatteryMonitor/blob/25c221326391e26b62ae2b7db8e72ce8538ff909/scripts/flydigi_controller_battery.py",
+      "https://github.com/ValveSoftware/steam-for-linux/issues/12103",
+      "https://github.com/HeyOkay/HaloBattery/issues/191",
+      "https://help.flydigi.com/docs/fk6fgtexhroeq72d"
+    ],
+    "families": [
+      {
+        "id": "classic-ec",
+        "name": "飞智经典协议 · DInput",
+        "scope": "接口 02 查询设备信息，按实际响应型号码识别黑武士 4 Pro。",
+        "models": [
+          "flydigi-vader-4-pro"
+        ]
+      }
+    ]
   }
 }

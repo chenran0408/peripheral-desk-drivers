@@ -19562,5 +19562,63 @@
       "instance-target"
     ],
     "changelog": "新增原生播放、板载音效、语音提示、灯效模式、周期、亮度和颜色。还可调屏幕开关、主题与颜色。"
+  },
+  {
+    "id": "flydigi-vader-4-pro",
+    "name": "飞智黑武士 4 Pro",
+    "version": "0.4.13-preview.53",
+    "description": "在 PC 档长按 O＋A，蓝灯亮起后使用 DInput。电量来自手柄档位，百分比为估算。适用于匹配的 2.4 GHz 接收器或 USB 线。",
+    "abi": 1,
+    "dll": "driver.dll",
+    "device": {
+      "key": "flydigi-vader-4-pro",
+      "name": "飞智黑武士 4 Pro",
+      "brand": "Flydigi",
+      "kind": "accessory",
+      "image": "device.png",
+      "subtitle": "蓝灯 DInput · 电量与充电状态",
+      "matches": [
+        {
+          "vid": 1204,
+          "pid": 9234,
+          "path_contains": "mi_02",
+          "input_len": 32
+        },
+        {
+          "vid": 1204,
+          "pid": 9236,
+          "path_contains": "mi_02",
+          "input_len": 32
+        }
+      ],
+      "advanced": [],
+      "runtime_identity": true,
+      "validation": {
+        "status": "upstream-hardware-verified-project-untested",
+        "connections": [
+          "PC 档 DInput · 04B4:2412 / 04B4:2414 · USB 接口 02。仅接受手柄回报的黑武士 4 Pro 型号码。"
+        ],
+        "firmware": "按回报识别经典协议型号码 85、91、105。",
+        "project_validation": "上游已有 2412 实机协议和 2414 接口记录。本项目以公开回包布局测试解析、区分充电与未同步电量。Windows XInput 通用电量不作来源。",
+        "source_refs": [
+          "https://github.com/libsdl-org/SDL/blob/c8da179691f909734cd1b124c930e49311428996/src/joystick/hidapi/SDL_hidapi_flydigi.c",
+          "https://github.com/ShadowBlip/InputPlumber/blob/v0.83.0/rootfs/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
+          "https://github.com/z23/omarchy-flydigi/blob/dd4f4f67a2d9e90bad748d86195677d4129eea7d/helper/internal/vader/proto.go",
+          "https://github.com/uiltonlopes/flydigi-space-station-mac/blob/649b9f36cbba80deb7e7ac11309615d44f382a8e/FlydigiKit/Sources/FlydigiKit/Replies.swift",
+          "https://github.com/JKWTCN/BatteryMonitor/blob/25c221326391e26b62ae2b7db8e72ce8538ff909/scripts/flydigi_controller_battery.py",
+          "https://github.com/ValveSoftware/steam-for-linux/issues/12103",
+          "https://github.com/HeyOkay/HaloBattery/issues/191",
+          "https://help.flydigi.com/docs/fk6fgtexhroeq72d"
+        ]
+      }
+    },
+    "core_min": "0.4.12-preview.1",
+    "core_max_exclusive": "0.5.0",
+    "channel": "preview",
+    "capabilities": [
+      "battery",
+      "instance-target"
+    ],
+    "changelog": "新增黑武士 4 Pro 的 DInput 电量和充电状态。在 PC 档长按 O＋A，指示灯变蓝后打开「电量」。"
   }
 ]

@@ -483,6 +483,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "flydigi-vader-4-pro-driver"
+version = "0.4.13-preview.53"
+dependencies = [
+ "peripheral-desk 0.4.12-preview.3",
+ "peripheral-desk-driver-ffi",
+ "peripheral-hid-transport",
+ "serde_json",
+]
+
+[[package]]
 name = "fuhlen-n87-driver"
 version = "0.4.13-preview.29"
 dependencies = [

@@ -54,3 +54,7 @@ OpenSynapse v1.7.2 (© 2026 A1mAssist, AGPL-3.0-only) documents the DeathAdder P
 ## MCHOSE 原生磁轴与音频设置
 
 型号、接口、原版布局及参数依据迈从 M HUB 固定前端 `main-DIt5vAcV.js` 及磁轴编辑器构建 `bdf4d2c3`。布局和模板格式保留原作者迈从（MCHOSE）的来源。Rust 协议和 Win32 编辑界面由本项目实现。厂商资源按项目既有的开源、非商业使用条件处理。[音频实现范围](../crates/protocol-mchose-audio/UPSTREAM.md) · [型号名单](../docs/MCHOSE-NATIVE-FAMILIES.md)
+
+- SDL (zlib), InputPlumber (GPL-3.0), omarchy-flydigi (GPL-3.0-only),
+  flydigi-space-station-mac and BatteryMonitor (MIT) — Flydigi Vader 4 Pro
+  legacy HID identity, information replies and battery tiers. Facts only.

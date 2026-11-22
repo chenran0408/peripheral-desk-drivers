@@ -1,5 +1,7 @@
 # 外设盒设备插件
 
+飞智黑武士 4 Pro 可在 PC 档切到 DInput 后查看电量。[连接与使用方法](drivers/flydigi-vader-4-pro/UPSTREAM.md)
+
 预览版 .51 增加 26 款磁轴键盘、15 款音频设备的原生控制，并将 17 款鼠标的本地模板接入外设盒。[查看型号、支持范围与安装方法](docs/MCHOSE-NATIVE-FAMILIES.md)
 
 

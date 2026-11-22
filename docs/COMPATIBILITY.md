@@ -1,5 +1,7 @@
 # 兼容与验证记录
 
+[飞智黑武士 4 Pro](../drivers/flydigi-vader-4-pro/UPSTREAM.md)支持 PC 档 DInput 电量与充电状态，按具体回包识别型号。
+
 预览版 .51 增加 26 款磁轴键盘、15 款音频设备的原生控制，并将 17 款鼠标的本地模板接入外设盒。[查看型号、支持范围与安装方法](MCHOSE-NATIVE-FAMILIES.md)
 
 

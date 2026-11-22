@@ -1,8 +1,8 @@
 # 按厂商查找外设
 
-共 51 个品牌、327 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
+共 52 个品牌、328 个插件条目。请在外设盒驱动商店选择对应通道，搜索型号并安装。
 
-[8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
+[8BitDo](#vendor-8bitdo) · [AJAZZ](#vendor-ajazz) · [AKG](#vendor-akg) · [ANGRY MIAO](#vendor-angry-miao) · [Astro](#vendor-astro) · [ASUS ROG](#vendor-asus-rog) · [ATK](#vendor-atk) · [ATTACK SHARK](#vendor-attack-shark) · [Audeze](#vendor-audeze) · [AULA](#vendor-aula) · [BETOP](#vendor-betop) · [CHERRY](#vendor-cherry) · [Corsair](#vendor-corsair) · [DARKRIM](#vendor-darkrim) · [DARMOSHARK](#vendor-darmoshark) · [DELUX](#vendor-delux) · [EWEADN](#vendor-eweadn) · [Flydigi](#vendor-flydigi) · [FUHLEN](#vendor-fuhlen) · [G-Wolves](#vendor-g-wolves) · [GameSir](#vendor-gamesir) · [GLORIOUS](#vendor-glorious) · [Haute42](#vendor-haute42) · [HECATE](#vendor-hecate) · [HITSCAN](#vendor-hitscan) · [HyperX](#vendor-hyperx) · [INPHIC](#vendor-inphic) · [Jabra](#vendor-jabra) · [JBL](#vendor-jbl) · [KEYCHRON](#vendor-keychron) · [LAMZU](#vendor-lamzu) · [Lenovo](#vendor-lenovo) · [LINGBAO](#vendor-lingbao) · [LOFREE](#vendor-lofree) · [Logitech](#vendor-logitech) · [MCHOSE](#vendor-mchose) · [NINJUTSO](#vendor-ninjutso) · [Nintendo](#vendor-nintendo) · [NZXT](#vendor-nzxt) · [Poly](#vendor-poly) · [Pulsar](#vendor-pulsar) · [Rapoo](#vendor-rapoo) · [Razer](#vendor-razer) · [ROYAL KLUDGE](#vendor-royal-kludge) · [SCYROX](#vendor-scyrox) · [Sony](#vendor-sony) · [STEAM](#vendor-steam) · [SteelSeries](#vendor-steelseries) · [THUNDEROBOT](#vendor-thunderobot) · [VGN](#vendor-vgn) · [VXE](#vendor-vxe) · [WLMOUSE](#vendor-wlmouse)
 
 型号、连接方式和功能由各包独立声明。点开型号可查看源文件；验证记录只覆盖该包描述的连接方式与功能。接口匹配仍可能命中多个候选，由驱动商店区分。其他厂商的协议族可来自共享实现，未经单独确认的型号保留独立条目。
 
@@ -175,6 +175,14 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | eweadn-s9-series | [EWEADN S9 Pro/Max/Ultra](../drivers/eweadn-s9-series/UPSTREAM.md) | 372E:1026 | 电量 | 预览 | 接口匹配 | 上游实机 |
 | eweadn-x87 | [EWEADN X87](../drivers/eweadn-x87/UPSTREAM.md) | 0C45:FEFE | 电量 | 预览 | 接口匹配 | 上游实机 |
+
+<a id="vendor-flydigi"></a>
+
+## Flydigi
+
+| 协议 / 实现 | 型号 | VID:PID | 功能 | 通道 | 识别方式 | 验证 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 飞智经典协议 · DInput | [飞智黑武士 4 Pro](../drivers/flydigi-vader-4-pro/UPSTREAM.md) | 04B4:2412 04B4:2414 | 电量、按实物定向 | 预览 | 运行时核对 | 上游实机 |
 
 <a id="vendor-fuhlen"></a>
 

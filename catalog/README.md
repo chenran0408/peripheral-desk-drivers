@@ -544,7 +544,7 @@
 | protocol-razer | [Razer BlackWidow V3 Pro](../drivers/razer-blackwidow-v3-pro) | 1532:025C 1532:025A | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer BlackWidow V4 Mini HyperSpeed](../drivers/razer-blackwidow-v4-mini) | 1532:02BA 1532:02B9 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer BlackWidow V4 TKL HyperSpeed](../drivers/razer-blackwidow-v4-tkl-hyperspeed) | 1532:02D5 1532:02D7 | 电量 | 预览 | 接口匹配 | 代码适配 |
-| protocol-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量、设置、改键、software-macro-trigger、读 DPI 档位配置、编辑 DPI 档位、读配置回报率 | 预览 | 接口匹配 | 本项目实机 |
+| protocol-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量 | 预览 | 接口匹配 | 本项目实机 |
 | protocol-razer | [炼狱蝰蛇 V3 专业版](../drivers/razer-deathadder-v3-pro) | 1532:00B6 1532:00B7 | 电量、设置、改键、software-macro-trigger | 稳定 | 接口匹配 | 本项目实机 |
 | protocol-razer | [Razer DeathStalker V2 Pro](../drivers/razer-deathstalker-v2-pro) | 1532:0290 1532:0292 | 电量 | 预览 | 接口匹配 | 代码适配 |
 | protocol-razer | [Razer DeathStalker V2 Pro TKL](../drivers/razer-deathstalker-v2-pro-tkl) | 1532:0296 1532:0298 | 电量 | 预览 | 接口匹配 | 上游实机 |

@@ -288,6 +288,45 @@ fn sample(model: Model, device: &Device) -> Result<Value, String> {
     }
     Ok(out)
 }
+
+fn read_battery(device: &Device) -> Result<u8, String> {
+    query_with_tid(device, TRANSACTION_ID, (7, 0x80, 2), &[])?
+        .get(1)
+        .copied()
+        .ok_or_else(|| "Razer 电量回复字段缺失".into())
+}
+
+fn read_charging(device: &Device) -> Result<bool, String> {
+    match query_with_tid(device, TRANSACTION_ID, (7, 0x84, 2), &[])?
+        .get(1)
+        .copied()
+    {
+        Some(0) => Ok(false),
+        Some(1) => Ok(true),
+        Some(value) => Err(format!("Razer 返回未知充电状态 0x{value:02X}")),
+        None => Err("Razer 充电状态回复字段缺失".into()),
+    }
+}
+
+fn sample_battery(model: Model, device: &Device) -> Result<Value, String> {
+    let raw = read_battery(device)?;
+    let mut state = State {
+        key: model.key().into(),
+        present: true,
+        fresh: true,
+        percent: Some(((u16::from(raw) * 100 + 127) / 255) as u8),
+        battery_raw: Some(raw),
+        wired: false,
+        identity: "Razer DeathAdder V3 Pro · 电量只读插件".into(),
+        settings_error:
+            "外设盒仅读取电量和充电状态；DPI、回报率、按键与宏请使用雷云或其他设置工具。".into(),
+        ..State::default()
+    };
+    if let Ok(charging) = read_charging(device) {
+        state.charging = Some(charging);
+    }
+    serde_json::to_value(state).map_err(|e| e.to_string())
+}
 fn run(model: Model, op: &Value) -> Result<Value, String> {
     let device = model.open()?;
     if op["op"] == "read-state" {
@@ -351,6 +390,35 @@ pub fn request(model: Model, key: &str, input: &str, other: fn(&str, &str) -> St
     .to_string()
 }
 
+/// Battery-only entry point used by the DeathAdder V3 Pro package.
+///
+/// Keeping this boundary separate from the general pointing handler is
+/// intentional: the package must never fall back to the legacy Razer handler,
+/// which could send DPI or control writes while another utility owns the mouse.
+pub fn request_battery_only(model: Model, key: &str, input: &str) -> String {
+    if key != model.key() {
+        return json!({"ok":false,"value":null,"error":"驱动型号不匹配"}).to_string();
+    }
+    let Ok(op) = serde_json::from_str::<Value>(input) else {
+        return json!({"ok":false,"value":null,"error":"驱动请求不是有效 JSON"}).to_string();
+    };
+    if op["op"] != "read-state" {
+        return json!({
+            "ok": false,
+            "value": null,
+            "error": "此插件仅提供电量和充电状态读取；请使用雷云或其他鼠标设置工具修改 DPI、回报率、按键和宏"
+        })
+        .to_string();
+    }
+    match model
+        .open()
+        .and_then(|device| sample_battery(model, &device))
+    {
+        Ok(value) => json!({"ok":true,"value":value,"error":""}).to_string(),
+        Err(error) => json!({"ok":false,"value":null,"error":error}).to_string(),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -395,5 +463,17 @@ mod tests {
         assert_eq!(Model::HyperPolling.rate_base() / 1000, 8);
         assert_eq!(Model::HyperSpeed.rate_base() / 1000, 1);
         assert!(!Model::V3Pro.rates().contains(&8000));
+    }
+
+    #[test]
+    fn battery_only_handler_rejects_all_setting_operations() {
+        let result: Value = serde_json::from_str(&request_battery_only(
+            Model::V3Pro,
+            "razer-deathadder-v3-pro",
+            r#"{"op":"apply-setting","action":{"Dpi":800}}"#,
+        ))
+        .unwrap();
+        assert_eq!(result["ok"], false);
+        assert!(result["error"].as_str().unwrap().contains("仅提供电量"));
     }
 }

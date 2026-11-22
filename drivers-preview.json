@@ -17103,14 +17103,14 @@
   {
     "id": "razer-deathadder-v3-pro",
     "name": "炼狱蝰蛇 V3 专业版",
-    "version": "0.4.13-preview.47",
-    "description": "可分别设置每档横向与纵向 DPI，保留其他档位。旧版已有的改键、软件宏和回报率设置可以继续使用。",
+    "version": "0.4.13-preview.55",
+    "description": "只读取电量和充电状态，避免与雷云、OpenSynapse 等设置工具争用控制通道。",
     "device": {
       "key": "razer-deathadder-v3-pro",
       "name": "炼狱蝰蛇 V3 专业版",
       "brand": "RAZER",
       "kind": "mouse",
-      "subtitle": "",
+      "subtitle": "电量与充电状态 · 只读",
       "image": "device.png",
       "matches": [
         {
@@ -17126,47 +17126,6 @@
           "path_contains": "mi_00"
         }
       ],
-      "advanced": [
-        {
-          "key": "LowPower",
-          "title": "低电量省电阈值",
-          "hint": "电量低于此值时启用设备自身的省电行为",
-          "choices": [
-            [
-              5,
-              "5%"
-            ],
-            [
-              10,
-              "10%"
-            ],
-            [
-              15,
-              "15%"
-            ],
-            [
-              20,
-              "20%"
-            ],
-            [
-              25,
-              "25%"
-            ],
-            [
-              30,
-              "30%"
-            ],
-            [
-              40,
-              "40%"
-            ],
-            [
-              50,
-              "50%"
-            ]
-          ]
-        }
-      ],
       "validation": {
         "status": "hardware-verified",
         "connections": [
@@ -17174,10 +17133,7 @@
         ],
         "firmware": "unknown",
         "verified_features": [
-          "battery",
-          "DPI/rate/sleep",
-          "native-zero-flag-slot-bindings",
-          "resident-macro-trigger-slot5"
+          "battery"
         ],
         "unverified_connections": [
           "USB wired 1532:00B6 (not hardware-verified)"
@@ -17187,31 +17143,8 @@
           "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.cs",
           "https://github.com/A1mAssist/OpenSynapse/blob/5b3e6516492c95eb363fbda407a5ee965367ff08/src/OpenSynapse.Windows/Protocols/RazerHidMouseProtocol.Parsing.cs"
         ],
-        "project_validation": "OpenSynapse v1.7.2 lists the exact interfaces and implements per-stage X/Y and polling. New setting edits checked with synthetic frames; prior hardware reports apply only to the features explicitly recorded."
-      },
-      "dpi_range": [
-        100,
-        30000
-      ],
-      "dpi_step": 50,
-      "rates": [
-        125,
-        500,
-        1000
-      ],
-      "wired_rates": [
-        125,
-        500,
-        1000
-      ],
-      "sleeps": [
-        60,
-        120,
-        180,
-        300,
-        600,
-        900
-      ]
+        "project_validation": "外设盒本版本只执行电量和充电状态读取，不发送 DPI、回报率、按键、宏或灯效写入；其他软件仍可独立管理这些设置。"
+      }
     },
     "abi": 1,
     "dll": "driver.dll",
@@ -17219,15 +17152,9 @@
     "core_max_exclusive": "0.5.0",
     "channel": "preview",
     "capabilities": [
-      "battery",
-      "settings",
-      "bindings",
-      "software-macro-trigger",
-      "dpi-stages-read",
-      "dpi-stages-write",
-      "polling-rate-read"
+      "battery"
     ],
-    "changelog": "可分别设置每档横向与纵向 DPI，保留其他档位。旧版已有的改键、软件宏和回报率设置可以继续使用。"
+    "changelog": "改为电量只读模式：外设盒不再发送 DPI、回报率、按键、宏或灯效设置请求，可与雷云或其他设置工具并用。"
   },
   {
     "id": "mchose-g75-pro",

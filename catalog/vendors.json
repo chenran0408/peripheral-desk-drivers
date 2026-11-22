@@ -5469,13 +5469,7 @@
               "kind": "mouse",
               "channel": "preview",
               "capabilities": [
-                "battery",
-                "settings",
-                "bindings",
-                "software-macro-trigger",
-                "dpi-stages-read",
-                "dpi-stages-write",
-                "polling-rate-read"
+                "battery"
               ],
               "identity": "interface",
               "validation": "hardware-verified",

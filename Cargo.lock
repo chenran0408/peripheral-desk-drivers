@@ -3036,7 +3036,7 @@ dependencies = [
 
 [[package]]
 name = "razer-deathadder-v3-pro-driver"
-version = "0.4.13-preview.47"
+version = "0.4.13-preview.55"
 dependencies = [
  "peripheral-desk-driver-ffi",
  "peripheral-desk-protocol-razer",

@@ -182,7 +182,7 @@
 
 | 协议 / 实现 | 型号 | VID:PID | 功能 | 通道 | 识别方式 | 验证 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 飞智经典协议 · DInput | [飞智黑武士 4 Pro](../drivers/flydigi-vader-4-pro/UPSTREAM.md) | 04B4:2412 04B4:2414 | 电量、按实物定向 | 预览 | 运行时核对 | 上游实机 |
+| 飞智经典协议 · DInput / 空间站 | [飞智黑武士 4 Pro](../drivers/flydigi-vader-4-pro/UPSTREAM.md) | 04B4:2412 04B4:2414 045E:028E | 电量、按实物定向 | 预览 | 运行时核对 | 上游实机 |
 
 <a id="vendor-fuhlen"></a>
 

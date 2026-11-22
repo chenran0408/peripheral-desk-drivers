@@ -1268,8 +1268,8 @@
       "families": [
         {
           "id": "classic-ec",
-          "name": "飞智经典协议 · DInput",
-          "scope": "接口 02 查询设备信息，按实际响应型号码识别黑武士 4 Pro。",
+          "name": "飞智经典协议 · DInput / 空间站",
+          "scope": "DInput 在接口 02 查询设备信息。XInput 由空间站后台提供电量，并通过实际设备身份识别手柄。",
           "basis": "documented",
           "models": [
             {
@@ -1287,7 +1287,8 @@
                 "drivers/flydigi-vader-4-pro"
               ],
               "connections": [
-                "PC 档 DInput · 04B4:2412 / 04B4:2414 · USB 接口 02。仅接受手柄回报的黑武士 4 Pro 型号码。"
+                "PC 档 DInput · 04B4:2412 / 04B4:2414 · USB 接口 02。仅接受手柄回报的黑武士 4 Pro 型号码。",
+                "PC 档 XInput · 045E:028E · 飞智空间站后台。需核对本地 USB 父设备身份及服务上报。"
               ],
               "firmware": "按回报识别经典协议型号码 85、91、105。"
             }
@@ -1301,6 +1302,7 @@
         "https://github.com/z23/omarchy-flydigi/blob/dd4f4f67a2d9e90bad748d86195677d4129eea7d/helper/internal/vader/proto.go",
         "https://github.com/uiltonlopes/flydigi-space-station-mac/blob/649b9f36cbba80deb7e7ac11309615d44f382a8e/FlydigiKit/Sources/FlydigiKit/Replies.swift",
         "https://github.com/JKWTCN/BatteryMonitor/blob/25c221326391e26b62ae2b7db8e72ce8538ff909/scripts/flydigi_controller_battery.py",
+        "https://github.com/wutong233/flydigi-battery/blob/c1afd9bf2de713d1d9d1e8f5c1f8192dc737cdab/docs/protocol.md",
         "https://github.com/ValveSoftware/steam-for-linux/issues/12103",
         "https://github.com/HeyOkay/HaloBattery/issues/191",
         "https://help.flydigi.com/docs/fk6fgtexhroeq72d"

@@ -1,6 +1,6 @@
 [package]
 name = "flydigi-vader-4-pro-driver"
-version = "0.4.13-preview.53"
+version = "0.4.13-preview.54"
 edition.workspace = true
 license.workspace = true
 publish = false
@@ -13,3 +13,4 @@ peripheral-desk.workspace = true
 peripheral-desk-driver-ffi = { path = "../../crates/driver-ffi" }
 peripheral-hid-transport = { path = "../../crates/hid-transport" }
 serde_json.workspace = true
+windows-sys = { version = "0.61", features = ["Win32_Devices_DeviceAndDriverInstallation", "Win32_Devices_Properties", "Win32_Foundation", "Win32_Security", "Win32_Storage_FileSystem", "Win32_System_IO", "Win32_System_Pipes", "Win32_System_Threading"] }

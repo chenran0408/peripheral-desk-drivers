@@ -19566,8 +19566,8 @@
   {
     "id": "flydigi-vader-4-pro",
     "name": "飞智黑武士 4 Pro",
-    "version": "0.4.13-preview.53",
-    "description": "在 PC 档长按 O＋A，蓝灯亮起后使用 DInput。电量来自手柄档位，百分比为估算。适用于匹配的 2.4 GHz 接收器或 USB 线。",
+    "version": "0.4.13-preview.54",
+    "description": "蓝灯 DInput 直接读取电量。白灯 XInput 从飞智空间站后台读取，安装空间站后退出它的界面并保留后台服务。电量百分比按档位换算。",
     "abi": 1,
     "dll": "driver.dll",
     "device": {
@@ -19576,7 +19576,7 @@
       "brand": "Flydigi",
       "kind": "accessory",
       "image": "device.png",
-      "subtitle": "蓝灯 DInput · 电量与充电状态",
+      "subtitle": "DInput / XInput · 电量与充电状态",
       "matches": [
         {
           "vid": 1204,
@@ -19589,6 +19589,11 @@
           "pid": 9236,
           "path_contains": "mi_02",
           "input_len": 32
+        },
+        {
+          "vid": 1118,
+          "pid": 654,
+          "path_contains": "&ig_00"
         }
       ],
       "advanced": [],
@@ -19596,16 +19601,18 @@
       "validation": {
         "status": "upstream-hardware-verified-project-untested",
         "connections": [
-          "PC 档 DInput · 04B4:2412 / 04B4:2414 · USB 接口 02。仅接受手柄回报的黑武士 4 Pro 型号码。"
+          "PC 档 DInput · 04B4:2412 / 04B4:2414 · USB 接口 02。仅接受手柄回报的黑武士 4 Pro 型号码。",
+          "PC 档 XInput · 045E:028E · 飞智空间站后台。需核对本地 USB 父设备身份及服务上报。"
         ],
         "firmware": "按回报识别经典协议型号码 85、91、105。",
-        "project_validation": "上游已有 2412 实机协议和 2414 接口记录。本项目以公开回包布局测试解析、区分充电与未同步电量。Windows XInput 通用电量不作来源。",
+        "project_validation": "Windows 本机实测蓝灯 2412 接收器读出 4 档（80%）。白灯已核对本机 USB 身份，并按开源实现适配飞智空间站服务。白灯电量待配合空间站实机确认。",
         "source_refs": [
           "https://github.com/libsdl-org/SDL/blob/c8da179691f909734cd1b124c930e49311428996/src/joystick/hidapi/SDL_hidapi_flydigi.c",
           "https://github.com/ShadowBlip/InputPlumber/blob/v0.83.0/rootfs/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
           "https://github.com/z23/omarchy-flydigi/blob/dd4f4f67a2d9e90bad748d86195677d4129eea7d/helper/internal/vader/proto.go",
           "https://github.com/uiltonlopes/flydigi-space-station-mac/blob/649b9f36cbba80deb7e7ac11309615d44f382a8e/FlydigiKit/Sources/FlydigiKit/Replies.swift",
           "https://github.com/JKWTCN/BatteryMonitor/blob/25c221326391e26b62ae2b7db8e72ce8538ff909/scripts/flydigi_controller_battery.py",
+          "https://github.com/wutong233/flydigi-battery/blob/c1afd9bf2de713d1d9d1e8f5c1f8192dc737cdab/docs/protocol.md",
           "https://github.com/ValveSoftware/steam-for-linux/issues/12103",
           "https://github.com/HeyOkay/HaloBattery/issues/191",
           "https://help.flydigi.com/docs/fk6fgtexhroeq72d"
@@ -19619,6 +19626,6 @@
       "battery",
       "instance-target"
     ],
-    "changelog": "新增黑武士 4 Pro 的 DInput 电量和充电状态。在 PC 档长按 O＋A，指示灯变蓝后打开「电量」。"
+    "changelog": "新增白灯模式电量读取。安装飞智空间站并保留它的后台服务，退出空间站界面后，可在外设盒查看电量。蓝灯模式仍可直接读取。"
   }
 ]

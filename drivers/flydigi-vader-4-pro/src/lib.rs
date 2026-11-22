@@ -1,8 +1,17 @@
-//! Read the classic Flydigi device-info report on the PC-mode DInput interface.
+//! Read DInput device info or the Space Station service's XInput battery status.
+mod fcs;
+
 use peripheral_desk::{hid, model::State};
 use peripheral_hid_transport::WinTransport;
 use serde_json::{json, Value};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
+use windows_sys::Win32::Devices::{
+    DeviceAndDriverInstallation::{
+        CM_Get_Device_IDW, CM_Get_Device_Interface_PropertyW, CM_Get_Parent, CM_Locate_DevNodeW,
+        CR_SUCCESS, MAX_DEVICE_ID_LEN,
+    },
+    Properties::DEVPKEY_Device_InstanceId,
+};
 
 const MODEL: &str = "flydigi-vader-4-pro";
 const INFO_COMMAND: u8 = 0xec;
@@ -10,7 +19,7 @@ const INPUT_LENGTH: usize = 32;
 
 #[derive(Debug, PartialEq, Eq)]
 struct Reading {
-    raw: u8,
+    raw: Option<u8>,
     percent: Option<u8>,
     charging: Option<bool>,
     wired: Option<bool>,
@@ -39,7 +48,7 @@ fn parse_info(report: &[u8]) -> Option<Reading> {
         _ => None,
     };
     Some(Reading {
-        raw,
+        raw: Some(raw),
         percent,
         charging,
         wired,
@@ -52,6 +61,51 @@ fn endpoint(i: &hid::Interface) -> bool {
         && i.path.to_ascii_lowercase().contains("&mi_02")
         && usize::from(i.input_len) == INPUT_LENGTH
         && (12..=64).contains(&i.output_len)
+}
+
+fn xinput_endpoint(i: &hid::Interface) -> bool {
+    if (i.vid, i.pid) != (0x045e, 0x028e) || !i.path.to_ascii_lowercase().contains("&ig_00") {
+        return false;
+    }
+    // XUSB exposes the same HID VID/PID for genuine Xbox pads and many clones.
+    // The USB parent of the Vader 4 Pro contains the actual device name.
+    let mut instance = [0u16; MAX_DEVICE_ID_LEN as usize];
+    let mut size = std::mem::size_of_val(&instance) as u32;
+    let (mut kind, mut node) = (0, 0);
+    unsafe {
+        if CM_Get_Device_Interface_PropertyW(
+            hid::wide(&i.path).as_ptr(),
+            &DEVPKEY_Device_InstanceId,
+            &mut kind,
+            instance.as_mut_ptr().cast(),
+            &mut size,
+            0,
+        ) != CR_SUCCESS
+            || CM_Locate_DevNodeW(&mut node, instance.as_ptr(), 0) != CR_SUCCESS
+        {
+            return false;
+        }
+        for _ in 0..3 {
+            let mut parent = 0;
+            if CM_Get_Parent(&mut parent, node, 0) != CR_SUCCESS
+                || CM_Get_Device_IDW(parent, instance.as_mut_ptr(), instance.len() as u32, 0)
+                    != CR_SUCCESS
+            {
+                return false;
+            }
+            let len = instance
+                .iter()
+                .position(|&c| c == 0)
+                .unwrap_or(instance.len());
+            if String::from_utf16_lossy(&instance[..len])
+                .eq_ignore_ascii_case(r"USB\VID_045E&PID_028E\FLYDIGI_VADER4")
+            {
+                return true;
+            }
+            node = parent;
+        }
+    }
+    false
 }
 
 fn query(i: &hid::Interface) -> Result<Reading, String> {
@@ -74,6 +128,26 @@ fn query(i: &hid::Interface) -> Result<Reading, String> {
     Err("未收到黑武士 4 Pro 的电量回包。请唤醒手柄并确认 PC 档已切到蓝灯 DInput。".into())
 }
 
+fn state(i: &hid::Interface, instance_id: String, reading: Reading, connection: &str) -> State {
+    State {
+        key: MODEL.into(),
+        instance_id,
+        present: true,
+        fresh: true,
+        percent: reading.percent,
+        battery_raw: reading.raw,
+        connection_path: Some(connection.into()),
+        charging: reading.charging,
+        wired: reading.wired == Some(true),
+        identity: format!("Flydigi Vader 4 Pro · {:04X}:{:04X}", i.vid, i.pid),
+        updated: SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        ..State::default()
+    }
+}
+
 fn read_state(request: &Value) -> Result<State, String> {
     let target = hid::request_instance(request)?;
     let interfaces = hid::enumerate()?;
@@ -83,9 +157,39 @@ fn read_state(request: &Value) -> Result<State, String> {
         .map(|i| (i, i.instance_id()))
         .filter(|(_, id)| target.is_none_or(|target| target == id))
         .collect();
-    let (_, instance_id) = candidates
-        .first()
-        .ok_or("未找到黑武士 4 Pro 的 DInput 接口。请在 PC 档长按 O＋A 切到蓝灯。")?;
+    let mut xbox = interfaces
+        .iter()
+        .filter(|i| xinput_endpoint(i))
+        .map(|i| (i, i.instance_id()))
+        .collect::<Vec<_>>();
+    xbox.sort_unstable_by(|a, b| a.1.cmp(&b.1));
+    xbox.dedup_by(|a, b| a.1 == b.1);
+    if let Some(index) = xbox
+        .iter()
+        .position(|(_, id)| target.is_none_or(|target| target == id))
+    {
+        if xbox.len() != 1 || (!candidates.is_empty() && target.is_none()) {
+            return Err("有多台黑武士 4 Pro，空间站服务无法将电量对应到一台白灯手柄。".into());
+        }
+        let (interface, instance_id) = xbox.swap_remove(index);
+        // Without the service's VID/PID, a second Vader in DInput could be
+        // mistaken for this XInput target.
+        let require_xinput_id = interfaces.iter().any(endpoint);
+        let reading = fcs::query_vader4(require_xinput_id)?;
+        let connection = match reading.wired {
+            Some(true) => "XInput · USB 有线 · 飞智空间站",
+            Some(false) => "XInput · 2.4 GHz 接收器 · 飞智空间站",
+            None => "XInput · 飞智空间站",
+        };
+        return Ok(state(interface, instance_id, reading, connection));
+    }
+    let Some((_, instance_id)) = candidates.first() else {
+        return Ok(State {
+            key: MODEL.into(),
+            error: "未检测到黑武士 4 Pro。".into(),
+            ..State::default()
+        });
+    };
     if candidates.iter().any(|(_, id)| id != instance_id) {
         return Err("检测到多个飞智接口，请选择要查看的手柄。".into());
     }
@@ -98,23 +202,7 @@ fn read_state(request: &Value) -> Result<State, String> {
                     Some(false) => "DInput · 2.4 GHz 接收器",
                     None => "DInput",
                 };
-                return Ok(State {
-                    key: MODEL.into(),
-                    instance_id,
-                    present: true,
-                    fresh: true,
-                    percent: reading.percent,
-                    battery_raw: Some(reading.raw),
-                    connection_path: Some(connection.into()),
-                    charging: reading.charging,
-                    wired: reading.wired == Some(true),
-                    identity: format!("Flydigi Vader 4 Pro · {:04X}:{:04X}", i.vid, i.pid),
-                    updated: SystemTime::now()
-                        .duration_since(UNIX_EPOCH)
-                        .unwrap_or_default()
-                        .as_secs(),
-                    ..State::default()
-                });
+                return Ok(state(i, instance_id, reading, connection));
             }
             Err(failure) => error = failure,
         }
